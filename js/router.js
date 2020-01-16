@@ -48,6 +48,7 @@ document.querySelector('#rantsLuncher').addEventListener('click', (event) => {
     history.pushState(stateObj, "rants", "?Rants");
     RenderRantsPage();
 });
+
 // #endregion selectors
 
 // #region View-Renderers
@@ -218,6 +219,19 @@ function RenderInterestsPage(params) {
     </div>`;
 }
 
+
+function logout() {
+    localStorage.click();
+    swal({
+        title: 'Loging Out',
+        text: 'Please wait....',
+        type: 'info',
+        icon: 'info',
+        timer: 1500
+    }).then(() => {
+        window.location.replace("/index.html");
+    });
+}
 // #endregion Renders
 
 // #region OnPopState-Handler

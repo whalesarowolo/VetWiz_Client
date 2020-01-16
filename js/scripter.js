@@ -1,7 +1,20 @@
 $(document).ready(function () {
 
-  $("#closeme").click(function(){
-    $('.modal').fadeOut();
+  $(".delete").click(function(){
+    $('.modal').css({'display': 'none'});
+  });
+
+  $("#getOut").on('click', function() {
+    localStorage.clear();
+    swal.fire({
+        title: 'Loging Out',
+        text: 'Please wait....',
+        type: 'info',
+        icon: 'info',
+        timer: 1500
+    }).then(() => {
+        window.location.replace("/index.html");
+    });
   });
   //Fresh start
   $("#getIn").click(function (e) {
