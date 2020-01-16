@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Farm Aid</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Farm Aid " />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" href="css/bulma.min.css" type="text/css" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito|Source+Sans+Pro&display=swap&subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+	</head>
+	<body>
+	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="./img/farm_aid_footer.png" alt="Farm aid logo" width="" height="" />
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="#about" class="navbar-item">
+                      About
+                    </a>        
+                    <a class="navbar-item">
+                          Services
+                      </a>
+                <a class="navbar-item">
+                         Pricing 
+                        </a>
+                <a class="navbar-item">
+                          Partners
+						 </a>
+				<a class="navbar-item">
+                          Contact Us
+                         </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" id="getIn">
+                            Sign Up/Log In
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</nav>
+		<div class="container header" style="margin-top:100px;">
+			<div class="slideshow" id="slideshow">
+				<ol class="slides">
+					<li class="current">
+					<div class="description">
+							<h2>Good Agricultural Practices</h2>
+							<p>Provision of real-time and on-demand information on farming best Practices</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/gap.png"/></a>
+							<a href="#"><img src="img/gap-1.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Accurate Weather Information</h2>
+							<p>Access to daily weather Information for pre-harvest and post-harvest farming activities to facilitate adequate planning</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/weather.png"/></a>
+							<a href="#"><img src="img/weather-advisory.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Sourcing Genuine and Quality Inputs</h2>
+							<p>We provide information to access quality and genuine inputs</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/Agric-inputs.jpg"/></a>
+							<a href="#"><img src="img/fertilizer.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Commodity Pricing</h2>
+							<p>Access to farm gate and premium markets prices for crop commodities as well as market linkage that attracts maximum profits on farm produce</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/commodities.jpg"/></a>
+							<a href="#"><img src="img/rice4market.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Business and Financial Literacy</h2>
+							<p>Provision of business advisory and financial tips on crop budgeting and farm management</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/business advisory.jpg"/></a>
+							<a href="#"><img src="img/savings.jpg"/></a>
+						</div>
+					</li>
+					<li>
+						<div class="description">
+							<h2>Animal Health and Livestock production</h2>
+							<p>Run health diagnosis to determine vaccines to administer to your animals</p>
+						</div>
+						<div class="tiltview col">
+							<a href="#"><img src="img/animal health.jpg"/></a>
+							<a href="#"><img src="img/chicken.jpg"/></a>
+						</div>
+					</li>
+				</ol>
+			</div><!-- /slideshow -->
+			<header class="hero">
+				<div class="hero-head">
+				  <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+					<div class="navbar-brand">
+			
+					  <a class="navbar-item is--brand">
+						<img class="navbar-brand-logo" src="./img/farm_aid_footer.png" alt="Farm Aid logo">
+					  </a>
+					  <a class="navbar-item is-tab is-hidden-mobile is-active">
+						<span class="icon is-medium"><i class="fa fa-home"></i>
+						</span>Home</a>
+					  <a class="navbar-item is-tab is-hidden-mobile" href="javascript:" id="blogLuncher">SMS</a>
+					  <a class="navbar-item is-tab is-hidden-mobile" href="javascript:" id="interestsLuncher">Messaging</a>
+					  <a class="navbar-item is-tab is-hidden-mobile" href="javascript:" id="rantsLuncher">About</a>
+			
+					  <button class="button navbar-burger" data-target="navMenu">
+						<span></span>
+						<span></span>
+						<span></span>
+					  </button>
+			
+					</div>
+			
+					<div class="navbar-menu navbar-end" id="navMenu">
+					  <a class="navbar-item is-tab is-hidden-tablet is-active">Home</a>
+					  <a class="navbar-item is-tab is-hidden-tablet" href="javascript:">SMS</a>
+					  <a class="navbar-item is-tab is-hidden-tablet" href="javascript:">Messaging</a>
+					  <a class="navbar-item is-tab is-hidden-tablet" href="javascript:">About</a>
+					  <a class="navbar-item nav-tag">
+						<span class="icon is-small">
+						  <i class="fa fa-envelope-o"></i>
+						</span>
+						<span class="tag is-primary tag-notif">6</span>
+					  </a>
+					  <div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link">
+						  <figure class="image is-32x32" style="margin-right:.5em;">
+							<img src="./img/farm_aid_footer.png">
+						  </figure>
+						  farmaid
+						</a>
+			
+						<div class="navbar-dropdown is-right">
+							<a class="navbar-item">
+							  <span class="icon is-small">
+								<i class="fa fa-user-o"></i>
+							  </span>
+							  &nbsp; Profile
+							</a>
+							<hr class="navbar-divider">
+							<a class="navbar-item">
+							  <span class="icon is-small">
+								<i class="fa fa-power-off"></i>
+							  </span>
+							  &nbsp; Logout
+							</a>
+						</div>
+					  </div>
+					</div>
+				  </nav>
+				</div>
+			</header>
+			<main>
+				
+			</main>
+			<section class="section about-farmaid">
+				<div class="container">
+				<h1 id="about" class="title has-text-centered">About Farm Aid Solution</h1>
+				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
+				<p class="is-size-5 is-medium about"><b>F</b>arm Aid is a technology solution that adopts pull and push system using short message service (SMS), Interactive Voice Response (IVR), Web and farmer call center to engage and provide information on good agricultural practices(GAP) as it relates to crop production, market prices of crops, weather information, business advisory, market linkage, farm inputs sourcing, livestock production and animal health to smallholder farmers. As well as providing a channel which farmers can ask questions on the different aspects of their processes.</p>
+				</div>
+			  </section>
+			  <section class="section about-farmaid">
+				<div class="container">
+				<h1 class="title has-text-centered">Our Services & Features</h1>
+				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
+				<p class="is-size-5 is-medium about">Farm Aid is an integrated Agriculture extension portal that has a call centre of agricultural experts where you can send in your questions via SMS or make a call to the farmer call center to speak to an expert for instant help on agri-related challenges. Once you sign up, you will also receive agri tips on crop and livestock, market prices and weather updates.</p>
+				</div>
+  			</section>
+		
+			<div class="section main-features">
+				<div class="columns is-2 container">
+					<div class="column card features">
+					<img src="./img/sms-1.png"/>
+					<h1>Good Agricultural Practices (GAP)</h1>
+					<p class="">Instant SMS on farming best practice. For market actors, deliver your message to Farm Aid’s large database of profiled farmers, to build your products’ brand awareness and increase sales.</p>
+					</div>
+
+					<div class="column card features">
+					<img src="./img/weather-icon.png"/>
+					<h1>Weather Advisory Services</h1>
+					<p>Accurate weather information sourced from proven and reliable weather service provider to help smallholder farmer plan their their processes.</p>
+					</div>
+
+					<div class="column card features">
+					<img src="./img/animal health.png"/>
+					<h1>Animal Health & Livestock Production</h1>
+					<p>Paravets and Community Animal health workers (CAHW) can subscribe to access information on the diagnosis, treatment and vaccines for animal diseases and sicknesses.</p>
+					</div>
+				</div>
+
+				<div class="columns is-2 container main-features">
+					<div class="column card features">
+					<img src="./img/business advisory.png"/>
+					<h1>Business Advisory & financial literacy</h1>
+					<p>Provision of business advisory and financial tips on crop budgeting and farm management in order to understand the economics of production before accessing loans and other input credit.</p>
+					</div>
+
+					<div class="column card features">
+					<img src="./img/inputs.png"/>
+					<h1>Access to Quality Inputs</h1>
+					<p>Access to genuine/improved crop inputs from trusted input suppliers and seed companies</p>
+					</div>
+
+					<div class="column card features">
+					<img src="./img/market.png"/>
+					<h1>Market Linkage & Commodity Pricing</h1>
+					<p>Get updated information on the prices of food crops to inform your decision on where to sell and when to sell, also get access to information on the demands of premium buyers.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="container pricing">
+				<h1 class="title has-text-centered">Our Solution Pricing</h1>
+				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
+			
+			<div class="columns is-centered pricing">
+				
+				<div class="column free is-one-third">
+					<div class="price-header">
+						<h2>Free</h2>
+						<p>₦0/<span>Year</span></p>
+					</div>
+					<ul>
+						<li><i class="fa fa-check-circle"></i>GAP tips on 1 Crop</li>
+						<li><i class="fa fa-check-circle"></i>Information request via SMS(1 SMS/month)</li>
+						<li><i class="fa fa-check-circle"></i>Weekly Weather updates</li>
+						<li><i class="fa fa-check-circle"></i>Farm gate commodity pricing</li>
+						<li><i class="fa fa-check-circle"></i>Occasional SMS from value chain actors</li>
+					</ul>
+					<div class="price-button">
+						<a href="#" class="buy-btn buy-btn-free button">Sign up</a>
+					</div>
+
+				</div>
+
+				<div class="column premium is-one-third">
+
+					<div class="price-header">
+						<h2>Premium</h2>
+						<p>₦2000/<span>Year</span></p>
+					</div>
+					<ul>
+						<li><i class="fa fa-check-circle"></i>GAP tips on 4 Crops</li>
+						<li><i class="fa fa-check-circle"></i>Information request via SMS(4 SMS/month)</li>
+						<li><i class="fa fa-check-circle"></i>Daily, Weekly, monthly & seasonal weather updates</li>
+						<li><i class="fa fa-check-circle"></i>Commodity prices from premium buyers</li>
+						<li><i class="fa fa-check-circle"></i>Access to expert agronomists via a call center</li>
+						<li><i class="fa fa-check-circle"></i>Alerts on new seed varieties</li>
+						<li><i class="fa fa-check-circle"></i>Occasional SMS from value chain market actors</li>
+						<li><i class="fa fa-check-circle"></i>Monthly business tips on crop budgeting</li>
+					</ul>
+						<div class="price-button">
+							<a href="#" class="buy-btn buy-btn-premium button">Sign up</a>
+						</div>
+				</div>
+			</div>
+
+			
+			<div class="container Partners">
+				<h1 class="title has-text-centered">Our Partners</h1>
+				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
+			<div class="columns Partners-children">
+				<div class="column">
+				<img src="./img/partners/Propcom.png"/>
+				</div>
+				<div class="column">
+				<img src="./img/partners/Novus Agro.png"/>
+				</div>
+				<div class="column">
+					<img src="./img/partners/Vodacom.png"/>
+				</div>
+				<div class="column">
+					<img src="./img/partners/Infobip.png"/>
+				</div>
+				<div class="column">
+					<img src="./img/partners/aWhere_logo.png"/>
+				</div>
+			</div>
+			</div>
+
+	
+			<div class="column">
+				<div class="get-started has-text-centered">
+					<p>Join over <strong>200</strong> smallholder farmers accessing real time, tailor made and demand driven extension services.</h2
+					></p>
+					<div class="get-started-2">
+					<p>If you are a value chain actor, you can provide services to smallholder farmers via this platform</p>
+					</div>
+					<a class="button is-large is-success" style="margin-top:20px;" href="#">Get Started</a>
+				</div>
+			</div>
+
+
+		<!--Sign Up/ Log In Modal-->
+
+		<div class="modal">
+			<div class="modal-background"></div>
+			<form id="sign_in">
+				<div class="modal-card">
+					<header class="modal-card-head">
+					<header class="modal-card-title">Authentication</header>
+					<span class="delete" aria-label="close"></span>
+					</header>
+					<div class="modal-card-body">
+					<!-- Content ... -->
+						<div class="center">
+							<h2 class="form-title"><b>Log in</b></h2>
+							<div class="form-holder">
+								<input type="email" id="email" name="email" class="input" placeholder="Email" />
+								<br><br>
+								<input type="password" id="password" name="password" class="input" placeholder="******" />
+							</div>
+						</div>
+					</div>
+					<footer class="modal-card-foot">
+					<button class="button is-success" is-right>Login</button>
+					</footer>
+				</div>
+			</form>
+			
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/swal.js"></script>	
+		<script src="js/scripter.js"></script>
+		<script src="js/router.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/tiltSlider.js"></script>
+		<script>
+			new TiltSlider(document.getElementById('slideshow'));
+		</script>
+		<div class="columns is-centered footer-container">
+		<div class="footer-logo column is-3">
+			<img src="./img/farm_aid_footer.png"/>
+		</div>
+		<div class="column is-6 copyright">
+    		<p>
+     			&copy; 2020 Copyright <strong>Farm Aid</strong> by <a href="https://farminnovation.com">Farm Innovation Nigeria Ltd</a> 
+			</p>
+		</div>
+		<div class="column social-media is-3">
+			<li class="btn-footer"><a href="#"><i class="fa fa-facebook"></i></a></li>
+			<li class="btn-footer"><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li class="btn-footer"><a href="#"><i class="fa fa-instagram"></i></a></li>
+		</div>
+		</div>
+	</body>
+</html>

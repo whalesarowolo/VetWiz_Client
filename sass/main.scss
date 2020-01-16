@@ -1,0 +1,371 @@
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+$Dark-green: #4DBF49;
+$Medium-green: #7DD979;
+$Light-green: #9ED99C;
+$Light-gray: #F2F2F2;
+$Black: #0D0D0D;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 400;
+    /*font-size: 16px;*/
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: $Black;
+}
+
+.header {
+    height: 95vh;
+}
+
+.navbar-item img {
+    max-height: 10rem;
+}
+
+.navbar {
+    border-bottom: 1px solid $Dark-green;
+    box-shadow: 0 4px 2px -2px rgba($Black, 0.4);
+}
+
+.button.is-primary {
+    background-color: $Dark-green;
+    font-size: 1.6rem;
+    font-weight: thin;
+}
+
+.button.is-primary:hover {
+    background-color: $Light-gray;
+    color: $Dark-green;
+    border: 1px solid $Dark-green;
+}
+
+a.navbar-item:hover {
+    color: $Dark-green;
+}
+
+.navbar-link:hover {
+    color: $Dark-green;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: $Dark-green;
+}
+
+.button.is-light:hover {
+    color: $Dark-green;
+}
+
+a.navbar-burger.burger {
+    padding-right: 10rem;
+    padding-top: 10rem;
+    color: $Dark-green;
+}
+
+.container {
+    min-width: 100%;
+}
+
+.column {
+    text-align: center;
+}
+
+.about-farmaid {
+    padding: 0 5rem;
+    margin-top: 5rem;
+}
+
+.about-farmaid p {
+    font-size: 2rem !important;
+    line-height: 2.0;
+}
+
+.about-farmaid h1,
+.pricing h1 {
+    font-size: 4rem;
+}
+
+.main-features {
+    padding-top: 4rem;
+}
+
+.features {
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 .2rem 1rem $Black;
+}
+
+.features h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+p {
+    padding: 1rem 4rem !important;
+}
+
+p.is-size-5.about {
+    padding: 1rem 5rem !important;
+    line-height: 1.2em;
+    font-size: 1.6rem;
+}
+
+p.is-size-5.about b {
+    font-weight: 400 !important;
+}
+
+hr {
+    background-color: $Dark-green;
+    border-top: 2px solid $Dark-green;
+}
+
+.copyright img {
+    max-width: 24rem;
+    max-height: 24rem
+}
+
+.footer-section {
+    margin-top: 2rem !important;
+    min-width: 100%;
+}
+
+.button.is-large {
+    margin-top: 2rem;
+}
+
+.column {
+    margin: 0 2rem !important;
+}
+
+.column img {
+    width: 10rem;
+    Height: 10rem;
+}
+
+.fa-check-circle {
+    color: $Dark-green;
+    padding-right: .5rem;
+}
+
+.pricing,
+.Partners {
+    margin-top: 5rem;
+}
+
+div.free,
+div.premium {
+    width: 40rem !important;
+    background-color: $Light-gray;
+}
+
+div.free {
+    margin-right: -2rem !important;
+}
+
+div.premium {
+    margin-left: -2rem !important;
+}
+
+div.free:hover,
+div.premium:hover {
+    box-shadow: 0 4px 2px -2px rgba($Black, 0.4);
+}
+
+div.free,
+div.premium {
+    height: fit-content;
+}
+
+.price-header {
+    padding: .5rem;
+    background: $Dark-green;
+}
+
+.price-header h2 {
+    font-size: 3rem;
+    color: $Light-gray;
+}
+
+.price-header p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.free ul>li,
+.premium ul>li {
+    border: 0.05rem solid $Light-green;
+    border-width: thin;
+    padding: 1rem;
+}
+
+.buy-btn {
+    width: 95%;
+    padding: 2rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: $Light-gray;
+}
+
+.buy-btn-free {
+    background-color: $Light-green;
+}
+
+.buy-btn-premium {
+    background-color: $Dark-green;
+}
+
+div.footer-container {
+    margin-top: 8rem;
+    background-color: $Light-gray;
+    border-top: 1px solid $Dark-green;
+}
+
+div.footer-logo img {
+    margin-bottom: 0 !important;
+    margin-top: -2rem!important;
+}
+
+div.footer-logo p {
+    margin-bottom: 0 !important;
+}
+
+.social-media {
+    display: flex;
+}
+
+.social-media li {
+    margin-top: 4rem;
+    list-style-type: none;
+    padding: 0 2rem !important;
+}
+
+.fa fa-facebook {
+    color: $Dark-green;
+}
+
+i.fa-facebook,
+i.fa-twitter,
+i.fa-instagram {
+    font-size: 3rem;
+    padding: 0 2rem !important;
+}
+
+i.fa:hover {
+    color: $Black;
+}
+
+div.copyright p {
+    margin-top: 5rem;
+}
+
+div.footer-logo img {
+    margin-top: 0rem;
+}
+
+.footer-container a {
+    color: $Dark-green;
+}
+
+.footer-container a:hover {
+    color: $Black;
+}
+
+div.get-started {
+    margin-top: 3rem;
+}
+
+.get-started a {
+    padding: 2rem;
+}
+
+@media (min-width:320px) {
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    .about-farmaid h1,
+    .pricing h1 {
+        font-size: 2.5rem;
+    }
+    p.is-size-5.about {
+        padding: 1rem .5rem !important;
+        line-height: 1.2em;
+        font-size: 1.2rem;
+    }
+    div.features {
+        text-align: center;
+        margin-bottom: 4rem;
+        box-shadow: 0 .2rem 1rem;
+    }
+    div.column {
+        margin-top: 2.5rem !important;
+    }
+    div.main-features {
+        padding-top: 0.8rem;
+    }
+    div.free {
+        margin: 0 3rem !important;
+    }
+    .social-media li {
+        margin: 0 auto;
+    }
+    div.copyright p {
+        margin-top: 0rem;
+    }
+    div.social-media {
+        margin-top: -2rem;
+    }
+    div.get-started p,
+    div.get-started-2 p {
+        margin: 0 !important;
+    }
+    div.partners {
+        display: flex;
+    }
+}
+
+@media (min-width:480px) {
+    /* smartphones, Android phones, landscape iPhone */
+}
+
+@media (min-width:600px) {
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    div.free,
+    div.premium {
+        margin: 2rem auto !important;
+    }
+    .social-media li {
+        margin: 0 auto;
+    }
+    div.copyright p {
+        margin-bottom: -4rem;
+    }
+    div.footer-logo {
+        margin-bottom: - 4rem!important;
+    }
+    div.footer-logo img {
+        margin-bottom: -4rem;
+    }
+    div.Partners-children {
+        display: flex;
+        flex-flow: row;
+    }
+}
+
+@media (min-width:801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}
