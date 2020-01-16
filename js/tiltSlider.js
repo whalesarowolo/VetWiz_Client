@@ -94,7 +94,7 @@
 		// show a new item when clicking the navigation "dots"
 		this.navDots.forEach( function( dot, idx ) {
 			dot.addEventListener( 'click', function() {
-				Swal.fire('hello...');
+				//Swal.fire('hello...');
 				if( idx !== self.current ) {
 					self._showItem( idx );
 				}
