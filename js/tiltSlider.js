@@ -89,10 +89,23 @@
 		this.navDots = [].slice.call( this.nav.children );
 	}
 
+	//Do diffs here
+	// var slides = document.querySelectorAll('.slides');
+	// var currentSlide = 0;
+	// var slideInterval = setInterval(nextSlide,2000);
+
+	// function nextSlide() {
+	// 	slides[currentSlide].className = 'current';
+	// 	currentSlide = (currentSlide+1)%slides.length;
+	// }
+
+	//End diffs here
 	TiltSlider.prototype._initEvents = function() {
 		var self = this;
+		
 		// show a new item when clicking the navigation "dots"
 		this.navDots.forEach( function( dot, idx ) {
+
 			dot.addEventListener( 'click', function() {
 				//Swal.fire('hello...');
 				if( idx !== self.current ) {
