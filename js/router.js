@@ -22,13 +22,13 @@ OnStartUp();
 // #endregion startup
 
 // #region Navlinks-Routing
-document.querySelector('#blogLuncher').addEventListener('click', (event) => {
+document.querySelector('#farmersLuncher').addEventListener('click', (event) => {
     let stateObj = {
-        page: 'blog'
+        page: 'farmers'
     }
-    document.title = 'Blog';
-    history.pushState(stateObj, "blog", "?Blog");
-    RenderBlogPage();
+    document.title = 'Farmers';
+    history.pushState(stateObj, "farmers", "?Farmers");
+    RenderFarmersPage();
 });
 
 document.querySelector('#interestsLuncher').addEventListener('click', (event) => {
