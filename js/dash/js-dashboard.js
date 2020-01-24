@@ -1,4 +1,4 @@
-/*! dashboard.js | Bulkit | CSS Ninja */
+/*! dashboard.js | FarmAid */
 
 /* ==========================================================================
 Dashboard core JS file
@@ -71,14 +71,20 @@ function initSearch() {
 
 
 function cancelUser() {
-    $('.modal .modal-lg .create-contact-modal .modal-hero').removeClass('is-active');  
+    $('.modal.modal-lg.create-contact-modal.modal-hero').removeClass('is-active');  
+    $('.create-contact-modal > .modal-background').removeClass('scaleInCircle');
+    $('.create-contact-modal > .modal-content').removeClass('scaleIn');
+    $('.create-contact-modal > .modal-close').addClass('is-hidden');
 }
 
 function newUser() {
-    if($('.modal .modal-lg .create-contact-modal .modal-hero').hasClass('is-active')) {
-        return false
-    } else {
-        $('.modal .modal-lg .create-contact-modal .modal-hero').addClass('is-active');
+    console.log('Working...');
+    if ($('.create-contact-modal').length) {
+        console.log('Creating user...');
+        $('.create-contact-modal').removeClass('is-hidden').addClass('is-active');
+        $('.create-contact-modal > .modal-background').addClass('scaleInCircle');
+        $('.create-contact-modal > .modal-content').addClass('scaleIn');
+        $('.create-contact-modal > .modal-close').removeClass('is-hidden');
     } 
 }
 

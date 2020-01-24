@@ -1,4 +1,3 @@
-
 <div class="dashboard-inner">
 
     <!-- Dashboard Wrapper -->
@@ -7,9 +6,261 @@
         <div id="main-dashboard" class="section-wrapper">
             <!-- Dashboard content -->
             <div id="basic-layout" class="dashboard-columns">
-                <div id="advanced-datatable">
 
+                <h2 class="demo-title">Advanced Datatable</h2>
+                <!-- Advanced Datatable -->
+                <div class="table-wrapper">
+                    <table id="advanced-datatable" class="table is-datatable is-hoverable table-is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Picture</th>
+                                <th data-sort="firstname" class="sorting">First Name</th>
+                                <th data-sort="lastname" class="sorting">Last Name</th>
+                                <th>Position</th>
+                                <th data-sort="status" class="sorting">Status</th>
+                                <th></th>
+                            </tr>
+                            <tr class="datatable-filter-line">
+                                <td></td>
+                                <td class="datatable-filter-cell"><input type="text" placeholder="Type to Filter... "
+                                        class="datatable-filter datatable-input-text form-control"
+                                        data-filter="firstname"></td>
+                                <td class="datatable-filter-cell"><input type="text" placeholder="Type to Filter... "
+                                        class="datatable-filter datatable-input-text form-control"
+                                        data-filter="lastname"></td>
+                                <td></td>
+                                <td class="datatable-filter-cell"><input type="text" placeholder="Type to Filter... "
+                                        class="datatable-filter datatable-input-text form-control" data-filter="status">
+                                </td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="0">
+                                <td><img class="datatable-avatar" src="assets/images/avatars/nick.jpg"
+                                        data-demo-src="assets/images/avatars/nick.jpg"></td>
+                                <td>Nick</td>
+                                <td>Schwartz</td>
+                                <td>Manager</td>
+                                <td><span class="tag">Available</span></td>
+                                <td>
+                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                        <div class="button">
+                                            <i class="material-icons">more_vert</i>
+                                        </div>
+                                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact</span>
+                                                    </span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit this contact</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><img class="datatable-avatar" src="assets/images/avatars/elie.jpg"
+                                        data-demo-src="assets/images/avatars/elie.jpg"></td>
+                                <td>Elie</td>
+                                <td>Daniels</td>
+                                <td>Head of Sales</td>
+                                <td><span class="tag">Busy</span></td>
+                                <td>
+                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                        <div class="button">
+                                            <i class="material-icons">more_vert</i>
+                                        </div>
+                                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact</span>
+                                                    </span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit this contact</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr data-id="2">
+                                <td><img class="datatable-avatar" src="assets/images/avatars/lakisha.jpg"
+                                        data-demo-src="assets/images/avatars/lakisha.jpg"></td>
+                                <td>Lakisha</td>
+                                <td>Jackson</td>
+                                <td>HR Director</td>
+                                <td><span class="tag">Offline</span></td>
+                                <td>
+                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                        <div class="button">
+                                            <i class="material-icons">more_vert</i>
+                                        </div>
+                                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact</span>
+                                                    </span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit this contact</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr data-id="3">
+                                <td><img class="datatable-avatar" src="assets/images/avatars/helen.jpg"
+                                        data-demo-src="assets/images/avatars/helen.jpg"></td>
+                                <td>Helen</td>
+                                <td>Miller</td>
+                                <td>Sales Manager</td>
+                                <td><span class="tag">Offline</span></td>
+                                <td>
+                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                        <div class="button">
+                                            <i class="material-icons">more_vert</i>
+                                        </div>
+                                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact</span>
+                                                    </span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit this contact</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr data-id="4">
+                                <td><img class="datatable-avatar" src="assets/images/avatars/terry.jpg"
+                                        data-demo-src="assets/images/avatars/terry.jpg"></td>
+                                <td>Terry</td>
+                                <td>Daniels</td>
+                                <td>Scientist</td>
+                                <td><span class="tag">Offline</span></td>
+                                <td>
+                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                        <div class="button">
+                                            <i class="material-icons">more_vert</i>
+                                        </div>
+                                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                            <div class="dropdown-content">
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact</span>
+                                                    </span>
+                                                </a>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit this contact</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="paging-first-datatable" class="pagination pagination-datatables text-center">
+                        <ul class="pagination">
+                            <li class="active"><a data-page="first"><i class="material-icons">arrow_back</i></a></li>
+                            <li class="active"><a data-page="prev"><i class="material-icons">keyboard_arrow_left</i></a>
+                            </li>
+                            <li class="active"><a data-page="1">1</a></li>
+                            <li><a data-page="2">2</a></li>
+                            <li><a data-page="next"><i class="material-icons">keyboard_arrow_right</i></a></li>
+                            <li><a data-page="last"><i class="material-icons">arrow_forward</i></a></li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>

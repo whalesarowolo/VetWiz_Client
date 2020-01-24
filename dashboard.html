@@ -1204,13 +1204,13 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="flex-card simple-shadow">
-                <h2 class="dark-text">Create </h2>
+                <h2 class="dark-text">Create new user</h2>
                 <div class="card-body">
                     <div class="has-text-centered">
                         <div class="image">
                             <img src="images/icons-create-contact.svg" alt=""></div>
-                        <div class="help-text has-text-centered">Create a new contact by entering its basic details. You
-                            will then be able to edit it and to add more detailed informations.</div>
+                        <div class="help-text has-text-centered">Create a new user by entering his/her basic details. You
+                            will then be able to edit it and to add more detailed information.</div>
 
                         <div class="columns is-multiline">
                             <div class="column is-6">
@@ -1279,14 +1279,15 @@
                         <div class="is-prospect">
                             <div class="field">
                                 <input id="prospectSwitch" type="checkbox" name="prospectSwitch"
-                                    class="switch is-secondary"><label for="prospectSwitch"><span>is this contact a
+                                    class="switch is-secondary"><label for="prospectSwitch"><span>is this user a
                                         prospect?</span></label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="button is-modal">Create Contact</button>
+                <div class="field modal-footer">
+                    <input onclick="cancelUser();" style="background-color: red; align-items: center; align-content: center; color: #fff; font-weight: bold;" type="button" class="button is-rounded" value="Cancel" />
+                    <button style="border-radius: 20px !important;" type="submit" class="button is-rounded is-modal">Create user</button>
                 </div>
             </div>
         </div>
