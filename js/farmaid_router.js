@@ -17,7 +17,7 @@ Router.prototype = {
     rootElem: undefined,
     constructor: function (routes) {
         this.routes = routes;
-        this.rootElem = document.getElementById('app');
+        this.rootElem = document.getElementById('dashboard-wrapper');
     },
     init: function () {
         var r = this.routes;
@@ -56,6 +56,13 @@ Router.prototype = {
             };
             xhttp.open('GET', url, true);
             xhttp.send();
+            document.querySelector('.child-menu').classList.toggle('is-sidebar-translated');
+            //$('.child-menu').toggleClass('is-sidebar-translated');
+            document.querySelector('.dashboard-outer').classList.toggle('is-pushed');
+            document.querySelector('.dashboard-inner').classList.toggle('is-pushed');
+            document.querySelector('.dashboard-nav').classList.toggle('is-pushed');
         })(this);
     }
 };
+
+
