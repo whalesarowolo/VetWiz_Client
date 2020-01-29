@@ -88,6 +88,76 @@ function newUser() {
     } 
 }
 
+function updateFromSMAP() {
+    console.log('Updating the farmers database from SMAP...');
+    swal.fire({
+        title: 'Updating...',
+        text: 'Updating the farmers database',
+        icon: 'info',
+        timer: 2000
+    });
+
+    console.log("fetching...")
+    getUserAsync()
+        .then((data) => {
+            //console.log(data)
+            data.forEach(ele => {
+                console.log("Data: ", ele);
+                document.getElementById('farm_table').innerHTML += `<tr data-id="4">
+                <td><img class="datatable-avatar" src="assets/images/avatars/terry.jpg" data-demo-src="assets/images/avatars/terry.jpg"></td>
+                <td>Terry</td>
+                <td>Daniels</td>
+                <td>Scientist</td>
+                <td><span class="tag">Offline</span></td>
+                <td>
+                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                        <div class="button">
+                            <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">
+                                    <i class="sl sl-icon-eye"></i>
+                                    <span>
+                                        <span>View</span>
+                                        <span>View contact</span>
+                                    </span>
+                                </a>
+                                <a class="dropdown-item">
+                                    <i class="sl sl-icon-pencil"></i>
+                                    <span>
+                                        <span>Edit</span>
+                                        <span>Edit this contact</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item">
+                                    <i class="sl sl-icon-trash"></i>
+                                    <span>
+                                        <span>Delete</span>
+                                        <span>Delete this contact</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>`;
+            });
+        });
+}
+ 
+
+async function getUserAsync() {
+    
+    let response = await fetch(`http://localhost:5000/api/smap`);
+    let data = await response.json();
+    //console.log(data);
+    return data;
+}
+
+
 $(document).ready(function($){
 
     "use strict";
