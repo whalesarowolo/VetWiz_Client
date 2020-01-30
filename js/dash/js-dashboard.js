@@ -148,13 +148,28 @@ function updateFromSMAP() {
         });
 }
  
-
 async function getUserAsync() {
     
     let response = await fetch(`http://localhost:5000/api/smap`);
     let data = await response.json();
-    //console.log(data);
     return data;
+}
+
+function startModule(evt, moduleName) {
+    
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("navtab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      tabcontent[i].classList.remove('is-active');
+    }
+    tablinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('is-active');
+    }
+
+    document.getElementById(moduleName.id).style.display = "block";
+    evt.currentTarget.className += " is-active";
 }
 
 

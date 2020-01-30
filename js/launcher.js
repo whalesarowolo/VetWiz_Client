@@ -5,6 +5,8 @@
         var router = new Router([
             new Route('users', 'users.html'),
             new Route('farmers', 'farmers.html'),
+            new Route('sms', 'sms.html'),
+            new Route('admin', 'admin.html'),
         ]);
     }
     init();
