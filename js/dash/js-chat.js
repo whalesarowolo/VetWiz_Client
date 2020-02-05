@@ -1,4 +1,4 @@
-/*! chat.js | Bulkit | CSS Ninja */
+/*! chat.js | FarmAid */
 
 /* ==========================================================================
 Chat related functions

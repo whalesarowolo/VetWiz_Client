@@ -36,7 +36,8 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" id="email" name="email" type="email" placeholder="Enter your email" required=true>
+                                    <input class="input" id="email" name="email" type="email"
+                                        placeholder="Enter your email" required=true>
                                     <div class="form-icon">
                                         <i data-feather="user"></i>
                                     </div>
@@ -44,14 +45,15 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" id="password" name="password" type="password" placeholder="********" required=true>
+                                    <input class="input" id="password" name="password" type="password"
+                                        placeholder="********" required=true>
                                     <div class="form-icon">
                                         <i data-feather="lock"></i>
                                     </div>
                                 </div>
                             </div>
                             <p class="has-text-left">
-                                <a class="no-account" href="#">Dont have an account?</a>
+                                <a id="register" class="no-account" href="javascript:">Dont have an account?</a>
                             </p>
                             <div class="button-wrap">
                                 <button id="enta" class="button">Login</button>
@@ -97,8 +99,106 @@
                         </p>
                     </div>
                     <!-- /Classic recover form -->
+
+                    <!-- Classic register form -->
+
+                    <div id="register-form" class="animated preFadeInLeft fadeInLeft is-hidden">
+                        <div class="auth-card">
+                            <div class="auth-card-header header-primary">
+                                <h2 class="has-text-centered">Register for an account</h2>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" name="fname" type="text" placeholder="First Name">
+                                    <div class="form-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" name="lname" type="text" placeholder="Last Name">
+                                    <div class="form-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" name="phonenumber" type="text" placeholder="Phone Number">
+                                    <div class="form-icon">
+                                        <i data-feather="phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" name="email" type="email" placeholder="Email">
+                                    <div class="form-icon">
+                                        <i data-feather="mail"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" name="company" type="text"
+                                        placeholder="Company/Organization/Business name">
+                                    <div class="form-icon">
+                                        <i data-feather="phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start category list here -->
+
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">Category</label>
+                                </div>
+                                <div class="field-body pull-right">
+                                    <div class="field is-medium">
+                                        <div class="control">
+                                            <div class="select is-medium is-rounded is-fullwidth">
+                                                <select>
+                                                    <option value="agro-dealer" selected>Agro Dealer</option>
+                                                    <option value="aggregator">Aggregator</option>
+                                                    <option value="seed_supplier">Seed Supplier</option>
+                                                    <option value="ext_agent">Extention Agent</option>
+                                                    <option value="ngo">NGO</option>
+                                                    <option value="agronomist">Agronomist</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- End category list here -->
+
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" name="signup_password" placeholder="Password *****"
+                                        class="input">
+                                    <div class="form-icon">
+                                        <i data-feather="lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-wrap">
+                                <button class="button">Submit</button>
+                            </div>
+                        </div>
+                        <p class="has-text-centered">
+                            <a id="back-to-login-ii" href="#">Back to login</a>
+                        </p>
+                    </div>
+
+                    <!-- /Classic register form -->
                 </div>
                 <!-- /Classic inputs -->
+
+
 
                 <!-- Material inputs -->
                 <div id="material" class="login-form-wrapper is-hidden">
@@ -172,11 +272,10 @@
     </section><!-- Concatenated jQuery and plugins -->
     <script src="js/swal.js"></script>
     <script src="js/dash/js-app.js"></script>
-    <script src="js/dash/js-core.js"></script><!-- Bulkit js -->
+    <script src="js/dash/js-core.js"></script>
     <script src="js/dash/js-components-modals.js"></script>
-    <!--script src="assets/js/components-quickview.js"></script-->
     <script src="js/dash/js-common.js"></script>
-    <script src="js/dash/js-dashboard.js"></script><!-- Extensions js -->
+    <script src="js/dash/js-dashboard.js"></script>
     <script src="js/dash/js-documents.js"></script>
     <script src="js/dash/js-contacts.js"></script>
     <script src="js/dash/js-projects.js"></script>

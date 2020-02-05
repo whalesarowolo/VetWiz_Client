@@ -1196,7 +1196,6 @@
         </div>
     </div>
 
-    <!-- Create contact modal -->
     <!-- Create User Modal -->
     <div id="create-contact-modal" class="modal modal-lg create-contact-modal modal-hero">
         <div class="modal-background"></div>
@@ -1290,6 +1289,42 @@
             </div>
         </div>
         <button onclick="cancelUser();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+    <!-- Create message modal -->
+
+    <div id="create-note-modal" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <h2 class="dark-text">New Message</h2>
+                <div class="card-body">
+                    <div class="has-text-centered">
+                        <div class="image">
+                            <img src="images/icons-note.svg"></div>
+                        <div class="help-text has-text-left">Send a message to your users/customers</div>
+    
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-medium" type="text" placeholder="Note title"><span class="icon is-left">
+                                    <i class="fa fa-sticky-note"></i>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="columns is-fieldset">
+                            <div class="column">
+                                <textarea class="textarea" rows="3" placeholder="Write something relevant"></textarea></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button type="submit" class="button is-modal">Post messages</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
     <!-- /Invite User Modal -->
     <!-- Right sidebar quickview -->

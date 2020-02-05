@@ -1,4 +1,4 @@
-/*! forum.js | Bulkit | CSS Ninja */
+/*! forum.js | FarmAid */
 
 /* ==========================================================================
 Dashboard Forum JS file

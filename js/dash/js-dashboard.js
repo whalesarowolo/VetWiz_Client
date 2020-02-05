@@ -88,6 +88,23 @@ function newUser() {
     } 
 }
 
+function newMessage(params) {
+    if ($('#create-note-modal').length) {
+        console.log('Creating new message...');
+        $('#create-note-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-note-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-note-modal > .modal-content').addClass('scaleIn');
+        $('#create-note-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+function cancelMessage(params) {
+    $('.modal.modal-md.icon-action-modal.modal-hero').removeClass('is-active');
+    $('#create-note-modal > .modal-background').removeClass('scaleInCircle');
+    $('#create-note-modal > .modal-content').removeClass('scaleIn');
+    $('#create-note-modal > .modal-close').addClass('is-hidden');
+}
+
 function updateFromSMAP() {
     console.log('Updating the farmers database from SMAP...');
     swal.fire({
@@ -97,7 +114,7 @@ function updateFromSMAP() {
         timer: 2000
     });
 
-    console.log("fetching...")
+    console.log("fetching...");
     getUserAsync()
         .then((data) => {
             //console.log(data)

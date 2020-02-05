@@ -23,6 +23,13 @@ $(document).ready(function($){
         $('#contacted-form, #contacted-intro').addClass('is-hidden');
         $('#contacted, #signup-form, #signup-intro').removeClass('is-hidden');
     })
+
+    //Show register form
+    $('#register').on('click', function () {
+      $(this).addClass('is-hidden');
+      $('#login-form').addClass('is-hidden');
+      $('#back-to-login, #register-form').removeClass('is-hidden');
+  })
     //Show recover form
     $('#recover').on('click', function () {
         $(this).addClass('is-hidden');
@@ -30,10 +37,11 @@ $(document).ready(function($){
         $('#back-to-login, #recover-form').removeClass('is-hidden');
     })
     //back to login on click
-    $('#back-to-login').on('click', function () {
+    $('#back-to-login, #back-to-login-ii').on('click', function () {
         $(this).addClass('is-hidden');
-        $('#recover-form').addClass('is-hidden');
-        $('#recover, #signin-form').removeClass('is-hidden');
+        console.log("About to login...");
+        $('#recover-form, #register-form').addClass('is-hidden');
+        $('#login-form, #register').toggleClass('is-hidden');
     })
     
     //Login and Signup V2 (landing kit 1,2,3)
@@ -48,6 +56,10 @@ $(document).ready(function($){
     //Clean login 
     $('#show-login, #show-recover').on('click', function () {
         $('#login-card, #recover-card').toggleClass('is-hidden');
+    })
+
+    $('#biz-cat').on('click', function () {
+      $(this).toggleClass('is-active');
     })
     
     //Dashboard login style switcher

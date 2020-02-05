@@ -1,4 +1,4 @@
-/*! projects.js | Bulkit | CSS Ninja */
+/*! projects.js | FarmAid */
 
 /* ==========================================================================
 Dashboard projects JS file
