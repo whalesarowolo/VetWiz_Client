@@ -94,7 +94,7 @@ $(document).ready(function($){
         //e.preventDefault();
         console.log('Details... ' + useremail + ' ' + userpassword);
     
-        const url = 'http://localhost:5000/api/auth';
+        const url = 'http://farm-aid-backend.herokuapp.com/api/auth';
     
         const user = {
           "email": useremail,
