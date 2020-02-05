@@ -105,6 +105,7 @@ $(document).ready(function($){
         var request = new Request(url, {
           method: 'POST',
           body: JSON.stringify(user),
+          credentials: 'include',
           headers: new Headers({
             'Content-Type': 'application/json'
           })
