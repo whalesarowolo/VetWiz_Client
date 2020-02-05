@@ -94,7 +94,7 @@ $(document).ready(function($){
         //e.preventDefault();
         console.log('Details... ' + useremail + ' ' + userpassword);
     
-        const url = 'http://farm-aid-backend.herokuapp.com/api/auth';
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth';
     
         const user = {
           "email": useremail,
@@ -105,7 +105,6 @@ $(document).ready(function($){
         var request = new Request(url, {
           method: 'POST',
           body: JSON.stringify(user),
-          credentials: 'include',
           headers: new Headers({
             'Content-Type': 'application/json'
           })
