@@ -28,7 +28,7 @@ $(document).ready(function($){
     $('#register').on('click', function () {
       $(this).addClass('is-hidden');
       $('#login-form').addClass('is-hidden');
-      $('#back-to-login, #register-form').removeClass('is-hidden');
+      $('#back-to-login, #register-form, #back-to-login-ii').removeClass('is-hidden');
   })
     //Show recover form
     $('#recover').on('click', function () {
@@ -38,10 +38,10 @@ $(document).ready(function($){
     })
     //back to login on click
     $('#back-to-login, #back-to-login-ii').on('click', function () {
-        $(this).addClass('is-hidden');
+        $(this).toggleClass('is-hidden');
         console.log("About to login...");
         $('#recover-form, #register-form').addClass('is-hidden');
-        $('#login-form, #register').toggleClass('is-hidden');
+        $('#login-form, #register').removeClass('is-hidden');
     })
     
     //Login and Signup V2 (landing kit 1,2,3)
