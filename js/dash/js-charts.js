@@ -1,4 +1,4 @@
-/*! charts.js | Bulkit | CSS Ninja */
+/*! charts.js | FarmAid */
 
 /* ==========================================================================
 All Template Charts

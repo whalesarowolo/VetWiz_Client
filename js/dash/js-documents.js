@@ -1,4 +1,4 @@
-/*! documents.js | Bulkit | CSS Ninja */
+/*! documents.js | FarmAid */
 
 /* ==========================================================================
 Dashboard documents JS file 
