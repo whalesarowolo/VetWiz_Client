@@ -7,6 +7,7 @@
             new Route('farmers', 'farmers.html'),
             new Route('sms', 'sms.html'),
             new Route('admin', 'admin.html'),
+            new Route('gap', 'gap.html'),
         ]);
     }
     init();
