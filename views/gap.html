@@ -89,11 +89,13 @@
             <h2>Inputs</h2>
             <div class="inputfield"><b>Seed Selection:</b> <br>
                 <textarea name="" cols="100" rows="10" placeholder="Seed selection ...." oninput="this.className"
-                    required></textarea>
+                    required id="seedSelection" onkeypress="countSeedSelectionCharacters()"></textarea> <span
+                    id="spSeedSelection">320</span>
             </div>
             <div class="inputfield"><b>Seed Sources:</b> <br>
-                <textarea name="" cols="100" rows="10" placeholder="Seed sources ...." oninput="this.className"
-                    required></textarea>
+                <textarea name="" cols="100" rows="10" placeholder="Seed sources ...." oninput="this.className" required
+                    id="seedSources" onkeypress="countSeedSourcesCharacters()"></textarea><span
+                    id="spSeedSources">320</span>
             </div>
             <div class="inputfield"><b>Fertilizers:</b> <br>
                 <textarea name="" cols="100" rows="10" placeholder="Fertilizer ...." oninput="this.className"
@@ -294,5 +296,20 @@
         }
         //... and adds the "active" class on the current step:
         x[n].className += " active";
+    }
+    function countSeedSelectionCharacters() {
+        var textEntered, countRemaining, counter;
+        textEntered = document.getElementById('seedSelection').value;
+        counter = (320 - (textEntered.length));
+        countRemaining = document.getElementById('spSeedSelection');
+        countRemaining.textContent = counter;
+    }
+
+    function countSeedSourcesCharacters() {
+        var textEntered, countRemaining, counter;
+        textEntered = document.getElementById('seedSources').value;
+        counter = (320 - (textEntered.length));
+        countRemaining = document.getElementById('spSeedSources');
+        countRemaining.textContent = counter;
     }
 </script>
