@@ -22,6 +22,7 @@ input.invalid {
 .tab {
     display: none;
 }
+
 button {
     background-color: #4CAF50;
     color: #ffffff;
@@ -62,12 +63,29 @@ button:hover {
 }
 
 .tab h2 {
-    font-size: 20px;
+    font-size: 25px;
     color: green;
 }
 
+
 .inputfield span {
     color: red;
+    font-size: 15px;
+}
+
+.inputfield b {
+    color: green;
+}
+
+textarea {
+	width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
 }
     </style>
     <form id="regForm" action="#">
@@ -76,8 +94,8 @@ button:hover {
         <div class="tab">
             <h2>Inputs</h2>
             <div class="inputfield"><b>Seed Selection:</b> <br>
-                <textarea name="" cols="100" rows="10" placeholder="Seed selection ...." oninput="this.className"
-                    required id="seedSelection" data-limit=320></textarea><span class="countdown"></span>
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" onblur="setbg('white')" rows="10" placeholder="Seed selection ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
             </div>
             <div class="inputfield"><b>Seed Sources:</b> <br>
                 <textarea name="" cols="100" rows="10" placeholder="Seed sources ...." oninput="this.className" required
