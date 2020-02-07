@@ -5324,7 +5324,7 @@ fieldset[disabled] .select select:hover {
     flex-grow: 1;
     flex-shrink: 0;
     margin-right: 1.5rem;
-    text-align: right;
+    text-align: center;
   }
   .field-label.is-small {
     font-size: 0.75rem;

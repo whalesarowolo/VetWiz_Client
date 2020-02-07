@@ -1302,15 +1302,82 @@
                     <div class="has-text-centered">
                         <div class="image">
                             <img src="images/icons-note.svg"></div>
-                        <div class="help-text has-text-left">Send a message to your users/customers</div>
-    
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input is-medium" type="text" placeholder="Note title"><span class="icon is-left">
-                                    <i class="fa fa-sticky-note"></i>
-                                </span>
+                        <div class="help-text has-text-left has-text-success has-text-weight-semibold is-capitalized">Select the paramters below to target speicfic Farmers</div>
+    <!-- Select Criticals user should use to Get farmers numbers -->
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal pull-left">
+                                <label class="label has-text-left">STATE</label>
+                            </div>
+                            <div class="field-body pull-right">
+                                <div class="field is-medium">
+                                    <div class="control">
+                                        <div class="select is-medium is-rounded is-fullwidth">
+                                            <select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+                                                <option value=""  disabled selected>--Please choose an option--</option>
+                                                <option value="adamawa">ADAMAWA</option>
+                                                <option value="gombe">GOMBE</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="field is-horizontal is-hidden" id="lga">
+                            <div class="field-label is-normal">
+                                <label class="label has-text-left">LGA</label>
+                            </div>
+                            <div class="field-body pull-right">
+                                <div class="field is-medium">
+                                    <div class="control">
+                                        <div class="select is-medium is-rounded is-fullwidth">
+                                            <select id="slct2" name="slct2">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label has-text-left">CROP</label>
+                            </div>
+                            <div class="field-body pull-right">
+                                <div class="field is-medium">
+                                    <div class="control">
+                                        <div class="select is-medium is-rounded is-fullwidth">
+                                            <select>
+                                                <option value=""  disabled selected>--Please choose an option--</option>
+                                                <option value="dog">RICE</option>
+                                                <option value="cat">GROUNDNUT</option>
+                                                <option value="hamster">TOMATOES</option>
+                                                <option value="parrot">SORGHUM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label has-text-left">GENDER</label>
+                            </div>
+                            <div class="field-body pull-right">
+                                <div class="field is-medium">
+                                    <div class="control">
+                                        <div class="select is-medium is-rounded is-fullwidth">
+                                            <select>
+                                                <option value=""  disabled selected>--Please choose an option--</option>
+                                                <option value="dog">MALE</option>
+                                                <option value="cat">FEMALE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+         <!-- Select Criticals user should use to Get farmers numbers end -->
     
                         <div class="columns is-fieldset">
                             <div class="column">
@@ -1732,6 +1799,7 @@
     <!-- Routing start -->
     <script src="js/farmaid_route.js"></script>
     <script src="js/farmaid_router.js"></script>
+    <script src="js/option.js"></script>
     <script src="js/launcher.js"></script>
     <!-- Routing End -->
     <script src="js/swal.js"></script>
