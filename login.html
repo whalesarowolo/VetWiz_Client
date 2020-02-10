@@ -102,7 +102,7 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" name="fname" type="text" placeholder="First Name">
+                                    <input class="input" id="register-firstname" name="fname" type="text" placeholder="First Name" required>
                                     <div class="form-icon">
                                         <i data-feather="user"></i>
                                     </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" name="lname" type="text" placeholder="Last Name">
+                                    <input class="input" id="register-lastname" name="lname" type="text" placeholder="Last Name">
                                     <div class="form-icon">
                                         <i data-feather="user"></i>
                                     </div>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" name="phonenumber" type="text" placeholder="Phone Number">
+                                    <input class="input" id="register-phonNum" name="phonenumber" type="text" placeholder="Phone Number">
                                     <div class="form-icon">
                                         <i data-feather="phone"></i>
                                     </div>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" name="email" type="email" placeholder="Email">
+                                    <input class="input" id="register-email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email">
                                     <div class="form-icon">
                                         <i data-feather="mail"></i>
                                     </div>
@@ -135,7 +135,7 @@
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" name="company" type="text"
+                                    <input class="input" id="register-company" name="company" type="text"
                                         placeholder="Company/Organization/Business name">
                                     <div class="form-icon">
                                         <i data-feather="phone"></i>
@@ -152,7 +152,7 @@
                                     <div class="field is-medium">
                                         <div class="control">
                                             <div class="select is-medium is-rounded is-fullwidth">
-                                                <select>
+                                                <select id="register-category">
                                                     <option value="agro-dealer" selected>Agro Dealer</option>
                                                     <option value="aggregator">Aggregator</option>
                                                     <option value="seed_supplier">Seed Supplier</option>
@@ -170,7 +170,7 @@
 
                             <div class="field">
                                 <div class="control">
-                                    <input type="password" name="signup_password" placeholder="Password *****"
+                                    <input type="password" id="register-password" name="signup_password" placeholder="Password *****"
                                         class="input">
                                     <div class="form-icon">
                                         <i data-feather="lock"></i>

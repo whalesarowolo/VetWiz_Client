@@ -73,14 +73,143 @@ $(document).ready(function($){
       history.go();
     })
 
+    // Sign up JS logic starts here
+
+
+    // onClick event for sign up button
     $("#signup_new").on('click', function(e) {
-      Swal.fire({
-        title: "signing up",
-        text: "Please wait .....",
-        icon: "info",
-        timer: 3000
-      })
+
+      let firstname = $('#register-firstname').val().trim();
+      let lastname = $('#register-lastname').val().trim();
+      let phonNum = $('#register-phonNum').val();
+      let email = $('#register-email').val().trim();
+      let company = $('#register-company').val().trim();
+      let selectId = $('#register-category').val();
+      const password = $('#register-password').val().trim();
+      var numbers = /^[0-9]+$/;
+
+
+    // function to validate email
+      function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test(email)) {
+          return false;
+        }else{
+          return true;
+        }
+      }
+
+      // validate empty input
+      if(firstname == "" || lastname == "" || email == "" || company == "" ||  selectId == "" || password == "" || phonNum == "") {
+        $("#login-form").addClass('is-hidden');
+        swal.fire({
+          title: 'Error Authenticating',
+          text: 'You must provide all credentials to Sign Up',
+          icon: 'warning',
+          timer: 2100
+        }).then(()=> {
+          $("#login-form").toggleClass('is-hidden');
+        });
+        return false;
+      }
+
+      if(phonNum < 11) {
+        $("#login-form").addClass('is-hidden');
+        swal.fire({
+          title: 'Error Authenticating',
+          text: 'Phone Number format is Invalid',
+          icon: 'warning',
+          timer: 3100
+        }).then(()=> {
+          $("#login-form").toggleClass('is-hidden');
+        });
+        return false;
+      }
+      if(!phonNum.match(numbers)) {
+        $("#login-form").addClass('is-hidden');
+        swal.fire({
+          title: 'Error Authenticating',
+          text: 'Phone Number must be number',
+          icon: 'warning',
+          timer: 3100
+        }).then(()=> {
+          $("#login-form").toggleClass('is-hidden');
+        });
+        return false;
+      }
+      if(password < 8) {
+        $("#login-form").addClass('is-hidden');
+        swal.fire({
+          title: 'Error Authenticating',
+          text: 'Password must be greater than 8 characters',
+          icon: 'warning',
+          timer: 3100
+        }).then(()=> {
+          $("#login-form").toggleClass('is-hidden');
+        });
+        return false;
+      }
+     
+    if (IsEmail(email)==false) {
+      $("#login-form").addClass('is-hidden');
+      swal.fire({
+        title: 'Error Authenticating',
+        text: 'Please provide a valid email address',
+        icon: 'warning',
+        timer: 3100
+      }).then(()=> {
+        $("#login-form").toggleClass('is-hidden');
+      });
+      return false;
+   }
+
+
+      swal.showLoading('Please wait...');
+    
+        const url = 'https://farm-aid-backend.herokuapp.com/api/users';
+    
+        const user = {
+          "firstname": firstname,
+          "lastname": lastname,
+          "phoneNumber": phonNum,
+          "email": email,
+          "company": company,
+          "bizCategory": selectId,
+          "password": password
+        };
+    
+        // create request object
+        var request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify(user),
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          })
+        });
+
+        fetch(request).then(async (res) => {
+          var resp = await res.json();
+          if( resp !== null && resp.user !== null ) {
+            if(resp.status !== 201) {
+              Swal.fire({
+                title: "Signing Up",
+                text:   "Either Phone Number or Email has already been used",
+                icon: "info",
+                timer: 3000
+              })
+            }
+            Swal.fire({
+              title: "Signing Up",
+              text:  `${resp.user.firstname} Please check your mail to verify your Account `,
+              icon: "info",
+              timer: 3000
+            })
+          }
+        })
+
     })
+
+    //  Sign Up logic ends here 
 
 
     $("#enta").on('click', function(e) {
