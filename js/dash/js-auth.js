@@ -73,6 +73,15 @@ $(document).ready(function($){
       history.go();
     })
 
+    $("#signup_new").on('click', function(e) {
+      Swal.fire({
+        title: "signing up",
+        text: "Please wait .....",
+        icon: "info",
+        timer: 3000
+      })
+    })
+
 
     $("#enta").on('click', function(e) {
         var useremail = $('#email').val();
