@@ -656,9 +656,9 @@
                     </ul>
                 </li>
                 <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">developer_board</span>Widgets</a>
+                            class="material-icons">developer_board</span>GAP CONTENT</a>
                     <ul>
-                        <li><a href="#gap">GAP</a></li>
+                        <li><a href="#gap">Crops GAP Content</a></li>
                         <li><a href="#users">Users</a></li>
                         <li><a href="javascript:">Crops</a></li>
                         <li><a href="javascript:">Animals</a></li>
@@ -1303,7 +1303,7 @@
                     <div class="has-text-centered">
                         <div class="image">
                             <img src="images/icons-note.svg"></div>
-                        <div class="help-text has-text-left has-text-success has-text-weight-semibold is-capitalized">Select the paramters below to target speicfic Farmers</div>
+                        <div class="help-text has-text-left has-text-success has-text-weight-semibold is-capitalized">Select the paramters below to target specific Farmers</div>
     <!-- Select Criticals user should use to Get farmers numbers -->
                         <div class="field is-horizontal">
                             <div class="field-label is-normal pull-left">
@@ -1394,6 +1394,183 @@
         </div>
         <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
+
+    <!-- Create Crop modal -->
+
+    <div id="create-crop-modal" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <h2 class="dark-text">New Crop</h2>
+                <div class="card-body">
+                    <div class="has-text-centered">
+                        <div class="image">
+                            <img src="images/icons-note.svg"></div>
+                       
+    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+    <form id="regForm">
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+
+            <div class="field">
+                <div class="control">
+                  <div class="select is-success is-medium is-rounded is-fullwidth">
+                    <select>
+                        <option value="" disabled selected>--Choose a Crop--</option>
+                        <option value="dog">RICE</option>
+                        <option value="cat">GROUNDNUT</option>
+                        <option value="hamster">TOMATOES</option>
+                        <option value="parrot">SORGHUM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Seed Processing details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab"><b>Input Details:</b>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Seed Source details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Seed Fertilizer details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Seed Herbicides details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Seed Crop Protection Product details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab"><b>Production</b>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Land Selection details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Land Preparation details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Planting Technique details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Harvesting details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Mechanization details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab"><b>Post Harvest</b>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Threshing details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Drying details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Packaging details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Storage details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab"><b>Crop Management</b>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Weed Control details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Fertilizer Application details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="CPP details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Pest and Disease Control details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab"><b>Weather and Climate Details</b>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Temperature  details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Rainfall details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Humility  details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div class="tab">Aggregation
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Labelling  details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Pricing details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Market Lineage  details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+            <div class="inputfield">
+                <textarea name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');" class="is-success" onblur="setbg('white')" rows="10" placeholder="Off-takers details ...." oninput="this.className"
+                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+            </div>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn"  onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" class="is-success" onclick="nextPrev(1)" onclick="validateForm()">Next</button>
+          </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </form>
+
+
+
+    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+    <!-- End Create Crop modal ***************************************************************************************-->
     <!-- /Invite User Modal -->
     <!-- Right sidebar quickview -->
     <div id="main-quickview" class="quickview is-right is-main">

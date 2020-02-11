@@ -105,6 +105,16 @@ function cancelMessage(params) {
     $('#create-note-modal > .modal-close').addClass('is-hidden');
 }
 
+function createCrop(param) {
+    if ($('#create-crop-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-crop-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-crop-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-crop-modal > .modal-content').addClass('scaleIn');
+        $('#create-crop-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
 function updateFromSMAP() {
     console.log('Updating the farmers database from SMAP...');
     swal.fire({
