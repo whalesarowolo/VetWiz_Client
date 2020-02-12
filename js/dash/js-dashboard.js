@@ -303,3 +303,18 @@ $(document).ready(function($){
 
 })
 
+
+// send SMS 
+
+$("send_messages").on('click', function(e) {
+    const url = 'https://farm-aid-backend.herokuapp.com/api/smap';
+
+     fetch(url)
+     .then(function(data) {
+        console.log(data)
+     })
+     .catch(function(error){
+         console.log(error)
+     })
+})
+
