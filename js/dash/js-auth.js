@@ -188,8 +188,7 @@ $(document).ready(function($){
         });
 
         fetch(request).then(async (res) => {
-          var resp = await res.json();
-          if( resp !== null && resp.user !== null ) {
+          let resp = await res.json();
             if(resp.status !== 201) {
               Swal.fire({
                 title: "Signing Up",
@@ -197,14 +196,15 @@ $(document).ready(function($){
                 icon: "info",
                 timer: 3000
               })
+            } else {
+
+              Swal.fire({
+                title: "Signing Up",
+                text:  `${resp.user.firstname} Please check your mail to verify your Account `,
+                icon: "info",
+                timer: 3000
+              })
             }
-            Swal.fire({
-              title: "Signing Up",
-              text:  `${resp.user.firstname} Please check your mail to verify your Account `,
-              icon: "info",
-              timer: 3000
-            })
-          }
         })
 
     })
