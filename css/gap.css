@@ -92,3 +92,7 @@
     background-repeat: no-repeat;
     margin-left: -10px;
 }
+
+.farmer-search {
+  display: flex;
+}
