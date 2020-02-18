@@ -384,3 +384,50 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
   //
  })
 
+
+$("#farm_table").ready(function() {
+
+  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+  // create an element
+// const createNode = (elem) => {
+//   return document.createElement(elem);
+// };
+
+// // append an element to parent
+// const appendNode = (parent, elem) => {
+//   parent.appendChild(elem);
+// }
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+   data.map((farmer) => {
+     let firstname = farmer.firstname;
+     let lastname = farmer.lastname;
+     let gender = farmer.gender;
+     let phoNum = farmer.phoneNumber;
+     let state = farmer.state;
+     let lga = farmer.lga;
+    html += "<tr>";
+      html += "<td>" + firstname + "</td>"
+      html += "<td>" + lastname + "</td>"
+      html += "<td>" + gender + "</td>"
+      html += "<td>" + phoNum + "</td>"
+      html += "<td>" + state + "</td>"
+      html += "<td>" + lga + "</td>"
+    html += "</tr>"
+   })
+   document.getElementById("farm_table").innerHTML = html;
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+
+
