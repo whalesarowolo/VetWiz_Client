@@ -407,6 +407,7 @@ $("#farm_table").ready(function() {
     headers
   }).then(async (res) => res.json()).then(data => {
     let html = "";
+    let table = "#mytable";
    data.map((farmer) => {
      let firstname = farmer.firstname;
      let lastname = farmer.lastname;
@@ -414,13 +415,16 @@ $("#farm_table").ready(function() {
      let phoNum = farmer.phoneNumber;
      let state = farmer.state;
      let lga = farmer.lga;
+     let ms = farmer.marital_status;
     html += "<tr>";
+      html += "<td></td>"
       html += "<td>" + firstname + "</td>"
       html += "<td>" + lastname + "</td>"
       html += "<td>" + gender + "</td>"
       html += "<td>" + phoNum + "</td>"
       html += "<td>" + state + "</td>"
       html += "<td>" + lga + "</td>"
+      html += "<td>" + ms + "</td>"
     html += "</tr>"
    })
    document.getElementById("farm_table").innerHTML = html;
@@ -429,5 +433,110 @@ $("#farm_table").ready(function() {
   });
 })
 
+let table = "#mytable";
+$("#maxRows").on('change', function() {
+  $('.pagination').html('')
+  let trnum = 0
+  let maxRows = parseInt($(this).val())
+  let totalRows = $(table+'tbody tr').length
+  $(table+' tr:gt(0)').each(function() {
+    trnum++
+    if(trnum > maxRows) {
+      $(this).hide()
+    }
 
+    if(trnum <= maxRows) {
+      $(this).show()
+    }
+    if(totalRows > maxRows) {
+      $(this).show()
+    }
+  })
+  if(totalRows > maxRows) {
+    let pagenum = Math.ceil(totalRows/maxRows)
+    for(let i=1; i<=pagenum;) {
+      $('.pagination').append('<li data-page="'+i+'">\<span>'+ i++ +'<span class="sr-only">(current)</span></span>\</li>').show()
+    }
+  }
+  $('.pagination li:first-child').addClass('active')
+  $('.pagination li').on('click', function() {
+    let pageNum = $(this).attr('data-page')
+    let trIndex = 0;
+    $('.pagination li').removeClass('active')
+    $(this).addClass('active')
+    $(table+'tr:gt(0)').each(function() {
+      trIndex++
+      if(trIndex > (maxRows*pageNum) || trIndex <= ((maxRows*pageNum)-maxRows)) {
+        $(this).hide()
+      } else {
+        $(this).show()
+      }
+    })
+  })
+})
+// $(function () {
+
+//   $('table tr:eq(0)').prepend('<th>ID</th>')
+//   let id = 0;
+//   $('table tr:gt(0)').each(function() {
+
+//     id++
+//     $(this).prepend('<td>'+id+'</td>')
+//   })
+// })
+
+function mySearch() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("mytable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function myLGA() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myLGA");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("mytable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[6];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+function myState() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myState");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("mytable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[5];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 
