@@ -474,16 +474,6 @@ $("#maxRows").on('change', function() {
     })
   })
 })
-// $(function () {
-
-//   $('table tr:eq(0)').prepend('<th>ID</th>')
-//   let id = 0;
-//   $('table tr:gt(0)').each(function() {
-
-//     id++
-//     $(this).prepend('<td>'+id+'</td>')
-//   })
-// })
 
 function mySearch() {
   var input, filter, table, tr, td, i, txtValue;
