@@ -177,7 +177,7 @@ function updateFromSMAP() {
  
 async function getUserAsync() {
     
-    let response = await fetch(`http://localhost:5000/api/smap`);
+    let response = await fetch(`https://farm-aid-backend.herokuapp.com/api/smap`);
     let data = await response.json();
     return data;
 }
