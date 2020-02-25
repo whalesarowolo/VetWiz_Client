@@ -12,7 +12,7 @@
             new Route('seed', 'seed.html'),
             new Route('extension', 'extension.html'),
             new Route('ngo', 'ngo.html'),
-            new Route('need', 'need.html'),
+            new Route('needs', 'needs.html'),
         ]);
     }
     init();
