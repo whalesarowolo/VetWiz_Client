@@ -14,9 +14,9 @@
             new Route('ngo', 'ngo.html'),
             new Route('needs', 'needs.html'),
             new Route('aggregators', 'aggregators.html'),
-            new Route('researchinstitutes', 'researchinstitutes.html'),
+            new Route('paraVet', 'paraVet.html'),
             new Route('offtakers', 'offtakers.html'),
-            
+            new Route('input', 'inputcompanies.html'),
         ]);
     }
     init();
