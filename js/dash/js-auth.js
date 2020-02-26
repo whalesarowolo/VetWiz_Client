@@ -257,7 +257,9 @@ $(document).ready(function($){
               console.log(resp.token);
               swal.close();
               localStorage.setItem('access_token', resp.token);
-              history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
+              //For propcom dashboard
+              history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
+              //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
               window.location.replace("/dashboard.html");
               var userObj = parseJwt(resp.token);
               console.log(userObj.user.id);
