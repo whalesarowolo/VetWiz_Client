@@ -260,7 +260,7 @@ $(document).ready(function($){
               //For propcom dashboard
               history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
               //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
-              window.location.replace("/dashboard.html");
+              window.location.replace("/propcom.html");
               var userObj = parseJwt(resp.token);
               console.log(userObj.user.id);
               localStorage.setItem('user', userObj.user.id);
