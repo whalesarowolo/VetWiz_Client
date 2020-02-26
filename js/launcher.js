@@ -11,12 +11,12 @@
             new Route('agro_dealers', 'agro_dealers.html'),
             new Route('seed', 'seed.html'),
             new Route('extension', 'extension.html'),
-            new Route('ngo', 'ngo.html'),
+            new Route('agronomist', 'agronomist.html'),
             new Route('needs', 'needs.html'),
             new Route('aggregators', 'aggregators.html'),
-            new Route('researchinstitutes', 'researchinstitutes.html'),
+            new Route('paraVet', 'paraVet.html'),
             new Route('offtakers', 'offtakers.html'),
-            
+            new Route('input', 'inputcompanies.html'),
         ]);
     }
     init();
