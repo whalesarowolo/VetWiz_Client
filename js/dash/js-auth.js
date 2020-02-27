@@ -257,11 +257,18 @@ $(document).ready(function($){
               console.log(resp.token);
               swal.close();
               localStorage.setItem('access_token', resp.token);
-              //For propcom dashboard
-              history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
-              //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
-              window.location.replace("/propcom.html");
               var userObj = parseJwt(resp.token);
+              //For propcom dashboard
+              if(userObj.user.company == "propcorn"){
+                history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
+                //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
+                window.location.replace("/propcom.html");
+              } else {
+                history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
+                window.location.replace("/dashboard.html");
+              }
+              
+              
               console.log(userObj.user.id);
               localStorage.setItem('user', userObj.user.id);
             } else {
