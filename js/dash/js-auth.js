@@ -259,7 +259,7 @@ $(document).ready(function($){
               localStorage.setItem('access_token', resp.token);
               var userObj = parseJwt(resp.token);
               //For propcom dashboard
-              if(userObj.user.company == "propcorn"){
+              if(userObj.user.company == "propcom"){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
                 //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/propcom.html");
