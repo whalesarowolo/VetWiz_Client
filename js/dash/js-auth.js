@@ -393,54 +393,70 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
   //
  })
 
+ function farmerSwal(params) {
+  if($("#main-dashboard").length){
+     
+  
+   swal.fire({
+    title: 'Loading Farmers Data',
+    text: 'Please wait...',
+    timer: 3000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    $("#mytable").fadeOut("fast");
+    Swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+    $("#farm_table").ready(function() {
+  
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        let table = "#mytable";
+       data.map((farmer) => {
+         let firstname = farmer.firstname;
+         let lastname = farmer.lastname;
+         let gender = farmer.gender;
+         let phoNum = farmer.phoneNumber;
+         let state = farmer.state;
+         let lga = farmer.lga;
+         let ms = farmer.marital_status;
+         html += "<tr>";
+         html += "<td></td>"
+         html += "<td>" + firstname + "</td>"
+         html += "<td>" + lastname + "</td>"
+         html += "<td>" + gender + "</td>"
+         html += "<td>" + phoNum + "</td>"
+         html += "<td>" + state + "</td>"
+         html += "<td>" + lga + "</td>"
+         html += "<td>" + ms + "</td>"
+         html += "</tr>"
+        })
+        document.getElementById("farm_table").innerHTML = html;
+        Swal.close();
+        $("#mytable").fadeIn("fast");
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+  })
+ }
 
-$("#farm_table").ready(function() {
-
-  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  // create an element
-// const createNode = (elem) => {
-//   return document.createElement(elem);
-// };
-
-// // append an element to parent
-// const appendNode = (parent, elem) => {
-//   parent.appendChild(elem);
-// }
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#mytable";
-   data.map((farmer) => {
-     let firstname = farmer.firstname;
-     let lastname = farmer.lastname;
-     let gender = farmer.gender;
-     let phoNum = farmer.phoneNumber;
-     let state = farmer.state;
-     let lga = farmer.lga;
-     let ms = farmer.marital_status;
-    html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + gender + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + state + "</td>"
-      html += "<td>" + lga + "</td>"
-      html += "<td>" + ms + "</td>"
-    html += "</tr>"
-   })
-   document.getElementById("farm_table").innerHTML = html;
-  }).catch((error) => {
-    console.error('Error:', error);
-  });
-})
+}
 
 let table = "#mytable";
 $("#maxRows").on('change', function() {
@@ -538,6 +554,7 @@ function myState() {
     }       
   }
 }
+
 
 $("#agrotable").ready(function() {
 
