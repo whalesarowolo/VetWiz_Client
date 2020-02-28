@@ -1,7 +1,7 @@
 /*! charts.js | FarmAid */
 
 /* ==========================================================================
-All Template Charts
+All FarmAid Charts
 ========================================================================== */
 
 $(document).ready(function(){
@@ -169,13 +169,13 @@ $(document).ready(function(){
             data: {
                 labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun'],
                 datasets: [{
-                    data: [85698, 196325, 225149, 120589, 45036, 68749],
+                    data: [987, 1500, 1049, 643, 503, 749],
                     backgroundColor: ["rgba(127, 0, 255,1)"],
                     borderColor: 'rgba(127, 0, 255,0.9)',
                     pointBackgroundColor: '#fff',
                     pointBorderColor: 'rgba(127, 0, 255,1)',
                 }, {
-                    data: [241032, 329211.43, 178431, 205987, 153687, 178964],
+                    data: [1032, 921.43, 841, 2087, 3087, 1789],
                     backgroundColor: ["rgba(0, 209, 178,0.6)"],
                     borderColor: 'rgba(0, 209, 178,1)',
                     pointBackgroundColor: '#fff',
@@ -218,7 +218,7 @@ $(document).ready(function(){
                                     }
                                     return n;
                                 }
-                                return '$' + formatNumber(value);
+                                return 'N' + formatNumber(value);
                             }
                         }
                     }],

@@ -1,4 +1,4 @@
-/*! crm.js | Bulkit | CSS Ninja */
+/*! crm.js | FarmAid */
 
 /* ==========================================================================
 Dashboard CRM JS file
