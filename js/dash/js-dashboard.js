@@ -299,7 +299,7 @@ $(document).ready(function($){
     $().initMediaCards();
 
     //Svg vector map
-    $().initVectorMap();
+    //$().initVectorMap();
 
 })
 

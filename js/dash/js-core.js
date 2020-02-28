@@ -522,70 +522,81 @@ $(document).ready(function(){
         };
 
         //Init Vector Map
+
+        $.fn.vectorMaper = function (options) {
+
+            var defaultParams = {
+              map: 'world_en',
+              backgroundColor: '#a5bfdd',
+              color: '#f4f3f0',
+              hoverColor: '#c9dfaf',
+              hoverColors: {},
+              selectedColor: '#c9dfaf',
+              scaleColors: ['#b6d6ff', '#005ace'],
+              normalizeFunction: 'linear',
+              enableZoom: true,
+              showTooltip: true,
+              borderColor: '#818181',
+              borderWidth: 1,
+              borderOpacity: 0.25,
+              selectedRegions: null,
+              multiSelectRegion: false
+            }, map = this.data('mapObject');
+        
+            if (options === 'addMap') {
+              JQVMap.maps[arguments[1]] = arguments[2];
+            } else if (options === 'set' && apiParams[arguments[1]]) {
+              map['set' + arguments[1].charAt(0).toUpperCase() + arguments[1].substr(1)].apply(map, Array.prototype.slice.call(arguments, 2));
+            } else if (typeof options === 'string' &&
+              typeof map[options] === 'function') {
+              return map[options].apply(map, Array.prototype.slice.call(arguments, 1));
+            } else {
+              jQuery.extend(defaultParams, options);
+              defaultParams.container = this;
+              this.css({ position: 'relative', overflow: 'hidden' });
+        
+              map = new JQVMap(defaultParams);
+        
+              this.data('mapObject', map);
+        
+              this.unbind('.jqvmap');
+        
+              for (var e in $.apiEvents) {
+                if (defaultParams[e]) {
+                  this.bind(apiEvents[e] + '.jqvmap', defaultParams[e]);
+                }
+              }
+        
+              var loadEvent = jQuery.Event('load.jqvmap');
+              jQuery(defaultParams.container).trigger(loadEvent, map);
+        
+              return map;
+            }
+          };
         $.fn.initVectorMap = function () {
             if ($('#vmap').length) {
                 $('#vmap').vectorMap({
-                    map: 'usa_en',
-                    backgroundColor: null,
-                    colors: {
-                        mo: '#00D1B2',
-                        fl: '26d0a8',
-                        or: '#00D1B2',
-                        ar: '26d0a8',
-                        ca: '26d0a8',
-                        co: '26d0a8',
-                        tx: '#00d1b2',
-                        mt: '#00d1b2',
-                        wa: '26d0a8',
-                        id: '26d0a8',
-                        ga: '26d0a8',
-                        sc: '26d0a8',
-                        nv: '#00D1B2',
-                        az: '26d0a8',
-                        de: '#00d1b2',
-                        ia: '26d0a8',
-                        ki: '26d0a8',
-                        ky: '26d0a8',
-                        ct: '26d0a8',
-                        de: '26d0a8',
-                        mn: '26d0a8',
-                        sd: '#00D1B2',
-                        wy: '#00D1B2',
-                        ut: '#00d1b2',
-                        nm: '#00d1b2',
-                        nd: '26d0a8',
-                        ne: '26d0a8',
-                        ks: '#00D1B2',
-                        ok: '26d0a8',
-                        la: '26d0a8',
-                        ms: '26d0a8',
-                        al: '26d0a8',
-                        wi: '26d0a8',
-                        mi: '26d0a8',
-                        il: '26d0a8',
-                        in: '26d0a8',
-                        oh: '26d0a8',
-                        tn: '26d0a8',
-                        nc: '26d0a8',
-                        wv: '26d0a8',
-                        va: '26d0a8',
-                        md: '26d0a8',
-                        nj: '26d0a8',
-                        pa: '26d0a8',
-                        ny: '26d0a8',
-                        ma: '26d0a8',
-                        nh: '26d0a8',
-                        vt: '26d0a8',
-                        me: '26d0a8',
-                        ak: '#00d1b2',
-                        hi: '26d0a8',
-                    },
-                    hoverOpacity: 0.7,
-                    selectedColor: '#666666',
+                    map: 'nigeria_ng',
+                    backgroundColor: '#a5bfdd',
+                    borderColor: '#818181',
+                    borderOpacity: 0.25,
+                    borderWidth: 1,
+                    color: '#f4f3f0',
                     enableZoom: true,
-                    borderColor: '#999',
+                    hoverColor: '#c9dfaf',
+                    hoverOpacity: null,
+                    normalizeFunction: 'linear',
+                    scaleColors: ['#b6d6ff', '#005ace'],
+                    selectedColor: '#c9dfaf',
+                    selectedRegions: null,
                     showTooltip: true,
-                    normalizeFunction: 'polynomial',
+                    onRegionClick: function (element, code, region) {
+                        var message = 'You clicked "'
+                            + region
+                            + '" which has the code: '
+                            + code.toUpperCase();
+                        alert(message);
+                    }
                 });
 
                 function sizeMap() {

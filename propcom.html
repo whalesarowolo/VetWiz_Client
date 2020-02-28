@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/css-dashboard.css">
     <link rel="stylesheet" href="css/css-icons.min.css">
     <link rel="stylesheet" href="css/gap.css">
+    <link rel="stylesheet" href="css/jqvmap.min.css">
 </head>
 
 <body>
@@ -924,144 +925,137 @@
                 <!-- Main content -->
                 <div id="main-dashboard" class="section-wrapper">
                     <!-- Stat tiles -->
-                    <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance_wallet</i>
+                    <div id="basic-layout" class="">
+                        <div class="row columns dashboard-columns dashboard-tiles">
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons secondary">work</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Aggregators</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#aggregators">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Agro Dealers</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
+                            </div>
+
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons primary">account_balance_wallet</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Agro Dealers</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#agro_dealers">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
                                 </div>
-                                <a class="view-all-button" href="#agro_dealers">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
+                            </div>
+
+
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons primary">account_balance</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>iNGOs</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#agronomist">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons primary">account_balance_wallet</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Input Cos.</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#input">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance</i>
+
+                        <div class="row columns dashboard-columns dashboard-tiles">
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons secondary">business</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Off Takers</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#offtakers">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Seed Cos.</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#seed">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">work</i>
+
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons secondary">work</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Paravets</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#paraVet">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Aggregators</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#aggregators">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">business</i>
+
+                            <!-- Tile -->
+                            <div class="column is-3">
+                                <div class="dashboard-tile">
+                                    <div class="icon-header">
+                                        <i class="material-icons primary">account_balance</i>
+                                    </div>
+                                    <div class="tile-content">
+                                        <h3>Seed Cos.</h3>
+                                        <p>
+                                            <span>0</span>
+                                        </p>
+                                    </div>
+                                    <a class="view-all-button" href="#seed">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Off Takers</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#offtakers">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance_wallet</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Input Cos.</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#input">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>iNGOs</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#agronomist">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">work</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Paravets</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#paraVet">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3 is-hidden">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">business</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Ext Agents</h3>
-                                    <p>
-                                        <span>0</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#extension">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
 
@@ -1115,7 +1109,7 @@
                                 <div class="chart-container">
                                     <canvas id="lineChart" width="400" height="300"></canvas></div>
                             </div>
-                            
+
 
                             <div class="peity-widget is-hidden">
                                 <span class="peity-chart widget-lines-primary">5,3,9,6,5,9,7,3,5,16,5,7,2</span>
@@ -1148,7 +1142,7 @@
                         <div class="column is-4">
                             <!-- Widget -->
                             <div id="vmap-container" class="map-card">
-                                <div id="vmap"></div>
+                                <div id="vmap"> </div>
                             </div>
 
                             <!-- Widget -->
@@ -1216,7 +1210,7 @@
                             <!-- Widget -->
                             <div id="doughnut-card" class="dash-card">
                                 <div class="card-heading has-icon no-margin">
-                                    <span>Task Progress</span>
+                                    <span>Needs Assessments</span>
                                     <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
                                         <div class="button">
                                             <i class="material-icons">more_vert</i>
@@ -1262,7 +1256,7 @@
                                     <div class="button-wrap has-text-centered">
                                         <a class="button btn-dash secondary-btn btn-dash is-raised rounded ripple"
                                             data-ripple-color="" href="javascript:">See all
-                                            tasks</a>
+                                            assessments</a>
                                     </div>
                                 </div>
                             </div>
@@ -2120,6 +2114,12 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+    <!-- Vector Maps -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.vmap.js"></script>
+
+    <script type="text/javascript" src="js/jquery.vmap.nigeria.js" charset="utf-8"></script>
+
     <!-- Routing start -->
     <script src="js/farmaid_route.js"></script>
     <script src="js/farmaid_router.js"></script>
@@ -2135,11 +2135,40 @@
     <script src="js/dash/js-documents.js"></script>
     <script src="js/dash/js-contacts.js"></script>
     <script src="js/dash/js-projects.js"></script>
-    <script src="js/dash/js-kanban.js"></script>
     <script src="js/dash/js-datatable.js"></script>
     <script src="js/dash/js-charts.js"></script>
     <script src="js/dash/js-auth.js"></script>
     <script src="js/gap.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($("#vmap").length) {
+                console.log("Element live");
+                $('#vmap').vectorMaper({
+                    map: 'nigeria_ng',
+                    backgroundColor: '#a5bfdd',
+                    borderColor: '#818181',
+                    borderOpacity: 0.25,
+                    borderWidth: 1,
+                    color: '#f4f3f0',
+                    enableZoom: true,
+                    hoverColor: '#c9dfaf',
+                    hoverOpacity: null,
+                    normalizeFunction: 'linear',
+                    scaleColors: ['#b6d6ff', '#005ace'],
+                    selectedColor: '#c9dfaf',
+                    selectedRegions: null,
+                    showTooltip: true,
+                    onRegionClick: function (element, code, region) {
+                        var message = 'You clicked "'
+                            + region
+                            + '" which has the code: '
+                            + code.toUpperCase();
+                        alert(message);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
