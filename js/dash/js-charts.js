@@ -167,16 +167,16 @@ $(document).ready(function(){
         var dashLineChart = new Chart(ctx2, {
             type: 'line',
             data: {
-                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun'],
+                labels: ['jan', 'feb', 'mar'],
                 datasets: [{
-                    data: [987, 1500, 1049, 643, 503, 749],
+                    data: [987, 1500, 1049],
                     backgroundColor: ["rgba(127, 0, 255,1)"],
                     borderColor: 'rgba(127, 0, 255,0.9)',
                     pointBackgroundColor: '#fff',
                     pointBorderColor: 'rgba(127, 0, 255,1)',
                 }, {
-                    data: [1032, 921.43, 841, 2087, 3087, 1789],
-                    backgroundColor: ["rgba(0, 209, 178,0.6)"],
+                    data: [632, 921.43, 841],
+                    backgroundColor: ["rgba(0, 189, 178,0.6)"],
                     borderColor: 'rgba(0, 209, 178,1)',
                     pointBackgroundColor: '#fff',
                     pointBorderColor: 'rgba(0, 209, 178,1)',
@@ -185,13 +185,13 @@ $(document).ready(function(){
             options: {
                 scales: {
                     xAxes: [{
-                        display: false,
+                        display: true,
                         //stacked: true,
                         gridLines: {
                             color: "rgba(0, 0, 0, 0)",
                         },
                         scaleLabel: {
-                            display: false,
+                            display: true,
                         },
                     }],
                     yAxes: [{
@@ -207,8 +207,8 @@ $(document).ready(function(){
                             maxTicksLimit: 6,
                             callback: function (value) {
                                 var ranges = [
-                                    { divider: 1e6, suffix: 'M' },
-                                    { divider: 1e3, suffix: 'k' }
+                                    { divider: 1e3, suffix: 'k' },
+                                    { divider: 1e2, suffix: 'H' }
                                 ];
                                 function formatNumber(n) {
                                     for (var i = 0; i < ranges.length; i++) {
@@ -218,7 +218,7 @@ $(document).ready(function(){
                                     }
                                     return n;
                                 }
-                                return 'N' + formatNumber(value);
+                                return '' + formatNumber(value);
                             }
                         }
                     }],
@@ -240,8 +240,8 @@ $(document).ready(function(){
                     }
                 },
                 title: {
-                    display: false,
-                    text: 'Main suppliers',
+                    display: true,
+                    text: 'Progress Indicators',
                     fontSize: 14,
                     fontColor: '#A9ABAC',
                     fontStyle: 'normal',
