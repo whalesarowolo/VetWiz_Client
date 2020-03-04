@@ -447,8 +447,12 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
          html += "</tr>"
         })
         document.getElementById("farm_table").innerHTML = html;
+      
         Swal.close();
         $("#mytable").fadeIn("fast");
+        var count = $('#farm_table tr').length;
+        
+        console.log(Math.round(count/2))
       }).catch((error) => {
         console.error('Error:', error);
       });
@@ -457,6 +461,73 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
  }
 
 }
+
+$("#ada").ready(function() {
+  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+  let html = "";
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
+  document.getElementById("ada").innerHTML = html;
+  })
+})
+$("#gob").ready(function() {
+  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+  let html = "";
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    console.log("gombe:" + data.length)
+    html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
+  document.getElementById("gob").innerHTML = html;
+  })
+})
+
+// $("#total").ready(function() {
+//   var count = $('#farm_table tr').length;
+//   let html = "";
+//   html += "<span>" + count + "</span>"
+//   document.getElementById("total").innerHTML = html;
+// })
+
+$("#total").ready(function() {
+  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+  let html = "";
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    console.log("gombe:" + data.length)
+    html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
+  document.getElementById("total").innerHTML = html;
+  // document.getElementById("total").style.color = "red";
+  })
+})
+// function getCount() {
+//   var count = $('#farm_table tr').length;
+//   let html = "";
+//   html += "<span>" + Math.round(count) + "</span>"
+//   document.getElementById("total").innerHTML = html;
+//   console.log(Math.round(count - 1))
+// }
 
 let table = "#mytable";
 $("#maxRows").on('change', function() {
@@ -510,8 +581,10 @@ function mySearch() {
     td = tr[i].getElementsByTagName("td")[3];
     if (td) {
       txtValue = td.textContent || td.innerText;
+      
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
+        
       } else {
         tr[i].style.display = "none";
       }

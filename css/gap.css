@@ -6,7 +6,7 @@
     width: 100%;
     min-width: 300px;
     margin-bottom: -50px;
-    margin-top: -20px;
+    margin-top: -30px;
   }
   
 #regForm  h1 {
@@ -28,7 +28,10 @@
   input.invalid {
     background-color: #ffdddd;
   }
-  
+  .inputfield {
+    display: flex;
+    flex-direction: column;
+  }
   .inputfield span {
     color: red;
     font-size: 15px;
@@ -110,4 +113,15 @@ table tr td:first-child::before {
   content: counter(rowNumber);
   min-width: 1em;
   margin-right: 0.5em;
+}
+.count-farmers {
+  display: flex;
+  flex-direction: column;
+}
+.check{
+  display: flex;
+  justify-content: space-between;
+}
+#Processing {
+  margin: auto;
 }
