@@ -400,7 +400,7 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
    swal.fire({
     title: 'Loading Farmers Data',
     text: 'Please wait...',
-    timer: 6000,
+    timer: 4000,
     allowOutsideClick: false,
     showConfirmButton: false,
     icon: 'info'
