@@ -457,6 +457,9 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
         console.error('Error:', error);
       });
     })
+
+
+    
   })
  }
 
@@ -496,13 +499,6 @@ $("#gob").ready(function() {
   })
 })
 
-// $("#total").ready(function() {
-//   var count = $('#farm_table tr').length;
-//   let html = "";
-//   html += "<span>" + count + "</span>"
-//   document.getElementById("total").innerHTML = html;
-// })
-
 $("#total").ready(function() {
   const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
   const token = localStorage.getItem('access_token');
@@ -521,13 +517,6 @@ $("#total").ready(function() {
   // document.getElementById("total").style.color = "red";
   })
 })
-// function getCount() {
-//   var count = $('#farm_table tr').length;
-//   let html = "";
-//   html += "<span>" + Math.round(count) + "</span>"
-//   document.getElementById("total").innerHTML = html;
-//   console.log(Math.round(count - 1))
-// }
 
 let table = "#mytable";
 $("#maxRows").on('change', function() {
@@ -628,336 +617,440 @@ function myState() {
   }
 }
 
+function inputTable(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Input Dealers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#inputtable").ready(function() {
 
-$("#agrotable").ready(function() {
-
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#agro_table";
-    data.map((users) => {
-      if(users.bizCategory == "agro-dealer") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("agro_table").innerHTML = html;
-      } else if(users.bizCategory == 'null') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-      }
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#input_table";
+          data.map((users) => {
+            if(users.bizCategory == "input_company") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("input_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#seedtable").ready(function() {
+function offTaker(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Off Takers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#offtable").ready(function() {
 
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#seed_table";
-    data.map((users) => {
-      if(users.bizCategory == "seed_supplier") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("seed_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#off_table";
+          data.map((users) => {
+            if(users.bizCategory == "off_taker") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("off_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#aggretable").ready(function() {
+function paraVet(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading ParaVet Workers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#paratable").ready(function() {
 
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#aggre_table";
-    data.map((users) => {
-      if(users.bizCategory == "aggregator") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("aggre_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#para_table";
+          data.map((users) => {
+            if(users.bizCategory == "paraVet") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("para_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#exttable").ready(function() {
+function extTable(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Extension Workers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#exttable").ready(function() {
 
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#ext_table";
-    data.map((users) => {
-      if(users.bizCategory == "ext_agent") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("ext_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#ext_table";
+          data.map((users) => {
+            if(users.bizCategory == "ext_agent") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("ext_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#agrotable").ready(function() {
+function aggreTable(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Aggregator Dealers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#aggretable").ready(function() {
 
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#agro_table";
-    data.map((users) => {
-      if(users.bizCategory == "agronomist") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("agro_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#aggre_table";
+          data.map((users) => {
+            if(users.bizCategory == "aggregator") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("aggre_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#paratable").ready(function() {
-
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#para_table";
-    data.map((users) => {
-      if(users.bizCategory == "paraVet") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("para_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+function seedTable(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Seed Dealers Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      $("#seedtable").ready(function() {
+        
+        const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+      
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+          let html = "";
+          let table = "#seed_table";
+          data.map((users) => {
+            if(users.bizCategory == "seed_supplier") {
+              let firstname = users.firstname;
+              let lastname = users.lastname;
+              let phoNum = users.phoneNumber;
+              let email = users.email;
+              let company = users.company;
+      
+              html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + firstname + "</td>"
+            html += "<td>" + lastname + "</td>"
+            html += "<td>" + phoNum + "</td>"
+            html += "<td>" + email + "</td>"
+            html += "<td>" + company + "</td>"
+          html += "</tr>"
+      
+          document.getElementById("seed_table").innerHTML = html;
+            } else if(users.bizCategory == '') {
+              html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+              document.getElementById("nullSeed").innerHTML = html;
+            }
+          })
+          
+        })
+        Swal.close();
+      })
     })
-    
-  })
+  }
+}
 
-})
-$("#offtable").ready(function() {
 
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#off_table";
-    data.map((users) => {
-      if(users.bizCategory == "off_taker") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("off_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
+function agroTable(params) {
+  if($("#main-dashboard").length) {
+    swal.fire({
+      title: 'Loading Agrodealer Table',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then( function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+          $("#agrotable").ready(function() {
+          
+            const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+            const token = localStorage.getItem('access_token');
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Authorization', token);
+          
+            fetch(url, {
+              method: "GET",
+              headers
+            }).then(async (res) => res.json()).then(data => {
+              let html = "";
+              let table = "#agro_table";
+              data.map((users) => {
+                if(users.bizCategory == "agro-dealer") {
+                  let firstname = users.firstname;
+                  let lastname = users.lastname;
+                  let phoNum = users.phoneNumber;
+                  let email = users.email;
+                  let company = users.company;
+          
+                  html += "<tr>";
+                html += "<td></td>"
+                html += "<td>" + firstname + "</td>"
+                html += "<td>" + lastname + "</td>"
+                html += "<td>" + phoNum + "</td>"
+                html += "<td>" + email + "</td>"
+                html += "<td>" + company + "</td>"
+              html += "</tr>"
+          
+              document.getElementById("agro_table").innerHTML = html;
+                } else if(users.bizCategory == 'null') {
+                  html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+                }
+              })
+              
+            })
+          
+            Swal.close();
+          })
     })
-    
-  })
-
-})
-$("#inputtable").ready(function() {
-
-  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    let html = "";
-    let table = "#input_table";
-    data.map((users) => {
-      if(users.bizCategory == "input_company") {
-        let firstname = users.firstname;
-        let lastname = users.lastname;
-        let phoNum = users.phoneNumber;
-        let email = users.email;
-        let company = users.company;
-
-        html += "<tr>";
-      html += "<td></td>"
-      html += "<td>" + firstname + "</td>"
-      html += "<td>" + lastname + "</td>"
-      html += "<td>" + phoNum + "</td>"
-      html += "<td>" + email + "</td>"
-      html += "<td>" + company + "</td>"
-    html += "</tr>"
-
-    document.getElementById("input_table").innerHTML = html;
-      } else if(users.bizCategory == '') {
-        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
-        document.getElementById("nullSeed").innerHTML = html;
-      }
-    })
-    
-  })
-
-})
-
-
+  }
+}
 
 function toGapSwal(params) {
   if($("#main-dashboard").length){
