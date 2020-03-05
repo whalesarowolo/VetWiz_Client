@@ -957,14 +957,32 @@ $("#inputtable").ready(function() {
 
 })
 
-// gap content function
-var random_id = function  () 
-{
-  var id_num = Math.random().toString(9).substr(2,3);
-  var id_str = Math.random().toString(36).substr(2);
-  
-  return id_num + id_str;
-} 
+
+
+function toGapSwal(params) {
+  if($("#main-dashboard").length){
+    swal.fire({
+      title: 'Loading Tomatoes Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      var random_id = function  () 
+      {
+        var id_num = Math.random().toString(9).substr(2,3);
+        var id_str = Math.random().toString(36).substr(2);
+        
+        return id_num + id_str;
+      } 
 
     $("#to_pro").ready(function() {
       const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
@@ -1260,11 +1278,14 @@ var random_id = function  ()
       html += "</tr>"
        
       document.getElementById("to_input").innerHTML = html;
-        
+      Swal.close();
       }).catch((error) => {
         console.error('Error:', error);
       });
     });
-
+  })
+  Swal.close();
+}
+}
 
 
