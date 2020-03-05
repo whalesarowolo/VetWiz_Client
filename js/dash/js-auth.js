@@ -400,7 +400,7 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
    swal.fire({
     title: 'Loading Farmers Data',
     text: 'Please wait...',
-    timer: 3000,
+    timer: 6000,
     allowOutsideClick: false,
     showConfirmButton: false,
     icon: 'info'
@@ -447,8 +447,6 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
          html += "</tr>"
         })
         document.getElementById("farm_table").innerHTML = html;
-      
-        Swal.close();
         $("#mytable").fadeIn("fast");
         var count = $('#farm_table tr').length;
         
@@ -459,7 +457,61 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
     })
 
 
+    $("#total").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
     
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        console.log("gombe:" + data.length)
+        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
+      document.getElementById("total").innerHTML = html;
+      // document.getElementById("total").style.color = "red";
+      })
+    })
+
+    $("#gob").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        console.log("gombe:" + data.length)
+        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
+      document.getElementById("gob").innerHTML = html;
+      })
+    })
+
+    $("#ada").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
+      document.getElementById("ada").innerHTML = html;
+      })
+    })
+
+    Swal.close();
   })
  }
 
