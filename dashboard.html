@@ -649,14 +649,13 @@
                     <ul>
                         <li><a onclick="farmerSwal()" href="#farmers">Farmers</a></li>
                         <li><a href="#users">Users</a></li>
-                        <li><a href="#agro_dealers">Agrodealers</a></li>
-                        <li><a href="#seed">Seed Companies</a></li>
-                        <li><a href="#extension">Extension Agents</a></li>
-                        <li><a href="#agronomist">Agronomist</a></li>
-                        <li><a href="#aggregators">Aggregators</a></li>
-                        <li><a href="#offtakers">Off-Takers</a></li>
-                        <li><a href="#paraVet">ParaVet</a></li>
-                        <li><a href="#input">Input Companies</a></li>
+                        <li><a onclick="agroTable()" href="#agro_dealers">Agrodealers</a></li>
+                        <li><a onclick="seedTable()"  href="#seed">Seed Companies</a></li>
+                        <li><a onclick="extTable()" href="#extension">Extension Agents</a></li>
+                        <li><a onclick="aggreTable()" href="#aggregators">Aggregators</a></li>
+                        <li><a onclick="offTaker()" href="#offtakers">Off-Takers</a></li>
+                        <li><a onclick="paraVet()" href="#paraVet">ParaVet</a></li>
+                        <li><a onclick="inputTable()" href="#input">Input Companies</a></li>
                     </ul>
                 </li>
                 <li class="have-children"><a class="parent-link" href="#"><span
@@ -670,7 +669,7 @@
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">developer_board</span>GAP CONTENT</a>
                     <ul>
-                        <li><a href="#gap">Crops GAP Content</a></li>
+                        <li><a href="#gap" onclick="toGapSwal()">Crops GAP Content</a></li>
                         <li><a href="javascript:">Users</a></li>
                         <li><a href="javascript:">Crops</a></li>
                         <li><a href="javascript:">Animals</a></li>
@@ -936,7 +935,7 @@
                                         <span>284</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#agro_dealers">
+                                <a class="view-all-button" onclick="agroTable()"  href="#agro_dealers">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -953,7 +952,7 @@
                                         <span>23</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#seed">
+                                <a class="view-all-button" onclick="seedTable()" href="#seed">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -970,7 +969,7 @@
                                         <span>24</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#aggregators">
+                                <a class="view-all-button" onclick="aggreTable()" href="#aggregators">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -987,7 +986,7 @@
                                         <span>53</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#offtakers">
+                                <a class="view-all-button" onclick="offTaker()" href="#offtakers">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -1006,28 +1005,12 @@
                                         <span>284</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#input">
+                                <a class="view-all-button" onclick="inputTable()"  href="#input">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
                         </div>
                         <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Agronomist</h3>
-                                    <p>
-                                        <span>23</span>
-                                    </p>
-                                </div>
-                                <a class="view-all-button" href="#agronomist">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
                         <!-- Tile -->
                         <div class="column is-3">
                             <div class="dashboard-tile">
@@ -1040,7 +1023,7 @@
                                         <span>24</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#paraVet">
+                                <a class="view-all-button" onclick="paraVet()" href="#paraVet">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -1057,7 +1040,7 @@
                                         <span>53</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" href="#extension">
+                                <a class="view-all-button" onclick="extTable()" href="#extension">
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -1477,7 +1460,292 @@
         <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
 
-    <!-- Create Crop modal -->
+    <!-- Create Tomatoes Crop modal -->
+
+    <div id="create-aggre" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <div class="has-text-centered">
+                       
+
+                        <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                        <form action="">
+                            <div class="check" id="to_agg_1">
+
+                                <div class="inputfield">
+                                    <textarea id="to_ld" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Labelling  details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_pdss" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Pricing details ...." oninput="this.className" required id="styled"
+                                        data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="check" id="to_agg_2">
+
+                                <div class="inputfield">
+                                    <textarea id="to_mld" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Market Lineage  details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_otd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Off-takers details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomatoes_agg"class="button modal-dismiss">Save</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+
+    <div id="create-WC" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <div class="has-text-centered">
+                       
+
+                        <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                        <form action="">
+                            <div class="check" id="to_wc">
+
+                                <div class="inputfield">
+                                    <textarea id="to_tds" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Temperature  details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_rd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Rainfall details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="inputfield" maxlength = "320" id="to_humi">
+                                <textarea id="to_hds" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                    class="is-success" rows="10"
+                                    placeholder="Humility  details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </form>
+                        <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomaotes_wc" class="button modal-dismiss">Save</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+    <div id="create-prod" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <div class="has-text-centered">
+                       
+
+                        <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                        <form action="">
+                            <div class="check" id="to_pro_1">
+
+                                <div class="inputfield">
+                                    <textarea id="to_ls" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Land Selection details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_lp" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Land Preparation details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="check" id="to_pro_2">
+
+                                <div class="inputfield">
+                                    <textarea id="to_pt" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Planting Technique details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_hd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Crop Management details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="inputfield" id="to_mech">
+                                <textarea id="to_md" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                    class="is-success" rows="10"
+                                    placeholder="Mechanization details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </form>
+                        <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomatoes_prod" class="button modal-dismiss">Save</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+
+    <div id="create-CMGT" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <div class="has-text-centered">
+                       
+
+                        <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                        <form action="">
+                            <div class="check" id="to_mag_1">
+
+                                <div class="inputfield">
+                                    <textarea id="to_wcd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Weed Control details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_fad" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Fertilizer Application details ...." oninput="this.className"
+                                        required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="check" id="to_mag_2">
+
+                                <div class="inputfield">
+                                    <textarea id="to_cppd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="CPP details ...." oninput="this.className" required id="styled"
+                                        data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_pdcd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Pest and Disease Control details ...." oninput="this.className"
+                                        required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomatoes_Mgt" class="button modal-dismiss">Save</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+    <div id="create-ph-modal" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <div class="has-text-centered">
+                       
+
+                        <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                        <form action="">
+                            <div class="check" id="to_harv_1">
+
+                                <div class="inputfield">
+                                    <textarea id="to_td" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="cleaning details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_db" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Mechanization details ...." oninput="this.className" required id="styled"
+                                        data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+
+                            <div class="check" id="to_harv_2">
+
+                                <div class="inputfield">
+                                    <textarea id="to_pds" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Packaging details ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_sds" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Storage details ...." oninput="this.className" required id="styled"
+                                        data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomatoes_post_harvest" class="button modal-dismiss">Save</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
 
     <div id="create-crop-modal" class="modal modal-md icon-action-modal modal-hero">
         <div class="modal-background scaleInCircle"></div>
@@ -1489,241 +1757,43 @@
 
                         <!-- Select Criticals user should use to create CROP numbers *****************************************-->
 
-                        <form id="regForm">
-                            <!-- One "tab" for each step in the form: -->
-                            <div class="tab">
-                                <div class="inputfield" id="process_to">
-                                    <textarea id="Processing" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                        class="is-success" onblur="setbg('white')" rows="10"
-                                        placeholder="Seed Processing details ...." oninput="this.className" required
+                        <form action="">
+                            <div class="check" id="to_input_1">
+                                <div class="inputfield">
+                                    <textarea id="to_ssd" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Seed Selection details for tomatoes ...." oninput="this.className" required
+                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
+                                </div>
+                                <div class="inputfield">
+                                    <textarea id="to_ss" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Seed Source details for tomatoes ...." oninput="this.className" required
                                         id="styled" data-limit=320></textarea><span class="countdown"></span>
                                 </div>
                             </div>
-                            <div class="tab"><b>Input Details:</b>
-                                <div class="check" id="to_input_1">
-                                    <div class="inputfield">
-                                        <textarea id="to_sd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Seed Source details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_sf" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Seed Fertilizer details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-                                <div class="check" id="to_input_2">
+                            <div class="check" id="to_input_2">
 
-                                    <div class="inputfield">
-                                        <textarea id="to_sh" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Seed Herbicides details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield" id="to_scp">
-                                        <textarea id="to_sc" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Seed Crop Protection Product details ...." oninput="this.className"
-                                            required id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="tab"><b>Production</b>
-                                <div class="check" id="to_pro_1">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_ls" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Land Selection details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_lp" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Land Preparation details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="check" id="to_pro_2">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_pt" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Planting Technique details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_hd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Harvesting details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="inputfield" id="to_mech">
-                                    <textarea id="to_md" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                        class="is-success" onblur="setbg('white')" rows="10"
-                                        placeholder="Mechanization details ...." oninput="this.className" required
+                                <div class="inputfield">
+                                    <textarea id="to_ssf" maxlength = "320" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Seed Fertilizer details for tomatoes ...." oninput="this.className" required
                                         id="styled" data-limit=320></textarea><span class="countdown"></span>
                                 </div>
-                            </div>
-
-
-                            <div class="tab"><b>Post Harvest</b>
-                                <div class="check" id="to_harv_1">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_td"name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Threshing details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_db" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Drying details ...." oninput="this.className" required id="styled"
-                                            data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="check" id="to_harv_2">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_pds" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Packaging details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_sds" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Storage details ...." oninput="this.className" required id="styled"
-                                            data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
+                                <div class="inputfield" maxlength = "320" id="to_scp">
+                                    <textarea id="to_sh" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                        class="is-success" rows="10"
+                                        placeholder="Herbicide details for tomatoes...." oninput="this.className"
+                                        required id="styled" data-limit=320></textarea><span class="countdown"></span>
                                 </div>
                             </div>
-
-
-                            <div class="tab"><b>Crop Management</b>
-                                <div class="check" id="to_mag_1">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_wcd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Weed Control details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_fad" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Fertilizer Application details ...." oninput="this.className"
-                                            required id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="check" id="to_mag_2">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_cppd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="CPP details ...." oninput="this.className" required id="styled"
-                                            data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_pdcd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Pest and Disease Control details ...." oninput="this.className"
-                                            required id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="tab"><b>Weather and Climate Details</b>
-
-                                <div class="check" id="to_wc">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_tds" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Temperature  details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_rd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Rainfall details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="inputfield" id="to_humi">
-                                    <textarea id="to_hds" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                        class="is-success" onblur="setbg('white')" rows="10"
-                                        placeholder="Humility  details ...." oninput="this.className" required
-                                        id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                </div>
-                            </div>
-
-
-                            <div class="tab">Aggregation
-                                <div class="check" id="to_agg_1">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_ld" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Labelling  details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_pdss" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Pricing details ...." oninput="this.className" required id="styled"
-                                            data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-
-                                <div class="check" id="to_agg_2">
-
-                                    <div class="inputfield">
-                                        <textarea id="to_mld" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Market Lineage  details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                    <div class="inputfield">
-                                        <textarea id="to_otd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
-                                            class="is-success" onblur="setbg('white')" rows="10"
-                                            placeholder="Off-takers details ...." oninput="this.className" required
-                                            id="styled" data-limit=320></textarea><span class="countdown"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="overflow:auto;">
-                                <div style="float:right;">
-                                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                    <button type="button" id="nextBtn" class="is-success" onclick="nextPrev(1)"
-                                        onclick="validateForm()">Next</button>
-                                </div>
-                            </div>
-                            <!-- Circles which indicates the steps of the form: -->
-                            <div style="text-align:center;margin-top:40px;">
-                                <span class="step"></span>
-                                <span class="step"></span>
-                                <span class="step"></span>
-                                <span class="step"></span>
-                                <span class="step"></span>
-                                <span class="step"></span>
+                            <div class="inputfield" maxlength = "320" id="to_scp">
+                                <textarea id="to_cpd" name="" cols="100" onfocus="this.value=''; setbg('#e5fff3');"
+                                    class="is-success" rows="10"
+                                    placeholder="Crop Protection details...." oninput="this.className"
+                                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
                             </div>
                         </form>
-
-
-
                         <!-- Select Criticals user should use to create CROP numbers END************************************-->
 
 
@@ -1731,12 +1801,13 @@
                 </div>
                 <div class="modal-footer">
                     <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button id="tomatoes_input_button"  class="button modal-dismiss">Save</button>
                 </div>
             </div>
         </div>
         <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
-    <!-- End Create Crop modal ***************************************************************************************-->
+    <!-- End Create Tomatoes modal ***************************************************************************************-->
     <!-- /Invite User Modal -->
     <!-- Right sidebar quickview -->
     <div id="main-quickview" class="quickview is-right is-main">

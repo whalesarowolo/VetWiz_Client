@@ -114,6 +114,51 @@ function createCrop(param) {
         $('#create-crop-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function createph(param) {
+    if ($('#create-ph-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-ph-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-ph-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-ph-modal > .modal-content').addClass('scaleIn');
+        $('#create-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createCMGT(param) {
+    if ($('#create-CMGT').length) {
+        console.log('Creating new crop...');
+        $('#create-CMGT').removeClass('is-hidden').addClass('is-active');
+        $('#create-CMGT > .modal-background').addClass('scaleInCircle');
+        $('#create-CMGT > .modal-content').addClass('scaleIn');
+        $('#create-CMGT > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createpro(param) {
+    if ($('#create-prod').length) {
+        console.log('Creating new crop...');
+        $('#create-prod').removeClass('is-hidden').addClass('is-active');
+        $('#create-prod > .modal-background').addClass('scaleInCircle');
+        $('#create-prod > .modal-content').addClass('scaleIn');
+        $('#create-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createWC(param) {
+    if ($('#create-WC').length) {
+        console.log('Creating new crop...');
+        $('#create-WC').removeClass('is-hidden').addClass('is-active');
+        $('#create-WC > .modal-background').addClass('scaleInCircle');
+        $('#create-WC > .modal-content').addClass('scaleIn');
+        $('#create-WC > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createaggr(param) {
+    if ($('#create-aggre').length) {
+        console.log('Creating new crop...');
+        $('#create-aggre').removeClass('is-hidden').addClass('is-active');
+        $('#create-aggre > .modal-background').addClass('scaleInCircle');
+        $('#create-aggre > .modal-content').addClass('scaleIn');
+        $('#create-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
 
 function updateFromSMAP() {
     console.log('Updating the farmers database from SMAP...');

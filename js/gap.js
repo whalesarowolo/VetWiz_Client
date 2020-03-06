@@ -1,75 +1,3 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-
-function showTab(n) {
-    // This function will display the specified tab of the form...
-    var x = document.getElementsByClassName("tab");
-    x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
-    if (n == 0) {
-        document.getElementById("prevBtn").style.display = "none";
-    } else {
-        document.getElementById("prevBtn").style.display = "inline";
-    }
-    if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Submit";
-    } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
-    }
-    //... and run a function that will display the correct step indicator:
-    fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-    // This function will figure out which tab to display
-    var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form...
-    if (currentTab >= x.length) {
-        // ... the form gets submitted:
-        document.getElementById("regForm").submit();
-        return false;
-    }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
-}
-
-function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "") {
-            // add an "invalid" class to the field:
-            y[i].className += " invalid";
-            // and set the current valid status to false
-            valid = false;
-        }
-    }
-    // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
-        document.getElementsByClassName("step")[currentTab].className += " finish";
-    }
-    return valid; // return the valid status
-}
-
-function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-    }
-    //... and adds the "active" class on the current step:
-    x[n].className += " active";
-}
 
 $(document).ready(function () {
     $('textarea').on("propertychange keyup input paste",
@@ -83,3 +11,188 @@ $(document).ready(function () {
         $(this).next('span').text(remainingChars<=0?0 + " Character":remainingChars + " Characters Remaining");
     });
 });
+
+//  input details ends
+$("#tomatoes_input_button").on('click', function(e) {
+    let seedSelection = $('#to_ssd').val();
+    let seedSource = $('#to_ss').val();
+    let seedFertilizer = $('#to_ssf').val();
+    let seedHerbicide = $('#to_sh').val();
+    let seedProtection = $('#to_cpd').val();
+    console.log(seedProtection)
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+//  post harvest details ends
+$("#tomatoes_post_harvest").on('click', function(e) {
+    let threshing = $('#to_td').val();
+    let drying = $('#to_db').val();
+    let packaging = $('#to_pds').val();
+    let storage = $('#to_sds').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+//  aggrgation details ends here
+$("#tomatoes_agg").on('click', function(e) {
+    let labelling = $('#to_ld').val();
+    let pricing = $('#to_pdss').val();
+    let lineage = $('#to_mld').val();
+    let offTaker = $('#to_otd').val();
+    //  validate empty input boxes
+    if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let aggregation = {
+        labelling: labelling,
+        pricing: pricing,
+        market_linage: lineage,
+        off_taker: offTaker,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(aggregation),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  });
+
+
+//  weather and climate detais
+  $("#tomaotes_wc").on('click', function(e) {
+    let temp = $('#to_tds').val();
+    let rainfall = $('#to_rd').val();
+    let humility = $('#to_hds').val();
+    //  validate empty input boxes
+    if(temp != null || rainfall != null ||  humility != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let tempClimate = {
+        temperature: temp,
+        rainFall: rainfall,
+        humility: humility,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(tempClimate),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+//   production details
+$("#tomatoes_prod").on('click', function(e) {
+    let landSelection = $('#to_ls').val();
+    let landPreparation = $('#to_lp').val();
+    let plantTech = $('#to_pt').val();
+    let harvest = $('#to_hd').val();
+    let mech = $('#to_md').val();
+    console.log("you click me")
+    //  validate empty input boxes
+    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let production = {
+        landSelection: landSelection,
+        landPreparation: landPreparation,
+        plantingTechnique: plantTech,
+        harvesting: harvest,
+        mechanization: mech
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(production),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+  // input details ends here
+$("#tomatoes_Mgt").on('click', function(e) {
+    let weed = $('#to_wcd').val();
+    let fertilizer = $('#to_fad').val();
+    let cpp = $('#to_cppd').val();
+    let pestDisease = $('#to_pdcd').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e2afc0c5add721b548632c8'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
