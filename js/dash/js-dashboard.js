@@ -114,6 +114,33 @@ function createCrop(param) {
         $('#create-crop-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceInput(param) {
+    if ($('#create-rice-modal').length) {
+        console.log('Creating rice input...');
+        $('#create-rice-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-rice-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-rice-modal > .modal-content').addClass('scaleIn');
+        $('#create-rice-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function ricePH(param) {
+    if ($('#rice-ph-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-ph-modal').removeClass('is-hidden').addClass('is-active');
+        $('#rice-ph-modal > .modal-background').addClass('scaleInCircle');
+        $('#rice-ph-modal > .modal-content').addClass('scaleIn');
+        $('#rice-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function riceCM(param) {
+    if ($('#rice-CMGT').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-CMGT').removeClass('is-hidden').addClass('is-active');
+        $('#rice-CMGT > .modal-background').addClass('scaleInCircle');
+        $('#rice-CMGT > .modal-content').addClass('scaleIn');
+        $('#rice-CMGT > .modal-close').removeClass('is-hidden');
+    } 
+}
 function createph(param) {
     if ($('#create-ph-modal').length) {
         console.log('Creating new crop...');
@@ -121,6 +148,33 @@ function createph(param) {
         $('#create-ph-modal > .modal-background').addClass('scaleInCircle');
         $('#create-ph-modal > .modal-content').addClass('scaleIn');
         $('#create-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function ricePD(param) {
+    if ($('#rice-prod').length) {
+        console.log('Creating new crop...');
+        $('#rice-prod').removeClass('is-hidden').addClass('is-active');
+        $('#rice-prod > .modal-background').addClass('scaleInCircle');
+        $('#rice-prod > .modal-content').addClass('scaleIn');
+        $('#rice-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+function riceWC(param) {
+    if ($('#rice-WC').length) {
+        console.log('Creating new crop...');
+        $('#rice-WC').removeClass('is-hidden').addClass('is-active');
+        $('#rice-WC > .modal-background').addClass('scaleInCircle');
+        $('#rice-WC > .modal-content').addClass('scaleIn');
+        $('#rice-WC > .modal-close').removeClass('is-hidden');
+    } 
+}
+function riceAD(param) {
+    if ($('#rice-aggre').length) {
+        console.log('Creating new crop...');
+        $('#rice-aggre').removeClass('is-hidden').addClass('is-active');
+        $('#rice-aggre > .modal-background').addClass('scaleInCircle');
+        $('#rice-aggre > .modal-content').addClass('scaleIn');
+        $('#rice-aggre > .modal-close').removeClass('is-hidden');
     } 
 }
 function createCMGT(param) {
