@@ -214,6 +214,61 @@ function createaggr(param) {
     } 
 }
 
+function groudnutAggr(param) {
+    if ($('#groundnut-aggre').length) {
+        console.log('Creating groundnut aggregation...');
+        $('#groundnut-aggre').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-aggre > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-aggre > .modal-content').addClass('scaleIn');
+        $('#groundnut-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
+function groundnutWC(param) {
+    if ($('#groundnut-WC').length) {
+        console.log('Creating groundnut weather and climate...');
+        $('#groundnut-WC').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-WC > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-WC > .modal-content').addClass('scaleIn');
+        $('#groundnut-WC > .modal-close').removeClass('is-hidden');
+    } 
+}
+function groundnutPD(param) {
+    if ($('#groundnut-prod').length) {
+        console.log('Creating groundnut production...');
+        $('#groundnut-prod').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-prod > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-prod > .modal-content').addClass('scaleIn');
+        $('#groundnut-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+function groundnutCMGT(param) {
+    if ($('#groundnut-CMGT').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-CMGT').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-CMGT > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-CMGT > .modal-content').addClass('scaleIn');
+        $('#groundnut-CMGT > .modal-close').removeClass('is-hidden');
+    } 
+}
+function groundnutPH(param) {
+    if ($('#groundnut-ph-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-ph-modal').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-ph-modal > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-ph-modal > .modal-content').addClass('scaleIn');
+        $('#groundnut-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function groundnutInput(param) {
+    if ($('#create-groundnut-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#create-groundnut-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-groundnut-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-groundnut-modal > .modal-content').addClass('scaleIn');
+        $('#create-groundnut-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
 function updateFromSMAP() {
     console.log('Updating the farmers database from SMAP...');
     swal.fire({
