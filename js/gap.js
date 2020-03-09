@@ -22,7 +22,7 @@ $("#tomatoes_input_button").on('click', function(e) {
     console.log(seedProtection)
     //  validate empty input boxes
     if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -53,7 +53,7 @@ $("#tomatoes_post_harvest").on('click', function(e) {
     let storage = $('#to_sds').val();
     //  validate empty input boxes
     if(threshing != null || drying != null ||  packaging != null || storage != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -83,7 +83,7 @@ $("#tomatoes_agg").on('click', function(e) {
     let offTaker = $('#to_otd').val();
     //  validate empty input boxes
     if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -113,7 +113,7 @@ $("#tomatoes_agg").on('click', function(e) {
     let humility = $('#to_hds').val();
     //  validate empty input boxes
     if(temp != null || rainfall != null ||  humility != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -144,7 +144,7 @@ $("#tomatoes_prod").on('click', function(e) {
     console.log("you click me")
     //  validate empty input boxes
     if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -175,7 +175,7 @@ $("#tomatoes_Mgt").on('click', function(e) {
     let pestDisease = $('#to_pdcd').val();
     //  validate empty input boxes
     if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e2afc0c5add721b548632c8'
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65f07e2292e400173b6dac'
       let token = localStorage.getItem('access_token');
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -210,7 +210,7 @@ $("#rice_input_button").on('click', function(e) {
   let seedProtection = $('#rice_cpd').val();
   //  validate empty input boxes
   if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -241,7 +241,7 @@ $("#rice_post_harvest").on('click', function(e) {
   let storage = $('#rice_sds').val();
   //  validate empty input boxes
   if(threshing != null || drying != null ||  packaging != null || storage != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -271,7 +271,7 @@ $("#rice_Mgt").on('click', function(e) {
   let pestDisease = $('#rice_pdcd').val();
   //  validate empty input boxes
   if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -302,7 +302,7 @@ $("#rice_prod").on('click', function(e) {
   let mech = $('#rice_md').val();
   //  validate empty input boxes
   if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -332,7 +332,7 @@ $("#rice_wc_detail").on('click', function(e) {
   let humility = $('#rice_hds').val();
   //  validate empty input boxes
   if(temp != null || rainfall != null ||  humility != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -361,7 +361,7 @@ $("#rice_agg").on('click', function(e) {
   let offTaker = $('#rice_otd').val();
   //  validate empty input boxes
   if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e65ef8d2292e400173b6daa'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -393,7 +393,7 @@ $("#groundnut_input_button").on('click', function(e) {
   let seedProtection = $('#groundnut_cpd').val();
   //  validate empty input boxes
   if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -424,7 +424,7 @@ $("#groundnut_post_harvest").on('click', function(e) {
   let storage = $('#groundnut_sds').val();
   //  validate empty input boxes
   if(threshing != null || drying != null ||  packaging != null || storage != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -454,7 +454,7 @@ $("#groundnut_Mgt").on('click', function(e) {
   let pestDisease = $('#groundnut_pdcd').val();
   //  validate empty input boxes
   if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -485,7 +485,7 @@ $("#groundnut_prod").on('click', function(e) {
   let mech = $('#groundnut_md').val();
   //  validate empty input boxes
   if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -515,7 +515,7 @@ $("#groundnut_wc_detail").on('click', function(e) {
   let humility = $('#groundnut_hds').val();
   //  validate empty input boxes
   if(temp != null || rainfall != null ||  humility != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -544,7 +544,7 @@ $("#groudnut_agg").on('click', function(e) {
   let offTaker = $('#groudnut_otd').val();
   //  validate empty input boxes
   if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e2afc0c5add721b548632c8'
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e65f01f2292e400173b6dab'
     let token = localStorage.getItem('access_token');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
