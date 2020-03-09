@@ -318,12 +318,15 @@ $("#send_messages").on('click', function(e) {
     "msg_state": msg_state,
   }
 const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+
   // create request object
   var request = new Request(url, {
     method: 'POST',
     body: JSON.stringify(msg),
     headers: new Headers({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     })
   });
 
