@@ -105,6 +105,68 @@ function cancelMessage(params) {
     $('#create-note-modal > .modal-close').addClass('is-hidden');
 }
 
+function sorghumInput(param) {
+    if ($('#create-sorghum-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-sorghum-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-sorghum-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-sorghum-modal > .modal-content').addClass('scaleIn');
+        $('#create-sorghum-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+function sorghumPHD(param) {
+    if ($('#sorghum-ph-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-ph-modal').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-ph-modal > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-ph-modal > .modal-content').addClass('scaleIn');
+        $('#sorghum-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function sorghumCMGT(param) {
+    if ($('#sorghum-CMGT').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-CMGT').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-CMGT > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-CMGT > .modal-content').addClass('scaleIn');
+        $('#sorghum-CMGT > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+function sorghumPD(param) {
+    if ($('#sorgnum-prod').length) {
+        console.log('Creating new crop...');
+        $('#sorgnum-prod').removeClass('is-hidden').addClass('is-active');
+        $('#sorgnum-prod > .modal-background').addClass('scaleInCircle');
+        $('#sorgnum-prod > .modal-content').addClass('scaleIn');
+        $('#sorgnum-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+function sorghumWC(param) {
+    if ($('#sorghum-WC').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-WC').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-WC > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-WC > .modal-content').addClass('scaleIn');
+        $('#sorghum-WC > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+function sorghumAGGRE(param) {
+    if ($('#sorghum-aggre').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-aggre').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-aggre > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-aggre > .modal-content').addClass('scaleIn');
+        $('#sorghum-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+
+
+
 function createCrop(param) {
     if ($('#create-crop-modal').length) {
         console.log('Creating new crop...');

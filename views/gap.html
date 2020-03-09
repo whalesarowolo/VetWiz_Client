@@ -26,7 +26,7 @@
                             <li class="tab-link" onclick="groudnutGapSwal()" data-tab="subscriber_task" onclick="startModule(event, subscriber_task);">
                                 <a>GROUNDNUT</a>
                             </li>
-                            <li class="tab-link" data-tab="sorghum_task" onclick="startModule(event, sorghum_task);">
+                            <li class="tab-link" onclick="sorghumGapSwal()" data-tab="sorghum_task" onclick="startModule(event, sorghum_task);">
                                 <a>SORGHUM</a>
                             </li>
                         </ul>
@@ -514,12 +514,6 @@
                         <!-- Files List -->
                         <div class="projects-list-wrapper">
                             <div class="list-header">
-                                <div class="list-title">
-                                    <span>Edit Crop</span>
-                                    <div class="add-button" onclick="createCrop('crop')">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
                                 <div class="list-filter">
                                     <div class="control">
                                         <input class="input" type="text" placeholder="Filter Projects">
@@ -550,48 +544,11 @@
                                                         <th scope="col">Input Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Seed Selection</td>
-                                                        <td>Use only improved sorghum varieties: SAMSORG 47, SAMSORG 48 and SAMSORG 49 are early medium-maturing varieties having good germination, diseases and drought tolerance and adaptability to specific ecologies and high yield potential of over 4.8 t/ha
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Seed Source</td>
-                                                        <td>Seeds should be purchased from International Crop Research Institute for the Semi-Arid Tropics (ICRISAT), Institute for Agricultural Research (IAR), National Agricultural Seed Council (NASC) and State Agricultural Development Project (ADPs) and only from registered and certified seed companies
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Fertilizer</td>
-                                                        <td>Manures such as animal droppings, household waste materials can be applied to supplement the fertility of the soil to achieve optimal crop nutrient uptake. Also, NPK and Urea fertilizers are applied to supplement nutrients lacking in the soil.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Herbicides</td>
-                                                        <td>A suitable pre-emergence herbicide should be sprayed after the cultivation of the sorghum field. After emergence of sorghum, a selective post emergence herbicide is recommended for use.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Crop Protection Product</td>
-                                                        <td>CPPs application can control weed species, harmful insects and plant diseases that affect sorghum crops.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_input_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                                   
@@ -610,46 +567,11 @@
                                                         <th scope="col">Post Harvest Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumPHD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Threshing</td>
-                                                        <td>"Threshing
-                                                          . Thresh immediately after harvesting and drying to avoid post harvest losses.
-                                                          . Use only minimal force that is just enough to detach grains from the panicle during threshing.
-                                                          Cleaninig
-                                                          . Manual cleaning is achieved by winnowing to separate low density materials such as leaves and stalks, while washing removes dust and stones."
-                                                          </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Drying</td>
-                                                        <td>Sun-dry sorghum after harvest either in the field or off-field for proper drying upto about 1-2 weeks to reduce moisture content to about 12%, depending on the weather condition after harvest.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Packaging</td>
-                                                        <td>After proper drying of sorghum has been achieved, it should be properly bagged for storage in new bags that are free of contaminants. Stored in 50−100kg bags made from either jute, cotton polypropylene or multi-layer paper.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Storage</td>
-                                                        <td>"Sorghum grains should be stored in bags, with a Phostoxin tablet/100kg seeds against pest at 12% moisture content. Store/warehouses should be sited in flood-free, well-drained area with good access roads. The walls should be plastered with cement and the roof covered with corrugated iron sheets. Doors and windows should be well-fitted.
-
-                                                          . In-coming grains should be well graded for moisture content, pest infestation level, contaminants, etc."
-                                                          .</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_ph_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -667,60 +589,11 @@
                                                         <th scope="col">Crop Management Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumCMGT('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Weed Control</td>
-                                                        <td>A suitable pre-emergence herbicide (like pendimethalin, primextra gold) should be sprayed after the sowing of the sorghum field. Few weeks after emergence of sorghum, a selective post emergence herbicide is recommended for use or weeding done a minimum of 1-2 times at intervals of 4 weeks before harvest.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Fertilizer Application</td>
-                                                        <td>"Farm Yard Manure should be applied at 2-3t/ha during land preparation. And NPK 15:15:15 fertilizers (4 bags 200 kg/ha) be applied at planting and Urea applied at the rate of 2 bags (100 kg/ha) applied prior to flowerings. 
-                                                          Use 2 cork stoppers full of NPK 15:15:15 buried in a 5cm deep hole 5 to 10 days after emergence with 1 cork stopper full of Urea 4 to 5 weeks after sowing."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>Sorghum can be planted using animal-drawn planters or dibbler. Plant at a depth of 2.5cm in areas with sufficient water and maximum of 5cm in drier areas at 75cm X 25-30cm. Planting is done around May to June.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>CPP</td>
-                                                        <td>"Farmers should be well-kitted at all times with the following protective coverings before using CPPs:
-                                                          • Hand gloves reaching elbow level to protect their hands from chemical contamination.
-                                                          •  Face mask to prevent inhaling chemical substances in gaseous state
-                                                          • Overalls to the knee level to prevent splashing of CPPs on the body during spraying
-                                                          •  Rubber boats reaching the knee level will prevent CPPs splashing on the feet"
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Pest and Disease Control</td>
-                                                        <td>"Pest Control: 
-                                                          · Deep ploughing to expose the larva and pupa stages of shoot fly.
-                                                          . Early sowing between last week of May to first week of July for escaping shoot fly incidence. 
-                                                          Disease Control: 
-                                                          Sorghum Smuts:  
-                                                          . Treatment seed with appropriate fungicide to prevent introducing the head smut fungus into un-infested fields. 
-                                                          . Where feasible, promptly remove and burn head smut galls before the spores are scattered. 
-                                                          . Crop rotation should be practiced since the head smut fungus may live in the soil for several years, grow sorghum in 
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_cropMgt_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -736,47 +609,11 @@
                                                         <th scope="col">Production Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumPD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Land Selection</td>
-                                                        <td>A fertile well drained clay loam soils with high moisture retention capacity is best for growing sorghum.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Land Preparation</td>
-                                                        <td>Use conventional tillage by ploughing and harrowing if tractor is available before ridge making  at a row spacing of 75cm, to allow for deeper roots penetration and minnimize the problems of weeds.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>Sorghum can be planted using animal-drawn planters or dibbler. Plant at a depth of 2.5cm in areas with sufficient water and maximum of 5cm in drier areas at 75cm X 25-30cm. Planting is done around May to June.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Harvesting</td>
-                                                        <td>Harvest grains early, using manual or mechanical means. Panicles should be cut from the standing stalks either manually or mechanically when moisture content is about 16-20%.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Mechanization</td>
-                                                        <td>"Smallholder farmers growing sorghum requires access to machinery and equipment for cultivation such as tractor moulted with harrower, plough and ridger. Others like Motorized weeder and Knapsack sprayers for spraying herbicides.</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_pro_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -791,29 +628,11 @@
                                                         <th scope="col">Weather/Climate Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumWC('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Temperature</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>RainFall</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Humility</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_wc_table">
+                                                     
                                                       </tbody>
                                                   </table>
                                             </div>
@@ -829,45 +648,16 @@
                                                         <th scope="col">Aggregation Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumAGGRE('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Labelling</td>
-                                                        <td>Every packaging material should contain vital information such as sorghum variety, location of production, duration in store, etc
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Pricing</td>
-                                                        <td>When farmers are organized into groups, they will aggregate higher volumes to offer and greater bargaining power. They can diversify their off-taker base, and predetermine a favourable market price.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Market Lineage</td>
-                                                        <td>Organizing smallholder farmers into groups enables them to meet the standards and requirements of modern markets and, addresses other barriers to access services and markets thus enhancing their competitiveness by reducing the transaction costs of market linkage.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Off-Takers</td>
-                                                        <td>Farm Aid is a platform that connects smallholder farmers to off-takers who will work directly with farmers to build an aggregation structure as part of their operational system. 
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_aggre_table">
+                                                    
                                                       </tbody>
                                                   </table>
                                             </div>
                                         </div>
-                                        <!-- Task group -->
+                                        <!-- Task group error tbody -->
                                         <div class="tasks-wrapper">
                                             <div class="header">
                                                 

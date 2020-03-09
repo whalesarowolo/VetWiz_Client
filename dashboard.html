@@ -1413,7 +1413,7 @@
                                             <select>
                                                 <option value="" disabled selected>--Please choose an option--</option>
                                                 <option value="dog">RICE</option>
-                                                <option value="cat">GROUNDNUT</option>
+                                                <option value="cat">sorghum</option>
                                                 <option value="hamster">TOMATOES</option>
                                                 <option value="parrot">SORGHUM</option>
                                             </select>
@@ -2507,6 +2507,352 @@
 
 
 <!--  create ground starts here end -->
+
+<!--        create sorghum starts here -->
+<div id="create-sorghum-modal" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorghum_input_1">
+                            <div class="inputfield">
+                                <textarea id="sorghum_ssd" maxlength = "320" name="" cols="100" "class="is-success" rows="10"
+                                    placeholder="Seed Selection details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_ss" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Seed Source details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+                        <div class="check" id="sorghum_input_2">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_ssf" maxlength = "320" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="Seed Fertilizer details...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield" maxlength = "320" id="to_scp">
+                                <textarea id="sorghum_sh" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="Herbicide details" oninput="this.className"
+                                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+                        <div class="inputfield" maxlength = "320" id="to_scp">
+                            <textarea id="sorghum_cpd" name="" cols="100" "
+                                class="is-success" rows="10"
+                                placeholder="Crop Protection details...." oninput="this.className"
+                                required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorghum_input_button"  class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<div id="sorghum-ph-modal" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorghum_harv_1">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_td" maxlength = "320" name="" cols="100"  "
+                                    class="is-success" rows="10"
+                                    placeholder="cleaning details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_db" maxlength = "320" name="" cols="100"  "
+                                    class="is-success" rows="10"
+                                    placeholder="Drying details ...." oninput="this.className" required id="styled"
+                                    data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="check" id="sorghum_harv_2">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_pds" maxlength = "320" name="" cols="100"  "
+                                    class="is-success" rows="10"
+                                    placeholder="Packaging details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_sds" maxlength = "320" name="" cols="100"  "
+                                    class="is-success" rows="10"
+                                    placeholder="Storage details ...." oninput="this.className" required id="styled"
+                                    data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorghum_post_harvest" class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<div id="sorghum-CMGT" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorghum_mag_1">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_wcd" maxlength = "320" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="Weed Control details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_fad" maxlength = "320" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="Fertilizer Application details ...." oninput="this.className"
+                                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="check" id="sorghum_mag_2">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_cppd" maxlength = "320" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="CPP details ...." oninput="this.className" required id="styled"
+                                    data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_pdcd" maxlength = "320" name="" cols="100" "
+                                    class="is-success" rows="10"
+                                    placeholder="Pest and Disease Control details ...." oninput="this.className"
+                                    required id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorghum_Mgt" class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<div id="sorgnum-prod" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorgnum_pro_1">
+
+                            <div class="inputfield">
+                                <textarea id="sorgnum_ls" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Land Selection details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorgnum_lp" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Land Preparation details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="check" id="sorgnum_pro_2">
+
+                            <div class="inputfield">
+                                <textarea id="sorgnum_pt" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Planting Technique details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorgnum_hd" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Crop Management details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="inputfield" id="to_mech">
+                            <textarea id="sorgnum_md" maxlength = "320" name="" cols="100" onfocus="this.value=''"
+                                class="is-success" rows="10"
+                                placeholder="Mechanization details ...." oninput="this.className" required
+                                id="styled" data-limit=320></textarea><span class="countdown"></span>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorgnum_prod" class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<div id="sorghum-WC" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorghum_wc">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_tds" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Temperature  details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_rd" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Rainfall details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="inputfield" maxlength = "320" id="to_humi">
+                            <textarea id="sorghum_hds" name="" cols="100""
+                                class="is-success" rows="10"
+                                placeholder="Humility  details ...." oninput="this.className" required
+                                id="styled" data-limit=320></textarea><span class="countdown"></span>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorghum_wc_detail" class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<div id="sorghum-aggre" class="modal modal-md icon-action-modal modal-hero">
+    <div class="modal-background scaleInCircle"></div>
+    <div class="modal-content scaleIn">
+        <div class="flex-card simple-shadow">
+            <div class="card-body">
+                <div class="has-text-centered">
+                   
+
+                    <!-- Select Criticals user should use to create CROP numbers *****************************************-->
+
+                    <form action="">
+                        <div class="check" id="sorghum_agg_1">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_ld" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Labelling  details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_pdss" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Pricing details ...." oninput="this.className" required id="styled"
+                                    data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+
+                        <div class="check" id="sorghum_agg_2">
+
+                            <div class="inputfield">
+                                <textarea id="sorghum_mld" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Market Lineage  details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                            <div class="inputfield">
+                                <textarea id="sorghum_otd" maxlength = "320" name="" cols="100""
+                                    class="is-success" rows="10"
+                                    placeholder="Off-takers details ...." oninput="this.className" required
+                                    id="styled" data-limit=320></textarea><span class="countdown"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Select Criticals user should use to create CROP numbers END************************************-->
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                <button id="sorghum_agg"class="button modal-dismiss">Save</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+</div>
+
+<!--        create sorghum starts here  ends-->
 
 
 
