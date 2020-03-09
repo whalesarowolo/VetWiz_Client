@@ -316,8 +316,8 @@ $("#send_messages").on('click', function(e) {
   const msg = {
     "msg": msg_content,
     "msg_state": msg_state,
-  };
-const url = 'http://localhost:5000/api/send'
+  }
+const url = 'https://farm-aid-backend.herokuapp.com/api/send'
   // create request object
   var request = new Request(url, {
     method: 'POST',
@@ -408,7 +408,7 @@ const url = 'http://localhost:5000/api/send'
     icon: 'info'
   }).then(function() {
     $("#mytable").fadeOut("fast");
-    Swal.fire({
+    swal.fire({
       title: "Please wait",
       text: "Loading data ....",
       icon: "info",
