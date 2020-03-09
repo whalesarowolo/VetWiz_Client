@@ -312,10 +312,12 @@ function sendSMS(opts) {
 
 $("#send_messages").on('click', function(e) {
   var msg_content = $("#message_content").val();
+  var msg_state = $("#slct1").val();
   const msg = {
     "msg": msg_content,
+    "msg_state": msg_state,
   };
-const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+const url = 'http://localhost:5000/api/send'
   // create request object
   var request = new Request(url, {
     method: 'POST',
