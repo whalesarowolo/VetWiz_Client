@@ -20,13 +20,13 @@
                             <li class="tab-link is-active" data-tab="sms_task" onclick="startModule(event, sms_task);">
                                 <a>TOMATOES</a>
                             </li>
-                            <li class="tab-link" data-tab="statistics_task" onclick="startModule(event, statistics_task);">
+                            <li class="tab-link" onclick="riceGapSwal()" data-tab="statistics_task" onclick="startModule(event, statistics_task);">
                                 <a>RICE</a>
                             </li>
-                            <li class="tab-link" data-tab="subscriber_task" onclick="startModule(event, subscriber_task);">
+                            <li class="tab-link" onclick="groudnutGapSwal()" data-tab="subscriber_task" onclick="startModule(event, subscriber_task);">
                                 <a>GROUNDNUT</a>
                             </li>
-                            <li class="tab-link" data-tab="sorghum_task" onclick="startModule(event, sorghum_task);">
+                            <li class="tab-link" onclick="sorghumGapSwal()" data-tab="sorghum_task" onclick="startModule(event, sorghum_task);">
                                 <a>SORGHUM</a>
                             </li>
                         </ul>
@@ -193,12 +193,6 @@
                         <!-- Files List -->
                         <div class="projects-list-wrapper">
                             <div class="list-header">
-                                <div class="list-title">
-                                    <span>Edit Crop</span>
-                                    <div class="add-button" onclick="createCrop('crop')">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
                                 <div class="list-filter">
                                     <div class="control">
                                         <input class="input" type="text" placeholder="Filter Projects">
@@ -229,65 +223,11 @@
                                                         <th scope="col">Input Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="riceInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Seed Selection</td>
-                                                        <td>"Recommended rice varieties: FARO 44, 46, 52, 57, FARO 55 (NERICA 1), FARO 56 (NERICA 2), FARO 58 (NERICA 7), FARO 59 (NERICA 8), FARO 62 (OFADA 1), FARO 63 (OFADA 2). 
-
-                                                          For submergence-tolerant rice varieties use FARO 66 and FARO 67."
-                                                          </td>
-                                                        <td>"Nau'in Irin da ya dace: FARO 44, 46, 52, 57, FARO 55 (NERICA 1), FARO 56 (NERICA 2), FARO 58 (NERICA 7), FARO 59 (NERICA 8), FARO 62 (OFADA 1), FARO 63 (OFADA 2). 
-
-                                                          Irin shinkafa da ke nutsewa, yi amfani da FARO 66 da FARO 67."
-                                                          </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Seed Source</td>
-                                                        <td>Improved rice seed varieties can be obtained from Agricultural Seed Companies, Rice Seed Centers, Rice Research Centers, State Agricultural Development Project (ADPs), River Basin Development Authority and Branch Office of the National Agricultural Seed Council.
-                                                        </td>
-                                                        <td>Za a iya samun ingantancen iri daga: Agricultural Seed Companies, Rice Seed Centers, Rice Research Centers, State Agricultural Development Project (ADPs), River Basin Development Authority and Branch Office of the National Agricultural Seed Council.
-                                                        </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Fertilizer</td>
-                                                        <td>"Manures such as animal droppings, household waste materials can be applied to supplement the fertility of the soil. These organic nutrients from the soil, along with other materials, crop residues, manures need to be managed properly to achieve optimal crop nutrient uptake. 
-
-                                                          Also, NPK fertilizers are applied to supplement nutrients lacking in the soil. The quantity of application is determined by the target yield and the amount of nutrients needed by the crop. 
-                                                          "
-                                                          </td>
-                                                        <td>Takin gargajiya na iya kara ma kasa albarka. Wannan taki na cikin kasa da na gargajiya na bukatan kiya ye wa domin zaman isashe ga amfanin gona. 
-                                                        </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Herbicides</td>
-                                                        <td>"Spray with non-selective herbicide (Glyphosate), manual and/or mechanical weeding from the beginning of land preparation 2-3 weeks and plough and harrow once before planting to kill all weeds rhizome.
-
-                                                          Apply pre-emergence herbicide 1-2 Days After Sowing. Emergent weeds can be controlled with a selective post-emergent herbicide or manual and/or mechanical weeding
-                                                          "
-                                                          </td>
-                                                        <td>"Ka fesa magani mai ci har sauyu/didige (Glyphosate), noman hannu/ingin da farkon gyara fili bayan sati 2-3 sai ayi haro da kunye kafin ayi shuka don a kashe sauyun hakukuwa a gona.
-
-                                                          A yi ampani da magani na dabe bayan kwana 1-2 da yin shuka. Magani mai rabawa/zabi ka kashe na iya kashe sabon haki a cikin amfani mai fito wa ko ayi noman hanu ko da inji."
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Crop Protection Product</td>
-                                                        <td>CPPs application in rice should be applied to  control weed species, harmful insects and plant diseases that afflict rice crops.
-                                                        </td>
-                                                        <td>Ain ampani da magunguna tsaro a cikin gonan shinkafa zai kashe haki, kwari da sauran cututuka da ke kama shinkafa.
-                                                        </td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="rice_input_details">
+                                                     
                                                     </tbody>
                                                   </table>
                                                   
@@ -306,62 +246,11 @@
                                                         <th scope="col">Post Harvest Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="ricePH('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Threshing</td>
-                                                        <td>"Threshing
-                                                          • Thresh immediately after harvesting and drying to avoid losses.
-                                                          • Use whacking frames or mechanical devices, but avoid threshing on bare floor to prevent the introduction of sand, pebble and other foreign materials.
-                                                          </td>
-                                                        <td>"Bugu
-                                                          • .Buge shinkafa de zaran an yanka/girbe sai a busar don a guji lalacewa.
-                                                          • .A yi bugu a kain durom, kar a yi bugu a kasa da ba taburma domin kada datti ya shiga
-                                                          • A yi bugu a kain taburma, tampol ko cementin kankare  (i.e A yi bugu a kasa, da sanda ko a kain durum).
-                                                          • A bugu da hankali kada a fitar da bawan shinkafa.
-                                                          </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Drying</td>
-                                                        <td>"• Dry paddy properly to a safe moisture content of 13–14% by spreading in a thin layer (2–3 cm thick) on clean concrete floors, mats or tarpaulins and turning over periodically.
-                                                          • Sun-dry slowly for 2–3 days to reduce breakage during milling.
-                                                          • On a clear bright day, sun-dry for one day (about 9–10 hrs) only by spreading paddy thinly on clean concrete floors, mats or tarpaulin.
-                                                          • Use a mechanical drier if available."
-                                                          </td>
-                                                        <td>"•A shanya shinkafa mai bawo sosai zuwa danshi 13-14% da ya dace a kain cementin kankere, taburma, ko tampol sai a din ga juyawa a lokaci lokaci.
-                                                          •A shanya a rana a hankali zuwa kwana 2-3 don a rege kariyan shinkafa a inji.
-                                                          • Lokacin da rana ya fitu sosai, a baza shinkafi mai bawo a kain cementin kankere ko taburma ko tampo, shanya zuwa awa 9-10 kowai.
-                                                          •A sa injin busarwa idan akwai."
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Packaging</td>
-                                                        <td>"After proper drying of the paddy is achieved, it is properly bagged for storage in new bags that are free from contaminants. Stored in 50−100kg bags made from either jute or propylene or woven plastic. 
-                                                          "
-                                                          </td>
-                                                        <td>Bayan an shanya shinkafa mai bawo sosai, ya na da kyau a sa shi a chikin sabon buhu mai dawkan nauyin 50-100 kg domin ajiya.
-                                                        </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Storage</td>
-                                                        <td>"Rice should be stored in cool, dry rodent-proof conditions. Infested paddy should be fumigated with phostoxin in air-tight containers at the rate of one tablet/jute bag (100 kg paddy) or 10–15 tablets/ton paddy.
-
-                                                          • Bags should be stacked under cover e.g. under a roof, in a shed or granary or under water proof tarpaulins.
-                                                          • Grain moisture content should be maintained at 14% or less. The longer the grain needs to be stored, the lower the required moisture content.
-                                                          </td>
-                                                        <td>"Ayi ajiyan shinkafa a ma'aji mai kyau wanda pera bazasu iya shiga ba. Wan da ya kamu da cuta, a sa maganin ajiya (phostoxin) in da iska ba zai shiga ba. Yi amfani da kwayan magani guda a buhu (100 kg) ko  kwayoyi 10-15/ton.
-                                                          •A shiriya buhu a kar kashin ruhun gida, ko a kar kshin tampol.
-                                                          •A bar danshen  hasti a 14% ko kasa da haka. Tsawon ajiyan Hatsi zai rage danshi.
-                                                          </td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="rice_ph_details">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -379,90 +268,11 @@
                                                         <th scope="col">Crop Management Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="riceCM('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Weed Control</td>
-                                                        <td>"1. Hand weeding: Hand-weed twice at 21 and 40 days after transplanting.
-
-                                                          2. Chemical control; Any of the under-listed herbicides recommendations will control weed in upland and lowland rice:
-                                                          • Glyphosate e.g. Roundup (4-6 liters/ha), 2 weeks before planting followed by either
-                                                          • Oxadiazon at 4–5 L/ha (Pre-emergence but must be applied at least a week before transplanting of rice)
-                                                          • Butachlor at 4 L/ha (Pre-emergence)
-                                                          </td>
-                                                        <td>"1. Noman Hannu: za'a yi shi bayan kwana 21-40 da yin dashe
-
-                                                          2. Maganin Haki; ayi amfani da daya daga cikin wadan nan magunguna haki a gonan tudu da kwari.                                                                • Glyphosate e.g. Roundup (4-6 liters/ha), sati biyu2 kafin shuki, sai abi da ko wa'in nan maguguna:
-                                                          • Oxadiazon at 4–5 L/ha (Dole a sa dabe sati biyu kafin dashe shinkafa)
-                                                          • Butachlor at 4 L/ha (Dabe)
-                                                          • Propanil + bentazon at 3.0kg a.i./ha (Magani mai rabawa/zabi ka kashe)
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Fertilizer Application</td>
-                                                        <td>"For Lowland Rainfed, Irrigated and Upland rice cultivation, 
-                                                          • Application before planting use 4 bags (50 kg) NPK 20-10-10 and NPK 15-15-15.
-                                                          • Application 2 weeks after transplanting use 1 bag (50kg) of NPK 20-10-10 and NPK 15-15-15.
-                                                          • Application 6 weeks after transplanting use 1 bag (50 kg) Urea.
-                                                          For Lowland Irrigated rice cultivation, 
-                                                          </td>
-                                                        <td>"Noman Kwari na Damina, na rani da noman shinkafa a tudu, 
-                                                          • Kafin shuki, a yi amfani da taki buhu hudu (50 kg) NPK 20-10-10 da NPK 15-15-15.
-                                                          • A yi amfani da taki sati biyu bayan dasawa. A sa buhu daya (50kg) of NPK 20-10-10 da NPK 15-15-15.
-                                                          • A yi amfani da taki sati shida bayan dasawa. A sa buhu daya (50 kg) Urea.
-                                                          Noman shinkafa a Kwari na Rani, 
-                                                         
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>"Use the technique that does not expose the seeds to pest attack:
-
-                                                          1. Broadcasting: spreading the seeds on the soil surface without any specific pattern.
-                                                          
-                                                          2. Transplanting: Where seedlings are raised on a seed bed and transfered to the field.
-                                                          "
-                                                          </td>
-                                                        <td>"A yi amfani da hanyoyin shuki mai kyau wan da zai rege cutan iri:
-                                                          • Yafawa: yafin iri a saman kasa mara tsari.
-                                                          • Dasawa: wurin da an yi shuki a kwami kafin a dasa a gona.
-                                                          • Kaptu: Tona wuri a kasa sai a shuka iri 5-8 a zurfin 2-3 cm.
-                                                          • Tonan rami: Tona rami ye kai zurfin 2-3cm a kasa kan layi, sai a shuka su iri a rufe da kasa."
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>CPP</td>
-                                                        <td>Crop management should be practiced during specific stages of rice production ranging from weed contol - fertilizer application - CPP application - control of pest and disease
-                                                        </td>
-                                                        <td>Ya dache a kula da amfani gona a lokacin da ya kamata a gonan shinkafa kaman kula da haki - sa taki - maguguna tsaro - da su cututuka.
-                                                        </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Pest and Disease Control</td>
-                                                        <td>"Disease control (RYMV, blast, brown spot, grain discoloration)
-                                                          • Use disease resistant/tolerant varieties to RYMV and Blast.
-                                                          • Use good cultural practices to limit infection of blast and RYMV.
-                                                          • Use clean healthy seeds. 
-                                                         
-                                                          </td>
-                                                        <td>"Kulawa da Cututuka (RYMV, blast, brown spot, grain discoloration)
-                                                          • Yi amfani da iri masu jure cuta na RYMV da Blast.
-                                                          • Yi amfani da hanyoyin noma mai kyau wan da za su rege cutan blast da RYMV.
-                                                          • Yi amfani da lafiyeyen iri. 
-                                                          • A sa iri a chikin magani kwana 1-2 kafin shuki ya hana kwari da ke kama da iri.
-                                                          Kulawa da Damuwan Kwari 
-                                                          Diopsis species
-                                                          </td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="rice_cm_details">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -478,82 +288,11 @@
                                                         <th scope="col">Production Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="ricePD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Land Selection</td>
-                                                        <td>"Choose fertile land with a moderately high-water holding-capacity. 
-                                                          Lands with clayey soils are recommended. 
-                                                           "
-                                                          </td>
-                                                        <td>Zabi fili mai albarka da ke rike ruwa. Fili da ke de jar kasa yafi kyau
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Land Preparation</td>
-                                                        <td>"Plough farmland once for upland cultivation after the farmland has been irrigated.  
-
-                                                          Plough farmland twice for lowland cultivation after the onset of rainfall."
-                                                          </td>
-                                                        <td>"A yi haro so daya bayan an jika gona da ruwa a gonan tudu.
-
-                                                          A yi haro so biyu a gonan kwari bayan shigowan ruwan sama.                                                                "
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>"Use the technique that does not expose the seeds to pest attack:
-
-                                                          1. Broadcasting: spreading the seeds on the soil surface without any specific pattern.
-                                                          
-                                                          2. Transplanting: Where seedlings are raised on a seed bed and transfered to the field.
-                                                          .</td>
-                                                        <td>"A yi amfani da hanyoyin shuki mai kyau wan da zai rege cutan iri:
-                                                          • Yafawa: yafin iri a saman kasa mara tsari.
-                                                          • Dasawa: wurin da an yi shuki a kwami kafin a dasa a gona.
-                                                          • Kaptu: Tona wuri a kasa sai a shuka iri 5-8 a zurfin 2-3 cm.
-                                                          • Tonan rami: Tona rami ye kai zurfin 2-3cm a kasa kan layi, sai a shuka su iri a rufe da kasa."
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Harvesting</td>
-                                                        <td>"The crop should be harvested when the grains are hard and are turning yellow/brown. That is about 30–45 days after flowering or a month after 50% flowering. A wide variety of traditional and semi-mechanical tools, or combine harvesters may be used, depending on the farmer’s capacity.
-
-                                                          The basic operations of harvesting are:
-                                                          
-                                                          Mechanical/Manual Reaping - cut the mature panicles and straw above ground 10 – 15 cm with a sickle, knife. Mechanically with a reaper, threshing racks or simple treadle threshers.
-                                                          
-                                                          </td>
-                                                        <td>"A yi girbin shikafa a lokacin da sun nuna. Wan nan na faruwa sakanin kwana 30-45 bayan sun fara yin iya iya ko bayan wata daya, da rabin shinkafan sun fara yin iya iya . A kwai yawan hanyan da za'a iya bi ayi girbin shinkafa ko da babba inji, ya dan gan ta da karfin manoma.
-                                                          Girbin Mashina/Girbin Hanu - Yanka shinkafa da sun nuna 10-15cm daga kasa da dauje, wuka, da injin girbi, da abun bugu da sauran su.
-                                                         
-                                                          </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Mechanization</td>
-                                                        <td>"Smallholder farmers in the rice value chain require access to machinery and equipment for cultivation:
-                                                          • Land preparation: Tractor, Plough, Tillage equipment, Harrower, Leveller
-                                                          • Planting: Planting machine, Transplanter, Seeder 
-                                                         
-                                                          "
-                                                          </td>
-                                                        <td>"  Kananan manoma shinkafa na bukatan hanyan smun injinan noma: 
-                                                          •Sharan Gona: Tarakto, Plough, Injin Kaptu, Haro.
-                                                          •Shuka: mashinan shuki, dashe da sauransu.  Girbi: baban Tarakton girbi. Da sauransu. 
-                                                          •Ayukan bayan girbi: Injin bugun shinkafa, injin shanya.
-                                                          •Aiwatarwa: injin Mai Dafawa, injin nika, injin Maikara haske, injin chire datti."
-                                                          </td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="rice_pro_details">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -569,29 +308,11 @@
                                                         <th scope="col">Weather/Climate Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="riceWC('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Temperature</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>RainFall</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Humility</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .</td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="rice_wc_details">
+                                                    
                                                       </tbody>
                                                   </table>
                                             </div>
@@ -607,35 +328,11 @@
                                                         <th scope="col">Aggregation Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="riceAD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Pricing</td>
-                                                        <td>When farmers are aggregated and have higher volumes to offer and greater bargaining power, they can diversify their off-taker base, and predetermine their market pricing. 
-                                                        </td>
-                                                        <td>I dan manomi sun hadda amfanin gonan su, za su samu yawan amfanin gona da karfin ciniki, zasu samu masu siya da yawa, kuma za su samu ikon sa farashi.
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Market Lineage</td>
-                                                        <td>Aggregating smallholder farmers enables them to meet the standards and requirements of modern markets and address other barriers to access services and markets, and enhances their competitiveness by reducing the transaction costs of market linkage.
-                                                        </td>
-                                                        <td>Hada kan kananan manoma zai basu niyyan  su kai ga abun da ake bukata a kasuwn birni, don a samu fida wasu matsalolin samun malaman gona da na kasuwa domin su rage wahalan saiyar da amfanin gonan su
-                                                        </td>
+                                                    <tbody id="rice_aggr_details">
                                                       
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Off-Takers</td>
-                                                        <td>Farm Aid is a platform that connects smallholder farmers to off-takers who will work directly with farmers and build an aggregation structure as part of their operational system. The off-takers will ensure the farmer’s product has access to adequate market structure. 
-                                                          .</td>
-                                                        <td>Farm Aid wani dandali ne da ke hada kananan manoma da masu siyan amfanin gona su, wan da zai aiki kai tsaye da manoma su gina tsari yan da za su yi aiki. Masu siyan amfani gona na manoma za su tabatar ci wa amfanin manoma sun samu tsari mai kyau a kasuwa.
-                                                        </td>
-                                                      
-                                                      </tr>
                                                      
                                                       </tbody>
                                                   </table>
@@ -648,6 +345,7 @@
 
                     </div>
 
+                    <!--   Ground nut starts here -->
                     <div id="subscriber_task" class="navtab-content">
 
 
@@ -656,12 +354,6 @@
                         <!-- Acticity List -->
                         <div class="projects-list-wrapper">
                             <div class="list-header">
-                                <div class="list-title">
-                                    <span>Edit Crop</span>
-                                    <div class="add-button" onclick="createCrop('crop')">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
                                 <div class="list-filter">
                                     <div class="control">
                                         <input class="input" type="text" placeholder="Filter Projects">
@@ -692,50 +384,11 @@
                                                         <th scope="col">Input Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groundnutInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Seed Selection</td>
-                                                        <td>Adopt planting of Hybrid Tomato seed  for improved disease resistance ability, higher quality fruits and other specific growth habits that are superior compared to non-hybrid varieties.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Seed Source</td>
-                                                        <td>Seeds can be sourced from either Tomato Seed Companies, State Agricultural Development Projects (ADPs), National Horticultural Research Institute (NIHORT) or Seed vendors.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Fertilizer</td>
-                                                        <td>Manures such as animal droppings and household waste materials can be applied to supplement the fertility of the soil. These organic nutrients from the soil, along with other materials, crop residues, manures need to be managed properly to achieve optimal crop nutrient uptake. Also, NPK fertilizers are applied to supplement nutrients lacking in the soil.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Herbicides</td>
-                                                        <td>"Spray with non-selective herbicide (Glyphosate) or manually and/or mechanically weed from the beginning of land preparation 2-3 weeks and plough. Ridge once before transplanting to kill all weeds rhizomes.
-
-                                                          Apply pre-emergence herbicide 2-3 days before transplanting. Emergent weeds can be controlled with a selective post-emergent herbicide or manual and/or mechanical weeding."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Crop Protection Product</td>
-                                                        <td>CPPs application in tomato control weed species, harmful insects and plant diseases that infect the crops.
-                                                          .</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_input">
+                                                     
                                                     </tbody>
                                                   </table>
                                                   
@@ -754,37 +407,11 @@
                                                         <th scope="col">Post Harvest Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groundnutPH('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Cleaning</td>
-                                                        <td>Proper hygiene should be maintained by all tomato producers and handlers, not only to reduce postharvest diseases, but also incidence of food-borne illnesses that can be transmitted to consumers. 
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Packaging</td>
-                                                        <td>"The wooden/rubber crate and the smooth woven palm basket are recommended packaging materials that should be used for packaging tomatoes with minimum damage.
-                                                          Other Tomato packaging materials are: woven palm baskets that is well woven without rough edges, wooden crates, cardboard boxes, plastic crates, nylon sacks, jute sacks, and polythene bags. "
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Storage</td>
-                                                        <td>"For short-term storage (up to a week), tomato fruits can be stored at ambient conditions if there is enough ventilation to reduce the accumulation of heat from respiration. 
-
-                                                          For longer-term storage, ripe tomatoes can be stored at temperatures of about 10–15°C.
-                                                          
-                                                          Harvested fruit should be stored in well-ventilated areas, or in a low oxygen or high carbon dioxide atmosphere. The fruit should never be exposed to temperatures below 12.5°C or chilling injury may result."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_ph">
+                                                    
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -802,66 +429,11 @@
                                                         <th scope="col">Crop Management Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groundnutCMGT('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Weed Control</td>
-                                                        <td>"1. Hand weeding: Hand-weed twice at 21 and 40 days after transplanting.
-
-                                                          2. Chemical control; Use any of the under-listed herbicides recommendations to control weeds in tomato farm:
-                                                          • Glyphosate e.g. Roundup (4–6 liters/ha), 2 weeks before planting followed by either
-                                                          </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Fertilizer Application</td>
-                                                        <td>"Use 200–250 kg per hectare of nitrogen (440 to 550 kg Granular Urea), 100 kg of potassium per hectare and 40 to 60 kg of phosphorus per hectare for Tomato cultivation.
-
-                                                          Apply decomposed organic manure at a rate of 120–150 kg/ha to suppliment soil nutrients."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>"Transplanting should be done during late afternoon. Seedlings are placed on side of the beds between 21-28 days from seeding. 
-
-                                                          The seedbeds should be irrigated after sowing and they should be done regularly until the seedlings reach a height of 5 to 7 cm.
-                                                          "
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>CPP</td>
-                                                        <td>"Insecticides = Ampligo, Malathion, Carbaryl, Endosulfan, Dichlorophos, Chlorophyriphos and pyrethroids.
-
-                                                          Fungicide = Dithane Z-78, Dithane M-45, Difolatan, Daconil 2787, Agrocit 50 SD and Chinoinfundozol 50 WP, Difolatan and copper Oxychloride 50, Methionine, Fytolan and Captan.
-                                                          
-                                                          Disinfectant = Methyl bromide and Ditrapex (dichloropropane with 1, 3- dichloropropene).
-                                                          "
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Pest and Disease Control</td>
-                                                        <td>"Tuta absoluta: Best results for managing this pest are achieved by integrated pest management: chemical control [Chlorantraniliprole (Trade name: Rynaxypyr) from Dupont], the use of pheromone traps and mass trapping (Tuta trap tray), cultural control, biological control, resistant varieties and bio-pesticides.
-
-                                                          Tomato fruit worm: Best results for managing this pest are achieved by alternate sprays with Malathion and Carbaryl at 10-day intervals starting from leaf perforation.
-                                                          
-                                                          Epilachna beetles: Spray with Endosulfan or Dichlorophos or Chlorophyriphos once at 0.1%.
-                                                          
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_cmt">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -877,60 +449,11 @@
                                                         <th scope="col">Production Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groundnutPD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Land Selection</td>
-                                                        <td>Choose well-drained, fairly light fertile loamy soil with a good moisture holding capacity for growing Tomato.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Land Preparation</td>
-                                                        <td>"Plough soil to a depth of 30–50cmto ensure good drainage and air content to aid good root establishment. 
-                                                          Harrow once after ploughing and apply decomposed organic manure to improve the soil fertility. 
-                                                          Properly irrigate and ridge into beds ready for transplant. Apply pre-emergence herbicide, and transplant after 1 or 2 days."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>"Transplanting should be done during late afternoon. Seedlings are placed on side of the beds between 21-28 days from seeding. 
-
-                                                          The seedbeds should be irrigated after sowing and they should be done regularly until the seedlings reach a height of 5 to 7 cm.
-                                                          "
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Harvesting</td>
-                                                        <td>" Tomato can be harvested at any of the following stages:
-
-                                                          Immature: Harvest before the seeds fully developed and before the jelly-like substances surrounding the seeds are formed.
-                                                          
-                                                          Mature green: The fully-grown fruit with a brownish ring at stem-scar. 
-                                            
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Mechanization</td>
-                                                        <td>"Smallholder farmers in the Tomato value chain require access to machinery and equipment for cultivation:
-                                                          • Land preparation: Tractor, Plough, Tillage equipment, Harrower, Ridger
-                                                          • Storage: Refrigerator"
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_pro">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -946,37 +469,11 @@
                                                         <th scope="col">Weather/Climate Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groundnutWC('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Temperature</td>
-                                                        <td>"Tomatoes optimum temperature:
-                                                          • Germination is 16-29°C,
-                                                          • Vegetative growth 21-24°C, 
-                                                          • Fruit setting (night/day) 13-18°C/ 19-24°C, 
-                                                          • Formation of lycopene 21-24°C and 
-                                                           • Formation of carotene 21-32°C"
-                                                          </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>RainFall</td>
-                                                        <td>The water requirement of outdoor grown tomatoes varies between 4000–6000 m³/ha. Over 70% or more of the root system are in the upper 20 cm of the soil. 
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Humility</td>
-                                                        <td>"Optimal relative humidity for Tomato is 85 – 95%.
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_wc">
+                                                    
                                                       </tbody>
                                                   </table>
                                             </div>
@@ -992,40 +489,11 @@
                                                         <th scope="col">Aggregation Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="groudnutAggr('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Labelling</td>
-                                                        <td>Every packaging material should contain vital information such as sorghum variety, location of production, duration in store, etc
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Pricing</td>
-                                                        <td>When farmers are aggregated and have higher volumes to offer and greater bargaining power, they can diversify their off-taker base and predetermine their market pricing. 
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Market Lineage</td>
-                                                        <td>Aggregating by smallholder farmers enables them to meet the standards and requirements of modern markets and address other barriers to access services and markets and enhances their competitiveness by reducing the transaction costs of market linkage.
-                                                          .</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Off-Takers</td>
-                                                        <td>Farm Aid is a platform that connects smallholder farmers to off-takers who will work directly with farmers and build an aggregation structure as part of their operational system. The off-takers will ensure the farmer’s product has access to adequate market structure. 
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="groundnut_aggre">
+                                                     
                                                       </tbody>
                                                   </table>
                                             </div>
@@ -1037,6 +505,8 @@
 
                     </div>
 
+                    <!--  groundnut ends here -->
+
                     <!-- Sorghum starts ************************************************************-->
 
                     <div id="sorghum_task" class="navtab-content">
@@ -1044,12 +514,6 @@
                         <!-- Files List -->
                         <div class="projects-list-wrapper">
                             <div class="list-header">
-                                <div class="list-title">
-                                    <span>Edit Crop</span>
-                                    <div class="add-button" onclick="createCrop('crop')">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
                                 <div class="list-filter">
                                     <div class="control">
                                         <input class="input" type="text" placeholder="Filter Projects">
@@ -1080,48 +544,11 @@
                                                         <th scope="col">Input Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Seed Selection</td>
-                                                        <td>Use only improved sorghum varieties: SAMSORG 47, SAMSORG 48 and SAMSORG 49 are early medium-maturing varieties having good germination, diseases and drought tolerance and adaptability to specific ecologies and high yield potential of over 4.8 t/ha
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Seed Source</td>
-                                                        <td>Seeds should be purchased from International Crop Research Institute for the Semi-Arid Tropics (ICRISAT), Institute for Agricultural Research (IAR), National Agricultural Seed Council (NASC) and State Agricultural Development Project (ADPs) and only from registered and certified seed companies
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Fertilizer</td>
-                                                        <td>Manures such as animal droppings, household waste materials can be applied to supplement the fertility of the soil to achieve optimal crop nutrient uptake. Also, NPK and Urea fertilizers are applied to supplement nutrients lacking in the soil.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Herbicides</td>
-                                                        <td>A suitable pre-emergence herbicide should be sprayed after the cultivation of the sorghum field. After emergence of sorghum, a selective post emergence herbicide is recommended for use.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Crop Protection Product</td>
-                                                        <td>CPPs application can control weed species, harmful insects and plant diseases that affect sorghum crops.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_input_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                                   
@@ -1140,46 +567,11 @@
                                                         <th scope="col">Post Harvest Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumPHD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Threshing</td>
-                                                        <td>"Threshing
-                                                          . Thresh immediately after harvesting and drying to avoid post harvest losses.
-                                                          . Use only minimal force that is just enough to detach grains from the panicle during threshing.
-                                                          Cleaninig
-                                                          . Manual cleaning is achieved by winnowing to separate low density materials such as leaves and stalks, while washing removes dust and stones."
-                                                          </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Drying</td>
-                                                        <td>Sun-dry sorghum after harvest either in the field or off-field for proper drying upto about 1-2 weeks to reduce moisture content to about 12%, depending on the weather condition after harvest.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Packaging</td>
-                                                        <td>After proper drying of sorghum has been achieved, it should be properly bagged for storage in new bags that are free of contaminants. Stored in 50−100kg bags made from either jute, cotton polypropylene or multi-layer paper.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Storage</td>
-                                                        <td>"Sorghum grains should be stored in bags, with a Phostoxin tablet/100kg seeds against pest at 12% moisture content. Store/warehouses should be sited in flood-free, well-drained area with good access roads. The walls should be plastered with cement and the roof covered with corrugated iron sheets. Doors and windows should be well-fitted.
-
-                                                          . In-coming grains should be well graded for moisture content, pest infestation level, contaminants, etc."
-                                                          .</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_ph_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -1197,60 +589,11 @@
                                                         <th scope="col">Crop Management Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumCMGT('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Weed Control</td>
-                                                        <td>A suitable pre-emergence herbicide (like pendimethalin, primextra gold) should be sprayed after the sowing of the sorghum field. Few weeks after emergence of sorghum, a selective post emergence herbicide is recommended for use or weeding done a minimum of 1-2 times at intervals of 4 weeks before harvest.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Fertilizer Application</td>
-                                                        <td>"Farm Yard Manure should be applied at 2-3t/ha during land preparation. And NPK 15:15:15 fertilizers (4 bags 200 kg/ha) be applied at planting and Urea applied at the rate of 2 bags (100 kg/ha) applied prior to flowerings. 
-                                                          Use 2 cork stoppers full of NPK 15:15:15 buried in a 5cm deep hole 5 to 10 days after emergence with 1 cork stopper full of Urea 4 to 5 weeks after sowing."
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>Sorghum can be planted using animal-drawn planters or dibbler. Plant at a depth of 2.5cm in areas with sufficient water and maximum of 5cm in drier areas at 75cm X 25-30cm. Planting is done around May to June.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>CPP</td>
-                                                        <td>"Farmers should be well-kitted at all times with the following protective coverings before using CPPs:
-                                                          • Hand gloves reaching elbow level to protect their hands from chemical contamination.
-                                                          •  Face mask to prevent inhaling chemical substances in gaseous state
-                                                          • Overalls to the knee level to prevent splashing of CPPs on the body during spraying
-                                                          •  Rubber boats reaching the knee level will prevent CPPs splashing on the feet"
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Pest and Disease Control</td>
-                                                        <td>"Pest Control: 
-                                                          · Deep ploughing to expose the larva and pupa stages of shoot fly.
-                                                          . Early sowing between last week of May to first week of July for escaping shoot fly incidence. 
-                                                          Disease Control: 
-                                                          Sorghum Smuts:  
-                                                          . Treatment seed with appropriate fungicide to prevent introducing the head smut fungus into un-infested fields. 
-                                                          . Where feasible, promptly remove and burn head smut galls before the spores are scattered. 
-                                                          . Crop rotation should be practiced since the head smut fungus may live in the soil for several years, grow sorghum in 
-                                                          </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_cropMgt_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -1266,47 +609,11 @@
                                                         <th scope="col">Production Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumPD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Land Selection</td>
-                                                        <td>A fertile well drained clay loam soils with high moisture retention capacity is best for growing sorghum.
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Land Preparation</td>
-                                                        <td>Use conventional tillage by ploughing and harrowing if tractor is available before ridge making  at a row spacing of 75cm, to allow for deeper roots penetration and minnimize the problems of weeds.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Planting Technique</td>
-                                                        <td>Sorghum can be planted using animal-drawn planters or dibbler. Plant at a depth of 2.5cm in areas with sufficient water and maximum of 5cm in drier areas at 75cm X 25-30cm. Planting is done around May to June.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Harvesting</td>
-                                                        <td>Harvest grains early, using manual or mechanical means. Panicles should be cut from the standing stalks either manually or mechanically when moisture content is about 16-20%.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Mechanization</td>
-                                                        <td>"Smallholder farmers growing sorghum requires access to machinery and equipment for cultivation such as tractor moulted with harrower, plough and ridger. Others like Motorized weeder and Knapsack sprayers for spraying herbicides.</td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_pro_table">
+                                                     
                                                     </tbody>
                                                   </table>
                                             </div>
@@ -1321,29 +628,11 @@
                                                         <th scope="col">Weather/Climate Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumWC('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Temperature</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>RainFall</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Humility</td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </td>
-                                                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_wc_table">
+                                                     
                                                       </tbody>
                                                   </table>
                                             </div>
@@ -1359,45 +648,16 @@
                                                         <th scope="col">Aggregation Details</th>
                                                         <th scope="col">Description in English</th>
                                                         <th scope="col">Description in Hausa</th>
+                                                        <th scope="col"><span class="btn_edit" > <a onclick="sorghumAGGRE('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
                                                       </tr>
                                                     </thead>
-                                                    <tbody>
-                                                      <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Labelling</td>
-                                                        <td>Every packaging material should contain vital information such as sorghum variety, location of production, duration in store, etc
-                                                        </td>
-                                                        <td></td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Pricing</td>
-                                                        <td>When farmers are organized into groups, they will aggregate higher volumes to offer and greater bargaining power. They can diversify their off-taker base, and predetermine a favourable market price.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Market Lineage</td>
-                                                        <td>Organizing smallholder farmers into groups enables them to meet the standards and requirements of modern markets and, addresses other barriers to access services and markets thus enhancing their competitiveness by reducing the transaction costs of market linkage.
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Off-Takers</td>
-                                                        <td>Farm Aid is a platform that connects smallholder farmers to off-takers who will work directly with farmers to build an aggregation structure as part of their operational system. 
-                                                        </td>
-                                                        <td></td>
-                                                      
-                                                      </tr>
+                                                    <tbody id="sorghum_aggre_table">
+                                                    
                                                       </tbody>
                                                   </table>
                                             </div>
                                         </div>
-                                        <!-- Task group -->
+                                        <!-- Task group error tbody -->
                                         <div class="tasks-wrapper">
                                             <div class="header">
                                                 

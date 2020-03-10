@@ -298,30 +298,36 @@ $(document).ready(function($){
 
 
 // send SMS 
-function sendSMS(opts) {
-  fetch('https://farm-aid-backend.herokuapp.com/api/send', {
-    method: 'POST',
-    body: JSON.stringify(opts),
-    headers: new Headers()
-  }).then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log('Sent: ', data);
-  });
-}
+// function sendSMS(opts) {
+//   fetch('http://localhost:5000/api/send', {
+//     method: 'POST',
+//     body: JSON.stringify(opts),
+//     headers: new Headers()
+//   }).then(function(response) {
+//     return response.json();
+//   }).then(function(data) {
+//     console.log('Sent: ', data);
+//   });
+// }
 
 $("#send_messages").on('click', function(e) {
   var msg_content = $("#message_content").val();
+  var msg_state = $("#slct1").val();
   const msg = {
     "msg": msg_content,
-  };
+    "msg_state": msg_state,
+  }
 const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+const token = localStorage.getItem('access_token');
+
   // create request object
   var request = new Request(url, {
     method: 'POST',
     body: JSON.stringify(msg),
     headers: new Headers({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': token
+      
     })
   });
 
@@ -406,7 +412,7 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
     icon: 'info'
   }).then(function() {
     $("#mytable").fadeOut("fast");
-    Swal.fire({
+    swal.fire({
       title: "Please wait",
       text: "Loading data ....",
       icon: "info",
@@ -517,59 +523,6 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
 
 }
 
-$("#ada").ready(function() {
-  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  let html = "";
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
-  document.getElementById("ada").innerHTML = html;
-  })
-})
-$("#gob").ready(function() {
-  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  let html = "";
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    console.log("gombe:" + data.length)
-    html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-  document.getElementById("gob").innerHTML = html;
-  })
-})
-
-$("#total").ready(function() {
-  const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  let html = "";
-
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    console.log("gombe:" + data.length)
-    html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
-  document.getElementById("total").innerHTML = html;
-  // document.getElementById("total").style.color = "red";
-  })
-})
-
 let table = "#mytable";
 $("#maxRows").on('change', function() {
   $('.pagination').html('')
@@ -612,6 +565,26 @@ $("#maxRows").on('change', function() {
   })
 })
 
+function myNumber() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myNumber");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("mytable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 function mySearch() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("mySearch");
@@ -1104,7 +1077,7 @@ function agroTable(params) {
   }
 }
 
-function toGapSwal(params) {
+function riceGapSwal(params) {
   if($("#main-dashboard").length){
     swal.fire({
       title: 'Loading Tomatoes Data',
@@ -1129,8 +1102,8 @@ function toGapSwal(params) {
         return id_num + id_str;
       } 
 
-    $("#to_pro").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_pro_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1184,8 +1157,8 @@ function toGapSwal(params) {
     });
 
 
-    $("#to_we").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_wc_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1227,8 +1200,8 @@ function toGapSwal(params) {
     });
 
 
-    $("#to_aggr").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_aggr_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1277,8 +1250,8 @@ function toGapSwal(params) {
 
 
 
-    $("#to_mtg").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_cm_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1326,8 +1299,8 @@ function toGapSwal(params) {
     });
 
 
-    $("#to_harv").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_ph_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1375,8 +1348,8 @@ function toGapSwal(params) {
     });
 
 
-    $("#to_input").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e2afc0c5add721b548632c8'
+    $("#rice_input_details").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1433,4 +1406,998 @@ function toGapSwal(params) {
 }
 }
 
+// tomatoes GAP content
+function toGapSwal(params) {
+  if($("#main-dashboard").length){
+    swal.fire({
+      title: 'Loading Tomatoes Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      var random_id = function  () 
+      {
+        var id_num = Math.random().toString(9).substr(2,3);
+        var id_str = Math.random().toString(36).substr(2);
+        
+        return id_num + id_str;
+      } 
+
+    $("#to_pro").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let landSelection = data.production[0].landSelection
+      let landPreparation = data.production[0].landPreparation
+      let plantingTechnique = data.production[0].plantingTechnique
+      let harvesting = data.production[0].harvesting
+      let mechanization = data.production[0].mechanization
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Selection" + "</td>"
+      html += "<td>" + landSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Preparation" + "</td>"
+      html += "<td>" + landPreparation + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "planting Technique" + "</td>"
+      html += "<td>" + plantingTechnique + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "harvesting" + "</td>"
+      html += "<td>" + harvesting + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "mechanization" + "</td>"
+      html += "<td>" + mechanization + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_pro").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#to_we").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let temperature = data.weather_climate[0].temperature
+      let rainfall = data.weather_climate[0].rainfall
+      let humility = data.weather_climate[0].humility
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "temperature" + "</td>"
+      html += "<td>" + temperature + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "rainfall" + "</td>"
+      html += "<td>" + rainfall + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "humility" + "</td>"
+      html += "<td>" + humility + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_we").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#to_aggr").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let labelling = data.aggrgation[0].labelling
+      let pricing = data.aggrgation[0].pricing
+      let market_linage = data.aggrgation[0].market_linage
+      let off_taker = data.aggrgation[0].off_taker
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "labelling" + "</td>"
+      html += "<td>" + labelling + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "pricing" + "</td>"
+      html += "<td>" + pricing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "market_linage" + "</td>"
+      html += "<td>" + market_linage + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "off_taker" + "</td>"
+      html += "<td>" + off_taker + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_aggr").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+
+    $("#to_mtg").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let weedControl = data.cropManagement[0].weedControl
+      let fertilizerApplication = data.cropManagement[0].fertilizerApplication
+      let cpp = data.cropManagement[0].cpp
+      let pest_disease_control = data.cropManagement[0].pest_disease_control
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "weedControl" + "</td>"
+      html += "<td>" + weedControl + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer Application" + "</td>"
+      html += "<td>" + fertilizerApplication + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "CPP" + "</td>"
+      html += "<td>" + cpp + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "Pest-Disease Control" + "</td>"
+      html += "<td>" + pest_disease_control + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_mtg").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#to_harv").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let threshing = data.postHarvest[0].threshing
+      let drying = data.postHarvest[0].drying
+      let packaging = data.postHarvest[0].packaging
+      let storage = data.postHarvest[0].storage
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "threshing" + "</td>"
+      html += "<td>" + threshing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "drying" + "</td>"
+      html += "<td>" + drying + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "packaging" + "</td>"
+      html += "<td>" + packaging + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "storage" + "</td>"
+      html += "<td>" + storage + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_harv").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#to_input").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let seedSelection = data.input[0].seedSelection
+      let seedSource = data.input[0].seedSource
+      let fertilizer = data.input[0].fertilizer
+      let herbicides = data.input[0].herbicides
+      let cropProtectionProduct = data.input[0].cropProtectionProduct
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Selection" + "</td>"
+      html += "<td>" + seedSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Source" + "</td>"
+      html += "<td>" + seedSource + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer" + "</td>"
+      html += "<td>" + fertilizer + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "herbicides" + "</td>"
+      html += "<td>" + herbicides + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "crop Protection Product" + "</td>"
+      html += "<td>" + cropProtectionProduct + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_input").innerHTML = html;
+      Swal.close();
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+  })
+  Swal.close();
+}
+}
+
+
+
+// sorghum GAP content
+function sorghumGapSwal(params) {
+  if($("#main-dashboard").length){
+    swal.fire({
+      title: 'Loading Sorghum Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      var random_id = function  () 
+      {
+        var id_num = Math.random().toString(9).substr(2,3);
+        var id_str = Math.random().toString(36).substr(2);
+        
+        return id_num + id_str;
+      } 
+
+    $("#sorghum_pro_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let landSelection = data.production[0].landSelection
+      let landPreparation = data.production[0].landPreparation
+      let plantingTechnique = data.production[0].plantingTechnique
+      let harvesting = data.production[0].harvesting
+      let mechanization = data.production[0].mechanization
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Selection" + "</td>"
+      html += "<td>" + landSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Preparation" + "</td>"
+      html += "<td>" + landPreparation + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "planting Technique" + "</td>"
+      html += "<td>" + plantingTechnique + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "harvesting" + "</td>"
+      html += "<td>" + harvesting + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "mechanization" + "</td>"
+      html += "<td>" + mechanization + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_pro").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#sorghum_wc_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let temperature = data.weather_climate[0].temperature
+      let rainfall = data.weather_climate[0].rainfall
+      let humility = data.weather_climate[0].humility
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "temperature" + "</td>"
+      html += "<td>" + temperature + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "rainfall" + "</td>"
+      html += "<td>" + rainfall + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "humility" + "</td>"
+      html += "<td>" + humility + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_we").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#sorghum_aggre_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let labelling = data.aggrgation[0].labelling
+      let pricing = data.aggrgation[0].pricing
+      let market_linage = data.aggrgation[0].market_linage
+      let off_taker = data.aggrgation[0].off_taker
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "labelling" + "</td>"
+      html += "<td>" + labelling + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "pricing" + "</td>"
+      html += "<td>" + pricing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "market_linage" + "</td>"
+      html += "<td>" + market_linage + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "off_taker" + "</td>"
+      html += "<td>" + off_taker + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_aggr").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+
+    $("#sorghum_cropMgt_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let weedControl = data.cropManagement[0].weedControl
+      let fertilizerApplication = data.cropManagement[0].fertilizerApplication
+      let cpp = data.cropManagement[0].cpp
+      let pest_disease_control = data.cropManagement[0].pest_disease_control
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "weedControl" + "</td>"
+      html += "<td>" + weedControl + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer Application" + "</td>"
+      html += "<td>" + fertilizerApplication + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "CPP" + "</td>"
+      html += "<td>" + cpp + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "Pest-Disease Control" + "</td>"
+      html += "<td>" + pest_disease_control + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_mtg").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#sorghum_ph_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let threshing = data.postHarvest[0].threshing
+      let drying = data.postHarvest[0].drying
+      let packaging = data.postHarvest[0].packaging
+      let storage = data.postHarvest[0].storage
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "threshing" + "</td>"
+      html += "<td>" + threshing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "drying" + "</td>"
+      html += "<td>" + drying + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "packaging" + "</td>"
+      html += "<td>" + packaging + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "storage" + "</td>"
+      html += "<td>" + storage + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_harv").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#sorghum_input_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let seedSelection = data.input[0].seedSelection
+      let seedSource = data.input[0].seedSource
+      let fertilizer = data.input[0].fertilizer
+      let herbicides = data.input[0].herbicides
+      let cropProtectionProduct = data.input[0].cropProtectionProduct
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Selection" + "</td>"
+      html += "<td>" + seedSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Source" + "</td>"
+      html += "<td>" + seedSource + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer" + "</td>"
+      html += "<td>" + fertilizer + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "herbicides" + "</td>"
+      html += "<td>" + herbicides + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "crop Protection Product" + "</td>"
+      html += "<td>" + cropProtectionProduct + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_input").innerHTML = html;
+      Swal.close();
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+  })
+  Swal.close();
+}
+}
+
+
+
+
+// ground GAP content
+function groudnutGapSwal(params) {
+  if($("#main-dashboard").length){
+    swal.fire({
+      title: 'Loading Tomatoes Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+      var random_id = function  () 
+      {
+        var id_num = Math.random().toString(9).substr(2,3);
+        var id_str = Math.random().toString(36).substr(2);
+        
+        return id_num + id_str;
+      } 
+
+    $("#groundnut_pro").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let landSelection = data.production[0].landSelection
+      let landPreparation = data.production[0].landPreparation
+      let plantingTechnique = data.production[0].plantingTechnique
+      let harvesting = data.production[0].harvesting
+      let mechanization = data.production[0].mechanization
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Selection" + "</td>"
+      html += "<td>" + landSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "land Preparation" + "</td>"
+      html += "<td>" + landPreparation + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "planting Technique" + "</td>"
+      html += "<td>" + plantingTechnique + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "harvesting" + "</td>"
+      html += "<td>" + harvesting + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "mechanization" + "</td>"
+      html += "<td>" + mechanization + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_pro").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#groundnut_wc").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let temperature = data.weather_climate[0].temperature
+      let rainfall = data.weather_climate[0].rainfall
+      let humility = data.weather_climate[0].humility
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "temperature" + "</td>"
+      html += "<td>" + temperature + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "rainfall" + "</td>"
+      html += "<td>" + rainfall + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "humility" + "</td>"
+      html += "<td>" + humility + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_we").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#groundnut_aggre").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let labelling = data.aggrgation[0].labelling
+      let pricing = data.aggrgation[0].pricing
+      let market_linage = data.aggrgation[0].market_linage
+      let off_taker = data.aggrgation[0].off_taker
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "labelling" + "</td>"
+      html += "<td>" + labelling + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "pricing" + "</td>"
+      html += "<td>" + pricing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "market_linage" + "</td>"
+      html += "<td>" + market_linage + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "off_taker" + "</td>"
+      html += "<td>" + off_taker + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_aggr").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+
+    $("#groundnut_cmt").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let weedControl = data.cropManagement[0].weedControl
+      let fertilizerApplication = data.cropManagement[0].fertilizerApplication
+      let cpp = data.cropManagement[0].cpp
+      let pest_disease_control = data.cropManagement[0].pest_disease_control
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "weedControl" + "</td>"
+      html += "<td>" + weedControl + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer Application" + "</td>"
+      html += "<td>" + fertilizerApplication + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "CPP" + "</td>"
+      html += "<td>" + cpp + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "Pest-Disease Control" + "</td>"
+      html += "<td>" + pest_disease_control + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_mtg").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#groundnut_ph").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let threshing = data.postHarvest[0].threshing
+      let drying = data.postHarvest[0].drying
+      let packaging = data.postHarvest[0].packaging
+      let storage = data.postHarvest[0].storage
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "threshing" + "</td>"
+      html += "<td>" + threshing + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "drying" + "</td>"
+      html += "<td>" + drying + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "packaging" + "</td>"
+      html += "<td>" + packaging + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "storage" + "</td>"
+      html += "<td>" + storage + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_harv").innerHTML = html;
+        
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+
+    $("#groundnut_input").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        var row_id = random_id();
+        // console.log(data.input[0])
+        //--->create data table > start
+      let seedSelection = data.input[0].seedSelection
+      let seedSource = data.input[0].seedSource
+      let fertilizer = data.input[0].fertilizer
+      let herbicides = data.input[0].herbicides
+      let cropProtectionProduct = data.input[0].cropProtectionProduct
+      
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Selection" + "</td>"
+      html += "<td>" + seedSelection + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "seed Source" + "</td>"
+      html += "<td>" + seedSource + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "fertilizer" + "</td>"
+      html += "<td>" + fertilizer + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "herbicides" + "</td>"
+      html += "<td>" + herbicides + "</td>"
+      html += "</tr>"
+      html += "<tr>";
+      html += "<td></td>"
+      html += "<td>" + "crop Protection Product" + "</td>"
+      html += "<td>" + cropProtectionProduct + "</td>"
+      html += "</tr>"
+       
+      document.getElementById("to_input").innerHTML = html;
+      Swal.close();
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+  })
+  Swal.close();
+}
+}
 
