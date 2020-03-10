@@ -298,17 +298,17 @@ $(document).ready(function($){
 
 
 // send SMS 
-function sendSMS(opts) {
-  fetch('https://farm-aid-backend.herokuapp.com/api/send', {
-    method: 'POST',
-    body: JSON.stringify(opts),
-    headers: new Headers()
-  }).then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log('Sent: ', data);
-  });
-}
+// function sendSMS(opts) {
+//   fetch('http://localhost:5000/api/send', {
+//     method: 'POST',
+//     body: JSON.stringify(opts),
+//     headers: new Headers()
+//   }).then(function(response) {
+//     return response.json();
+//   }).then(function(data) {
+//     console.log('Sent: ', data);
+//   });
+// }
 
 $("#send_messages").on('click', function(e) {
   var msg_content = $("#message_content").val();
@@ -318,6 +318,7 @@ $("#send_messages").on('click', function(e) {
     "msg_state": msg_state,
   }
 const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+const token = localStorage.getItem('access_token');
 
   // create request object
   var request = new Request(url, {
@@ -325,8 +326,8 @@ const url = 'https://farm-aid-backend.herokuapp.com/api/send'
     body: JSON.stringify(msg),
     headers: new Headers({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      'Authorization': token
+      
     })
   });
 
