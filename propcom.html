@@ -666,6 +666,7 @@
                     <ul>
                         <li><a href="#sms">SMS</a></li>
                         <li><a href="#admin">Administration</a></li>
+                        <li><a href="#internalsms">Internal SMS</a></li>
                         <li><a href="#needs">Needs Assessment</a></li>
                     </ul>
                 </li>
@@ -1472,6 +1473,46 @@
         </div>
         <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
+
+    <!-- Create Internal message -->
+
+    <div id="create-internal-modal" class="modal modal-md icon-action-modal modal-hero">
+        <div class="modal-background scaleInCircle"></div>
+        <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+                <h2 class="dark-text">New Internal Message</h2>
+                <div class="card-body">
+                    <div class="has-text-centered">
+                        <div class="image">
+                            <img src="images/icons-note.svg"></div>
+                        <div class="columns">
+                            
+                            <div class="column is-field">
+                                <label for="recipients">Type Recipients Numbers here</label>
+                                <textarea id="to_recipients" class="textarea" rows="3">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="columns">
+                            <div class="column is-field">
+                                <label for="recipients">Type Message here</label>
+                                <textarea id="internal_message_content" class="textarea" rows="3" data-limit=320>
+                                </textarea>
+                                <span class="countdown"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="cancelInternalMessage();" class="button modal-dismiss">Cancel</button>
+                    <button type="submit" id="send_internal_messages" class="button is-modal">Post Internal message</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelInternalMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+    <!-- End Internal message -->
 
     <!-- Create Crop modal -->
 

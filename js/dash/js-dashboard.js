@@ -98,11 +98,23 @@ function newMessage(params) {
     } 
 }
 
-function cancelMessage(params) {
+function newInternalMessage(params) {
+    if ($('#create-internal-modal').length) {
+        console.log('Creating new internal message...');
+        $('#create-internal-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-internal-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-internal-modal > .modal-content').addClass('scaleIn');
+        $('#create-internal-modal > .modal-close').removeClass('is-hidden');
+        $("#internal_message_content").empty();
+        $('#to_recipients').empty();
+    } 
+}
+
+function cancelInternalMessage(params) {
     $('.modal.modal-md.icon-action-modal.modal-hero').removeClass('is-active');
-    $('#create-note-modal > .modal-background').removeClass('scaleInCircle');
-    $('#create-note-modal > .modal-content').removeClass('scaleIn');
-    $('#create-note-modal > .modal-close').addClass('is-hidden');
+    $('#create-internal-modal > .modal-background').removeClass('scaleInCircle');
+    $('#create-internal-modal > .modal-content').removeClass('scaleIn');
+    $('#create-internal-modal > .modal-close').addClass('is-hidden');
 }
 
 function sorghumInput(param) {

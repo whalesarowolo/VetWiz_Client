@@ -17,6 +17,7 @@
             new Route('paraVet', 'paraVet.html'),
             new Route('offtakers', 'offtakers.html'),
             new Route('input', 'inputcompanies.html'),
+            new Route('internalsms', 'internalsms.html'),
         ]);
     }
     init();

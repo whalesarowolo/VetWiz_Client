@@ -310,6 +310,62 @@ $(document).ready(function($){
 //   });
 // }
 
+$("#send_internal_messages").on('click', function(e) {
+  $("#create_internal_message").css({'display': 'none'});
+  console.log("Sending Internal message");
+  
+  var internal_message_content = $("#internal_message_content").val();
+  var to_recipients = $("#to_recipients").val().split(',');
+  var temPal = [];
+  to_recipients.forEach((num) => {
+    temPal.push(num.trim());
+  })
+  to_recipients = temPal;
+
+  const internal_msg = {
+    "msg": internal_message_content,
+    "to_recipients": to_recipients,
+  }
+
+  const internal_url = 'https://farm-aid-backend.herokuapp.com/api/send_internal'
+  const my_token = localStorage.getItem('access_token');
+  cancelInternalMessage();
+  console.log("New message: ", internal_msg);
+  swal.fire({
+    title: 'Sending Message',
+    text: 'Please wait...',
+    icon: 'info',
+    allowOutsideClick: false,
+    showConfirmButton: false
+  });
+
+  // create request object
+  var internal_request = new Request(internal_url, {
+    method: 'POST',
+    body: JSON.stringify(internal_msg),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': my_token  
+    })
+  });
+
+  // pass request object to `fetch()`
+  fetch(internal_request)
+    .then(async (res) => {
+      //$('.modal').css({ 'display': 'none' });
+      var resp = await res.json();
+      if(resp !== null){
+        swal.close();
+        console.log("Network response from Internal: ", resp);
+      }
+    }).catch((e)=> {
+      swal.close();
+      console.log("Bad request...");
+    });
+  
+
+})
+
 $("#send_messages").on('click', function(e) {
   var msg_content = $("#message_content").val();
   var msg_state = $("#slct1").val();
@@ -341,62 +397,6 @@ const token = localStorage.getItem('access_token');
         console.log(resp)
       }
     });
-
-  // var msg_content = $("#message_content").val();
- // var msg =  "Message from FarmAid";
-
-  // let url = 'http://localhost:5000/api/send';
- //msg = JSON.stringify(msg);
-
-// sendSMS(msg);
-
-//   $.ajax({
-//     type: "POST",
-//     url: url,
-//     dataType: "json",
-//     success: function (msg) {
-//         if (msg) {
-//             location.reload(true);
-//         } else {
-//             alert("Did'nt succeed");
-//         }
-//     },
-
-//     body: msg
-// });
-  // create request object
-  // var request = new Request(url, {
-  //   method: 'POST',
-  //   body: JSON.stringify(msg),
-  //   headers: new Headers({
-  //     'Content-Type': 'application/json'
-  //   })
-  // });
-
-  // fetch(request).then()
-
-  // fetch(request)
-  //         .then(async (res) => {
-  //           //$('.modal').css({ 'display': 'none' });
-  //           var resp = await res.json();
-  //           console.log("Returned response: ", resp);
-  //         });
-  // const url = 'https://farm-aid-backend.herokuapp.com/api/smap';
-  // let to ;
-
-  // fetch(url).then(async (res) => {
-  //   //$('.modal').css({ 'display': 'none' });
-  //   // implement logic to store in Database
-  //   var resp = await res.json();
-  //     to = resp.map(({ phone_number}) => `${phone_number}`)
-  //     // console.log(resp.map(({ phone_number}) => `${phone_number}`));
-  //     console.log(to)
-     
-  //  })
-  //  .catch(function(error){
-  //      console.log(error)
-  //  })
-  //
  })
 
  function farmerSwal(params) {
