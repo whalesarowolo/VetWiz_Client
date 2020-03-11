@@ -366,38 +366,38 @@ $("#send_internal_messages").on('click', function(e) {
 
 })
 
-$("#send_messages").on('click', function(e) {
-  var msg_content = $("#message_content").val();
-  var msg_state = $("#slct1").val();
-  const msg = {
-    "msg": msg_content,
-    "msg_state": msg_state,
-  }
-const url = 'https://farm-aid-backend.herokuapp.com/api/send'
-const token = localStorage.getItem('access_token');
+// $("#send_messages").on('click', function(e) {
+//   var msg_content = $("#message_content").val();
+//   var msg_state = $("#slct1").val();
+//   const msg = {
+//     "msg": msg_content,
+//     "msg_state": msg_state,
+//   }
+// const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+// const token = localStorage.getItem('access_token');
 
-  // create request object
-  var request = new Request(url, {
-    method: 'POST',
-    body: JSON.stringify(msg),
-    headers: new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': token
+//   // create request object
+//   var request = new Request(url, {
+//     method: 'POST',
+//     body: JSON.stringify(msg),
+//     headers: new Headers({
+//       'Content-Type': 'application/json',
+//       'Authorization': token
       
-    })
-  });
+//     })
+//   });
 
-  // pass request object to `fetch()`
-  fetch(request)
-    .then(async (res) => {
-      //$('.modal').css({ 'display': 'none' });
-      var resp = await res.json();
-      if(resp !== null){
+//   // pass request object to `fetch()`
+//   fetch(request)
+//     .then(async (res) => {
+//       //$('.modal').css({ 'display': 'none' });
+//       var resp = await res.json();
+//       if(resp !== null){
 
-        console.log(resp)
-      }
-    });
- })
+//         console.log(resp)
+//       }
+//     });
+//  })
 
  function farmerSwal(params) {
   if($("#main-dashboard").length){
