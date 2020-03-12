@@ -55,7 +55,7 @@
                 <li>
                     <!-- Profile avatar -->
                     <a class="profile-trigger" href="javascript:void(0);">
-                        <img class="main-menu-avatar" src="images/250x250" alt="" data-demo-src="img/oc.png"><span
+                        <img class="main-menu-avatar" src="http://www.gravatar.com/avatar/?d=identicon" alt="" data-demo-src="http://www.gravatar.com/avatar/?d=identicon"><span
                             class="dot"></span>
                     </a>
                     <!-- /Profile avatar -->
@@ -76,7 +76,7 @@
                                                     <div class="avatar-overlay">
                                                         <i class="fa fa-camera fa-2x"></i>
                                                     </div>
-                                                    <img src="images/250x250" alt="" data-demo-src="/img/oc.png">
+                                                    <img src="images/250x250" alt="" data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
                                                 </div>
                                                 <div class="name">
                                                     <h3>Marvin Ambrose</h3>
@@ -645,35 +645,9 @@
             <!-- Sidebar menu 1 -->
             <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
                 <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">dashboard</span>Dashboard</a>
-                    <ul>
-                        <li><a onclick="farmerSwal()" href="#farmers">Farmers</a></li>
-                        <li><a href="#users">Users</a></li>
-                        <li><a onclick="agroTable()" href="#agro_dealers">Agrodealers</a></li>
-                        <li><a onclick="seedTable()"  href="#seed">Seed Companies</a></li>
-                        <li><a onclick="extTable()" href="#extension">Extension Agents</a></li>
-                        <li><a onclick="aggreTable()" href="#aggregators">Aggregators</a></li>
-                        <li><a onclick="offTaker()" href="#offtakers">Off-Takers</a></li>
-                        <li><a onclick="paraVet()" href="#paraVet">ParaVet</a></li>
-                        <li><a onclick="inputTable()" href="#input">Input Companies</a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">insert_chart</span>Analytics</a>
                     <ul>
                         <li><a href="#sms">SMS</a></li>
-                        <li><a href="#admin">Administration</a></li>
-                        <li><a href="#internalsms">Internal SMS</a></li>
-                        <li><a href="#needs">Needs Assessment</a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">developer_board</span>GAP CONTENT</a>
-                    <ul>
-                        <li><a href="#gap" onclick="toGapSwal()">Crops GAP Content</a></li>
-                        <li><a href="javascript:">Users</a></li>
-                        <li><a href="javascript:">Crops</a></li>
-                        <li><a href="javascript:">Animals</a></li>
                     </ul>
                 </li>
                 <li class="have-children"><a class="parent-link" href="#"><span
@@ -683,110 +657,6 @@
                     </ul>
                 </li>
             </ul><!-- /Sidebar menu 1 -->
-            <!-- Sidebar menu 2 -->
-            <ul id="documents-menu" class="is-hidden sidebar-menu animated preFadeInRIght fadeInRight">
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">insert_drive_file</span>Documents</a>
-                    <ul>
-                        <li><a href="dashboard-document-list.html">Document list <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                        <li><a href="dashboard-document-details.html">Document details <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                        <li><a href="dashboard-document-invoice.html">Invoice <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">assignment</span>Projects</a>
-                    <ul>
-                        <li><a href="dashboard-project-list.html">Project list <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                        <li><a href="dashboard-project-details.html">Project details <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">assignment_turned_in</span>Tasks</a>
-                    <ul>
-                        <li><a href="dashboard-project-task.html">Single Task <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                        <li><a href="dashboard-project-mytasks.html">My Tasks <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                        <li><a href="dashboard-events-board.html">Events <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                    </ul>
-                </li>
-            </ul><!-- /Sidebar menu 2 -->
-            <!-- Sidebar menu 3 -->
-            <ul id="business-menu" class="is-hidden sidebar-menu animated preFadeInRIght fadeInRight">
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">group</span>Contacts</a>
-                    <ul>
-                        <li><a href="dashboard-contacts-list.html">Contact list <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                        <li><a href="dashboard-contacts-grid.html">Contact grid <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                        <li><a href="dashboard-contacts-single.html">Contact details <span
-                                    class="tag is-primary font-w-600 ml-10">2.1</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">work</span>CRM</a>
-                    <ul>
-                        <li><a href="dashboard-crm-boards.html">All Boards <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-crm-kanban.html">Deals Kanban <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-crm-deal.html">Single Deal <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">verified_user</span>Support Desk</a>
-                    <ul>
-                        <li><a href="dashboard-support-dashboard.html">Desk Dashboard <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-support-tickets.html">Ticket list <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-support-ticket.html">Single Ticket <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                    </ul>
-                </li>
-            </ul><!-- /Sidebar menu 3 -->
-            <!-- Sidebar menu 4 -->
-            <ul id="misc-menu" class="is-hidden sidebar-menu animated preFadeInRIght fadeInRight">
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">grid_on</span>Datatables</a>
-                    <ul>
-                        <li><a href="dashboard-datatable-basic.html">Basic Datatable <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                        <li><a href="dashboard-datatable-variations.html">Variations <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                        <li><a href="dashboard-datatable-advanced.html">Advanced Example <span
-                                    class="tag is-secondary font-w-600 ml-10">2.0</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">apps</span>Apps</a>
-                    <ul>
-                        <li><a href="dashboard-chat-app.html">Chat UI <span
-                                    class="tag is-danger font-w-600 ml-10">2.3</span></a></li>
-                        <li><a href="dashboard-mailbox-inbox.html">Inbox UI<span
-                                    class="tag is-danger font-w-600 ml-10">2.3</span></a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">thumbs_up_down</span>Forum</a>
-                    <ul>
-                        <li><a href="dashboard-forum-home.html">Forum home <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-forum-channel.html">Forum Channel <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                        <li><a href="dashboard-forum-topic.html">Forum Topic <span
-                                    class="tag is-primary font-w-600 ml-10">2.2</span></a></li>
-                    </ul>
-                </li>
-            </ul><!-- /Sidebar menu 4 -->
             <!-- Sidebar menu 5 -->
             <ul id="settings-menu" class="is-hidden sidebar-menu animated preFadeInRIght fadeInRight">
                 <li class="have-children"><a class="parent-link" href="#"><span
@@ -865,19 +735,19 @@
                 <!-- Account dropdown -->
                 <div class="drop-pop">
                     <div class="icon-button accounts-button">
-                        <img src="img/oc.png" alt="" data-demo-src="img/oc.png">
+                        <img src="http://www.gravatar.com/avatar/?d=identicon" alt="" data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
                     </div>
                     <div class="drop-wrapper accounts-drop">
                         <div class="drop-inner has-arrow">
                             <div class="head-block">
-                                <img src="img/oc.pngg" alt="" data-demo-src="img/oc.png">
+                                <img src="http://www.gravatar.com/avatar/?d=identicon" alt="" data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
                                 <h3>Marvin Ambrose</h3>
                                 <p>moche@farmnovation.com</p>
                                 <a class="button is-rounded profile-trigger" href="javascript:">Manage Account</a>
                             </div>
                             <div class="accounts-block is-hidden">
                                 <a class="account" href="javascript:">
-                                    <img src="img/oc.png" alt="" data-demo-src="assets/images/avatars/lakisha.jpg">
+                                    <img src="http://www.gravatar.com/avatar/?d=identicon" alt="" data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
                                     <div class="meta">
                                         <span>Don Onubuon</span>
                                         <span>onubuon@farmnovation.com</span>
@@ -936,9 +806,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="agroTable()"  href="#agro_dealers">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                         <!-- Tile -->
@@ -953,9 +820,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="seedTable()" href="#seed">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                         <!-- Tile -->
@@ -970,9 +834,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="aggreTable()" href="#aggregators">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                         <!-- Tile -->
@@ -987,9 +848,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="offTaker()" href="#offtakers">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1006,9 +864,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="inputTable()"  href="#input">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                         <!-- Tile -->
@@ -1024,9 +879,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="paraVet()" href="#paraVet">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                         <!-- Tile -->
@@ -1041,9 +893,6 @@
                                         <span>0</span>
                                     </p>
                                 </div>
-                                <a class="view-all-button" onclick="extTable()" href="#extension">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1149,104 +998,6 @@
                                 </div>
                                 <div class="ring-title has-text-centered">
                                     <span>Marvin Ambrose</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="column is-3">
-                            <div class="members-card">
-                                <h3 class="card-heading">Team Members</h3>
-                                <ul class="user-list">
-                                    <li>
-                                        <div class="user-list-avatar">
-                                            <img src="images/250x250" alt="" data-demo-src="img/wale.jpeg"></div>
-                                        <div class="user-list-info">
-                                            <div class="name">Olawale Arowolo</div>
-                                            <div class="position">CTO</div>
-                                        </div>
-                                        <div class="user-list-status is-online"></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-list-avatar">
-                                            <img src="images/250x250" alt="" data-demo-src="img/femi.jpeg"></div>
-                                        <div class="user-list-info">
-                                            <div class="name">Femi Ogedengbe</div>
-                                            <div class="position">Team Lead</div>
-                                        </div>
-                                        <div class="user-list-status is-busy"></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-list-avatar">
-                                            <img src="images/250x250" alt="" data-demo-src="img/mary.jpeg"></div>
-                                        <div class="user-list-info">
-                                            <div class="name">Mary Ukam</div>
-                                            <div class="position">Project Lead</div>
-                                        </div>
-                                        <div class="user-list-status is-busy"></div>
-                                    </li>
-                                    <li>
-                                        <div class="user-list-avatar">
-                                            <img src="images/250x250" alt="" data-demo-src="img/oc.png"></div>
-                                        <div class="user-list-info">
-                                            <div class="name">Marvin Ambrose</div>
-                                            <div class="position">Software Engineer</div>
-                                        </div>
-                                        <div class="user-list-status is-offline"></div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Widget -->
-                            <div id="doughnut-card" class="dash-card">
-                                <div class="card-heading has-icon no-margin">
-                                    <span>Needs Assessments</span>
-                                    <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item" href="javascript:">
-                                                    <i class="sl sl-icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl sl-icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl sl-icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="javascript:">
-                                                    <i class="sl sl-icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chart-container">
-                                    <canvas id="doughnutChart" width="150" height="150"></canvas>
-                                    <div class="button-wrap has-text-centered">
-                                        <a class="button btn-dash secondary-btn btn-dash is-raised rounded ripple"
-                                            data-ripple-color="" href="javascript:">See all
-                                            assessments</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
