@@ -1,7 +1,5 @@
 /*! auth.js | Farm Aid */
 
-import { FALSE } from "node-sass";
-
 /*
  ==========================================================================
             Authentication and registration pages JS file 
@@ -265,11 +263,6 @@ $(document).ready(function($){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
                 //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/propcom.html");
-              }
-              if(userObj.user.isAdmin == false){
-                history.pushState({ "logged_in": true, "ifAdmin": true }, "Dashboard", "partnerDashboard.html");
-                //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
-                window.location.replace("/partnerDashboard.html");
               } else {
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/dashboard.html");
