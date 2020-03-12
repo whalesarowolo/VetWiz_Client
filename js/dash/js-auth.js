@@ -1,4 +1,4 @@
-/*! auth.js | Farm Aid */
+/*! auth.js | Bulkit | CSS Ninja */
 
 /*
  ==========================================================================
@@ -273,6 +273,9 @@ $(document).ready(function($){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
                 //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/propcom.html");
+              }else if(userObj.user.isAdmin == false) {
+                history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/partnerDashboard.html");
+                window.location.replace("/partnerDashboard.html");
               } else {
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/dashboard.html");
