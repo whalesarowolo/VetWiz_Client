@@ -211,6 +211,15 @@ $(document).ready(function($){
 
     //  Sign Up logic ends here 
 
+    function parseJwt (token) {
+      var base64Url = token.split('.')[1];
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+  
+      return JSON.parse(jsonPayload);
+    };
 
     $("#enta").on('click', function(e) {
         var useremail = $('#email').val();
@@ -257,7 +266,8 @@ $(document).ready(function($){
               console.log(resp.token);
               swal.close();
               localStorage.setItem('access_token', resp.token);
-              var userObj = parseJwt(resp.token);
+              var userObj = parseJwt(localStorage.getItem('access_token'));
+              console.log("User: ", userObj);
               //For propcom dashboard
               if(userObj.user.company == "propcom"){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
@@ -286,13 +296,15 @@ $(document).ready(function($){
     
     });
 
-    const parseJwt = (token) => {
-        try {
-          return JSON.parse(atob(token.split('.')[1]));
-        } catch (e) {
-          return null;
-        }
-    };
+    // var parseJwt = (token) => {
+    //     try {
+    //       return JSON.parse(atob(token.split('.')[1]));
+    //     } catch (e) {
+    //       return null;
+    //     }
+    // };
+
+    
 
 })
 
