@@ -1,5 +1,7 @@
 /*! auth.js | Bulkit | CSS Ninja */
 
+import { FALSE } from "node-sass";
+
 /*
  ==========================================================================
             Authentication and registration pages JS file 
@@ -371,38 +373,38 @@ $("#send_internal_messages").on('click', function(e) {
 
 })
 
-$("#send_messages").on('click', function(e) {
-  var msg_content = $("#message_content").val();
-  var msg_state = $("#slct1").val();
-  const msg = {
-    "msg": msg_content,
-    "msg_state": msg_state,
-  }
-const url = 'https://farm-aid-backend.herokuapp.com/api/send'
-const token = localStorage.getItem('access_token');
+// $("#send_messages").on('click', function(e) {
+//   var msg_content = $("#message_content").val();
+//   var msg_state = $("#slct1").val();
+//   const msg = {
+//     "msg": msg_content,
+//     "msg_state": msg_state,
+//   }
+// const url = 'https://farm-aid-backend.herokuapp.com/api/send'
+// const token = localStorage.getItem('access_token');
 
-  // create request object
-  var request = new Request(url, {
-    method: 'POST',
-    body: JSON.stringify(msg),
-    headers: new Headers({
-      'Content-Type': 'application/json',
-      'Authorization': token
+//   // create request object
+//   var request = new Request(url, {
+//     method: 'POST',
+//     body: JSON.stringify(msg),
+//     headers: new Headers({
+//       'Content-Type': 'application/json',
+//       'Authorization': token
       
-    })
-  });
+//     })
+//   });
 
-  // pass request object to `fetch()`
-  fetch(request)
-    .then(async (res) => {
-      //$('.modal').css({ 'display': 'none' });
-      var resp = await res.json();
-      if(resp !== null){
+//   // pass request object to `fetch()`
+//   fetch(request)
+//     .then(async (res) => {
+//       //$('.modal').css({ 'display': 'none' });
+//       var resp = await res.json();
+//       if(resp !== null){
 
-        console.log(resp)
-      }
-    });
- })
+//         console.log(resp)
+//       }
+//     });
+//  })
 
  function farmerSwal(params) {
   if($("#main-dashboard").length){
@@ -1132,26 +1134,31 @@ function riceGapSwal(params) {
       html += "<td></td>"
       html += "<td>" + "land Selection" + "</td>"
       html += "<td>" + landSelection + "</td>"
+      html += "<td>" + "Zabi fili mai albarka da ke rike ruwa. kasa mai danshi da yunbu yafi kyau" + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "land Preparation" + "</td>"
       html += "<td>" + landPreparation + "</td>"
+      html += "<td>" +  "A yi haro so daya bayan an jika kasar noma da ruwa a gonan tudu. A yi haro so biyu a gonan kwari bayan shigowan ruwan sama." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "planting Technique" + "</td>"
       html += "<td>" + plantingTechnique + "</td>"
+      html += "<td>" + "Yi shukan da ba zai bayyana iri ga cuta ba : Yafawa: yafin iri a saman kasa mara tsari.  Dasawa:yin rainon iri a kwami sai a dasa a gona. Kaptu: Tona wuri a kasa sai a shuka iri 5-8 a zurfin 2-3 cm. Tonan rami: Tsaga rami ye kai zurfin 2-3cm a kasa kan layi, a shuka iri sai a rufe da kasa.   	Non adoptability of suitable planting technique predisposes the seeds to harsh climatic conditions, birds, rodents and other pest attack, thereby limiting seed germination." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "harvesting" + "</td>"
       html += "<td>" + harvesting + "</td>"
+      html += "<td>" + "A yi girbin shikafa a lokacin da sun nuna. Wan nan na faruwa sakanin kwana 30-45 bayan sun fara yin iya iya ko bayan wata daya, da rabin shinkafan sun fara yin iya iya . A kwai yawan hanyan da za'a iya bi ayi girbin shinkafa ko da babba inji, ya dan gan ta da karfin manoma." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "mechanization" + "</td>"
       html += "<td>" + mechanization + "</td>"
+      html += "<td>" +  "  Kananan manoma shinkafa na bukatan hanyan smun injinan noma: Sharan Gona: Tarakto, Plough, Injin Kaptu, Haro  Shuka: mashinan shuki, dashe da sauransu.  Girbi: baban Tarakton girbi. Da sauransu. Ayukan bayan girbi: Injin bugun shinkafa, injin shanya. Aiwatarwa: injin Mai Dafawa, injin nika, injin Maikara haske, injin chire datti." + "</td>"
       html += "</tr>"
        
       document.getElementById("to_pro").innerHTML = html;
@@ -1234,16 +1241,19 @@ function riceGapSwal(params) {
       html += "<td></td>"
       html += "<td>" + "pricing" + "</td>"
       html += "<td>" + pricing + "</td>"
+      html += "<td>" + "I dan manomi sun hadda amfanin gonan su, za su samu yawan amfanin gona da karfin ciniki, zasu samu masu siya da yawa, kuma za su samu ikon sa farashi." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
-      html += "<td>" + "market_linage" + "</td>"
+      html += "<td>" + "Market-Lineage" + "</td>"
       html += "<td>" + market_linage + "</td>"
+      html += "<td>" + "Hada kai na kanana manoma zai sa su iya kai daidain bukatan kasuwa ko abunda kasuwar zamani ke bukata. Kuma su kai ga iya suluhunta matsalolin rashin  samun damar shiga kasuwan ci domin ya basu karfin iya yin gasa seyar da kayan gona da kuma rongwamin shiga kasuwa " + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "off_taker" + "</td>"
       html += "<td>" + off_taker + "</td>"
+      html += "<td>" + "Farm Aid wani dandali ne da ke hada kananan manoma da masu siyan amfanin gona su, wan da zai yi aiki kai tsaye da manoma su gina tsari yadda za su yi aiki. Masu siyan amfani gona na manoma za su tabatar ci wa amfanin manoma sun samu tsari mai kyau a kasuwa." + "</td>"
       html += "</tr>"
        
       document.getElementById("to_aggr").innerHTML = html;
@@ -1279,21 +1289,25 @@ function riceGapSwal(params) {
       html += "<td></td>"
       html += "<td>" + "weedControl" + "</td>"
       html += "<td>" + weedControl + "</td>"
+      html += "<td>" + "Noman Hannu: Yi noman  hannu sau biyu bayan kwana 21-40 da yin dashe. Noma da Magani Haki: Maganin Dabe- Propanil + 2.4D Amine 4L/ha Propanil + thiobencarb 4L/ha, Sati2-3 bayan shuka, Propanil + oxadiazon (Lita 5 na Ronstar 400 EC/ha), Triclopyr Butoxyethyl Ester 4L/ha, Propanil + Triclopyr  4L/ha" + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "fertilizer Application" + "</td>"
       html += "<td>" + fertilizerApplication + "</td>"
+      html += "<td>" + "Noman Shinkafan Kwari, Damina, Rani da Tudu Zuba buhu hudu na (50kg) NPK 20-10-10 ko NPK 15-15-15. kafin shuka  Zuba buhu daya na (50kg) NPK 20-10-10 ko NPK 15-15-15 bayan sati 2 da yin Dashe  Zuba buhu daya na (50kg) Uria bayan sati shida da yin Dashe " + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "CPP" + "</td>"
       html += "<td>" + cpp + "</td>"
+      html += "<td>" +  "Maganin Kwari= yi amfani da Isoprothiotane (Fashewar Shinkafa) 20-30gr/goyo, Lambda-cyhalothrine+Imidacloprid (domin Kwari mai cin ganye da tsotse amfani) 50-75ml/goyo ko Chlorophyriphos (domin Gara) 50-100ml/goyo Maganin Raba= Yi amfani da Dithane Z-78, Dithane M-45, Mancozeb 15gr/pompo & Carbendazim 15gr/goyo" + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "Pest-Disease Control" + "</td>"
       html += "<td>" + pest_disease_control + "</td>"
+      html += "<td>" +  "• Yi amfani da iri mai jure cuta Yi amfani da iri mai kyau da lafiya  Harkokin noma kamar; yin shuka da wuri, gajeren tazara  da kuma hana haki  fitowa a gona. Duk zai hana cututuka shigowa gona. Kashe duk wani haki a cikin shinkafa A kafa gunkuna a wurare cikin gona domin koran Tsuntsaye" + "</td>"
       html += "</tr>"
        
       document.getElementById("to_mtg").innerHTML = html;
@@ -1328,21 +1342,25 @@ function riceGapSwal(params) {
       html += "<td></td>"
       html += "<td>" + "threshing" + "</td>"
       html += "<td>" + threshing + "</td>"
+      html += "<td>" + "Buge shinkafa de zaran an yanka/girbe sai a busar don a guji lalacewa. A yi bugu a kain durom, kar a yi bugu a kasa da ba taburma domin kada datti ya shiga A yi bugu a kain taburma, tampol ko cementin kankare  (i.e A yi bugu a kasa, da sanda ko a kain durum). A bugu da hankali kada a fitar da bawan shinkafa. Shi ne, raba tsaki da wanda basu kosa ba daga shinkafan da suka nuna. A cire datti daga shinkafa mai bawo don kada a samu bambanci a lokacin dafawa." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "drying" + "</td>"
       html += "<td>" + drying + "</td>"
+      html += "<td>" + "A shanya shinkafa mai bawo sosai zuwa danshi 13-14% da ya dace a kain cementin kankere, taburma, ko tampol sai a din ga juyawa a lokaci lokaci.         A shanya a rana a hankali zuwa kwana 2-3 don a rege kariyan shinkafa a inji. Lokacin da rana ya fitu sosai, a baza shinkafi mai bawo a kain cementin kankere ko taburma ko tampo, shanya zuwa awa 9-10 kowai. A sa injin busarwa idan akwai." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "packaging" + "</td>"
       html += "<td>" + packaging + "</td>"
+      html += "<td>" + "Bayan an shanya shinkafa mai bawo sosai, ya na da kyau a sa shi a chikin sabon buhu mai dawkan nauyin 50-100 kg domin ajiya." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "storage" + "</td>"
       html += "<td>" + storage + "</td>"
+      html += "<td>" +  "Ayi ajiyan shinkafa a ma'aji mai kyau wanda pera bazasu iya shiga ba. Wan da ya kamu da cuta, a sa maganin ajiya (phostoxin) in da iska ba zai shiga ba. Yi amfani da kwayan magani guda a buhu (100 kg) ko  kwayoyi 10-15/ton. A shiriya buhu a kar kashin ruhun gida, ko a kar kshin tampol. A bar danshen  hasti a 14%." + "</td>"
       html += "</tr>"
        
       document.getElementById("to_harv").innerHTML = html;
@@ -1378,26 +1396,31 @@ function riceGapSwal(params) {
       html += "<td></td>"
       html += "<td>" + "seed Selection" + "</td>"
       html += "<td>" + seedSelection + "</td>"
+      html += "<td>" + "Iri na shinkafa da ya dace: Domin noman Tudu, shuka : FARO 55, FARO 58, FARO 59, FARO 66 and FARO 67. Domin noman Kwari shuka: FARO 63 (OFADA 2)FARO 65" + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "seed Source" + "</td>"
       html += "<td>" + seedSource + "</td>"
+      html += "<td>" + "Za a iya samun ingantacen Iri na shinkafa daga: Kamfanonin Irin Noma(Agricultural Seed Companies), Rice Seed Centers, Rice Research Centers, State Agricultural Development Project (ADPs), River Basin Development Authority and Branch Office of the National Agricultural Seed Council." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "fertilizer" + "</td>"
       html += "<td>" + fertilizer + "</td>"
+      html += "<td>" + "Takin gargajiya kamar kashin dabbobi na iya kara ma kasa karfin taki. Wannan taki na cikin kasa da na gargajiya na bukatan kiya ye wa domin zaman isashe ga amfanin gona." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "herbicides" + "</td>"
       html += "<td>" + herbicides + "</td>"
+      html += "<td>" +  "Fesa maganin kashe haki har sauyu/didige (Glyphosate), a farkon gyara fili, sati biyu zuwa uku sai ayi haro sau daya kafin ayi shuka, donin a kashe jijiyoyin haki.  A fesa maganin kashe kwayan haki(dabe) bayan kwana 1-2 da yin shuka. Magani mai kashe haki a cikin shinkafa bayan sun fito ko ayi noman hanu ko da inji." + "</td>"
       html += "</tr>"
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "crop Protection Product" + "</td>"
       html += "<td>" + cropProtectionProduct + "</td>"
+      html += "<td>" + "yin ampani da magungunan tsaro a cikin gonan, domin kashe haki da kwari, har sauran cututukan da ke damun shinkafa." + "</td>"
       html += "</tr>"
        
       document.getElementById("to_input").innerHTML = html;
