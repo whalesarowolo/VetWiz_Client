@@ -1,4 +1,4 @@
-/*! auth.js | Bulkit | CSS Ninja */
+/*! auth.js | Farm Aid */
 
 import { FALSE } from "node-sass";
 
