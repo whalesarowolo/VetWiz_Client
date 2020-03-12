@@ -1,5 +1,7 @@
 /*! auth.js | Bulkit | CSS Ninja */
 
+import { FALSE } from "node-sass";
+
 /*
  ==========================================================================
             Authentication and registration pages JS file 
@@ -263,6 +265,9 @@ $(document).ready(function($){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/propcom.html");
                 //history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/propcom.html");
+              }else if(userObj.user.isAdmail == FALSE) {
+                history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/partnerDashboard.html");
+                window.location.replace("/partnerDashboard.html");
               } else {
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/dashboard.html");
                 window.location.replace("/dashboard.html");
