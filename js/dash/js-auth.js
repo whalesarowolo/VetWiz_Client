@@ -394,12 +394,26 @@ $(document).ready(function () {
   let html = "";
   const token = localStorage.getItem('access_token');
     var userObj = parseJwt(localStorage.getItem('access_token'));
+    var img = document.createElement("img");
+    img.src = userObj.user.avatar;
+    var src = document.getElementById("profile-head");
+    src.appendChild(img);
     maCompany = userObj.user.company
     maEmail = userObj.user.email
     html += "<h3>" + maCompany + "</h3>"
     html += "<p>" + maEmail + "</p>"
     console.log(maCompany, maEmail)
     document.getElementById("profile-head").innerHTML = html;
+});
+$(document).ready(function () {
+  let html = "";
+  const token = localStorage.getItem('access_token');
+    var userObj = parseJwt(localStorage.getItem('access_token'));
+    var img = document.createElement("img");
+    img.src = userObj.user.avatar;
+    var src = document.getElementById("profile-head");
+    src.appendChild(img);
+    console.log(img.src)
 });
 
 
