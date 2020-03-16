@@ -239,7 +239,6 @@ $(document).ready(function($){
 
         swal.showLoading('Please wait...');
         //e.preventDefault();
-        console.log('Details... ' + useremail + ' ' + userpassword);
     
         const url = 'https://farm-aid-backend.herokuapp.com/api/auth';
     
@@ -402,7 +401,6 @@ $(document).ready(function () {
     maEmail = userObj.user.email
     html += "<h3>" + maCompany + "</h3>"
     html += "<p>" + maEmail + "</p>"
-    console.log(maCompany, maEmail)
     document.getElementById("profile-head").innerHTML = html;
 });
 $(document).ready(function () {
@@ -412,7 +410,6 @@ $(document).ready(function () {
     img.src = userObj.user.avatar;
     var src = document.getElementById("profile-head");
     src.appendChild(img);
-    console.log(img.src)
 });
 $(document).ready(function () {
   const token = localStorage.getItem('access_token');
@@ -421,7 +418,6 @@ $(document).ready(function () {
     img.src = userObj.user.avatar;
     var src = document.getElementById("profile-me");
     src.appendChild(img);
-    console.log(img.src)
 });
 $(document).ready(function () {
   const token = localStorage.getItem('access_token');
@@ -430,7 +426,6 @@ $(document).ready(function () {
     img.src = userObj.user.avatar;
     var src = document.getElementById("profile-trigger");
     src.appendChild(img);
-    console.log(img.src)
 });
 
 
