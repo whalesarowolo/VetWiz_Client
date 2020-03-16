@@ -54,9 +54,8 @@
             <ul class="profile">
                 <li>
                     <!-- Profile avatar -->
-                    <a class="profile-trigger" href="javascript:void(0);">
-                        <img class="main-menu-avatar" src="images/250x250" alt=""
-                            data-demo-src="http://www.gravatar.com/avatar/?d=identicon"><span class="dot"></span>
+                    <a id="profile-trigger" class="profile-trigger" href="javascript:void(0);">
+                        <span class="dot"></span>
                     </a>
                     <!-- /Profile avatar -->
 
@@ -865,18 +864,13 @@
             <div class="navbar-end">
                 <!-- Account dropdown -->
                 <div class="drop-pop">
-                    <div class="icon-button accounts-button">
-                        <img src="http://www.gravatar.com/avatar/?d=identicon" alt=""
-                            data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
+                    <div id="profile-me" class="icon-button accounts-button">
+                        
                     </div>
                     <div class="drop-wrapper accounts-drop">
                         <div class="drop-inner has-arrow">
                             <div id="profile-head" class="head-block">
-                                <img src="http://www.gravatar.com/avatar/?d=identicon" alt=""
-                                    data-demo-src="http://www.gravatar.com/avatar/?d=identicon">
-                                <h3>Marvin Ambrose</h3>
-                                <p>moche@farmnovation.com</p>
-                                <a class="button is-rounded profile-trigger" href="javascript:">Manage Account</a>
+                                
                             </div>
                             <div class="accounts-block is-hidden">
                                 <a class="account" href="javascript:">

@@ -406,12 +406,29 @@ $(document).ready(function () {
     document.getElementById("profile-head").innerHTML = html;
 });
 $(document).ready(function () {
-  let html = "";
   const token = localStorage.getItem('access_token');
     var userObj = parseJwt(localStorage.getItem('access_token'));
     var img = document.createElement("img");
     img.src = userObj.user.avatar;
     var src = document.getElementById("profile-head");
+    src.appendChild(img);
+    console.log(img.src)
+});
+$(document).ready(function () {
+  const token = localStorage.getItem('access_token');
+    var userObj = parseJwt(localStorage.getItem('access_token'));
+    var img = document.createElement("img");
+    img.src = userObj.user.avatar;
+    var src = document.getElementById("profile-me");
+    src.appendChild(img);
+    console.log(img.src)
+});
+$(document).ready(function () {
+  const token = localStorage.getItem('access_token');
+    var userObj = parseJwt(localStorage.getItem('access_token'));
+    var img = document.createElement("img");
+    img.src = userObj.user.avatar;
+    var src = document.getElementById("profile-trigger");
     src.appendChild(img);
     console.log(img.src)
 });
