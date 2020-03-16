@@ -380,39 +380,82 @@ $("#send_internal_messages").on('click', function(e) {
   
 
 })
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
 
-// $("#send_messages").on('click', function(e) {
-//   var msg_content = $("#message_content").val();
-//   var msg_state = $("#slct1").val();
-//   const msg = {
-//     "msg": msg_content,
-//     "msg_state": msg_state,
-//   }
-// const url = 'https://farm-aid-backend.herokuapp.com/api/send'
-// const token = localStorage.getItem('access_token');
+  return JSON.parse(jsonPayload);
+};
 
-//   // create request object
-//   var request = new Request(url, {
-//     method: 'POST',
-//     body: JSON.stringify(msg),
-//     headers: new Headers({
-//       'Content-Type': 'application/json',
-//       'Authorization': token
-      
-//     })
-//   });
 
-//   // pass request object to `fetch()`
-//   fetch(request)
-//     .then(async (res) => {
-//       //$('.modal').css({ 'display': 'none' });
-//       var resp = await res.json();
-//       if(resp !== null){
+$("#send_messages").on('click', function(e) {
+  $("#create-note-modal").css({'display': 'none'});
+  var msg_content = $("#message_content").val();
+  var msg_state = $("#slct1").val();
+  var msg_lga = $("#slct2").val();
+  var msg_crop = $("#crop_select").val();
+  var msg_gender = $("#msg_gender").val();
+  swal.fire({
+    title: 'Sending Message Details',
+    text: 'Please wait...',
+    timer: 4000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
 
-//         console.log(resp)
-//       }
-//     });
-//  })
+    const url = 'https://farm-aid-backend.herokuapp.com/api/masms'
+  
+    const token = localStorage.getItem('access_token');
+    var userObj = parseJwt(localStorage.getItem('access_token'));
+    maCompany = userObj.user.company
+    maEmail = userObj.user.email
+    
+  swal.fire({
+    title: 'Message Sent',
+    text: 'You would Get an Email notificaton if your Message is approved or not',
+    icon: 'info',
+    allowOutsideClick: false,
+    showConfirmButton: false
+  });
+  
+  const newMessage = {
+    state: msg_state,
+    gender: msg_gender,
+    crop: msg_crop,
+    msg: msg_content,
+    company: maCompany,
+    email: maEmail,
+  };
+  
+  // create request object
+    var request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newMessage),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': token
+        
+      })
+    });
+    // pass request object to `fetch()`
+    fetch(request)
+      .then(async (res) => {
+         //$('.modal').css({ 'display': 'none' });
+      var resp = await res.json();
+      if(resp !== null){
+        swal.close();
+      }
+      }).catch((e)=> {
+        swal.close();
+        console.log("Bad request...");
+      });
+  })
+
+ })
 
  function farmerSwal(params) {
   if($("#main-dashboard").length){

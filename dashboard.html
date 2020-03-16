@@ -1379,9 +1379,9 @@
                                         <div class="select is-medium is-rounded is-fullwidth">
                                             <select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
                                                 <option value="" disabled selected>--Please choose an option--</option>
-                                                <option id="adamawa_state" value="Adamawa">ADAMAWA</option>
-                                                <option id="gombe_state" value="Gombe">GOMBE</option>
-                                                <option value="nassarawa">Nasarawa</option>
+                                                <option value="adamawa">ADAMAWA</option>
+                                                <option value="gombe">GOMBE</option>
+                                                <option value="All">Select All</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1412,12 +1412,13 @@
                                 <div class="field is-medium">
                                     <div class="control">
                                         <div class="select is-medium is-rounded is-fullwidth">
-                                            <select>
+                                            <select id="crop_select">
                                                 <option value="" disabled selected>--Please choose an option--</option>
-                                                <option value="dog">RICE</option>
-                                                <option value="cat">sorghum</option>
-                                                <option value="hamster">TOMATOES</option>
-                                                <option value="parrot">SORGHUM</option>
+                                                <option value="rice">RICE</option>
+                                                <option value="groundnut">GROUNDNUT</option>
+                                                <option value="tomatoes">TOMATOES</option>
+                                                <option value="sorghum">SORGHUM</option>
+                                                <option value="All">Select All</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1432,10 +1433,11 @@
                                 <div class="field is-medium">
                                     <div class="control">
                                         <div class="select is-medium is-rounded is-fullwidth">
-                                            <select>
+                                            <select id="msg_gender">
                                                 <option value="" disabled selected>--Please choose an option--</option>
-                                                <option value="dog">MALE</option>
-                                                <option value="cat">FEMALE</option>
+                                                <option value="male">MALE</option>
+                                                <option value="female">FEMALE</option>
+                                                <option value="All">Select All</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1461,7 +1463,6 @@
         </div>
         <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
     </div>
-
     <!-- Create Internal message -->
 
     <div id="create-internal-modal" class="modal modal-md icon-action-modal modal-hero">
