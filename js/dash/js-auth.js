@@ -390,6 +390,18 @@ function parseJwt (token) {
   return JSON.parse(jsonPayload);
 };
 
+$(document).ready(function () {
+  let html = "";
+  const token = localStorage.getItem('access_token');
+    var userObj = parseJwt(localStorage.getItem('access_token'));
+    maCompany = userObj.user.company
+    maEmail = userObj.user.email
+    html += "<h3>" + maCompany + "</h3>"
+    html += "<p>" + maEmail + "</p>"
+    console.log(maCompany, maEmail)
+    document.getElementById("profile-head").innerHTML = html;
+});
+
 
 $("#send_messages").on('click', function(e) {
   $("#create-note-modal").css({'display': 'none'});
