@@ -324,15 +324,18 @@ $(document).ready(function($){
 //   });
 // }
 
+function goHome() {
+  document.location.replace('/dashboard.html');
+}
 
 function create_admin(params) {
   swal.fire({
     title: 'Please wait',
     text: 'Preparing resources',
     icon: 'info',
-    timer: 1500
+    timer: 500
   }).then(() => {
-    $(".create-admin-form").removeClass("is-hidden");
+    $(".create-admin-form").toggleClass("is-hidden");
     ChangeInnerHTML();
   })
 }

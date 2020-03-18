@@ -14,11 +14,11 @@
         </div>
     </div>
 </div>
-<div class="columns">
+<div class="columns is-full">
 
     <div class="column">
        
-        <form method="post" class="column is-full is-hidden create-admin-form" action="#">
+        <form method="post" class="is-hidden create-admin-form" action="#" style="min-width: 70% !important; padding: 5px; border-radius: 20px; box-shadow: 2px 2px 3px #acaefe;">
             <div class="field">
                 <label class="label" for="the_firstname">First Name</label>
                 <input class="input is-rounded is-medium" type="text" name="firstname" id="the_firstname" class="input">
@@ -60,18 +60,19 @@
 
             <div class="field is-grouped">
                 <div class="control">
-                    <button type="submit" class="button is-primary is-medium" id="creating-admin">Submit</button>
+                    <button type="submit" class="button is-primary is-rounded is-medium pull-right" id="creating-admin">Submit</button>
                 </div>
             </div>
         </form>
 
     </div>
-    <div class="column admin-create-button">
-        <h1 class="title is-centered">User Adminstration</h1>
-        <div class="field is-grouped">
-            <div class="control is-large">
-                <button id="create-admin" onclick="create_admin();" class="button is-large is-primary is-rounded is-right">Create</button>
-            </div>
+    <div class="column admin-create-button" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Adminstration</h1>
+        <div class="field is-grouped" style="background-image: url('./img/add-icon.png'); opacity: 0.6; background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+        <div class="control is-large">
+            <button id="create-admin" onclick="create_admin();" class="button is-large is-primary is-rounded is-right">Create</button>
         </div>
     </div>
 </div>
