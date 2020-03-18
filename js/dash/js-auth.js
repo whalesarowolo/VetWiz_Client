@@ -358,7 +358,7 @@ function persist_user(event) {
   var password = $("#the_password").val();
   console.log(""+ firstname+ lastname+ phoneNumber+ email+ company+ password);
   alert("Here in Administration");
-  $(".creating-admin-form").addClass('is-hidden');
+  $(".create-admin-form").addClass('is-hidden');
   return false;
   
 }
