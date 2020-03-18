@@ -8,9 +8,7 @@
             <div id="basic-layout" class="dashboard-columns">
 
                 <h2 class="demo-title">Admin Module
-                    <button class="button is-primary" onclick="updateFromSMAP();">
-                        Refresh Notifications
-                    </button>
+                    
                 </h2>
             </div>
         </div>
@@ -18,9 +16,9 @@
 </div>
 <div class="columns">
 
-    <div class="column is-hidden create-admin-form">
+    <div class="column">
        
-        <form method="post" class="column is-full" class="column" action="#">
+        <form method="post" class="column is-full is-hidden create-admin-form" action="#">
             <div class="field">
                 <label class="label" for="the_firstname">First Name</label>
                 <input class="input is-rounded is-medium" type="text" name="firstname" id="the_firstname" class="input">
@@ -69,10 +67,10 @@
 
     </div>
     <div class="column admin-create-button">
-        <h1 class="title">Create An Adminstrator</h1>
+        <h1 class="title is-centered">User Adminstration</h1>
         <div class="field is-grouped">
             <div class="control is-large">
-                <button id="create-admin" class="button is-medium is-primary">Create</button>
+                <button id="create-admin" onclick="create_admin();" class="button is-large is-primary is-rounded is-right">Create</button>
             </div>
         </div>
     </div>

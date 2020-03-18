@@ -324,7 +324,8 @@ $(document).ready(function($){
 //   });
 // }
 
-$("#create-admin").on('click', function() {
+
+function create_admin(params) {
   swal.fire({
     title: 'Please wait',
     text: 'Preparing resources',
@@ -334,8 +335,7 @@ $("#create-admin").on('click', function() {
     $(".create-admin-form").removeClass("is-hidden");
     ChangeInnerHTML();
   })
-    
-});
+}
 
 function ChangeInnerHTML() {
   $('#create-admin').each(function() {
