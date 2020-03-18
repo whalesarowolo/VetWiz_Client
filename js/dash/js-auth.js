@@ -356,8 +356,112 @@ function persist_user(event) {
   var email = $("#the_email").val();
   var company = $("#the_company").val();
   var password = $("#the_password").val();
-  console.log(""+ firstname+ lastname+ phoneNumber+ email+ company+ password);
-  alert("Here in Administration");
+  var numbers = /^[0-9]+$/;
+ // function to validate email
+ function IsEmail(email) {
+  var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(!regex.test(email)) {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+// validate empty input
+if(firstname == "" || lastname == "" || phoneNumber == "" || email == "" ||  password == "") {
+  $("#admin-create-form").addClass('is-hidden');
+  swal.fire({
+    title: 'Error Creating an Admin',
+    text: 'You must provide all credentials to Create Adimin',
+    icon: 'warning',
+    timer: 2100
+  }).then(()=> {
+    $("#admin-create-form").toggleClass('is-hidden');
+  });
+  return false;
+}
+
+if(phoneNumber < 11) {
+  $("#admin-create-form").addClass('is-hidden');
+  swal.fire({
+    title: 'Error Authenticating',
+    text: 'Phone Number format is Invalid',
+    icon: 'warning',
+    timer: 3100
+  }).then(()=> {
+    $("#admin-create-form").toggleClass('is-hidden');
+  });
+  return false;
+}
+if(!phoneNumber.match(numbers)) {
+  $("#admin-create-form").addClass('is-hidden');
+  swal.fire({
+    title: 'Error Authenticating',
+    text: 'Phone Number must be number',
+    icon: 'warning',
+    timer: 3100
+  }).then(()=> {
+    $("#admin-create-form").toggleClass('is-hidden');
+  });
+  return false;
+}
+if(password < 8) {
+  swal.fire({
+    title: 'Error Authenticating',
+    text: 'Password must be greater than 8 characters',
+    icon: 'warning',
+    timer: 3100
+  }).then(()=> {
+    $("#admin-create-form").toggleClass('is-hidden');
+  });
+  return false;
+}
+
+if (IsEmail(email)==false) {
+swal.fire({
+  title: 'Error Authenticating',
+  text: 'Please provide a valid email address',
+  icon: 'warning',
+  timer: 3100
+}).then(()=> {
+});
+return false;
+}
+  swal.showLoading('Please wait...');
+  const url = 'https://farm-aid-backend.herokuapp.com/api/admin'
+  const token = localStorage.getItem('access_token');
+
+  const newAdmin = {
+    firstname: firstname,
+    lastname: lastname,
+    phoneNumber: phoneNumber,
+    email: email,
+    company: company,
+    password: password,
+  }
+
+  // create request object
+  var request = new Request(url, {
+    method: 'POST',
+    body: JSON.stringify(newAdmin),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': token
+      
+    })
+  });
+   // pass request object to `fetch()`
+   fetch(request)
+   .then(async (res) => {
+      //$('.modal').css({ 'display': 'none' });
+   var resp = await res.json();
+   if(resp !== null){
+     swal.close();
+   }
+   }).catch((e)=> {
+     swal.close();
+     console.log("Bad request...");
+   });
   $(".create-admin-form").addClass('is-hidden');
   return false;
   
