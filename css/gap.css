@@ -130,3 +130,15 @@ table tr td:first-child::before {
   margin-bottom: 10px;
   margin-left: 10px;
 }
+
+.admin-create-button{
+  margin: auto;
+ 
+}
+.create-admin-form{
+  padding-right: 300px;
+}
+
+.admin-create-button h1 {
+  font-size: 40px;
+}

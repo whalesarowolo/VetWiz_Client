@@ -7,11 +7,72 @@
             <!-- Dashboard content -->
             <div id="basic-layout" class="dashboard-columns">
 
-                <h2 class="demo-title">Admin Module 
+                <h2 class="demo-title">Admin Module
                     <button class="button is-primary" onclick="updateFromSMAP();">
                         Refresh Notifications
                     </button>
                 </h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns">
+
+    <div class="column is-hidden create-admin-form">
+       
+        <form method="post" class="column is-full" class="column" action="#">
+            <div class="field">
+                <label class="label" for="the_firstname">First Name</label>
+                <input class="input is-rounded is-medium" type="text" name="firstname" id="the_firstname" class="input">
+            </div>
+            <div class="field">
+                <label class="label" for="the_lastname">Last Name</label>
+                <input class="input is-rounded is-medium" type="text" name="lastname" id="the_lastname" class="input">
+            </div>
+            <div class="field">
+                <div class="field has-addons">
+                    <p class="control">
+                        <a class="button is-static">
+                            +234
+                        </a>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input is-rounded" id="the_phonenumber" class="input" type="tel" placeholder="Your phone number">
+                    </p>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="the_email">Email Address</label>
+                <input class="input is-rounded is-medium"  type="email" name="email" id="the_email" class="input">
+            </div>
+            <div class="field">
+                <label class="label" for="the_company">Company</label>
+                <input class="input is-rounded is-medium"  type="text" name="text" id="the_company" class="input">
+            </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <label class="label" for="the_password">Password</label>
+                    <input class="input is-rounded" id="the_password"  class="input" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="submit" class="button is-primary is-medium" id="creating-admin">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="column admin-create-button">
+        <h1 class="title">Create An Adminstrator</h1>
+        <div class="field is-grouped">
+            <div class="control is-large">
+                <button id="create-admin" onclick="ChangeInnerHTML()" class="button is-medium is-primary">Create</button>
             </div>
         </div>
     </div>

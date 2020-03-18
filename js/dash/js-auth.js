@@ -324,6 +324,76 @@ $(document).ready(function($){
 //   });
 // }
 
+if($(".create-admin-form").length){
+  $("#create-admin").on('click', function() {
+      $(".create-admin-form").removeClass("is-hidden");
+  });
+}
+// function ChangeInnerHTML() {
+//   $('button').each(function() {
+//       if ($.trim($(this).html()) == "Create") 
+//           $(this).html('Creating Admin');
+//   });
+// }
+
+
+$("#creating-admin").on('click', function(e) {
+  var firstname = $("#the_firstname").val();
+  var lastname = $("#the_lastname").val();
+  var phoneNumber = $("#the_phonenumber").val();
+  var email = $("#the_email").val();
+  var company = $("#the_company").val();
+  var password = $("#the_password").val();
+  console.log(""+ firstname+ lastname+ phoneNumber+ email+ company+ password);
+
+  //   const url = 'https://farm-aid-backend.herokuapp.com/api/admin'
+  //   const token = localStorage.getItem('access_token');
+  //   const headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   headers.append('Authorization', token);
+  
+  // const newAdmin = {
+  //   firstname:firstname,
+  //   lastname:lastname,
+  //   phoneNumber:phoneNumber,
+  //   email:email,
+  //   company:company,
+  //   password:password,
+  // };
+  
+  // // create request object
+  //   var request = new Request(url, {
+  //     method: 'POST',
+  //     body: JSON.stringify(newAdmin),
+  //     headers: new Headers({
+  //       'Content-Type': 'application/json',
+  //       'Authorization': token
+        
+  //     })
+  //   });
+    // pass request object to `fetch()`
+    // fetch(request).then(async (res) => {
+    //   let resp = await res.json();
+    //     if(resp.status !== 201) {
+    //       Swal.fire({
+    //         title: "Creating Admin",
+    //         text:   "Sorry about this PLease try again",
+    //         icon: "info",
+    //         timer: 3000
+    //       })
+    //     } else {
+
+    //       Swal.fire({
+    //         title: "Admin Created",
+    //         text:  "Admin has been created",
+    //         icon: "info",
+    //         timer: 3000
+    //       })
+    //     }
+    // })
+
+ })
+
 $("#send_internal_messages").on('click', function(e) {
   $("#create_internal_message").css({'display': 'none'});
   console.log("Sending Internal message");
