@@ -2661,3 +2661,65 @@ function groudnutGapSwal(params) {
 }
 }
 
+
+// weather content
+function weather(params) {
+  if($("#main-dashboard").length){
+    swal.fire({
+      title: 'Loading Tomatoes Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      states = ['abuja', 'adamawa', 'gombe', 'nasarawa'];
+  
+     states.forEach((state) => {
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=' + state + '&appid=50a7aa80fa492fa92e874d23ad061374')
+      .then(response => response.json())
+      .then(data => {
+      console.log(data);
+      var info = "<p> Temp: " + data['main']['temp'] + " <br>" +  " Humidity: " + data['main']['humidity'] +  "</p>";
+      switch(state) {
+        case 'abuja':
+          // code block
+          $("#abuja_info").html(info);
+          console.log(info)
+          break;
+        case 'adamawa':
+          // code block
+          $("#adamawa_info").html(info);
+          console.log(info)
+          break;
+        case 'gombe':
+          // code block
+          $("#gombe_info").html(info);
+          console.log(info)
+          break;
+        case 'nasarawa':
+          // code block
+          $("#nasa_info").html(info);
+          console.log(info)
+          break;
+        default:
+          // code block
+          swal({
+            title: 'No Data',
+            text: 'No information available',
+            icon: 'info',
+            timer: 500
+          })
+      }
+     
+     })
+
+    })
+    
+      
+    
+  })
+  Swal.close();
+}
+}
+
