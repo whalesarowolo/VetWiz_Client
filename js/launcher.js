@@ -18,6 +18,7 @@
             new Route('offtakers', 'offtakers.html'),
             new Route('input', 'inputcompanies.html'),
             new Route('internalsms', 'internalsms.html'),
+            new Route('weather', 'weather.html'),
         ]);
     }
     init();
