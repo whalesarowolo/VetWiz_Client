@@ -348,8 +348,8 @@ function ChangeInnerHTML() {
 }
 
 
-$("#creating-admin").on('click', function(e) {
-  e.preventDefault();
+function persist_user(event) {
+  event.preventDefault();
   var firstname = $("#the_firstname").val();
   var lastname = $("#the_lastname").val();
   var phoneNumber = $("#the_phonenumber").val();
@@ -357,8 +357,11 @@ $("#creating-admin").on('click', function(e) {
   var company = $("#the_company").val();
   var password = $("#the_password").val();
   console.log(""+ firstname+ lastname+ phoneNumber+ email+ company+ password);
-
- });
+  alert("Here in Administration");
+  $(".creating-admin-form").addClass('is-hidden');
+  return false;
+  
+}
 
 $("#send_internal_messages").on('click', function(e) {
   $("#create_internal_message").css({'display': 'none'});
