@@ -329,12 +329,12 @@ if($(".create-admin-form").length){
       $(".create-admin-form").removeClass("is-hidden");
   });
 }
-// function ChangeInnerHTML() {
-//   $('button').each(function() {
-//       if ($.trim($(this).html()) == "Create") 
-//           $(this).html('Creating Admin');
-//   });
-// }
+function ChangeInnerHTML() {
+  $('button').each(function() {
+      if ($.trim($(this).html()) == "Create") 
+          $(this).html('Creating Admin');
+  });
+}
 
 
 $("#creating-admin").on('click', function(e) {
