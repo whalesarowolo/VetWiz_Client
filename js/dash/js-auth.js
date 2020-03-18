@@ -349,6 +349,7 @@ function ChangeInnerHTML() {
 
 
 $("#creating-admin").on('click', function(e) {
+  e.preventDefault();
   var firstname = $("#the_firstname").val();
   var lastname = $("#the_lastname").val();
   var phoneNumber = $("#the_phonenumber").val();
@@ -357,7 +358,7 @@ $("#creating-admin").on('click', function(e) {
   var password = $("#the_password").val();
   console.log(""+ firstname+ lastname+ phoneNumber+ email+ company+ password);
 
- })
+ });
 
 $("#send_internal_messages").on('click', function(e) {
   $("#create_internal_message").css({'display': 'none'});
