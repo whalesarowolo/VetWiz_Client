@@ -324,11 +324,19 @@ $(document).ready(function($){
 //   });
 // }
 
-if($(".create-admin-form").length){
-  $("#create-admin").on('click', function() {
-      $(".create-admin-form").removeClass("is-hidden");
-  });
-}
+$("#create-admin").on('click', function() {
+  swal.fire({
+    title: 'Please wait',
+    text: 'Preparing resources',
+    icon: 'info',
+    timer: 1500
+  }).then(() => {
+    $(".create-admin-form").removeClass("is-hidden");
+    ChangeInnerHTML();
+  })
+    
+});
+
 function ChangeInnerHTML() {
   $('#create-admin').each(function() {
       if ($.trim($(this).html()) == "Create") 
