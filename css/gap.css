@@ -142,3 +142,26 @@ table tr td:first-child::before {
 .admin-create-button h1 {
   font-size: 40px;
 }
+
+.weather_body{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  background-image: url('../img/bg.jpg');
+  background-size: cover;
+  background-position: top center;
+}
+
+.weather_column_space{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.paragraph p {
+  font-size: 20px;
+  margin: auto;
+  color: rgb(153, 233, 171);
+  background-color: rgb(122, 121, 119, 0.5);
+  padding: 6px;
+  padding-top: 5px;
+  border-radius: 15px;
+
+}

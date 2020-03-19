@@ -2680,7 +2680,8 @@ function weather(params) {
       .then(response => response.json())
       .then(data => {
       console.log(data);
-      var info = "<p> Temp: " + data['main']['temp'] + " <br>" +  " Humidity: " + data['main']['humidity'] +  "</p>";
+      var info = "<p> Temp: " + data['main']['temp'] + " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Desc: " + (data['weather'][0].description).toUpperCase() + "</p>";
+      console.log(data['weather'][0].description);
       switch(state) {
         case 'abuja':
           // code block
