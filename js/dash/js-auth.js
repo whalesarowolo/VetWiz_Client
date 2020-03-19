@@ -2754,22 +2754,20 @@ function maSMS(params) {
         headers
       }).then(async (res) => res.json()).then(data => {
         data.forEach( (datas) => {
-          console.log(datas)
           let state = datas.state;
           let company = datas.company;
           let email = datas.email;
           let message = datas.msg;
-          let date = datas.date;
-          var btn = document.createElement("BUTTON");
-          btn.innerHTML = "CLICK ME"; 
+          let date =  new Date(datas.date)
+          newDate = date.getMonth() + 1 + "/"  +  date.getDate() + "/" + date.getFullYear() + " "
 
           html += "<tr>";
           html += "<td></td>"
           html += "<td>" + company + "</td>"
           html += "<td>" + email + "</td>"
           html += "<td>" + state + "</td>"
-          html += "<td>" + message + "</td>"
-          html += "<td>" + date + "</td>"
+          html += '<td>' + message + '</td>'
+          html += "<td>" + newDate + "</td>"
           html += '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px;">' + ' Approve' + '</span> <hr>' 
           html += '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px;">' +  ' Reject' + '</span></td>'
           html += "</tr>"
