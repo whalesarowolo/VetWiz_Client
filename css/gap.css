@@ -156,7 +156,7 @@ table tr td:first-child::before {
 }
 
 .paragraph p {
-  font-size: 20px;
+  font-size: 15px;
   margin: auto;
   color: rgb(153, 233, 171);
   background-color: rgb(122, 121, 119, 0.5);

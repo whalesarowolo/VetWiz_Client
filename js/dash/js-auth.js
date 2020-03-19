@@ -2676,32 +2676,28 @@ function weather(params) {
       states = ['abuja', 'adamawa', 'gombe', 'nasarawa'];
   
      states.forEach((state) => {
-      fetch('https://api.openweathermap.org/data/2.5/weather?q=' + state + '&appid=50a7aa80fa492fa92e874d23ad061374')
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=' + state + '&appid=7867e7a23def5fa182517076303b7c0f')
       .then(response => response.json())
       .then(data => {
-      console.log(data);
-      var info = "<p> Temp: " + data['main']['temp'] + " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Desc: " + (data['weather'][0].description).toUpperCase() + "</p>";
-      console.log(data['weather'][0].description);
+      let temp = data['main']['temp'] - 275;
+      currentTemp = temp.toFixed(1)
+      var info = "<p> Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data['weather'][0].description).toUpperCase() + "</p>";
       switch(state) {
         case 'abuja':
           // code block
           $("#abuja_info").html(info);
-          console.log(info)
           break;
         case 'adamawa':
           // code block
           $("#adamawa_info").html(info);
-          console.log(info)
           break;
         case 'gombe':
           // code block
           $("#gombe_info").html(info);
-          console.log(info)
           break;
         case 'nasarawa':
           // code block
           $("#nasa_info").html(info);
-          console.log(info)
           break;
         default:
           // code block
