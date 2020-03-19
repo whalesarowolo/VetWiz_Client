@@ -2720,3 +2720,73 @@ function weather(params) {
 }
 }
 
+// Market Actor sms log sent for approval
+function maSMS(params) {
+  console.log("i was clicked")
+  let html = "";
+    swal.fire({
+      title: 'Loading Market Actors Messages',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+
+   
+
+    $("#ma_sms_log").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/masms'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        data.forEach( (datas) => {
+          console.log(datas)
+          let state = datas.state;
+          let company = datas.company;
+          let email = datas.email;
+          let message = datas.msg;
+          let date = datas.date;
+          var btn = document.createElement("BUTTON");
+          btn.innerHTML = "CLICK ME"; 
+
+          html += "<tr>";
+          html += "<td></td>"
+          html += "<td>" + company + "</td>"
+          html += "<td>" + email + "</td>"
+          html += "<td>" + state + "</td>"
+          html += "<td>" + message + "</td>"
+          html += "<td>" + date + "</td>"
+          html += '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px;">' + ' Approve' + '</span> <hr>' 
+          html += '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px;">' +  ' Reject' + '</span></td>'
+          html += "</tr>"
+         
+          
+          document.getElementById("ma_sms_log").innerHTML = html;
+        
+        })
+        
+        Swal.close();
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+ 
+  })
+
+}
+
+
