@@ -2664,15 +2664,21 @@ function groudnutGapSwal(params) {
 
 // weather content
 function weather(params) {
-  if($("#main-dashboard").length){
     swal.fire({
-      title: 'Loading Tomatoes Data',
+      title: 'Loading Weather Data',
       text: 'Please wait...',
       timer: 3000,
       allowOutsideClick: false,
       showConfirmButton: false,
       icon: 'info'
     }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
       states = ['abuja', 'adamawa', 'gombe', 'nasarawa'];
   
      states.forEach((state) => {
@@ -2715,14 +2721,13 @@ function weather(params) {
     
       
     
+    Swal.close();
   })
-  Swal.close();
-}
+
 }
 
 // Market Actor sms log sent for approval
 function maSMS(params) {
-  console.log("i was clicked")
   let html = "";
     swal.fire({
       title: 'Loading Market Actors Messages',
