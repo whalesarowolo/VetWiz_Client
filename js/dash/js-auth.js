@@ -1413,7 +1413,7 @@ function agroTable(params) {
 }
 
 function riceGapSwal(params) {
-  if($("#main-dashboard").length){
+  
     swal.fire({
       title: 'Loading Tomatoes Data',
       text: 'Please wait...',
@@ -1759,11 +1759,9 @@ function riceGapSwal(params) {
   })
   Swal.close();
 }
-}
 
 // tomatoes GAP content
 function toGapSwal(params) {
-  if($("#main-dashboard").length){
     swal.fire({
       title: 'Loading Tomatoes Data',
       text: 'Please wait...',
@@ -2088,14 +2086,13 @@ function toGapSwal(params) {
     });
   })
   Swal.close();
-}
+
 }
 
 
 
 // sorghum GAP content
 function sorghumGapSwal(params) {
-  if($("#main-dashboard").length){
     swal.fire({
       title: 'Loading Sorghum Data',
       text: 'Please wait...',
@@ -2420,7 +2417,7 @@ function sorghumGapSwal(params) {
     });
   })
   Swal.close();
-}
+
 }
 
 
@@ -2428,7 +2425,6 @@ function sorghumGapSwal(params) {
 
 // ground GAP content
 function groudnutGapSwal(params) {
-  if($("#main-dashboard").length){
     swal.fire({
       title: 'Loading Tomatoes Data',
       text: 'Please wait...',
@@ -2753,7 +2749,7 @@ function groudnutGapSwal(params) {
     });
   })
   Swal.close();
-}
+
 }
 
 
