@@ -8,7 +8,6 @@
             new Route('gombeFarmer', 'gombeFarmer.html'),
             new Route('sms', 'sms.html'),
             new Route('admin', 'admin.html'),
-            new Route('gap', 'gap.html'),
             new Route('agro_dealers', 'agro_dealers.html'),
             new Route('seed', 'seed.html'),
             new Route('extension', 'extension.html'),
@@ -20,6 +19,10 @@
             new Route('input', 'inputcompanies.html'),
             new Route('internalsms', 'internalsms.html'),
             new Route('weather', 'weather.html'),
+            new Route('tomatoes', 'tomatoes.html'),
+            new Route('rice', 'rice.html'),
+            new Route('groundnut', 'groundnut.html'),
+            new Route('sorghum', 'sorghum.html'),
         ]);
     }
     init();

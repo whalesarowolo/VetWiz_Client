@@ -1457,7 +1457,6 @@ function riceGapSwal(params) {
       let plantingTechnique = data.production[0].plantingTechnique
       let harvesting = data.production[0].harvesting
       let mechanization = data.production[0].mechanization
-      
       html += "<tr>";
       html += "<td></td>"
       html += "<td>" + "land Selection" + "</td>"
@@ -1489,7 +1488,7 @@ function riceGapSwal(params) {
       html += "<td>" +  "  Kananan manoma shinkafa na bukatan hanyan smun injinan noma: Sharan Gona: Tarakto, Plough, Injin Kaptu, Haro  Shuka: mashinan shuki, dashe da sauransu.  Girbi: baban Tarakton girbi. Da sauransu. Ayukan bayan girbi: Injin bugun shinkafa, injin shanya. Aiwatarwa: injin Mai Dafawa, injin nika, injin Maikara haske, injin chire datti." + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_pro").innerHTML = html;
+      document.getElementById("rice_pro_details").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -1532,7 +1531,7 @@ function riceGapSwal(params) {
       html += "<td>" + humility + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_we").innerHTML = html;
+      document.getElementById("rice_wc_details").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -1584,7 +1583,7 @@ function riceGapSwal(params) {
       html += "<td>" + "Farm Aid wani dandali ne da ke hada kananan manoma da masu siyan amfanin gona su, wan da zai yi aiki kai tsaye da manoma su gina tsari yadda za su yi aiki. Masu siyan amfani gona na manoma za su tabatar ci wa amfanin manoma sun samu tsari mai kyau a kasuwa." + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_aggr").innerHTML = html;
+      document.getElementById("rice_aggr_details").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -1638,7 +1637,7 @@ function riceGapSwal(params) {
       html += "<td>" +  "• Yi amfani da iri mai jure cuta Yi amfani da iri mai kyau da lafiya  Harkokin noma kamar; yin shuka da wuri, gajeren tazara  da kuma hana haki  fitowa a gona. Duk zai hana cututuka shigowa gona. Kashe duk wani haki a cikin shinkafa A kafa gunkuna a wurare cikin gona domin koran Tsuntsaye" + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_mtg").innerHTML = html;
+      document.getElementById("rice_cm_details").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -1691,7 +1690,7 @@ function riceGapSwal(params) {
       html += "<td>" +  "Ayi ajiyan shinkafa a ma'aji mai kyau wanda pera bazasu iya shiga ba. Wan da ya kamu da cuta, a sa maganin ajiya (phostoxin) in da iska ba zai shiga ba. Yi amfani da kwayan magani guda a buhu (100 kg) ko  kwayoyi 10-15/ton. A shiriya buhu a kar kashin ruhun gida, ko a kar kshin tampol. A bar danshen  hasti a 14%." + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_harv").innerHTML = html;
+      document.getElementById("rice_ph_details").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -1751,7 +1750,7 @@ function riceGapSwal(params) {
       html += "<td>" + "yin ampani da magungunan tsaro a cikin gonan, domin kashe haki da kwari, har sauran cututukan da ke damun shinkafa." + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_input").innerHTML = html;
+      document.getElementById("rice_input_details").innerHTML = html;
       Swal.close();
       }).catch((error) => {
         console.error('Error:', error);
@@ -2167,7 +2166,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + mechanization + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_pro").innerHTML = html;
+      document.getElementById("sorghum_pro_table").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2210,7 +2209,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + humility + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_we").innerHTML = html;
+      document.getElementById("sorghum_wc_table").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2259,7 +2258,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + off_taker + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_aggr").innerHTML = html;
+      document.getElementById("sorghum_aggre_table").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2309,7 +2308,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + pest_disease_control + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_mtg").innerHTML = html;
+      document.getElementById("sorghum_cropMgt_table").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2358,7 +2357,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + storage + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_harv").innerHTML = html;
+      document.getElementById("sorghum_ph_table").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2413,7 +2412,7 @@ function sorghumGapSwal(params) {
       html += "<td>" + cropProtectionProduct + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_input").innerHTML = html;
+      document.getElementById("sorghum_input_table").innerHTML = html;
       Swal.close();
       }).catch((error) => {
         console.error('Error:', error);
@@ -2500,7 +2499,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + mechanization + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_pro").innerHTML = html;
+      document.getElementById("groundnut_pro").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2543,7 +2542,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + humility + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_we").innerHTML = html;
+      document.getElementById("groundnut_wc").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2592,7 +2591,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + off_taker + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_aggr").innerHTML = html;
+      document.getElementById("groundnut_aggre").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2642,7 +2641,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + pest_disease_control + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_mtg").innerHTML = html;
+      document.getElementById("groundnut_cmt").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2691,7 +2690,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + storage + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_harv").innerHTML = html;
+      document.getElementById("groundnut_ph").innerHTML = html;
         
       }).catch((error) => {
         console.error('Error:', error);
@@ -2746,7 +2745,7 @@ function groudnutGapSwal(params) {
       html += "<td>" + cropProtectionProduct + "</td>"
       html += "</tr>"
        
-      document.getElementById("to_input").innerHTML = html;
+      document.getElementById("groundnut_input").innerHTML = html;
       Swal.close();
       }).catch((error) => {
         console.error('Error:', error);

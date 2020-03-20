@@ -1,0 +1,188 @@
+<div class="projects-list-wrapper">
+    <div class="list-header">
+        <div class="list-filter">
+            <div class="control">
+                <input class="input" type="text" placeholder="Filter Projects">
+                <div class="form-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-filter">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-body">
+        <div class="columns is-multiline">
+            <div class="column">
+
+                <!-- SMS group -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+
+                        <!-- Task wrapper dropdown -->
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Input Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_input_table">
+                             
+                            </tbody>
+                          </table>
+                          
+                    </div>
+                </div>
+                <!-- /Task Group -->
+
+                <!-- Task group -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Post Harvest Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumPHD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_ph_table">
+                             
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <!-- /Task Group -->
+
+                <!-- Task group -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Crop Management Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumCMGT('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_cropMgt_table">
+                             
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <!-- Task group -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Production Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumPD('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_pro_table">
+                             
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Weather/Climate Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumWC('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_wc_table">
+                             
+                              </tbody>
+                          </table>
+                    </div>
+                </div>
+                <!-- Task group -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Aggregation Details</th>
+                                <th scope="col">Description in English</th>
+                                <th scope="col">Description in Hausa</th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="sorghumAGGRE('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                              </tr>
+                            </thead>
+                            <tbody id="sorghum_aggre_table">
+                            
+                              </tbody>
+                          </table>
+                    </div>
+                </div>
+                <!-- Task group error tbody -->
+                <div class="tasks-wrapper">
+                    <div class="header">
+                        
+                        <table class="table table-dark">
+                            
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Labelling</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Pricing</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                              
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Market Lineage</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                              
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Off-Takers</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                              
+                              </tr>
+                              </tbody>
+                          </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
