@@ -638,6 +638,106 @@ $("#send_messages").on('click', function(e) {
 
  })
 
+ function gombefarmerSwal(params) {
+   swal.fire({
+    title: 'Loading Farmers Data',
+    text: 'Please wait...',
+    timer: 4000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    $("#gombetable").fadeOut("fast");
+    swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+    $("#gombe_farm_table").ready(function() {
+  
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        let html = "";
+        let table = "#gombetable";
+       data.map((farmer) => {
+         let firstname = farmer.firstname;
+         let lastname = farmer.lastname;
+         let gender = farmer.gender;
+         let phoNum = farmer.phoneNumber;
+         let state = farmer.state;
+         let lga = farmer.lga;
+         let ms = farmer.marital_status;
+         html += "<tr>";
+         html += "<td></td>"
+         html += "<td>" + firstname + "</td>"
+         html += "<td>" + lastname + "</td>"
+         html += "<td>" + gender + "</td>"
+         html += "<td>" + phoNum + "</td>"
+         html += "<td>" + state + "</td>"
+         html += "<td>" + lga + "</td>"
+         html += "<td>" + ms + "</td>"
+         html += "</tr>"
+        })
+        document.getElementById("gombe_farm_table").innerHTML = html;
+        $("#gombetable").fadeIn("fast");
+        var count = $('#gombe_farm_table tr').length;
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+
+
+    $("#total").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
+      document.getElementById("total").innerHTML = html;
+      // document.getElementById("total").style.color = "red";
+      })
+    })
+
+    $("#gob").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
+      document.getElementById("gob").innerHTML = html;
+      })
+    })
+
+    Swal.close();
+  })
+ 
+
+}
+
  function farmerSwal(params) {
   if($("#main-dashboard").length){
      
@@ -658,9 +758,62 @@ $("#send_messages").on('click', function(e) {
       allowOutsideClick: false,
       showConfirmButton: false,
     });
+
+    $("#total").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
+      document.getElementById("total").innerHTML = html;
+      // document.getElementById("total").style.color = "red";
+      })
+    })
+
+    $("#gob").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
+      document.getElementById("gob").innerHTML = html;
+      })
+    })
+
+    $("#ada").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let html = "";
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
+      document.getElementById("ada").innerHTML = html;
+      })
+    })
+
     $("#farm_table").ready(function() {
   
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -694,66 +847,9 @@ $("#send_messages").on('click', function(e) {
         document.getElementById("farm_table").innerHTML = html;
         $("#mytable").fadeIn("fast");
         var count = $('#farm_table tr').length;
-        
-        console.log(Math.round(count/2))
       }).catch((error) => {
         console.error('Error:', error);
       });
-    })
-
-
-    $("#total").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        console.log("gombe:" + data.length)
-        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
-      document.getElementById("total").innerHTML = html;
-      // document.getElementById("total").style.color = "red";
-      })
-    })
-
-    $("#gob").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        console.log("gombe:" + data.length)
-        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-      document.getElementById("gob").innerHTML = html;
-      })
-    })
-
-    $("#ada").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
-      document.getElementById("ada").innerHTML = html;
-      })
     })
 
     Swal.close();
