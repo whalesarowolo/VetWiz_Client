@@ -2853,6 +2853,7 @@ function maSMS(params) {
         let datas = []
         data.forEach( (dx) => {
           if(dx.status == "pending") {
+            console.log("Dx Has something")
             datas.push(dx)
           }
           let state = datas.state;
