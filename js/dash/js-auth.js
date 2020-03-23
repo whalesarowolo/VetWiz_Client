@@ -2852,10 +2852,11 @@ function maSMS(params) {
         console.log("has fetched")
         let dx = []
         data.forEach( (datas) => {
-          if(dx.status == "pending") {
+          if(datas.status == "pending") {
             console.log("Dx Has something")
-            datas.push(dx)
+            dx.push(datas)
           }
+          console.log("DX: ", dx)
           let state = datas.state;
           let company = datas.company;
           let email = datas.email;
