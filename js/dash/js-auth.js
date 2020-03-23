@@ -2844,18 +2844,25 @@ function maSMS(params) {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', token);
-    
+    console.log("abou t fetch")
       fetch(url, {
         method: "GET",
         headers
       }).then(async (res) => res.json()).then(data => {
-        data.forEach( (datas) => {
+        console.log("has fetched")
+        let datas = []
+        data.forEach( (dx) => {
+          if(dx.status == "pending") {
+            datas.push(dx)
+          }
           let state = datas.state;
           let company = datas.company;
           let email = datas.email;
           let message = datas.msg;
+          let dataId = datas._id;
           let date =  new Date(datas.date)
           newDate = date.getMonth() + 1 + "/"  +  date.getDate() + "/" + date.getFullYear() + " "
+          console.log(dataId)
 
           html += "<tr>";
           html += "<td></td>"
@@ -2864,11 +2871,10 @@ function maSMS(params) {
           html += "<td>" + state + "</td>"
           html += '<td>' + message + '</td>'
           html += "<td>" + newDate + "</td>"
-          html += '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px;">' + ' Approve' + '</span> <hr>' 
-          html += '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px;">' +  ' Reject' + '</span></td>'
+          html += '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="ma_approve(event);" data_id=' + `${dataId}` + '> Approve' + '</span> <hr>' 
+          html += '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="ma_reject(event);" data_id=' + `${dataId}` + '>' +  ' Reject' + '</span></td>'
           html += "</tr>"
          
-          
           document.getElementById("ma_sms_log").innerHTML = html;
         
         })
@@ -2883,4 +2889,56 @@ function maSMS(params) {
 
 }
 
+// on clikc of approval button 
 
+function ma_approve(e) {
+ let keen = $(e.target).attr('data_id')
+ console.log("Type ", keen)
+  swal.fire({
+    title: 'You Approved this message',
+    text: 'Please wait...',
+    timer: 3000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    swal.fire({
+      title: "Approved Message is been sent",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+
+
+    Swal.close();
+  })
+
+ }
+
+//   on click to reject button
+
+function ma_reject(e) {
+  let keen = $(e.target).attr('data_id')
+  console.log("Type ", keen)
+   swal.fire({
+     title: 'You Rejected this message',
+     text: 'Please wait...',
+     timer: 3000,
+     allowOutsideClick: false,
+     showConfirmButton: false,
+     icon: 'info'
+   }).then(function() {
+     swal.fire({
+       title: "Market Actor would br notified Message was Rejected",
+       text: "Loading data ....",
+       icon: "info",
+       allowOutsideClick: false,
+       showConfirmButton: false,
+     });
+ 
+ 
+     Swal.close();
+   })
+ 
+  }
