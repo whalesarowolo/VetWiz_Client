@@ -2850,8 +2850,8 @@ function maSMS(params) {
         headers
       }).then(async (res) => res.json()).then(data => {
         console.log("has fetched")
-        let datas = []
-        data.forEach( (dx) => {
+        let dx = []
+        data.forEach( (datas) => {
           if(dx.status == "pending") {
             console.log("Dx Has something")
             datas.push(dx)
