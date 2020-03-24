@@ -23,6 +23,7 @@
             new Route('rice', 'rice.html'),
             new Route('groundnut', 'groundnut.html'),
             new Route('sorghum', 'sorghum.html'),
+            new Route('pricing', 'pricing.html'),
         ]);
     }
     init();

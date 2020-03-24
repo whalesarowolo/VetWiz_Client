@@ -2861,7 +2861,6 @@ function maSMS(params) {
       }).then(async (res) => res.json()).then(data => {
         data.forEach( (datas) => {
           if(datas.status == "Pending") {
-
             let state = datas.state;
             let company = datas.company;
             let email = datas.email;
@@ -2908,17 +2907,16 @@ function ma_approve(e) {
     allowOutsideClick: false,
     showConfirmButton: false,
     icon: 'info'
-  }).then(function() {
-    swal.fire({
-      title: "Approved Message is been sent",
-      text: "Loading data ....",
-      icon: "info",
-      allowOutsideClick: false,
-      showConfirmButton: false,
-    });
+  }).then((_) => {
+      swal.fire({
+        title: "Approved Message is been sent",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
 
-
-    Swal.close();
+      Swal.close();
   })
 
  }
