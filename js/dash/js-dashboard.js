@@ -586,11 +586,64 @@ function usersPage(params) {
                             <div class="contact-block">
                                 <img src=${user.avatar} alt="product" class="product-img"/>
                                 <div class="contact-meta">
-                                    <span class="name">${user.firstname}</span>
+                                    <span class="name">${user.firstname + " " + user.lastname}</span>
                                     <span class="position">${user.bizCategory}</span>
                                     <span class="email">${user.email}</span>
+                                    <span class="email">${user.phoneNumber}</span>
                                 </div>
                         
+                            </div>
+
+                            <div class="contact-actions">
+                                <small class="tag">${user.company}</small>
+                                <div class="right-actions">
+                                    <a class="button contact-button">
+                                        <i class="material-icons">bookmark</i>
+                                    </a>
+                                    <a class="button contact-button">
+                                        <i class="material-icons">mail</i>
+                                    </a>
+                                    <div class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                                        <div class="button">
+                                            <i class="material-icons">more_horiz</i>
+                                        </div>
+
+                                        <div class="dropdown-menu is-text-bigger" role="menu">
+                                            <div class="dropdown-content">
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-eye"></i>
+                                                    <span>
+                                                        <span>View</span>
+                                                        <span>View contact details</span>
+                                                    </span>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-pencil"></i>
+                                                    <span>
+                                                        <span>Edit</span>
+                                                        <span>Edit contact details</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="#" class="dropdown-item">
+                                                    <i class="sl sl-icon-bell"></i>
+                                                    <span>
+                                                        <span>Notifications</span>
+                                                        <span>Manage contact notifications</span>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item">
+                                                    <i class="sl sl-icon-trash"></i>
+                                                    <span>
+                                                        <span>Delete</span>
+                                                        <span>Delete this contact</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         
                         </div>
