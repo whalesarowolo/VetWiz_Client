@@ -594,23 +594,7 @@ function usersPage(params) {
                         
                             </div>
 
-                            <div class="contact-actions">
-                                <small class="tag">${user.company}</small>
-                                <div class="right-actions">
-                                    <a class="button contact-button">
-                                        <i class="material-icons">bookmark</i>
-                                    </a>
-                                    <a class="button contact-button">
-                                        <i class="material-icons">mail</i>
-                                    </a>
-                                    <div class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
-                                        <div class="button">
-                                            <i class="material-icons">more_horiz</i>
-                                        </div>
-                                </div>
-                            </div>
-                        
-                        </div>
+                           
                         </div>
                         
                         </article>
