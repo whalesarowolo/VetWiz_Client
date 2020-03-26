@@ -546,3 +546,64 @@ $("send_messages").on('click', function(e) {
      })
 })
 
+var usersDOM = document.getElementById('users_page');
+
+function usersPage(params) {
+      swal.fire({
+        title: 'Loading Users Page',
+        text: 'Please wait...',
+        timer: 3000,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        icon: 'info'
+      }).then( function() {
+        Swal.fire({
+          title: "Please wait",
+          text: "Loading data ....",
+          icon: "info",
+          allowOutsideClick: false,
+          showConfirmButton: false,
+        });
+            if(("#users_page").length) {
+            
+              const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+              const token = localStorage.getItem('access_token');
+              const headers = new Headers();
+              headers.append('Content-Type', 'application/json');
+              headers.append('Authorization', token);
+            
+              fetch(url, {
+                method: "GET",
+                headers
+              }).then(async (res) => res.json()).then(data => {
+                  let result = '';
+                  
+                  data.forEach(user => {
+                        result += `
+                        <article class="column is-4">
+                        <div class="contact-card">
+                        
+                            <div class="contact-block">
+                                <img src=${user.avatar} alt="product" class="product-img"/>
+                                <div class="contact-meta">
+                                    <span class="name">${user.firstname}</span>
+                                    <span class="position">${user.bizCategory}</span>
+                                    <span class="email">${user.email}</span>
+                                </div>
+                        
+                            </div>
+                        
+                        </div>
+                        
+                        </article>
+                        `;
+                    })
+                    usersDOM.innerHTML = result;
+                })
+
+                
+              }
+            
+              Swal.close();
+            })
+}
