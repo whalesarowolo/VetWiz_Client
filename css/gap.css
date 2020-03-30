@@ -165,3 +165,27 @@ table tr td:first-child::before {
   border-radius: 15px;
 
 }
+
+.forcast_section{
+  margin-top: 50px;
+}
+
+.forcast_body{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  background-image: url('../img/02d.jpg');
+  background-size: cover;
+  background-position: top center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.forcast_body p{
+  font-size: 15px;
+  margin: auto;
+  color: rgb(153, 233, 171);
+  background-color: rgb(122, 121, 119, 0.5);
+  padding: 6px;
+  padding-top: 5px;
+  border-radius: 15px;
+}

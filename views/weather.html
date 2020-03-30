@@ -10,6 +10,7 @@
                 <h2 class="demo-title">Weather Module
                     
                 </h2>
+                <button  onclick="weatherForcast()" class="button is-large is-primary is-rounded is-right">Click me</button>
             </div>
         </div>
     </div>
@@ -58,4 +59,22 @@
             <button id="nassarawa_weather"  class="button is-large is-primary is-rounded is-right">Refresh</button>
         </div>
     </div>
+</div>
+<div class="container">
+    <h1 class="title is-centered">Select a state below to get the Weather Forcast</h1>
+    <div class="select is-success is-medium">
+        <select id="weather_forcaste" onchange="weatherForcast()">
+          <option>Select dropdown</option>
+          <option value="Abuja">Abuja</option>
+          <option value="Adamawa">Adamawa</option>
+          <option value="Nassarawa">Nassarawa</option>
+        </select>
+      </div>
+    <div class="columns forcast_section">
+        <div class="column is-one-fifth forcast_body" id="first_weather_section"></div>
+        <div class="column forcast_body" id="second_weather_section"></div>
+        <div class="column forcast_body" id="third_weather_section"></div>
+        <div class="column forcast_body" id="fourth_weather_section"></div>
+        <div class="column forcast_body" id="fifth_weather_section"></div>
+      </div>
 </div>

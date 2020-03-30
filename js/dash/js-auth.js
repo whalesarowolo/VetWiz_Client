@@ -2828,6 +2828,101 @@ function weather(params) {
 
 }
 
+// weather forcast
+function weatherForcast(params) {
+  swal.fire({
+    title: 'Loading Weather Data',
+    text: 'Please wait...',
+    timer: 3000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    Swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+    let stateForcast = $('#weather_forcaste').val();
+    console.log(stateForcast)
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q='+stateForcast+'&appid=7867e7a23def5fa182517076303b7c0f')
+    .then(response => response.json())
+    .then(data => {
+      let temp = data.list[0].main.temp - 275;
+      currentTemp = temp.toFixed(1)
+      let humid = data.list[0].main.humidity;
+      let city_name = data.city.name;
+      descrip = data.list[0].weather[0].description;
+      time = data.list[0].dt_txt;
+      var word = time.split(" ").pop();
+
+      let temp1 = data.list[1].main.temp - 275;
+      currentTemp1 = temp1.toFixed(1)
+      let humid1 = data.list[1].main.humidity;
+      let city_name1 = data.city.name;
+      time1 = data.list[1].dt_txt;
+      var word1 = time1.split(" ").pop();
+      descrip1 = data.list[1].weather[0].description
+
+
+      let temp2 = data.list[2].main.temp - 275;
+      currentTemp2 = temp2.toFixed(1)
+      let humid2 = data.list[2].main.humidity;
+      // let city_name = data.city.name;
+      time2 = data.list[2].dt_txt;
+      var word2 = time2.split(" ").pop();
+      descrip2 = data.list[2].weather[0].description
+
+
+      let temp3 = data.list[3].main.temp - 275;
+      currentTemp3 = temp3.toFixed(1)
+      let humid3 = data.list[3].main.humidity;
+      // let city_name = data.city.name;
+      time3 = data.list[3].dt_txt;
+      var word3 = time3.split(" ").pop();
+      descrip3 = data.list[3].weather[0].description
+
+
+      let temp4 = data.list[4].main.temp - 275;
+      currentTemp4 = temp4.toFixed(1)
+      let humid4 = data.list[4].main.humidity;
+      // let city_name = data.city.name;
+      time4 = data.list[4].dt_txt;
+      var word4 = time4.split(" ").pop();
+      descrip4 = data.list[4].weather[0].description
+     
+    
+    var info = "<p> Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid + " <br>" + "Weather: " + (descrip).toUpperCase() +  " <br>" + "Time"+ word + "</p>";
+    var info1 = "<p> Temp: " + currentTemp1 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid1 + " <br>" + "Weather: " + (descrip1).toUpperCase() + " <br>" + "Time"+ word1 + "</p>";
+
+    var info2 = "<p> Temp: " + currentTemp2 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid2 + " <br>" + "Weather: " + (descrip2).toUpperCase() + " <br>" + "Time"+ word2 + "</p>";
+
+    var info3 = "<p> Temp: " + currentTemp3 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid3 + " <br>" + "Weather: " + (descrip3).toUpperCase() + " <br>" + "Time"+ word3 + "</p>";
+
+
+    var info4 = "<p> Temp: " + currentTemp4 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid4 + " <br>" + "Weather: " + (descrip4).toUpperCase() + " <br>" + "Time"+ word4 + "</p>";
+
+
+
+    $("#first_weather_section").html(info);
+    $("#second_weather_section").html(info1);
+    $("#third_weather_section").html(info2);
+    $("#fourth_weather_section").html(info3);
+    $("#fifth_weather_section").html(info4);
+   
+   })
+  
+    
+  
+  Swal.close();
+})
+
+}
+
+
+
 // Market Actor sms log sent for approval
 function maSMS(params) {
   let html = "";
