@@ -22,6 +22,11 @@ $(document).ready(function () {
     window.location.replace("/login.html");
   });
 
+  //Fresh Registration link
+  $("#regIn").click(function (e) {
+    window.location.replace("/register.html");
+  });
+
 
   $("#sign_in").on('submit', function (e) {
     var useremail = $('#email').val();
