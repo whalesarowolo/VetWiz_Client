@@ -2944,8 +2944,8 @@ function load_ma_dispatch() {
         allowOutsideClick: false,
         showConfirmButton: false,
         timer: 2000
-      });
-      document.getElementById('ma_sms_dispatch').innerHTML = "<h2>Yes...</h2>";
+      }).then(_ => document.getElementById('ma_sms_dispatch').innerHTML = "<h2>Yes...</h2>");
+      
     });
   
 }
