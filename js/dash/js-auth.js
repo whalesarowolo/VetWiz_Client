@@ -2925,7 +2925,35 @@ function weatherForcast(params) {
 
 }
 
+//MA msg dispatch
+function load_ma_dispatch() {
+  //Implement stub here
+  let html = "";
+    swal.fire({
+      title: 'Loading Market Actors Approved Messages',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        timer: 2000
+      });
+      document.getElementById('ma_sms_dispatch').innerHTML = "<h2>Yes...</h2>";
+    });
+  
+}
 
+function create_msg_queue() {
+  //
+  console.log("Lots")
+}
 
 // Market Actor sms log sent for approval
 function maSMS(params) {

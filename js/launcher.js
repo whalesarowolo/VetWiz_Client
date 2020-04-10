@@ -24,6 +24,7 @@
             new Route('groundnut', 'groundnut.html'),
             new Route('sorghum', 'sorghum.html'),
             new Route('pricing', 'pricing.html'),
+            new Route('msg_queue', 'msg_queue.html'),
         ]);
     }
     init();
