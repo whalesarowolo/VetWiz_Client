@@ -328,6 +328,10 @@ function goHome() {
   document.location.replace('/dashboard.html');
 }
 
+function goHomePartner() {
+  document.location.replace('/partnerDashboard.html');
+}
+
 function create_admin(params) {
   swal.fire({
     title: 'Please wait',
