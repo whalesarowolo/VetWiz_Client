@@ -20,53 +20,51 @@
 
 	</head>
 	<body>
-	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img src="./img/farm_aid_footer.png" alt="Farm aid logo" width="" height="" />
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a href="#about" class="navbar-item">
-                      About
-                    </a>        
-                    <a class="navbar-item">
-                          Services
-                      </a>
-                <a class="navbar-item">
-                         Pricing 
-                        </a>
-                <a class="navbar-item">
-                          Partners
-						 </a>
-				<a class="navbar-item">
-                          Contact Us
-                         </a>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" id="getIn">
-                            Log In
-                        </a>
-                    </div>
-				</div>
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+			  <a class="navbar-item" href="https://bulma.io">
+				<img src="./img/farm_aid_footer.png" width="100" height="20" style="text-align: center;">
+			  </a>
+		  
+			  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			  </a>
+			</div>
+		  
+			<div id="navbarBasicExample" class="navbar-menu">
+			  <div class="navbar-start" style="margin-top: 9px; margin-left: 70px;">
+				<a href="#about" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
+				  About
+				</a>
+		  
+				<a href="#services" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
+				  Services
+				</a>
+				<a href="#pricing" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
+				  Pricing
+				</a>
+				<a class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
+				  Contact Us
+				</a>
+		  
+			  </div>
+		  
+			  <div class="navbar-end">
 				<div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" id="regIn">
-                            Sign Up
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</nav>
+				  <div class="buttons">
+					<a class="button is-primary" id="regIn">
+					  <strong>Sign up</strong>
+					</a>
+					<a class="button is-primary" id="getIn">
+					  <strongLog>Log in</strong>
+					</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </nav>
 		<div class="container header" style="margin-top:100px;">
 			<div class="slideshow" id="slideshow">
 				<ol class="slides">
@@ -140,7 +138,7 @@
 				<p class="is-size-5 is-medium about"><b>F</b>arm Aid is a technology solution that adopts pull and push system using short message service (SMS), Interactive Voice Response (IVR), Web and farmer call center to engage and provide information on good agricultural practices(GAP) as it relates to crop production, market prices of crops, weather information, business advisory, market linkage, farm inputs sourcing, livestock production and animal health to smallholder farmers. As well as providing a channel which farmers can ask questions on the different aspects of their processes.</p>
 				</div>
 			  </section>
-			  <section class="section about-farmaid">
+			  <section id="services" class="section about-farmaid">
 				<div class="container">
 				<h1 class="title has-text-centered">Our Services & Features</h1>
 				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
@@ -190,7 +188,7 @@
 				</div>
 			</div>
 
-			<div class="container pricing">
+			<div id="pricing" class="container pricing">
 				<h1 class="title has-text-centered">Our Solution Pricing</h1>
 				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
 			
@@ -348,5 +346,6 @@
 			<li class="btn-footer"><a href="#"><i class="fa fa-instagram"></i></a></li>
 		</div>
 		</div>
+		<script src="./js/index.js"></script>
 	</body>
 </html>
