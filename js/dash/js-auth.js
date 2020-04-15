@@ -385,18 +385,18 @@ if(firstname == "" || lastname == "" || phoneNumber == "" || email == "" ||  pas
   return false;
 }
 
-if(phoneNumber < 11) {
-  $("#admin-create-form").addClass('is-hidden');
-  swal.fire({
-    title: 'Error Authenticating',
-    text: 'Phone Number format is Invalid',
-    icon: 'warning',
-    timer: 3100
-  }).then(()=> {
-    $("#admin-create-form").toggleClass('is-hidden');
-  });
-  return false;
-}
+// if(phoneNumber !== "11") {
+//   $("#admin-create-form").addClass('is-hidden');
+//   swal.fire({
+//     title: 'Error Authenticating',
+//     text: 'Phone Number format is Invalid',
+//     icon: 'warning',
+//     timer: 3100
+//   }).then(()=> {
+//     $("#admin-create-form").toggleClass('is-hidden');
+//   });
+//   return false;
+// }
 if(!phoneNumber.match(numbers)) {
   $("#admin-create-form").addClass('is-hidden');
   swal.fire({
