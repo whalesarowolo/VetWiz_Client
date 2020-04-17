@@ -720,30 +720,6 @@ $("#send_messages").on('click', function(e) {
         }
         
         // End DataTable here
-      //   let html = "";
-      //   let table = "#gombetable";
-      //  data.map((farmer) => {
-      //    let firstname = farmer.firstname;
-      //    let lastname = farmer.lastname;
-      //    let gender = farmer.gender;
-      //    let phoNum = farmer.phoneNumber;
-      //    let state = farmer.state;
-      //    let lga = farmer.lga;
-      //    let ms = farmer.marital_status;
-      //    html += "<tr>";
-      //    html += "<td></td>"
-      //    html += "<td>" + firstname + "</td>"
-      //    html += "<td>" + lastname + "</td>"
-      //    html += "<td>" + gender + "</td>"
-      //    html += "<td>" + phoNum + "</td>"
-      //    html += "<td>" + state + "</td>"
-      //    html += "<td>" + lga + "</td>"
-      //    html += "<td>" + ms + "</td>"
-      //    html += "</tr>"
-      //   })
-        // document.getElementById("gombe_farm_table").innerHTML = html;
-        // $("#gombetable").fadeIn("fast");
-
         
         // var count = $('#gombe_farm_table tr').length;
       }).catch((error) => {
