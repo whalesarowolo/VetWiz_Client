@@ -686,6 +686,7 @@ $("#send_messages").on('click', function(e) {
       icon: "info",
       allowOutsideClick: false,
       showConfirmButton: false,
+      icon: 'info'
     });
     
     $("#gombe_farm_table").ready(function() {
@@ -708,6 +709,7 @@ $("#send_messages").on('click', function(e) {
           $("#example_tase").DataTable( {
           data: data,
             "columns": [
+              { "data": "id" },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
@@ -774,6 +776,7 @@ $("#send_messages").on('click', function(e) {
       icon: "info",
       allowOutsideClick: false,
       showConfirmButton: false,
+      icon: 'info'
     });
 
     $("#total").ready(function() {
@@ -813,6 +816,7 @@ $("#send_messages").on('click', function(e) {
           $("#example_adam").DataTable( {
           data: data,
             "columns": [
+              { "data": "id" },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
