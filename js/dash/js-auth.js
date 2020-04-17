@@ -709,6 +709,7 @@ $("#send_messages").on('click', function(e) {
           $("#example_tase").DataTable( {
           data: data,
             "columns": [
+              { "data": " " },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
@@ -818,6 +819,7 @@ $("#send_messages").on('click', function(e) {
           $("#example_adam").DataTable( {
           data: data,
             "columns": [
+              { "data": " " },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
