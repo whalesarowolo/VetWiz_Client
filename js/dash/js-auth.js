@@ -719,6 +719,9 @@ $("#send_messages").on('click', function(e) {
               { "data": "marital_status" }
           ]
           } );
+
+          html = "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
+          document.getElementById("gob").innerHTML = html;
         }
         
         // End DataTable here
