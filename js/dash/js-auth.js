@@ -826,7 +826,7 @@ $("#send_messages").on('click', function(e) {
               { "data": "marital_status" }
           ]
           } );
-          html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
+          html = "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
           document.getElementById("ada").innerHTML = html;
         } 
         // End DataTable here
