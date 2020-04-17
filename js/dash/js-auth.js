@@ -653,7 +653,24 @@ $("#send_messages").on('click', function(e) {
 
  })
 
+ function addScript(filename){
+  var head = document.getElementsByTagName('head')[0];
+ 
+  var script = document.createElement('script');
+  script.src = filename;
+  script.type = 'text/javascript';
+ 
+  head.append(script);
+ }
+ 
+/**
+ * Start definition for gombe Farmers retrieval
+ * @param {*} params 
+ */
  function gombefarmerSwal(params) {
+
+  addScript('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js');
+
    swal.fire({
     title: 'Loading Farmers Data',
     text: 'Please wait...',
@@ -670,8 +687,10 @@ $("#send_messages").on('click', function(e) {
       allowOutsideClick: false,
       showConfirmButton: false,
     });
+    
     $("#gombe_farm_table").ready(function() {
-  
+
+
       const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
@@ -682,30 +701,51 @@ $("#send_messages").on('click', function(e) {
         method: "GET",
         headers
       }).then(async (res) => res.json()).then(data => {
-        let html = "";
-        let table = "#gombetable";
-       data.map((farmer) => {
-         let firstname = farmer.firstname;
-         let lastname = farmer.lastname;
-         let gender = farmer.gender;
-         let phoNum = farmer.phoneNumber;
-         let state = farmer.state;
-         let lga = farmer.lga;
-         let ms = farmer.marital_status;
-         html += "<tr>";
-         html += "<td></td>"
-         html += "<td>" + firstname + "</td>"
-         html += "<td>" + lastname + "</td>"
-         html += "<td>" + gender + "</td>"
-         html += "<td>" + phoNum + "</td>"
-         html += "<td>" + state + "</td>"
-         html += "<td>" + lga + "</td>"
-         html += "<td>" + ms + "</td>"
-         html += "</tr>"
-        })
-        document.getElementById("gombe_farm_table").innerHTML = html;
-        $("#gombetable").fadeIn("fast");
-        var count = $('#gombe_farm_table tr').length;
+
+        // DataTable here
+
+        if ($("#example_tase").length) {
+          $("#example_tase").DataTable( {
+          data: data,
+            "columns": [
+              { "data": "firstname" },
+              { "data": "lastname" },
+              { "data": "gender" },
+              { "data": "phoneNumber" },
+              { "data": "state" },
+              { "data": "lga" },
+              { "data": "marital_status" }
+          ]
+          } );
+        }
+        
+        // End DataTable here
+      //   let html = "";
+      //   let table = "#gombetable";
+      //  data.map((farmer) => {
+      //    let firstname = farmer.firstname;
+      //    let lastname = farmer.lastname;
+      //    let gender = farmer.gender;
+      //    let phoNum = farmer.phoneNumber;
+      //    let state = farmer.state;
+      //    let lga = farmer.lga;
+      //    let ms = farmer.marital_status;
+      //    html += "<tr>";
+      //    html += "<td></td>"
+      //    html += "<td>" + firstname + "</td>"
+      //    html += "<td>" + lastname + "</td>"
+      //    html += "<td>" + gender + "</td>"
+      //    html += "<td>" + phoNum + "</td>"
+      //    html += "<td>" + state + "</td>"
+      //    html += "<td>" + lga + "</td>"
+      //    html += "<td>" + ms + "</td>"
+      //    html += "</tr>"
+      //   })
+        // document.getElementById("gombe_farm_table").innerHTML = html;
+        // $("#gombetable").fadeIn("fast");
+
+        
+        // var count = $('#gombe_farm_table tr').length;
       }).catch((error) => {
         console.error('Error:', error);
       });
@@ -752,6 +792,8 @@ $("#send_messages").on('click', function(e) {
  
 
 }
+
+// End of Gombe Farmers retrieval
 
  function farmerSwal(params) {
   if($("#main-dashboard").length){
