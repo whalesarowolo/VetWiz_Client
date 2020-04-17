@@ -672,7 +672,7 @@ $("#send_messages").on('click', function(e) {
   addScript('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js');
 
    swal.fire({
-    title: 'Loading Farmers Data',
+    title: 'Loading Farmers Data from Gombe',
     text: 'Please wait...',
     timer: 4000,
     allowOutsideClick: false,
@@ -685,8 +685,7 @@ $("#send_messages").on('click', function(e) {
       text: "Loading data ....",
       icon: "info",
       allowOutsideClick: false,
-      showConfirmButton: false,
-      icon: 'info'
+      showConfirmButton: false
     });
     
     $("#gombe_farm_table").ready(function() {
@@ -726,29 +725,9 @@ $("#send_messages").on('click', function(e) {
         
         // End DataTable here
         
-        // var count = $('#gombe_farm_table tr').length;
       }).catch((error) => {
         console.error('Error:', error);
       });
-    })
-
-
-    $("#total").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
-      document.getElementById("total").innerHTML = html;
-      // document.getElementById("total").style.color = "red";
-      })
     })
 
     Swal.close();
@@ -765,7 +744,7 @@ $("#send_messages").on('click', function(e) {
     addScript('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js');
     
    swal.fire({
-    title: 'Loading Farmers Data',
+    title: 'Loading Farmers Data from Adamawa',
     text: 'Please wait...',
     timer: 4000,
     allowOutsideClick: false,
@@ -778,27 +757,8 @@ $("#send_messages").on('click', function(e) {
       text: "Loading data ....",
       icon: "info",
       allowOutsideClick: false,
-      showConfirmButton: false,
-      icon: 'info'
+      showConfirmButton: false
     });
-
-    $("#total").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span >" + "Total Number of Farmers: " + data.length  + "</span>"
-      document.getElementById("total").innerHTML = html;
-      // document.getElementById("total").style.color = "red";
-      })
-    })
 
     $("#example_adam").ready(function() {
   
