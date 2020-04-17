@@ -797,8 +797,9 @@ $("#send_messages").on('click', function(e) {
 
  function farmerSwal(params) {
   if($("#main-dashboard").length){
-     
-  
+
+    addScript('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js');
+    
    swal.fire({
     title: 'Loading Farmers Data',
     text: 'Please wait...',
@@ -868,7 +869,7 @@ $("#send_messages").on('click', function(e) {
       })
     })
 
-    $("#farm_table").ready(function() {
+    $("#example_adam").ready(function() {
   
       const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
       const token = localStorage.getItem('access_token');
@@ -880,30 +881,24 @@ $("#send_messages").on('click', function(e) {
         method: "GET",
         headers
       }).then(async (res) => res.json()).then(data => {
-        let html = "";
-        let table = "#mytable";
-       data.map((farmer) => {
-         let firstname = farmer.firstname;
-         let lastname = farmer.lastname;
-         let gender = farmer.gender;
-         let phoNum = farmer.phoneNumber;
-         let state = farmer.state;
-         let lga = farmer.lga;
-         let ms = farmer.marital_status;
-         html += "<tr>";
-         html += "<td></td>"
-         html += "<td>" + firstname + "</td>"
-         html += "<td>" + lastname + "</td>"
-         html += "<td>" + gender + "</td>"
-         html += "<td>" + phoNum + "</td>"
-         html += "<td>" + state + "</td>"
-         html += "<td>" + lga + "</td>"
-         html += "<td>" + ms + "</td>"
-         html += "</tr>"
-        })
-        document.getElementById("farm_table").innerHTML = html;
-        $("#mytable").fadeIn("fast");
-        var count = $('#farm_table tr').length;
+       
+        // DataTable here
+
+        if ($("#example_adam").length) {
+          $("#example_adam").DataTable( {
+          data: data,
+            "columns": [
+              { "data": "firstname" },
+              { "data": "lastname" },
+              { "data": "gender" },
+              { "data": "phoneNumber" },
+              { "data": "state" },
+              { "data": "lga" },
+              { "data": "marital_status" }
+          ]
+          } );
+        } 
+        // End DataTable here
       }).catch((error) => {
         console.error('Error:', error);
       });
