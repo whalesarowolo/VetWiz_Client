@@ -770,23 +770,6 @@ $("#send_messages").on('click', function(e) {
       })
     })
 
-    $("#gob").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-      document.getElementById("gob").innerHTML = html;
-      })
-    })
-
     Swal.close();
   })
  
@@ -835,40 +818,6 @@ $("#send_messages").on('click', function(e) {
       })
     })
 
-    $("#gob").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-      document.getElementById("gob").innerHTML = html;
-      })
-    })
-
-    $("#ada").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
-      const token = localStorage.getItem('access_token');
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let html = "";
-    
-      fetch(url, {
-        method: "GET",
-        headers
-      }).then(async (res) => res.json()).then(data => {
-        html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
-      document.getElementById("ada").innerHTML = html;
-      })
-    })
-
     $("#example_adam").ready(function() {
   
       const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Adamawa'
@@ -897,6 +846,8 @@ $("#send_messages").on('click', function(e) {
               { "data": "marital_status" }
           ]
           } );
+          html += "<span>" + "Total Number of Farmers in Adamawa: " + data.length + "</span>"
+          document.getElementById("ada").innerHTML = html;
         } 
         // End DataTable here
       }).catch((error) => {
