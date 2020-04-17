@@ -817,9 +817,9 @@ $("#send_messages").on('click', function(e) {
 
         if ($("#example_adam").length) {
           $("#example_adam").DataTable( {
-          data: data,
+            responsive: true,
+            data: data,
             "columns": [
-              { "data": " " },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
