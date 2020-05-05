@@ -1,4 +1,4 @@
-/*! contacts.js | Bulkit | CSS Ninja */
+/*! contacts.js | FarmAid */
 
 /* ==========================================================================
 Dashboard documents JS file
