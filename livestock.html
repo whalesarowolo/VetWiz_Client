@@ -621,7 +621,7 @@
                 </li>
             </ul><!-- /Child menu header -->
             <!-- Sidebar menu 1 -->
-            <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
+            <ul style="display: none;" id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">dashboard</span>Market Actors</a>
                     <ul>
@@ -737,12 +737,12 @@
                             <h3 class="support-title">Admin Desk</h3>
                             <div class="title-meta">
                                 <div class="meta">
-                                    <i class="sl sl-icon-tag"></i>
-                                    <span>45 open</span>
+                                    <i class="sl sl-icon-user"></i>
+                                    <span>45 users</span>
                                 </div>
                                 <div class="meta">
                                     <i class="sl sl-icon-shield"></i>
-                                    <span>3 escalated</span>
+                                    <span>3 requests</span>
                                 </div>
                             </div>
                         </div>
@@ -767,9 +767,9 @@
                                     <i class="sl sl-icon-user"></i>
                                     Manage Users
                                 </div>
-                                <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-ripple-color="">
-                                    <i class="sl sl-icon-user"></i>
-                                    Actions
+                                <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-ripple-color="" onclick="logout()">
+                                    <i class="sl sl-icon-key"></i>
+                                    Logout
                                 </div>
                                 <!-- Dropdown menu -->
                                 <div class="dropdown-menu is-text-bigger" role="menu">
@@ -1212,7 +1212,11 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    
+    <!-- Check authorisation -->
+    <script src="js/dash/js-auth-check.js"></script>
 
     <!-- Routing start -->
     <script src="js/farmaid_route.js"></script>
@@ -1232,6 +1236,7 @@
     <script src="js/dash/js-contacts.js"></script>
     <script src="js/dash/js-projects.js"></script>
     <script src="js/dash/js-datatable.js"></script>
+    
     <script src="js/dash/js-charts.js"></script>
 </body>
 
