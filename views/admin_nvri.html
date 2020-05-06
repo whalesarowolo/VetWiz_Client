@@ -1,0 +1,62 @@
+<div class="columns is-full">
+
+    <div class="column is-4">
+       
+        <form method="post" id="admin-create-form" class="is-hidden create-admin-form" action="#" style="min-width: 70% !important; padding: 5px; border-radius: 20px; box-shadow: 2px 2px 3px #acaefe;">
+            <div class="field">
+                <label class="label" for="the_firstname">First Name</label>
+                <input class="input is-rounded is-medium" type="text" name="firstname" id="the_firstname" class="input">
+            </div>
+            <div class="field">
+                <label class="label" for="the_lastname">Last Name</label>
+                <input class="input is-rounded is-medium" type="text" name="lastname" id="the_lastname" class="input">
+            </div>
+            <div class="field">
+                <div class="field has-addons">
+                    <p class="control">
+                        <a class="button is-static">
+                            +234
+                        </a>
+                    </p>
+                    <p class="control is-expanded">
+                        <input class="input is-rounded" id="the_phonenumber" class="input" type="tel" placeholder="Your phone number">
+                    </p>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="the_email">Email Address</label>
+                <input class="input is-rounded is-medium"  type="email" name="email" id="the_email" class="input">
+            </div>
+            <div class="field">
+                <label class="label" for="the_company">Company</label>
+                <input class="input is-rounded is-medium"  type="text" name="text" id="the_company" class="input">
+            </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <label class="label" for="the_password">Password</label>
+                    <input class="input is-rounded" id="the_password"  class="input" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </p>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button onclick="persist_user(event);" class="button is-primary is-rounded is-medium pull-right" id="creating-admin">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="column admin-create-button" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Adminstration</h1>
+        <div class="field is-grouped" style="background-image: url('./img/add-icon.png'); opacity: 0.6; background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+        <div class="control is-large">
+            <button id="create-admin" onclick="create_admin();" class="button is-large is-primary is-rounded is-right">Create</button>
+        </div>
+    </div>
+</div>

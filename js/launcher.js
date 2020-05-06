@@ -25,6 +25,7 @@
             new Route('sorghum', 'sorghum.html'),
             new Route('pricing', 'pricing.html'),
             new Route('msg_queue', 'msg_queue.html'),
+            new Route('admin_nvri', 'admin_nvri.html'),
         ]);
     }
     init();

@@ -621,46 +621,19 @@
                 </li>
             </ul><!-- /Child menu header -->
             <!-- Sidebar menu 1 -->
-            <ul style="display: none;" id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
+            <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">dashboard</span>Market Actors</a>
                     <ul>
                         <li><a onclick="agroTable()" href="#agro_dealers">Agro-Dealers</a></li>
                         <li><a onclick="seedTable()" href="#seed">Seed Companies</a></li>
-                        <li><a onclick="extTable()" href="#extension">Extension Agents</a></li>
-                        <li><a onclick="aggreTable()" href="#aggregators">Aggregators</a></li>
-                        <li><a onclick="offTaker()" href="#offtakers">Off-Takers</a></li>
-                        <li><a onclick="paraVet()" href="#paraVet">ParaVets</a></li>
-                        <li><a onclick="inputTable()" href="#input">Input Companies</a></li>
                     </ul>
                 </li>
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">insert_chart</span>Analytics</a>
                     <ul>
-                        <li><a href="#sms">SMS</a></li>
-                        <li><a href="#admin">Administration</a></li>
+                        <li><a href="#admin_nvri">Administration</a></li>
                         <li><a onclick="usersPage()" href="#users">Registered Users</a></li>
-                        <li><a href="#internalsms">Internal SMS</a></li>
-                        <li><a onclick="maSMS()" href="#needs">Message Queue</a></li>
-                        <li><a onclick="load_ma_dispatch()" href="#msg_queue">Message Dispatch</a></li>
-                        <li><a href="#pricing">Product Subscriptions</a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">developer_board</span>GAP CONTENT</a>
-                    <ul>
-                        <li><a href="#weather" onclick="weather()">Weather information</a></li>
-                        <li><a onclick="toGapSwal()" href="#tomatoes">Tomatoes</a></li>
-                        <li><a onclick="riceGapSwal()" href="#rice">Rice</a></li>
-                        <li><a onclick="groudnutGapSwal()" href="#groundnut">Groundnut</a></li>
-                        <li><a onclick="sorghumGapSwal()" href="#sorghum">Sorghum</a></li>
-                    </ul>
-                </li>
-                <li class="have-children"><a class="parent-link" href="#"><span
-                            class="material-icons">view_agenda</span>Farmers</a>
-                    <ul>
-                        <li><a onclick="farmerSwal()" href="#farmers">Adamawa</a></li>
-                        <li><a onclick="gombefarmerSwal()" href="#gombeFarmer">Gombe</a></li>
                     </ul>
                 </li>
             </ul><!-- /Sidebar menu 1 -->
@@ -1220,8 +1193,8 @@
 
     <!-- Routing start -->
     <script src="js/farmaid_route.js"></script>
-    <script src="js/farmaid_router.js"></script>
-    <script src="js/launcher.js"></script>
+    <script src="js/farmaid_router_nvri.js"></script>
+    <script src="js/luncher_nvri.js"></script>
     <!-- Routing End -->
 
     <!-- Data table -->
