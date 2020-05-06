@@ -3,15 +3,9 @@
     <div class="column is-4">
        
         <form method="post" id="admin-create-form" class="is-hidden create-admin-form" action="#" style="min-width: 70% !important; padding: 5px; border-radius: 20px; box-shadow: 2px 2px 3px #acaefe;">
+            
             <div class="field">
-                <label class="label" for="the_firstname">First Name</label>
-                <input class="input is-rounded is-medium" type="text" name="firstname" id="the_firstname" class="input">
-            </div>
-            <div class="field">
-                <label class="label" for="the_lastname">Last Name</label>
-                <input class="input is-rounded is-medium" type="text" name="lastname" id="the_lastname" class="input">
-            </div>
-            <div class="field">
+                <label class="label" for="the_phonenumber">User Phone Number</label>
                 <div class="field has-addons">
                     <p class="control">
                         <a class="button is-static">
@@ -28,9 +22,16 @@
                 <label class="label" for="the_email">Email Address</label>
                 <input class="input is-rounded is-medium"  type="email" name="email" id="the_email" class="input">
             </div>
-            <div class="field">
-                <label class="label" for="the_company">Company</label>
-                <input class="input is-rounded is-medium"  type="text" name="text" id="the_company" class="input">
+            <div class="field is-medium">
+                <label class="label" for="the_role">Role</label>
+                <div class="control">
+                    <div class="select is-medium is-rounded is-fullwidth">
+                        <select id="the_role">
+                            <option value="cahw" selected="">CAHW</option>
+                            <option value="paravet">Para-Vet</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="field">
                 <p class="control has-icons-left">
