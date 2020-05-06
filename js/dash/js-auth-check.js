@@ -30,6 +30,91 @@ function logout() {
     window.location.replace('/nvri-login.html');
 }
 
+function getRegUsers() {
+  swal.fire({
+    title: 'Please wait',
+    text: 'Creating User',
+    icon: 'info',
+    allowOutsideClick: false,
+    showConfirmButton: false
+  })
+  const url = 'https://farm-aid-backend.herokuapp.com/api/nvir/users'
+  const token = localStorage.getItem('access_token');
+  // create request object
+  var request = new Request(url, {
+    method: 'GET',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': token 
+    })
+  });
+   // pass request object to `fetch()`
+   fetch(request)
+   .then(async (res) => {
+      //$('.modal').css({ 'display': 'none' });
+   var resp = await res.json();
+   if(resp !== null){
+     swal.close();
+     swal.fire({
+      title: 'User details obtained',
+      text: 'Users fetched successfully',
+      timer: 3000,
+      icon: 'success'
+    }).then(() => {
+
+      //Clear and hide the users
+      $(".columns.nvri_users").empty().append(`<div class="column is-full">
+      <h2 class="button btn-dash secondary-btn is-raised">Registered Users</h2>
+  </div>`).fadeOut();
+      swal.fire({
+        title: 'Updating Data',
+        text: 'Please wait...',
+        icon: 'info',
+        allowOutsideClick: false,
+      })
+      resp.forEach(nvri_user => {
+        
+        var content_html = `
+        <div class="column is-4">
+          <div class="flex-card team-card light-bordered light-raised">
+              <div class="card-heading padding-10">
+                  <span class="tag is-success">Active</span>
+              </div>
+              <div class="card-body">
+                  <div class="avatar">
+                      <img src="` + nvri_user.avatar + `" alt="" data-demo-src="` + nvri_user.avatar + `">
+                  </div>
+                  <div class="user-id">
+                      <div class="name">` + nvri_user.email +  `</div>
+                      <div class="position">` + nvri_user.role + `</div>
+                      <div class="location"><i class="sl sl-icon-globe"></i>
+                          Abuja</div>
+                  </div>
+                  <div class="user-description">
+                  ` + nvri_user.phone + `
+                  </div>
+                  <div class="card-action has-text-centered">
+                      <button class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
+                  </div>
+              </div>
+          </div>
+        </div>`;
+        //Append to the dom and reveal slowly
+        $(".columns.nvri_users").append(content_html);
+      });
+
+      swal.close();
+      $(".columns.nvri_users").fadeIn('slow');
+      
+    });
+    
+   }
+   }).catch((e)=> {
+     swal.close();
+     console.log("Bad request...");
+   });
+}
+
 function create_admin(params) {
     swal.fire({
       title: 'Please wait',
