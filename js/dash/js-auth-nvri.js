@@ -6,7 +6,6 @@
  =================================================================
 */
 
-
 $(document).ready(function($){
     
     "use strict";
@@ -136,9 +135,7 @@ $(document).ready(function($){
                 window.location.replace("/livestock.html");
               } else {
                 window.location.replace("/nvri-login.html");
-              } 
-            
-              console.log(userObj.user.id);
+              }             
               localStorage.setItem('user', userObj.user.id);
             } else {
               $('.modal').css({ 'display': 'none' });
@@ -296,53 +293,3 @@ function parseJwt (token) {
 
   return JSON.parse(jsonPayload);
 };
-
-// $(document).ready(function () {
-//   let html = "";
-//   const token = localStorage.getItem('access_token');
-//     var userObj = parseJwt(localStorage.getItem('access_token'));
-//     var img = document.createElement("img");
-//     img.src = userObj.user.avatar;
-//     var src = document.getElementById("profile-head");
-//     src.appendChild(img);
-//     maCompany = userObj.user.company
-//     maEmail = userObj.user.email
-//     html += "<h3>" + maCompany + "</h3>"
-//     html += "<p>" + maEmail + "</p>"
-//     document.getElementById("profile-head").innerHTML = html;
-//     document.getElementById("profile_name").innerHTML = userObj.user.lastname + " " + userObj.user.firtsname;
-//     document.getElementById("profile_name_h3").innerHTML = userObj.user.lastname + " " + userObj.user.firtsname;
-//     document.getElementById("profile_company").innerHTML = userObj.user.company;
-//     document.getElementById("profile_email").innerHTML = userObj.user.email;
-//     document.getElementById("phon_num").innerHTML = userObj.user.phoneNumber;
-//     document.getElementById("phon_num2").innerHTML = userObj.user.phoneNumber;
-//     document.getElementById("biz_category").innerHTML = userObj.user.bizCategory;
-//     document.getElementById("profile_biz_header").innerHTML = userObj.user.bizCategory;
-// });
-
-
-
-// $(document).ready(function () {
-//   const token = localStorage.getItem('access_token');
-//     var userObj = parseJwt(localStorage.getItem('access_token'));
-//     var img = document.createElement("img");
-//     img.src = userObj.user.avatar;
-//     var src = document.getElementById("profile-head");
-//     src.appendChild(img);
-// });
-// $(document).ready(function () {
-//   const token = localStorage.getItem('access_token');
-//     var userObj = parseJwt(localStorage.getItem('access_token'));
-//     var img = document.createElement("img");
-//     img.src = userObj.user.avatar;
-//     var src = document.getElementById("profile-me");
-//     src.appendChild(img);
-// });
-// $(document).ready(function () {
-//   const token = localStorage.getItem('access_token');
-//     var userObj = parseJwt(localStorage.getItem('access_token'));
-//     var img = document.createElement("img");
-//     img.src = userObj.user.avatar;
-//     var src = document.getElementById("profile-trigger");
-//     src.appendChild(img);
-// });
