@@ -115,7 +115,13 @@ function create_admin(params) {
   });
   return false;
   }
-    swal.showLoading('Please wait...');
+    swal.fire({
+        title: 'Please wait',
+        text: 'Creating User',
+        icon: 'info',
+        allowOutsideClick: false,
+        showConfirmButton: false
+    })
     const url = 'https://farm-aid-backend.herokuapp.com/api/nvir/users'
     const token = localStorage.getItem('access_token');
   
@@ -142,6 +148,12 @@ function create_admin(params) {
      var resp = await res.json();
      if(resp !== null){
        swal.close();
+       swal.fire({
+        title: 'User details saved',
+        text: 'User created successfully',
+        timer: 3000,
+        icon: 'success'
+    });
      }
      }).catch((e)=> {
        swal.close();
