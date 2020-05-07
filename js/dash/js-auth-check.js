@@ -118,9 +118,9 @@ function getRegUsers() {
 
       swal.close();
       $(".columns.nvri_users").fadeIn('slow');
-      $("#reg_users").prepend(`${resp.length - 1}`);
+      $("#reg_users").prepend(`${resp.length - 2}`);
       $("#reg_users_cahw").prepend(`${cahw_count}`);
-      $("#reg_users_para").prepend(`${resp.length - cahw_count - 1}`);
+      $("#reg_users_para").prepend(`${resp.length - cahw_count - 2}`);
     });
     
    }
