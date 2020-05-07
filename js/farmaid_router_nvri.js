@@ -57,11 +57,11 @@ Router.prototype = {
             xhttp.open('GET', url, true);
             xhttp.send();
             //document.querySelector('.child-menu').classList.toggle('is-sidebar-translated');
-            //$('.child-menu').toggleClass('is-sidebar-translated');
-            //document.querySelector('.dashboard-outer').classList.toggle('is-pushed');
+            $('.child-menu').toggleClass('is-sidebar-translated');
+            document.querySelector('.dashboard-outer').classList.toggle('is-pushed');
             //document.querySelector('.dashboard-inner').classList.toggle('is-pushed');
-            //document.querySelector('.dashboard-nav').classList.toggle('is-pushed');
-            //document.querySelector('.dashboard-inner').classList.toggle('is-pushed');
+            document.querySelector('.dashboard-nav').classList.toggle('is-pushed');
+            document.querySelector('.dashboard-inner').classList.toggle('is-pushed');
         })(this);
     }
 };
