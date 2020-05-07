@@ -105,7 +105,80 @@
             </ul><!-- /Sidebar menu 5 -->
         </div>
     </nav><!-- /Child push sidebar menu -->
-    
+    <nav class="navbar dashboard-nav">
+        <!-- Nav left -->
+        <div class="navbar-brand">
+
+            <!-- Reader mode switch -->
+            <div class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet">
+                <div class="field">
+                    <input id="reader-mode-switch" type="checkbox" name="reader-mode-switch" class="switch is-outlined is-primary is-small styled-checkbox"><label id="reader-mode-toggle" for="reader-mode-switch"></label>
+                </div>
+            </div>
+
+            <!--Search-->
+            <div class="control">
+                <a href="/livestock.html" class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
+                    Dashboard
+                </a>
+                <a href="#activities" class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
+                    Activities
+                </a>
+                <a href="#profile" class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
+                    Profile
+                </a>
+                <a href="#diag_queries" class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
+                    Diagnosis Queries
+                </a>
+                <a href="#admin_nvri" class="button btn-dash secondary-btn btn-dash raised has-icon">
+                    Manage Users
+                </a>
+            </div>
+
+            <!-- /Right sidebar trigger -->
+            <a id="mobile-dashboard-trigger" class="navbar-item hamburger-btn is-hidden-desktop" href="javascript:void(0);">
+                <span class="menu-toggle">
+                    <span class="icon-box-toggle">
+                        <span class="rotate">
+                            <i class="icon-line-top"></i>
+                            <i class="icon-line-center"></i>
+                            <i class="icon-line-bottom"></i>
+                        </span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <!-- Nav right -->
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <!-- Account dropdown -->
+                <div class="drop-pop">
+                    <div id="profile-me" class="icon-button accounts-button">
+                        
+                    <img src="//www.gravatar.com/avatar/be4fd6c3868eeb8220757a46af3e2cdb?s=200&amp;r=pg&amp;d=mm"></div>
+                    <div class="drop-wrapper accounts-drop">
+                        <div class="drop-inner has-arrow">
+                            <div id="profile-head" class="head-block"><h3>undefined</h3><p>padicamacs@yahoo.com</p><img src="//www.gravatar.com/avatar/be4fd6c3868eeb8220757a46af3e2cdb?s=200&amp;r=pg&amp;d=mm"></div>
+                            <div class="accounts-block is-hidden">
+                                <a class="account" href="javascript:">
+                                    <img src="assets/images/avatars/lakisha.jpg" alt="" data-demo-src="assets/images/avatars/lakisha.jpg">
+                                    <div class="meta">
+                                        <span>Don Onubuon</span>
+                                        <span>onubuon@farmnovation.com</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="logout-block">
+                                <a id="logout" class="button" href="javascript:">Logout from all accounts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Messages dropdown -->
+            </div>
+        </div>
+    </nav>
     <div class="mobile-nav is-hidden-desktop">
         <div class="container is-fluid">
             <div class="mobile-nav-inner">
@@ -157,170 +230,67 @@
                             </div>
                         </div>
                         <!-- Actions -->
-                        <div class="actions ">
-
-                            <!-- Support dashboard dropdown button -->
-                            <div class="is-right">
+                        <!-- <div class="actions ">
+                            <div class="is-left">
                                 <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
-                                    <i class="sl sl-icon-energy"></i>
+                                    Dashboard
+                                </div>
+                                <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
+                                    
                                     Activities
                                 </div>
                                 <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
-                                    <i class="sl sl-icon-lock"></i>
                                     Profile
                                 </div>
                                 <div class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-quickview="support-activity-quickview">
-                                    <i class="sl sl-icon-energy"></i>
                                     Diagnosis Queries
                                 </div>
                                 <a href="#admin_nvri" class="button btn-dash secondary-btn btn-dash raised has-icon">
-                                    <i class="sl sl-icon-user"></i>
                                     Manage Users
-                                </a>
-                                <a class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-ripple-color="" onclick="logout()">
-                                    <i class="sl sl-icon-key"></i>
-                                    Logout
                                 </a>
                                 
                             </div>
-                        </div>
+                            <div class="is-right">
+                                <a class="button btn-dash secondary-btn btn-dash raised ripple has-icon" data-ripple-color="" onclick="logout()">
+                                    Logout
+                                </a>
+                            </div>
+                        </div> -->
                     </div>
                     
                     <!-- Support dashboard -->
                     <div class="support-dashboard">
-                        <div class="columns is-multiline">
-                            <!-- <div class="column is-4">
-                                <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Waiting Time</h3>
-                                    <div class="chrono">
-                                        <div class="count">
-                                            <span>12</span>
-                                        </div>
-                                        <span class="support-pie">4/5</span>
-                                        <div id="mainCircle">
-                                            <div id="buttonOneBasis">
-                                                <div id="buttonOne">
-                                                </div>
-                                            </div>
-                                            <div id="buttonTwoBasis">
-                                                <div id="buttonTwo">
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="column is-full">
+                            <div style="text-align: left; width: -webkit-fill-available;" class="pull-left button btn-dash is-primary">
+                            Welcome Musa
+                            </div>
+                        </div><br>
+                        <div class="columns is-multiline"><br>
+                            <div class="column is-1"></div>
+                            <div class="column is-5">
+                                <h2 class="box-title" style="color: #13aa52;">Research &amp; Vaccines Update</h2><br>
+                                <div class="flex-card support-box light-bordered" style="background-color: rgb(218, 238, 238);">
+                                
+                                    <div style="padding: 5px; border-radius: 5px; ">
+                                        <h3 style="color: #13aa52;">Some strains of virus have been found resistant to CBPP</h3><br>
+                                        <p>Current research has found that some strains of virus are resistant to CBPP</p>
                                     </div>
-                                    <div class="box-meta">
-                                        <p>My waiting time: 12 minutes</p>
-                                        <p>Average: 19 minutes</p>
+                                    <button class="pull-right button btn-dash rounded secondary-btn is-6 ripple no-lh">Push Update</button>
+                                </div> <br>
+                                <div class="flex-card support-box light-bordered" style="background-color: rgb(218, 238, 238);">
+                                
+                                    <div style="padding: 5px; border-radius: 5px; ">
+                                        <h3 style="color: #13aa52;">Some strains of virus have been found resistant to CBPP</h3><br>
+                                        <p>Current research has found that some strains of virus are resistant to CBPP</p>
                                     </div>
+                                    <button class="pull-right button btn-dash rounded secondary-btn is-6 ripple no-lh">Push Update</button>
                                 </div>
                             </div>
-                            <div class="column is-4">
+                            <div class="column is-5">
                                 <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Escalation</h3>
-                                    <img class="box-image" src="images/support-chat-happy.svg" alt=""><div class="box-meta">
-                                        <p>0 of my tickets are escalated</p>
-                                        <p>Total: 0</p>
-                                    </div>
+                                    Diagnoses Queries
                                 </div>
                             </div>
-                            <div class="column is-4">
-                                <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Channels</h3>
-                                    <div class="channels">
-                                        <div class="channel-icon">
-                                            <i class="fa fa-envelope"></i>
-                                        </div>
-                                        <div class="channel-icon">
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-                                        <div class="channel-icon">
-                                            <i class="fa fa-twitter"></i>
-                                        </div>
-                                        <div class="channel-icon">
-                                            <i class="fa fa-facebook"></i>
-                                        </div>
-                                    </div>
-                                    <canvas id="support-chart"></canvas></div>
-                            </div>
-                            <div class="column is-4">
-                                <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Assigned</h3>
-                                    <div class="stacks">
-                                        <div class="left">
-                                            <div class="shape-left" data-step="0"></div>
-                                            <div class="shape-left" data-step="1"></div>
-                                            <div class="shape-left" data-step="2"></div>
-                                            <div class="shape-left" data-step="3"></div>
-                                            <div class="shape-left" data-step="4"></div>
-                                        </div>
-                                        <div class="right">
-                                            <div class="shape-right" data-step="0"></div>
-                                            <div class="shape-right" data-step="1"></div>
-                                            <div class="shape-right" data-step="2"></div>
-                                            <div class="shape-right" data-step="3"></div>
-                                            <div class="shape-right" data-step="4"></div>
-                                            <div class="shape-right" data-step="5"></div>
-                                            <div class="shape-right" data-step="6"></div>
-                                            <div class="shape-right" data-step="7"></div>
-                                            <div class="shape-right" data-step="8"></div>
-                                            <div class="shape-right" data-step="9"></div>
-                                            <div class="shape-right" data-step="10"></div>
-                                            <div class="shape-right" data-step="11"></div>
-                                            <div class="shape-right" data-step="12"></div>
-                                            <div class="shape-right" data-step="13"></div>
-                                            <div class="shape-right" data-step="14"></div>
-                                            <div class="shape-right" data-step="15"></div>
-                                            <div class="shape-right" data-step="16"></div>
-                                            <div class="shape-right" data-step="17"></div>
-                                            <div class="shape-right" data-step="18"></div>
-                                            <div class="shape-right" data-step="19"></div>
-                                            <div class="shape-right" data-step="20"></div>
-                                            <div class="shape-right" data-step="21"></div>
-                                            <div class="shape-right" data-step="22"></div>
-                                            <div class="shape-right" data-step="23"></div>
-                                            <div class="shape-right" data-step="24"></div>
-                                            <div class="shape-right" data-step="25"></div>
-                                            <div class="shape-right" data-step="26"></div>
-                                            <div class="shape-right" data-step="27"></div>
-                                            <div class="shape-right" data-step="28"></div>
-                                            <div class="shape-right" data-step="29"></div>
-                                            <div class="shape-right" data-step="30"></div>
-                                            <div class="shape-right" data-step="31"></div>
-                                            <div class="shape-right" data-step="32"></div>
-                                            <div class="shape-right" data-step="33"></div>
-                                            <div class="shape-right" data-step="34"></div>
-                                            <div class="shape-right" data-step="35"></div>
-                                            <div class="shape-right" data-step="36"></div>
-                                            <div class="shape-right" data-step="37"></div>
-                                            <div class="shape-right" data-step="38"></div>
-                                            <div class="shape-right" data-step="39"></div>
-                                            <div class="shape-right" data-step="40"></div>
-                                        </div>
-                                    </div>
-                                    <div class="box-meta">
-                                        <p>32 of 254 tickets assigned to me</p>
-                                        <p>Average: 12 of 118</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-4">
-                                <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Ticket Progress</h3>
-                                    <img class="box-image" src="images/support-chat-alt.svg" alt=""><div class="box-meta">
-                                        <p>82% are currently in progress</p>
-                                        <p>Average: 74%</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-4">
-                                <div class="flex-card support-box light-bordered">
-                                    <h3 class="box-title has-text-centered">Reopening Rate</h3>
-                                    <img class="box-image" src="images/support-reopen.svg" alt=""><div class="box-meta">
-                                        <p>0% tickets have been reopened</p>
-                                        <p>Average: 0%</p>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
 
