@@ -43,7 +43,7 @@ function logout() {
 function getRegUsers() {
   swal.fire({
     title: 'Please wait',
-    text: 'Creating User',
+    text: 'Fetching Users',
     icon: 'info',
     allowOutsideClick: false,
     showConfirmButton: false
