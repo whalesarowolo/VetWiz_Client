@@ -98,16 +98,19 @@ function getRegUsers() {
                       <img style="border-radius: 10px;" src="` + nvri_user.avatar + `" alt="" data-demo-src="` + nvri_user.avatar + `">
                   </div>
                   <div class="user-id">
-                      <div class="name">` + nvri_user.email +  `</div>
-                      <div class="position">` + nvri_user.role + `</div>
-                      <div class="location"><i class="sl sl-icon-globe"></i>
-                          Abuja</div>
+                      <div class="name"><i class="sl sl-icon-envelope-open"></i> ` + nvri_user.email +  `</div>
+                      <div class="position"> ` + nvri_user.role + `</div>
+                      <div class="location">
+                        <i class="sl sl-icon-globe"></i>
+                          Abuja
+                      </div>
                   </div>
                   <div class="user-description">
-                  ` + nvri_user.phone + `
+                    <i class="sl sl-icon-phone"></i> ` + nvri_user.phone + `
                   </div>
                   <div class="card-action has-text-centered">
-                      <button class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
+                      <button onclick="remove_user(` + nvri_user.id + `)" class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Edit</button>
+                      <button class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Delete</button>
                   </div>
               </div>
           </div>
@@ -148,6 +151,18 @@ function create_admin(params) {
             $(this).html('Creating Admin');
     });
   }
+
+  function remove_user(id) {
+      fetch('https://farm-aid-backend.herokuapp.com/api/nvri/users/' + id, {
+        method: 'delete', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'id': id})  }).then(res => { 
+           if (res.ok) return res.json()}).then(data => { 
+             console.log(data);
+              window.location.reload()
+            })
+          }
+
+  
   
   
   function persist_user(event) {
