@@ -129,7 +129,6 @@ function getRegUsers() {
       $("#reg_users_para").append(`${resp.length - cahw_count - 1} Paravet(s)`);
       $(".remove_user").on('click', function(e) {
         var ele = e.target;
-        console.log("This is: ", ele);
         remove_user($(ele).attr('data-id'));
       });
     });
@@ -180,7 +179,7 @@ function create_admin(params) {
             title: 'Data updated',
             text: msg.message,
             timer: 3000,
-            icon: 'info'
+            icon: 'success'
           }).then(() => {
             getRegUsers();
           })
