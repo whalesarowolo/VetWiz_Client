@@ -35,6 +35,10 @@ function check_auth() {
 
 check_auth();
 
+function goHome() {
+  document.location.replace('/livestock.html');
+}
+
 function logout() {
     localStorage.clear();
     window.location.replace('/nvri-login.html');
