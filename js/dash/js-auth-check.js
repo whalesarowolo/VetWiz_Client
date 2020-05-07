@@ -73,6 +73,9 @@ function getRegUsers() {
     }).then(() => {
 
       //Clear and hide the users
+      $("#reg_users").empty();
+      $("#reg_users_cahw").empty();
+      $("#reg_users_para").empty();
       $(".columns.nvri_users").empty().append(`<div class="column is-full">
       <h2 class="button btn-dash secondary-btn is-raised">Registered Users</h2>
   </div>`).fadeOut();
@@ -110,7 +113,7 @@ function getRegUsers() {
                   </div>
                   <div class="card-action has-text-centered">
                       <button class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Edit</button>
-                      <button class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Delete</button>
+                      <button data-id="` + nvri_user.email + `" class="button btn-dash rounded secondary-btn is-6 ripple no-lh remove_user">Delete</button>
                   </div>
               </div>
           </div>
@@ -121,9 +124,14 @@ function getRegUsers() {
 
       swal.close();
       $(".columns.nvri_users").fadeIn('slow');
-      $("#reg_users").prepend(`${resp.length}`);
-      $("#reg_users_cahw").prepend(`${cahw_count}`);
-      $("#reg_users_para").prepend(`${resp.length - cahw_count - 1}`);
+      $("#reg_users").append(`${resp.length}`);
+      $("#reg_users_cahw").append(`${cahw_count} CAHW(s)`);
+      $("#reg_users_para").append(`${resp.length - cahw_count - 1} Paravet(s)`);
+      $(".remove_user").on('click', function(e) {
+        var ele = e.target;
+        console.log("This is: ", ele);
+        remove_user($(ele).attr('data-id'));
+      });
     });
     
    }
@@ -152,6 +160,36 @@ function create_admin(params) {
     });
   }
 
+  function remove_user(email) {
+    swal.fire({
+      title: 'Updating Data',
+      text: 'Updating User Database',
+      icon: 'info',
+      allowOutsideClick: false,
+      showConfirmButton: false
+    });
+      $.ajax({
+        method: "POST",
+        credentials: true,
+        url: "https://farm-aid-backend.herokuapp.com/api/nvir/users/" + email,
+        headers: {"Authorization": localStorage.getItem('access_token')}
+      })
+        .done(function( msg ) {
+          swal.close();
+          swal.fire({
+            title: 'Data updated',
+            text: msg.message,
+            timer: 3000,
+            icon: 'info'
+          }).then(() => {
+            getRegUsers();
+          })
+        });
+      }
+
+  
+  
+  
   function persist_user(event) {
     event.preventDefault();
     var phoneNumber = $("#the_phonenumber").val();
