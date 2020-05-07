@@ -109,7 +109,7 @@ function getRegUsers() {
                     <i class="sl sl-icon-phone"></i> ` + nvri_user.phone + `
                   </div>
                   <div class="card-action has-text-centered">
-                      <button onclick="remove_user(` + nvri_user.id + `)" class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Edit</button>
+                      <button class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Edit</button>
                       <button class="button btn-dash rounded secondary-btn is-6 ripple no-lh">Delete</button>
                   </div>
               </div>
