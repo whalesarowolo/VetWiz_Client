@@ -92,7 +92,7 @@ function getRegUsers() {
               </div>
               <div class="card-body">
                   <div class="avatar" style="align-content: space-around; display: table; margin: auto;">
-                      <img src="` + nvri_user.avatar + `" alt="" data-demo-src="` + nvri_user.avatar + `">
+                      <img style="border-radius: 10px;" src="` + nvri_user.avatar + `" alt="" data-demo-src="` + nvri_user.avatar + `">
                   </div>
                   <div class="user-id">
                       <div class="name">` + nvri_user.email +  `</div>
