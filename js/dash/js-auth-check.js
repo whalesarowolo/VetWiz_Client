@@ -152,19 +152,6 @@ function create_admin(params) {
     });
   }
 
-  function remove_user(id) {
-      fetch('https://farm-aid-backend.herokuapp.com/api/nvri/users/' + id, {
-        method: 'delete', headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({'id': id})  }).then(res => { 
-           if (res.ok) return res.json()}).then(data => { 
-             console.log(data);
-              window.location.reload()
-            })
-          }
-
-  
-  
-  
   function persist_user(event) {
     event.preventDefault();
     var phoneNumber = $("#the_phonenumber").val();
