@@ -972,7 +972,7 @@ function inputTable(params) {
           html += "</tr>"
       
           document.getElementById("input_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1034,7 +1034,7 @@ function offTaker(params) {
           html += "</tr>"
       
           document.getElementById("off_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1096,7 +1096,7 @@ function paraVet(params) {
           html += "</tr>"
       
           document.getElementById("para_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1158,7 +1158,7 @@ function extTable(params) {
           html += "</tr>"
       
           document.getElementById("ext_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1220,7 +1220,7 @@ function aggreTable(params) {
           html += "</tr>"
       
           document.getElementById("aggre_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1282,7 +1282,7 @@ function seedTable(params) {
           html += "</tr>"
       
           document.getElementById("seed_table").innerHTML = html;
-            } else if(users.bizCategory == '') {
+            } else if(users.bizCategory == null) {
               html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
               document.getElementById("nullSeed").innerHTML = html;
             }
@@ -1327,14 +1327,20 @@ function agroTable(params) {
             }).then(async (res) => res.json()).then(data => {
               let html = "";
               let table = "#agro_table";
+              
               data.map((users) => {
-                if(users.bizCategory == "agro-dealer") {
+
+                console.log(users.isAdmin)
+                let usersDetails = users.bizCategory;
+                let usersRole = users.isAdmin;
+                if(usersDetails == "agro-dealer" && usersRole === false) {
+                  console.count(users);
                   let firstname = users.firstname;
                   let lastname = users.lastname;
                   let phoNum = users.phoneNumber;
                   let email = users.email;
                   let company = users.company;
-          
+      
                   html += "<tr>";
                 html += "<td></td>"
                 html += "<td>" + firstname + "</td>"
@@ -1345,7 +1351,10 @@ function agroTable(params) {
               html += "</tr>"
           
               document.getElementById("agro_table").innerHTML = html;
-                } else if(users.bizCategory == 'null') {
+              // var count = $('#agro_table tr').length;
+              // console.log(count);
+              // document.getElementById("agroSpan").innerHTML = count;
+                } else if(users.bizCategory == null) {
                   html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
                 }
               })
@@ -1357,6 +1366,262 @@ function agroTable(params) {
     })
   }
 }
+
+$("#ext_count").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "ext_agent" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("ext_count").innerHTML = html;
+      } else if(count_agro === 0) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+
+$("#paravet_count").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "paraVet" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("paravet_count").innerHTML = html;
+      } else if(count_agro === 0) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+
+$("#input_counter").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "input_company" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("input_counter").innerHTML = html;
+      } else if(count_agro === 0) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+$("#offtaker_counter").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "off_taker" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("offtaker_counter").innerHTML = html;
+      } else if(users.bizCategory == null) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+
+$("#aggregatorCounter").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "aggregator" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("aggregatorCounter").innerHTML = html;
+      } else if(users.bizCategory == null) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+
+$("#seedCos").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "seed_supplier" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("seedCos").innerHTML = html;
+      } else if(users.bizCategory == null) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
+
+$("#agroSpan").ready(function() {
+  
+  const url = 'https://farm-aid-backend.herokuapp.com/api/auth/users'
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    let html = "";
+    
+    let count_agro = 0;
+    data.map((users) => {
+      let usersDetails = users.bizCategory;
+      let usersRole = users.isAdmin;
+      
+      if(usersDetails == "agro-dealer" && usersRole === false) {
+        count_agro += 1;
+
+        html = "<span>" + count_agro + "</span>"
+          document.getElementById("agroSpan").innerHTML = html;
+      } else if(users.bizCategory == null) {
+        html += "<h1>" + "No Agro_Dealer has signup Yet" + "</h1>"
+      }
+    });
+   
+    // DataTable here
+
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+})
 
 function riceGapSwal(params) {
   
