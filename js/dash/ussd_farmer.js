@@ -110,4 +110,59 @@ console.log(firstname, lastname, phonNum, state, lga, crop, gender, farm_size);
           }
       })
 
-  })
+  });
+
+function ussdFarmer(params) {
+    let html = "";
+    swal.fire({
+      title: 'Loading Market Actors Messages',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+
+
+      $("#ma_sms_log").ready(function() {
+        const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php'
+        const token = localStorage.getItem('access_token');
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', token);
+        fetch(url, {
+          method: "GET",
+          headers
+        }).then(async (res) => res.json()).then(data => {
+         
+          console.log(data)
+          Swal.close();
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
+      });
+   
+
+    });
+        // const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php';
+  
+        // let response = await fetch(url);
+
+        // if (response) { // if HTTP-status is 200-299
+        // // get the response body (the method explained below)
+        // swal.close();
+        //     let json = await response.json();
+        //     console.log(json);
+        // } else {
+        //     alert("HTTP-Error: " + response.status);
+        //     swal.close();
+        // }
+
+  }
