@@ -131,7 +131,7 @@ function ussdFarmer(params) {
       });
 
 
-      $("#ma_sms_log").ready(function() {
+      $("#ussd_details_log").ready(function() {
         const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php'
         const token = localStorage.getItem('access_token');
         const headers = new Headers();
