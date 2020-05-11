@@ -592,8 +592,9 @@ $("#send_messages").on('click', function(e) {
   var msg_content = $("#message_content").val();
   var msg_state = $("#slct1").val();
   var msg_lga = $("#slct2").val();
-  var msg_crop = $("#crop_select").val();
-  var msg_gender = $("#msg_gender").val();
+  var msg_crop = $("#crop_value").val();
+  var msg_gender = $("#gender_value").val();
+  console.log($("#gender_value").val())
   swal.fire({
     title: 'Sending Message Details',
     text: 'Please wait...',
@@ -611,8 +612,8 @@ $("#send_messages").on('click', function(e) {
     maEmail = userObj.user.email
     
   swal.fire({
-    title: 'Message Sent',
-    text: 'You would Get an Email notificaton if your Message is approved or not',
+    title: 'Sending Message',
+    text: 'Sending mesage. You will get an Email notificaton if your Message is approved or not',
     icon: 'info',
     allowOutsideClick: false,
     showConfirmButton: false
@@ -626,15 +627,12 @@ $("#send_messages").on('click', function(e) {
     company: maCompany,
     email: maEmail,
   };
-  
   // create request object
     var request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newMessage),
       headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': token
-        
+        'Content-Type': 'application/json'        
       })
     });
     // pass request object to `fetch()`
@@ -642,8 +640,9 @@ $("#send_messages").on('click', function(e) {
       .then(async (res) => {
          //$('.modal').css({ 'display': 'none' });
       var resp = await res.json();
-      if(resp !== null){
+      if(resp != null || resp != undefined){
         swal.close();
+        console.log("Bad request...");
       }
       }).catch((e)=> {
         swal.close();
