@@ -2,7 +2,7 @@ const symptomInput = document.querySelector('.symptom-input')
 const symptomButton = document.querySelector('.symptom_button')
 const symptomList = document.querySelector('.symptom-list')
 
-symptomButton.addEventListener('click', addSymptom(event));
+symptomButton.addEventListener('click', addSymptom);
 symptomList.addEventListener('click', deleteCheck);
 
 function addSymptom(event) {
