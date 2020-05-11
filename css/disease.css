@@ -1,0 +1,103 @@
+.dieases-container{
+    border: 1px solid black;
+}
+
+.disease-section1{
+    border: 1px solid black;
+    margin: 10px 10px;
+}
+
+.disease-section2{
+    border: 1px solid black;
+    margin: 10px 10px;
+}
+
+.disease-details{
+    padding-bottom: 100px;
+}
+
+.disaseName-section input{
+    margin: 10px 0px;
+    padding: 20px;
+    border: none !important;
+}
+.disease-details textarea{
+   margin: auto;
+}
+
+.symptom-section input{
+    width: 350px;
+    margin-left: 30px;
+}
+
+.symptom-section form {
+    box-sizing: border-box;
+}
+
+form input{
+    border: none !important;
+    background: white;
+}
+
+form button{
+    border: none !important;
+    background: white;
+    color: black;
+}
+
+.symptom-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.symptom-list{
+    min-width: 30%;
+    list-style: none;
+}
+
+.symptom{
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.7s ease;
+}
+
+.symptom-item{
+    padding: 0rem 0.5rem;
+}
+
+.symptom li {
+    flex: 1;
+    cursor: pointer;
+}
+
+.trash-btn{
+    background: red;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+/* form input, form button{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    background: white;
+} */
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .dieases-container{
+        display: flex;
+        flex-direction: column;
+    }
+  }
