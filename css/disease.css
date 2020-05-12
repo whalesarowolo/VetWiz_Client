@@ -1,19 +1,32 @@
 .dieases-container{
-    border: 1px solid black;
+    border: 1px solid rgb(201, 196, 196);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
 }
 
 .disease-section1{
-    border: 1px solid black;
+    border: 1px solid rgb(201, 196, 196);
     margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .disease-section2{
-    border: 1px solid black;
+    border: 1px solid rgb(201, 196, 196);
     margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .disease-details{
     padding-bottom: 100px;
+}
+
+.disease_label{
+    padding: 10px 0px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .disaseName-section input{
@@ -25,12 +38,17 @@
    margin: auto;
 }
 
-.symptom-section input{
+.associated_animal input{
+    width: 350px;
+    padding: 10px 10px;
+}
+
+.symptom-section input, .keyword-section input, .prevention-section input{
     width: 350px;
     margin-left: 30px;
 }
 
-.symptom-section form {
+.symptom-section form, .keyword-section form, .prevention-section form{
     box-sizing: border-box;
 }
 
@@ -45,13 +63,13 @@ form button{
     color: black;
 }
 
-.symptom-container{
+.symptom-container, keyword-container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.symptom-list{
+.symptom-list, keyword-list{
     min-width: 30%;
     list-style: none;
 }
@@ -93,6 +111,12 @@ form button{
     border: none;
     background: white;
 } */
+
+.disease_submit{
+   display: flex;
+   justify-content: center;
+   padding: 20px 20px;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */

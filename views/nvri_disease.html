@@ -23,17 +23,44 @@
                 <div class="control">
                     <input class="input is-hovered" type="text" placeholder="Disease name in Fulfude">
                 </div>
+
+                <div class="associated_animal">
+                    <h2 class="disease_label">Add Animals Assocaited with this Disease</h2>
+                    <form class="prevention_form">
+                        <input type="text" id="diesase_prevention" placeholder="Add Animals Asociated with this Disease" class="prevention-input">
+                        <button class="prevention_button" type="submit">
+                            <i class="fas fa-plus-square"></i>
+                        </button>
+                    </form>
+                    <div class="prevention-container">
+                        <ul class="prevention-list">
+                           
+                        </ul>
+                    </div>
+                </div>
             </div>
             
           </div>
 
 
+        <div class="column disease-section1 disease-details prevention-section">
+            <h2 class="disease_label">Add Preventive measure Assocaited with this Disease</h2>
+            <form class="prevention_form">
+                <input type="text" id="diesase_prevention" placeholder="Add disease prevention" class="prevention-input">
+                <button class="prevention_button" type="submit">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+            <div class="prevention-container">
+                <ul class="prevention-list">
+                   
+                </ul>
+            </div>
+        </div>
+
+
         <div class="column disease-section1 disease-details">
-            <p class="bd-notification is-primary">
-              First Column
-            </p>
-          </div>
-        <div class="column disease-section1 disease-details">
+            <h2 class="disease_label">Add a Treatment</h2>
             <div class="control">
                 <textarea class="textarea is-hovered" placeholder="Input Treatment procedure for the disease case"></textarea>
               </div>
@@ -46,6 +73,7 @@
     <div class="column disease-section2">
      
         <div class="column disease-section1 disease-details symptom-section">
+            <h2 class="disease_label">Add Symptoms associated with this Disease</h2>
             <form class="symptom_form">
                 <input type="text" id="diesase_symptom" placeholder="Add disease symptom" class="symptom-input">
                 <button class="symptom_button" type="submit">
@@ -57,17 +85,36 @@
                    
                 </ul>
             </div>
-          </div>
+        </div>
+
+
+        <div class="column disease-section1 disease-details keyword-section">
+            <h2 class="disease_label">Add Key Word for this Disease</h2>
+            <form class="keyword_form">
+                <input type="text" id="diesase_keyword" placeholder="Add disease keyword" class="keyword-input">
+                <button class="keyword_button" type="submit">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+            <div class="keyword-container">
+                <ul class="keyword-list">
+                   
+                </ul>
+            </div>
+        </div>
+
+
         <div class="column disease-section1 disease-details">
-            <p class="bd-notification is-primary">
-              First Column
-            </p>
-          </div>
-        <div class="column disease-section1 disease-details">
+            <h2 class="disease_label">Add Vaccine</h2>
             <div class="control">
                 <textarea class="textarea is-hovered" placeholder="Input Vaccine needed for this Disease case"></textarea>
               </div>
           </div>
 
     </div>
-  </div>
+
+    
+</div>
+        <div class="control disease_submit">
+            <button class="button is-primary is-medium">Submit</button>
+          </div>
