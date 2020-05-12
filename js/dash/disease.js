@@ -1,8 +1,8 @@
-const symptomInput = document.querySelector('.symptom-input')
-const symptomButton = document.querySelector('.symptom_button')
-const symptomList = document.querySelector('.symptom-list')
+var symptomInput = document.querySelector('.symptom-input')
+var symptomButton = document.querySelector('.symptom_button')
+var symptomList = document.querySelector('.symptom-list')
 
-// const element = document.querySelector('.symptom_form');
+// var element = document.querySelector('.symptom_form');
 // element.addEventListener('submit', event => {
 //   event.preventDefault();
 //   // actual logic, e.g. validate the form
@@ -15,11 +15,11 @@ symptomList.addEventListener('click', deleteCheck);
 function addSymptom(event) {
    event.preventDefault();
    
-   const symptomDiv = document.createElement('div');
+   var symptomDiv = document.createElement('div');
 
    symptomDiv.classList.add("symptom");
 
-   const newSymptom = document.createElement('li');
+   var newSymptom = document.createElement('li');
    newSymptom.innerText = symptomInput.value;
    if(symptomInput.value == null || symptomInput.value == ''){
       
@@ -27,13 +27,13 @@ function addSymptom(event) {
    newSymptom.classList.add('symptom-item');
    symptomDiv.appendChild(newSymptom);
 
-   // const completedButton = document.createElement('button');
+   // var completedButton = document.createElement('button');
    // completedButton.innerHTML = '<i class="fas fa-check"></i>';
    // completedButton.classList.add('complete-btn')
    // symptomDiv.appendChild(completedButton);
 
 
-   const trashButton = document.createElement('button');
+   var trashButton = document.createElement('button');
    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
    trashButton.classList.add('trash-btn')
    symptomDiv.appendChild(trashButton);
@@ -45,10 +45,10 @@ function addSymptom(event) {
 }
 
 function deleteCheck(e) {
-   const item = e.target;
+   var item = e.target;
 
    if(item.classList[0] === 'trash-btn'){
-       const symptom = item.parentElement;
+       var symptom = item.parentElement;
       symptom.classList.add('fall');
       symptom.addEventListener('transitionend', function(){
 
