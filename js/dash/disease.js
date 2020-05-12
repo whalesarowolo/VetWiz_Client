@@ -2,6 +2,13 @@ const symptomInput = document.querySelector('.symptom-input')
 const symptomButton = document.querySelector('.symptom_button')
 const symptomList = document.querySelector('.symptom-list')
 
+const element = document.querySelector('.symptom_form');
+element.addEventListener('submit', event => {
+  event.preventDefault();
+  // actual logic, e.g. validate the form
+  console.log('Form submission cancelled.');
+});
+
 symptomButton.addEventListener('click', addSymptom);
 symptomList.addEventListener('click', deleteCheck);
 
