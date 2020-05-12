@@ -115,54 +115,46 @@ console.log(firstname, lastname, phonNum, state, lga, crop, gender, farm_size);
 function ussdFarmer(params) {
     let html = "";
     swal.fire({
-      title: 'Loading Market Actors Messages',
+      title: 'Loading USSD farmers Records',
       text: 'Please wait...',
-      timer: 3000,
       allowOutsideClick: false,
       showConfirmButton: false,
       icon: 'info'
-    }).then(function() {
-      Swal.fire({
-        title: "Please wait",
-        text: "Loading data ....",
-        icon: "info",
-        allowOutsideClick: false,
-        showConfirmButton: false,
-      });
+    });
 
 
       $("#ussd_details_log").ready(function() {
-        const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php'
-        const token = localStorage.getItem('access_token');
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', token);
-        fetch(url, {
-          method: "GET",
-          headers
-        }).then(async (res) => res.json()).then(data => {
-         
-          console.log(data)
-          Swal.close();
-        }).catch((error) => {
-          console.error('Error:', error);
-        });
+        let record_html_body = ""
+        const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php';
+        $.ajax({url: url, success: function(result){
+          parsed = JSON.parse(result)
+          console.log(parsed.length);
+          
+          parsed.forEach((td) => {
+            var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
+            var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
+            var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
+            record_html_body += "<tr>";
+            record_html_body +=  "<td> </td>";
+            record_html_body +=  "<td>" + td.phone_number +  "</td>";
+            record_html_body +=  "<td>" + state + "</td>";
+            record_html_body +=  "<td>" + lga +  "</td>";
+            record_html_body +=  "<td>" + crops +  "</td>";
+            record_html_body +=  '<td><button onclick="populate_form()" class="btn btn-primary">Onboard</button></td>';
+            record_html_body +=  "</tr>";
+          })
+          swal.close()
+            
+          $("#ussd_details_log").append(record_html_body);
+
+        }});
+        
+        
+
       });
-   
 
-    });
-        // const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php';
-  
-        // let response = await fetch(url);
+  }
 
-        // if (response) { // if HTTP-status is 200-299
-        // // get the response body (the method explained below)
-        // swal.close();
-        //     let json = await response.json();
-        //     console.log(json);
-        // } else {
-        //     alert("HTTP-Error: " + response.status);
-        //     swal.close();
-        // }
-
+  function populate_form(){
+    //
   }
