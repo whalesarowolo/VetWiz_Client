@@ -26,7 +26,7 @@
 
                 <div class="associated_animal">
                     <h2 class="disease_label">Add Animals Assocaited with this Disease</h2>
-                    <form class="prevention_form">
+                    <form class="prevention_form" onsubmit = "event.preventDefault();">
                         <input type="text" id="diesase_prevention" placeholder="Add Animals Asociated with this Disease" class="prevention-input">
                         <button class="prevention_button" type="submit">
                             <i class="fas fa-plus-square"></i>
@@ -45,7 +45,7 @@
 
         <div class="column disease-section1 disease-details prevention-section">
             <h2 class="disease_label">Add Preventive measure Assocaited with this Disease</h2>
-            <form class="prevention_form">
+            <form class="prevention_form" onsubmit = "event.preventDefault();">
                 <input type="text" id="diesase_prevention" placeholder="Add disease prevention" class="prevention-input">
                 <button class="prevention_button" type="submit">
                     <i class="fas fa-plus-square"></i>
@@ -77,7 +77,7 @@
             <div class="symptom_error">
 
             </div>
-            <form class="symptom_form">
+            <form class="symptom_form" onsubmit = "event.preventDefault();">
                 <input type="text" id="diesase_symptom" placeholder="Add disease symptom" class="symptom-input">
                 <button class="symptom_button" type="submit">
                     <i class="fas fa-plus-square"></i>
@@ -93,7 +93,7 @@
 
         <div class="column disease-section1 disease-details keyword-section">
             <h2 class="disease_label">Add Key Word for this Disease</h2>
-            <form class="keyword_form">
+            <form class="keyword_form" onsubmit = "event.preventDefault();">
                 <input type="text" id="diesase_keyword" placeholder="Add disease keyword" class="keyword-input">
                 <button class="keyword_button" type="submit">
                     <i class="fas fa-plus-square"></i>
