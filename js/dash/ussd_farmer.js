@@ -129,23 +129,26 @@ function ussdFarmer(params) {
         $.ajax({url: url, success: function(result){
           parsed = JSON.parse(result)
           console.log(parsed.length);
+          if(parsed.length > 0){
+
+            parsed.forEach((td) => {
+              var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
+              var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
+              var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
+              record_html_body += "<tr>";
+              record_html_body +=  "<td> </td>";
+              record_html_body +=  "<td>" + td.phone_number +  "</td>";
+              record_html_body +=  "<td>" + state + "</td>";
+              record_html_body +=  "<td>" + lga +  "</td>";
+              record_html_body +=  "<td>" + crops +  "</td>";
+              record_html_body +=  '<td><button onclick="populate_form()" class="btn btn-primary">Onboard</button></td>';
+              record_html_body +=  "</tr>";
+            })
+            $("#ussd_details_log").append(record_html_body);
+          }
           
-          parsed.forEach((td) => {
-            var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
-            var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
-            var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
-            record_html_body += "<tr>";
-            record_html_body +=  "<td> </td>";
-            record_html_body +=  "<td>" + td.phone_number +  "</td>";
-            record_html_body +=  "<td>" + state + "</td>";
-            record_html_body +=  "<td>" + lga +  "</td>";
-            record_html_body +=  "<td>" + crops +  "</td>";
-            record_html_body +=  '<td><button onclick="populate_form()" class="btn btn-primary">Onboard</button></td>';
-            record_html_body +=  "</tr>";
-          })
           swal.close()
             
-          $("#ussd_details_log").append(record_html_body);
 
         }});
         
