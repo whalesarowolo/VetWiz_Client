@@ -9,7 +9,6 @@
             new Route('profile', 'profile.html'),
             new Route('diag_queries', 'diag_queries.html'),
             new Route('nvri_disease', 'nvri_disease.html'),
-            new Route('nvri_diags', 'nvri_diags.html'),
         ]);
     }
     init();

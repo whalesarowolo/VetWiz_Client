@@ -21,6 +21,9 @@ function addSymptom(event) {
 
    const newSymptom = document.createElement('li');
    newSymptom.innerText = symptomInput.value;
+   if(symptomInput.value == null || symptomInput.value == ''){
+      
+   }
    newSymptom.classList.add('symptom-item');
    symptomDiv.appendChild(newSymptom);
 
