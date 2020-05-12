@@ -144,7 +144,8 @@ function ussdFarmer(params) {
               record_html_body +=  '<td><button onclick="populate_form()" class="btn btn-primary">Onboard</button></td>';
               record_html_body +=  "</tr>";
             })
-            $("#ussd_details_log").append(record_html_body);
+            $("#ussd_details_log").empty().append(record_html_body);
+
           }
           
           swal.close()
