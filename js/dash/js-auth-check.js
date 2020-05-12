@@ -144,6 +144,31 @@ function getRegUsers() {
    });
 }
 
+function updateProfile(params) {
+    swal.fire({
+      title: 'Please wait',
+      text: 'Preparing resources',
+      icon: 'info',
+      timer: 500
+    }).then(() => {
+      $(".update-profile-form").toggleClass("is-hidden");
+      ChangeInnerHTML1();
+    })
+  }
+
+  function ChangeInnerHTML1() {
+    $('#update_profile').each(function() {
+        if ($.trim($(this).html()) == "Update Profile") {
+
+          $(this).html('Updating Profile');
+        } else if ($.trim($(this).html()) == "Updating Profile") {
+          //  block of code to be executed if the condition1 is false and condition2 is true
+          $(this).html('Update Profile');
+        }
+    });
+  }
+
+  
 function create_admin(params) {
     swal.fire({
       title: 'Please wait',
