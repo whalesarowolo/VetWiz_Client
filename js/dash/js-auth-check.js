@@ -95,7 +95,7 @@ function getRegUsers() {
           cahw_count += 1;
         }
         var content_html = `
-        <div class="column is-4">
+        <div class="column is-3">
           <div class="flex-card team-card light-bordered light-raised">
               <div class="card-heading padding-10">
                   <span class="tag is-success">Active</span>
