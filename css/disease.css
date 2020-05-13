@@ -127,13 +127,13 @@ form button{
   }
 
   /* Remove margins and padding from the list */
-  #myUL-symptom, #myUL-keyword, #myUL-prevention {
+  #myUL-symptom, #myUL-keyword, #myUL-prevention, #animal_myU {
     margin: 0;
     padding: 0;
   }
   
   /* Style the list items */
-  #myUL-symptom li, #myUL-keyword li, #myUL-prevention li {
+  #myUL-symptom li, #myUL-keyword li, #myUL-prevention li, #animal_myU li {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -150,12 +150,12 @@ form button{
   }
   
   /* Set all odd list items to a different color (zebra-stripes) */
-  #myUL-symptom li:nth-child(odd), #myUL-keyword li:nth-child(odd), #myUL-prevention li:nth-child(odd) {
+  #myUL-symptom li:nth-child(odd), #myUL-keyword li:nth-child(odd), #myUL-prevention li:nth-child(odd), #animal_myU li:nth-child(odd) {
     background: #f9f9f9;
   }
   
   /* Darker background-color on hover */
-  #myUL-symptom li:hover, #myUL-keyword li:hover, #myUL-prevention li:hover {
+  #myUL-symptom li:hover, #myUL-keyword li:hover, #myUL-prevention li:hover, #animal_myU li:hover {
     background: #ddd;
   }
   
