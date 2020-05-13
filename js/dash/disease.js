@@ -118,3 +118,29 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
+
+//Implement disease persistence logic here
+
+function persist_new_disease(disease_object) {
+   //Implement logic here
+   swal.fire({
+      title: 'Please wait',
+      text: 'Saving disease to server',
+      icon: 'info',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+   });
+
+   //Do value validations
+
+   setTimeout(() => {
+      swal.fire({
+         title: 'Data saved',
+         text: 'Disease has been saved',
+         icon: 'success',
+         timer: 3000,
+      }).then(() => {
+         swal.close()
+      })
+   }, 6000);
+}
