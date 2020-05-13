@@ -26,36 +26,33 @@
 
                 <div class="associated_animal">
                     <h2 class="disease_label">Add Animals Assocaited with this Disease</h2>
-                    <div class="prevention_form" onsubmit = "event.preventDefault();">
-                        <input type="text" id="disease_animal" placeholder="Add Animals Asociated with this Disease" class="prevention-input">
-                        <button class="prevention_button" type="submit">
-                            <i class="fas fa-plus-square"></i>
-                        </button>
-                    </div>
-                    <div class="prevention-container">
-                        <ul class="prevention-list">
-                           
-                        </ul>
-                    </div>
+                    <div id="myDIV-animal" class="header-animal">
+                        <input type="text" id="animal_myInput" placeholder="Add Animals Assocaited with this Disease">
+                        <span onclick="" class="addBtn">Add</span>
+                      </div>
+                      
+                      <ul id="animal_myUL">
+        
+                      </ul>
                 </div>
             </div>
             
           </div>
 
 
-        <div class="column disease-section1 disease-details prevention-section">
+        <div class="column disease-section1 disease-details symptom-section">
             <h2 class="disease_label">Add Preventive measure Assocaited with this Disease</h2>
-            <div class="prevention_form" onsubmit = "event.preventDefault();">
-                <input type="text" id="diesase_prevention" placeholder="Add disease prevention" class="prevention-input">
-                <button class="prevention_button" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
+            <div class="symptom_error">
+
             </div>
-            <div class="prevention-container">
-                <ul class="prevention-list">
-                   
-                </ul>
-            </div>
+            <div id="myDIV-prevention" class="header-prevention">
+                <input type="text" id="myInpu_prevention" placeholder="Add Key Word">
+                <span onclick="animalPrevention()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-prevention">
+
+              </ul>
         </div>
 
 
@@ -77,33 +74,27 @@
             <div class="symptom_error">
 
             </div>
-            <div class="symptom_form">
-                <input type="text" id="diesase_symptom" placeholder="Add disease symptom" class="symptom-input">
-                <button class="symptom_button" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
-            </div>
-            <div class="symptom-container">
-                <ul class="symptom-list">
-                   
-                </ul>
-            </div>
+            <div id="myDIV-symptom" class="header-keyword">
+                <input type="text" id="myInput_symptom" placeholder="Add Key Word">
+                <span onclick="newElement()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-symptom">
+
+              </ul>
         </div>
 
 
         <div class="column disease-section1 disease-details keyword-section">
-            <h2 class="disease_label">Add Key Word for this Disease</h2>
-            <div class="keyword_form" onsubmit = "event.preventDefault();">
-                <input type="text" id="diesase_keyword" placeholder="Add disease keyword" class="keyword-input">
-                <button class="keyword_button" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
-            </div>
-            <div class="keyword-container">
-                <ul class="keyword-list">
-                   
-                </ul>
-            </div>
+            <h2 class="disease_label">Add Key Word Associated with the Disease Case</h2>
+            <div id="myDIV-keyword" class="header-keyword">
+                <input type="text" id="myInput_keyword" placeholder="Add Key Word">
+                <span onclick="newKeyword()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-keyword">
+
+              </ul>
         </div>
 
 
