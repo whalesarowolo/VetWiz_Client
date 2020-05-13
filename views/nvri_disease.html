@@ -15,13 +15,13 @@
 
             <div class="disaseName-section">
                 <div class="control">
-                    <input class="input is-hovered" type="text" placeholder="Name of Disease">
+                    <input id="disease_name" class="input is-hovered" type="text" placeholder="Name of Disease">
                 </div>
                 <div class="control">
-                    <input class="input is-hovered" type="text" placeholder="Disease name in Hausa">
+                    <input id="disease_name_hausa" class="input is-hovered" type="text" placeholder="Disease name in Hausa">
                 </div>
                 <div class="control">
-                    <input class="input is-hovered" type="text" placeholder="Disease name in Fulfude">
+                    <input id="disease_name_fulfude" class="input is-hovered" type="text" placeholder="Disease name in Fulfude">
                 </div>
 
                 <div class="column disease-section1 disease-details symptom-section">
@@ -64,7 +64,7 @@
         <div class="column disease-section1 disease-details">
             <h2 class="disease_label">Add a Treatment</h2>
             <div class="control">
-                <textarea class="textarea is-hovered" placeholder="Input Treatment procedure for the disease case"></textarea>
+                <textarea id="disease_treatment" class="textarea is-hovered" placeholder="Input Treatment procedure for the disease case"></textarea>
               </div>
           </div>
 
@@ -106,7 +106,7 @@
         <div class="column disease-section1 disease-details">
             <h2 class="disease_label">Add Vaccine</h2>
             <div class="control">
-                <textarea class="textarea is-hovered" placeholder="Input Vaccine needed for this Disease case"></textarea>
+                <textarea id="disease_vaccine" class="textarea is-hovered" placeholder="Input Vaccine needed for this Disease case"></textarea>
               </div>
           </div>
 
@@ -114,6 +114,6 @@
 
     
 </div>
-        <div class="control disease_submit">
-            <button onclick="persist_new_disease('a')" class="button is-primary is-medium">Submit</button>
-          </div>
+<div class="control disease_submit">
+    <button onclick="persist_new_disease()" class="button is-primary is-medium">Submit</button>
+</div>

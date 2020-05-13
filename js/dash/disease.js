@@ -121,7 +121,7 @@ for (i = 0; i < close.length; i++) {
 
 //Implement disease persistence logic here
 
-function persist_new_disease(disease_object) {
+function persist_new_disease() {
    //Implement logic here
    swal.fire({
       title: 'Please wait',
@@ -132,6 +132,26 @@ function persist_new_disease(disease_object) {
    });
 
    //Do value validations
+   var disease_object = {}
+
+   var disease_name = $("#disease_name").val();
+   var disease_name_hausa = $("#disease_name_hausa").val();
+   var disease_name_fulfude = $("#disease_name_fulfude").val();
+
+   var associated_animals_array = [];
+   //Parse the assoc anim ul 
+   var list_assoc_anim = document.getElementById("#animal_myU");
+   Array.prototype.forEach((ele) => {
+      associated_animals_array.push(ele.innerHTML);
+   }, list_assoc_anim);
+
+   console.log(associated_animals_array);
+   var disease_prevention_array = [];
+   var disease_treatment = $("#disease_treatment").val();
+   var disease_symptoms_array = $("#myUL-symptom").val();
+   var disease_keywords_array = $("#myUL-keyword").val();
+   var disease_vaccine = $("#disease_vaccine").val();
+
 
    setTimeout(() => {
       swal.fire({
