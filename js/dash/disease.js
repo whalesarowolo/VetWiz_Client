@@ -207,26 +207,26 @@ function persist_new_disease() {
 
   let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
   const token = localStorage.getItem('access_token');
-  var headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  fetch(disease_save_url, {
+
+  console.log(disease_object);
+  // var headers = new Headers();
+  // headers.append('Content-Type', 'application/json');
+  // headers.append('Accept', 'application/json');
+  // //headers.append('Authorization', token);
+
+  $.ajax({
+    url: disease_save_url,
     method: "POST",
-    headers,
-    mode: 'cors',
-    body: JSON.stringify(disease_object)
-  }).then((res) => {
-        swal.fire({
-          title: 'Data saved',
-          text: 'Disease has been saved',
-          icon: 'success',
-          timer: 3000,
-        }).then(() => {
-            swal.close()
-        })
-  })
-  .catch((error) => {
-    console.error('Error:', error);
+    dataType: "json",
+    crossDomain: true,
+    contentType: "application/json; charset=utf-8",
+    data: disease_object,
+    success: function (data) {
+      console.log("Success");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log('Something bad happened');
+    }
   });
 };
 
