@@ -207,13 +207,14 @@ function persist_new_disease() {
 
   let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
   const token = localStorage.getItem('access_token');
-  const headers = new Headers();
+  var headers = new Headers();
   headers.append('Content-Type', 'application/json');
   headers.append('Authorization', token);
   fetch(disease_save_url, {
     method: "POST",
-    headers
-  }).then(async (res) => {
+    headers,
+    body: JSON.stringify(disease_object)
+  }).then((res) => {
         swal.fire({
           title: 'Data saved',
           text: 'Disease has been saved',
@@ -222,7 +223,6 @@ function persist_new_disease() {
         }).then(() => {
             swal.close()
         })
-    console.log("Response ", res)
   })
   .catch((error) => {
     console.error('Error:', error);
