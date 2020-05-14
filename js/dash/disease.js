@@ -213,6 +213,7 @@ function persist_new_disease() {
   fetch(disease_save_url, {
     method: "POST",
     headers,
+    mode: 'cors',
     body: JSON.stringify(disease_object)
   }).then((res) => {
         swal.fire({
