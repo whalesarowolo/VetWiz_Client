@@ -144,3 +144,123 @@ function persist_new_disease(disease_object) {
       })
    }, 6000);
 }
+
+let disease_dataId;
+// Market Actor sms log sent for approval
+function viewDisease(params) {
+  let disease_dataId;
+  let html = "";
+    swal.fire({
+      title: 'Loading Disease Data',
+      text: 'Please wait...',
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+
+   
+
+    $("#view_disease_table").ready(function() {
+      const url = 'https://farm-aid-backend.herokuapp.com/api/disease'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        data.forEach( (datas) => {
+            let Disease = datas.disease;
+            let Disease_hausa = datas.diseaseHausa;
+            let Disease_fulfude = datas.diseaseFulfude;
+            let Treatment = datas.treatment;
+            let Vaccine = datas.vaccine;
+            let associated_animal = datas.animalAssocaited;
+            let key_Word = datas.keyWord;
+             disease_dataId = datas._id;
+            // let associated_animal = datas._id;
+            // let keyWord = datas._id;
+            
+  
+            html += "<tr>";
+            html += "<td></td>"
+            html += "<td>" + Disease + "</td>"
+            html += "<td>" + Disease_hausa + "</td>"
+            html += "<td>" + Disease_fulfude + "</td>"
+            // html += '<td>' + Treatment + '</td>'
+            html += "<td>" + associated_animal + "</td>"
+            html += "<td>" + Vaccine + "</td>"
+            html += "<td>" + key_Word + "</td>"
+            html += '<td><span id="lanuchModal" class="view_handler" style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
+            html += "</tr>"
+
+            document.getElementById("view_disease_table").innerHTML = html;
+
+        })
+        
+      swal.close();
+      }).catch((error) => {
+        console.error('Error:', error);
+      })
+    });
+ 
+  })
+
+}
+function attach(event) {
+  var targetEl = event.target;
+  const view_det_id = $(targetEl).attr('data_id');
+  viewSingleDisease(view_det_id);
+
+  //document.getElementById("view_disease_table").innerHTML = html;
+  //var view_handlers = document.getElementsByClassName('view_handler');
+  // for (const view_handle in view_handlers) {
+  //   if(view_handlers.hasOwnProperty(view_handle)) {
+  //     const current_view = view_handlers[view_handle];
+  //     const view_det_id = $(current_view).attr('data_id');
+      
+  //   }
+  // }
+}
+
+function viewSingleDisease(view_det_id) {
+  console.log("From viewSingleDisease " + view_det_id);
+  let html = "";
+
+  const url = `https://farm-aid-backend.herokuapp.com/api/disease/single/${view_det_id}`
+  const token = localStorage.getItem('access_token');
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', token);
+  fetch(url, {
+    method: "GET",
+    headers
+  }).then(async (res) => res.json()).then(data => {
+    console.log(data)
+    // let Disease = datas.disease;
+    // let Disease_hausa = datas.diseaseHausa;
+    // let Disease_fulfude = datas.diseaseFulfude;
+    // let Treatment = datas.treatment;
+    // let Vaccine = datas.vaccine;
+    // let associated_animal = datas.animalAssocaited;
+    // let key_Word = datas.keyWord;
+    // let prevention = datas.prevention;
+    // let symptoms = datas.symptoms;
+    // let disease_dataId = datas._id;
+    
+  swal.close();
+  }).catch((error) => {
+    console.error('Error:', error);
+  })
+
+  
+}

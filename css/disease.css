@@ -215,3 +215,10 @@ form button{
   /* max-width: 350px;
     overflow-wrap: break-word;
     margin: auto; */
+
+    #element-toggle {
+        display: none;
+      }
+      #element-toggle:checked ~ #myModal1 {
+        display: flex;
+      }
