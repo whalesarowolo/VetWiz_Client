@@ -50,7 +50,10 @@
                 </div>
                 <div class="modal-footer">
                     <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
-                    <button type="submit" id="send_messages" class="button is-modal">Update Disease</button>
+                    <!-- <button type="submit" id="send_messages" onclick="handleEdit()" class="button is-modal">Update Disease</button> -->
+                    <button type="edit" class="btn btn-default" id="edit" class="button is-modal" onclick="return handleEdit()">Update</button>
+
+                    <button type="submit" class="btn btn-default" id="save" class="button is-modal" hidden>Save</button>
                 </div>
             </div>
         </div>
