@@ -253,7 +253,7 @@ form button{
 }
 
 .modal-footer{
-    margin-top: -160px !important;
+    margin-top: -190px !important;
 }
 
 .flex{
@@ -263,7 +263,7 @@ form button{
 #disease_case_body textarea{
     width: 300px;
     margin: auto;
-    margin-right: -5px;
+    margin-right: -1px;
     margin-top: 10px;
 }
 
