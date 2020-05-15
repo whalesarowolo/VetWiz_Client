@@ -288,7 +288,7 @@ function viewDisease(params) {
             html += "<td>" + associated_animal + "</td>"
             html += "<td>" + Vaccine + "</td>"
             html += "<td>" + key_Word + "</td>"
-            html += '<td><span id="lanuchModal" class="view_handler" style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
+            html += '<td><span  class="view_handler" style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
             html += "</tr>"
 
             document.getElementById("view_disease_table").innerHTML = html;
@@ -323,6 +323,11 @@ function attach(event) {
 function viewSingleDisease(view_det_id) {
   console.log("From viewSingleDisease " + view_det_id);
   let html = "";
+  $('#view_single_disease').removeClass('is-hidden').addClass('is-active');
+    $('#view_single_disease > .modal-background').addClass('scaleInCircle');
+    $('#view_single_disease > .modal-content').addClass('scaleIn');
+    $('#view_single_disease > .modal-close').removeClass('is-hidden');
+    
 
   const url = `https://farm-aid-backend.herokuapp.com/api/disease/single/${view_det_id}`
   const token = localStorage.getItem('access_token');
@@ -334,21 +339,96 @@ function viewSingleDisease(view_det_id) {
     headers
   }).then(async (res) => res.json()).then(data => {
     console.log(data)
-    // let Disease = datas.disease;
-    // let Disease_hausa = datas.diseaseHausa;
-    // let Disease_fulfude = datas.diseaseFulfude;
-    // let Treatment = datas.treatment;
-    // let Vaccine = datas.vaccine;
-    // let associated_animal = datas.animalAssocaited;
-    // let key_Word = datas.keyWord;
-    // let prevention = datas.prevention;
-    // let symptoms = datas.symptoms;
-    // let disease_dataId = datas._id;
-    
-  swal.close();
+    let Disease =data.disease;
+    let Disease_hausa =data.diseaseHausa;
+    let Disease_fulfude =data.diseaseFulfude;
+    let Treatment =data.treatment;
+    let Vaccine =data.vaccine;
+    let associated_animal =data.animalAssocaited;
+    let key_Word =data.keyWord;
+    let prevention =data.prevention;
+    let symptoms =data.symptoms;
+    let disease_dataId =data._id;
+    console.log(Disease, Disease_fulfude, Disease_hausa, Treatment, Vaccine, associated_animal, key_Word, prevention, symptoms);
+
+    html += "<form class='disease_box'>";
+    html += "<div class='columns is-mobile is-multiline is-centered dieases-container'>";
+
+
+    html += "<div class='column disease-section1'>"
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Disease' + "</label>"
+    html += `<input class="form-control" id="name" value="` + Disease + `"  disabled>`;
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Disease(Hausa)' + "</label>"
+    html += `<input class="form-control" id="name" value="` + Disease_fulfude + `" disabled>`;
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Disease(Fulfude)' + "</label>"
+    html += `<input class="form-control" id="name" value="` + Disease_hausa + `" disabled>`;
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Key Word' + "</label>"
+    html += "<textarea disabled>" + key_Word + "</textarea>"
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Associated Animal' + "</label>"
+    html += `<input class="form-control" id="name" value="` + associated_animal + `" disabled>`;
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "</div>"
+
+
+
+    html += "<div class='column disease-section2'>"
+
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Treatment Required' + "</label>"
+    html += "<textarea disabled>" + Treatment + "</textarea>"
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Symptoms Shown' + "</label>"
+    html += "<textarea disabled>" + symptoms + "</textarea>"
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+    html += "<div class='form-group flex'>";
+    html += "<label>" + 'Preventive Measure' + "</label>"
+    html += "<textarea disabled>" + prevention + "</textarea>"
+    html += "<div>";
+    html += "</div>";
+    html += "</div>";
+
+    html += "</div>"
+
+
+
+    html += "</>";
+    html += "</form>"
+     
+    document.getElementById("disease_case_body").innerHTML = html;
   }).catch((error) => {
     console.error('Error:', error);
   })
 
   
+}
+
+function cancelMessage(params) {
+  $('.modal.modal-md.icon-action-modal.modal-hero').removeClass('is-active');
+  $('#create-internal-modal > .modal-background').removeClass('scaleInCircle');
+  $('#create-internal-modal > .modal-content').removeClass('scaleIn');
+  $('#create-internal-modal > .modal-close').addClass('is-hidden');
 }

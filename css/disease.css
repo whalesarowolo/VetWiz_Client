@@ -219,9 +219,60 @@ form button{
     overflow-wrap: break-word;
     margin: auto; */
 
-    #element-toggle {
-        display: none;
-      }
-      #element-toggle:checked ~ #myModal1 {
-        display: flex;
-      }
+#view_single_disease{
+    height: 220vh;
+    margin-top: -10px;
+}
+
+.modal-background{
+    background: #26d0a8 !important;
+    height: 200px !important;
+}
+#view_single_disease .single_disease_body{
+    margin-top: -700px;
+    margin-bottom: -100px;
+    padding-bottom: -100px;
+    height: 140% !important;
+}
+
+#disease_case_body .single_single_innerSection{
+       border: 1px solid rgb(16, 213, 23);
+      padding-bottom: 100px;
+      height: 140%;
+
+}
+
+#disease_case_body .disease_box{
+    margin-top: -50px;
+    padding-bottom: 100px;
+}
+
+#disease_case_body{
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.modal-footer{
+    margin-top: -160px !important;
+}
+
+.flex{
+    display: flex;
+}
+
+#disease_case_body textarea{
+    width: 300px;
+    margin: auto;
+    margin-right: -5px;
+    margin-top: 10px;
+}
+
+#disease_case_body input{
+    width: 300px;
+    margin: auto;
+    margin-right: -5px;
+}
+
+#disease_case_body label{
+  margin-top: 10px;
+}
