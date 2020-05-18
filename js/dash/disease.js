@@ -321,106 +321,123 @@ function attach(event) {
 }
 
 function viewSingleDisease(view_det_id) {
-  console.log("From viewSingleDisease " + view_det_id);
-  let html = "";
-  $('#view_single_disease').removeClass('is-hidden').addClass('is-active');
-    $('#view_single_disease > .modal-background').addClass('scaleInCircle');
-    $('#view_single_disease > .modal-content').addClass('scaleIn');
-    $('#view_single_disease > .modal-close').removeClass('is-hidden');
-    
+  swal.fire({
+    title: 'Loading Disease Data',
+    text: 'Please wait...',
+    timer: 1000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
 
-  const url = `https://farm-aid-backend.herokuapp.com/api/disease/single/${view_det_id}`
-  const token = localStorage.getItem('access_token');
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', token);
-  fetch(url, {
-    method: "GET",
-    headers
-  }).then(async (res) => res.json()).then(data => {
-    console.log(data)
-    let Disease =data.disease;
-    let Disease_hausa =data.diseaseHausa;
-    let Disease_fulfude =data.diseaseFulfude;
-    let Treatment =data.treatment;
-    let Vaccine =data.vaccine;
-    let associated_animal =data.animalAssocaited;
-    let key_Word =data.keyWord;
-    let prevention =data.prevention;
-    let symptoms =data.symptoms;
-    let disease_dataId =data._id;
-    console.log(Disease, Disease_fulfude, Disease_hausa, Treatment, Vaccine, associated_animal, key_Word, prevention, symptoms);
+    Swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
 
-    html += "<form class='disease_box'>";
-    html += "<div class='columns is-mobile is-multiline is-centered dieases-container'>";
-
-
-    html += "<div class='column disease-section1'>"
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Disease' + "</label>"
-    html += `<input class="form-control" id="name" value="` + Disease + `"  disabled>`;
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Disease(Hausa)' + "</label>"
-    html += `<input class="form-control" id="name" value="` + Disease_fulfude + `" disabled>`;
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Disease(Fulfude)' + "</label>"
-    html += `<input class="form-control" id="name" value="` + Disease_hausa + `" disabled>`;
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Key Word' + "</label>"
-    html += "<textarea disabled>" + key_Word + "</textarea>"
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Associated Animal' + "</label>"
-    html += `<input class="form-control" id="name" value="` + associated_animal + `" disabled>`;
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "</div>"
-
-
-
-    html += "<div class='column disease-section2'>"
-
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Treatment Required' + "</label>"
-    html += "<textarea disabled>" + Treatment + "</textarea>"
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Symptoms Shown' + "</label>"
-    html += "<textarea disabled>" + symptoms + "</textarea>"
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-    html += "<div class='form-group flex'>";
-    html += "<label>" + 'Preventive Measure' + "</label>"
-    html += "<textarea disabled>" + prevention + "</textarea>"
-    html += "<div>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "</div>"
-
-
-
-    html += "</>";
-    html += "</form>"
-     
-    document.getElementById("disease_case_body").innerHTML = html;
-  }).catch((error) => {
-    console.error('Error:', error);
+    let html = "";
+    $('#view_single_disease').removeClass('is-hidden').addClass('is-active');
+      $('#view_single_disease > .modal-background').addClass('scaleInCircle');
+      $('#view_single_disease > .modal-content').addClass('scaleIn');
+      $('#view_single_disease > .modal-close').removeClass('is-hidden');
+      
+  
+    const url = `https://farm-aid-backend.herokuapp.com/api/disease/single/${view_det_id}`
+    const token = localStorage.getItem('access_token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    fetch(url, {
+      method: "GET",
+      headers
+    }).then(async (res) => res.json()).then(data => {
+      console.log(data)
+      let Disease =data.disease;
+      let Disease_hausa =data.diseaseHausa;
+      let Disease_fulfude =data.diseaseFulfude;
+      let Treatment =data.treatment;
+      let Vaccine =data.vaccine;
+      let associated_animal =data.animalAssocaited;
+      let key_Word =data.keyWord;
+      let prevention =data.prevention;
+      let symptoms =data.symptoms;
+      let disease_dataId =data._id;
+  
+      html += "<form class='disease_box'>";
+      html += "<div class='columns is-mobile is-multiline is-centered dieases-container'>";
+  
+  
+      html += "<div class='column disease-section1'>"
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Disease' + "</label>"
+      html += `<input class="form-control" id="disease_view_input" value="` + Disease + `"  disabled>`;
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Disease(Hausa)' + "</label>"
+      html += `<input class="form-control" id="disease_view_input_hausa" value="` + Disease_fulfude + `" disabled>`;
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Disease(Fulfude)' + "</label>"
+      html += `<input class="form-control" id="disease_view_input_fulfude" value="` + Disease_hausa + `" disabled>`;
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Key Word' + "</label>"
+      html += "<textarea id='disease_view_textarea_keyword' disabled>" + key_Word + "</textarea>"
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Associated Animal' + "</label>"
+      html += `<input class="form-control" id='disease_view_textarea_assocaitedAnimal' value="` + associated_animal + `" disabled>`;
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "</div>"
+  
+  
+  
+      html += "<div class='column disease-section2'>"
+  
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Treatment Required' + "</label>"
+      html += "<textarea id='disease_view_textarea_treament' disabled>" + Treatment + "</textarea>"
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Symptoms Shown' + "</label>"
+      html += "<textarea id='disease_view_textarea_symptoms' disabled>" + symptoms + "</textarea>"
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Preventive Measure' + "</label>"
+      html += "<textarea id='disease_view_textarea_prevention' disabled>" + prevention + "</textarea>"
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+  
+      html += "</div>"
+  
+  
+  
+      html += "</>";
+      html += "</form>"
+       
+      document.getElementById("disease_case_body").innerHTML = html;
+      swal.close();
+    }).catch((error) => {
+      console.error('Error:', error);
+    })
   })
 
   
@@ -431,4 +448,19 @@ function cancelMessage(params) {
   $('#create-internal-modal > .modal-background').removeClass('scaleInCircle');
   $('#create-internal-modal > .modal-content').removeClass('scaleIn');
   $('#create-internal-modal > .modal-close').addClass('is-hidden');
+}
+
+function handleEdit() {
+  document.getElementById('disease_view_input').disabled = false;
+  document.getElementById('disease_view_input_hausa').disabled = false;
+  document.getElementById('disease_view_input_fulfude').disabled = false;
+  document.getElementById('disease_view_textarea_keyword').disabled = false;
+  document.getElementById('disease_view_textarea_assocaitedAnimal').disabled = false;
+  document.getElementById('disease_view_textarea_treament').disabled = false;
+  document.getElementById('disease_view_textarea_symptoms').disabled = false;
+  document.getElementById('disease_view_textarea_prevention').disabled = false;
+  document.getElementById('edit').hidden = true;
+  document.getElementById('save').hidden = false;
+  
+  return false;
 }
