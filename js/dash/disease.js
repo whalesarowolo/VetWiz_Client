@@ -288,7 +288,7 @@ function viewDisease(params) {
             html += "<td>" + associated_animal + "</td>"
             html += "<td>" + Vaccine + "</td>"
             html += "<td>" + key_Word + "</td>"
-            html += '<td><span  class="view_handler" style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
+            html += '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
             html += "</tr>"
 
             document.getElementById("view_disease_table").innerHTML = html;
