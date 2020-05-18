@@ -432,6 +432,11 @@ function viewSingleDisease(view_det_id) {
   
       html += "</>";
       html += "</form>"
+      html += "<div class=''>"
+      html += "<button  onclick='cancelMessage();'' class='' style='border-radius:20px; background-color: #e7e7e7;'>" +  'Cancel'+ "</button>"
+      html += "<button type='edit' class='' id='edit' class='' onclick='return handleEdit()' style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Update'+ "</button>"
+      html += "<button type='submit' class='' id='save' class='' hidden style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Save'+ "</button>"
+      html += "</div>"
        
       document.getElementById("disease_case_body").innerHTML = html;
       swal.close();
@@ -451,7 +456,6 @@ function cancelMessage(params) {
 }
 
 function handleEdit() {
-  document.getElementById('disease_view_input').disabled = false;
   document.getElementById('disease_view_input_hausa').disabled = false;
   document.getElementById('disease_view_input_fulfude').disabled = false;
   document.getElementById('disease_view_textarea_keyword').disabled = false;
