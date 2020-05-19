@@ -213,7 +213,8 @@ form button{
   }
 
   #view_disease{
-     margin-left: -30px;
+     margin-left: -40px;
+     width: 90vw;
   }
   /* max-width: 350px;
     overflow-wrap: break-word;
@@ -275,4 +276,8 @@ form button{
 
 #disease_case_body label{
   margin-top: 10px;
+}
+
+.single_disease_button_section{
+    padding: 20px;
 }

@@ -427,7 +427,7 @@ function viewSingleDisease(view_det_id) {
   
       html += "</>";
       html += "</form>"
-      html += "<div class=''>"
+      html += "<div class='single_disease_button_section'>"
       html += '<button  onclick="cancelMessage();" class="" style="border-radius:20px; background-color: #e7e7e7;">' +  'Cancel'+ '</button>'
       html += "<button type='edit' class='' id='edit' class='' onclick='return handleEdit()' style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Update'+ "</button>"
       html += '<button  type="submit" class="" id="save" class="" hidden style="background-color: #26d0a8; margin-left:5px; border-radius:20px";  onclick="updateID(event)" data_update_id=' + `${disease_dataId}` + '> Save' + '</button>'
