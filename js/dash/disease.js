@@ -308,16 +308,6 @@ function attach(event) {
   var targetEl = event.target;
   const view_det_id = $(targetEl).attr('data_id');
   viewSingleDisease(view_det_id);
-
-  //document.getElementById("view_disease_table").innerHTML = html;
-  //var view_handlers = document.getElementsByClassName('view_handler');
-  // for (const view_handle in view_handlers) {
-  //   if(view_handlers.hasOwnProperty(view_handle)) {
-  //     const current_view = view_handlers[view_handle];
-  //     const view_det_id = $(current_view).attr('data_id');
-      
-  //   }
-  // }
 }
 
 function viewSingleDisease(view_det_id) {
@@ -354,7 +344,6 @@ function viewSingleDisease(view_det_id) {
       method: "GET",
       headers
     }).then(async (res) => res.json()).then(data => {
-      console.log(data)
       let Disease =data.disease;
       let Disease_hausa =data.diseaseHausa;
       let Disease_fulfude =data.diseaseFulfude;
@@ -379,13 +368,13 @@ function viewSingleDisease(view_det_id) {
       html += "</div>";
       html += "<div class='form-group flex'>";
       html += "<label>" + 'Disease(Hausa)' + "</label>"
-      html += `<input class="form-control" id="disease_view_input_hausa" value="` + Disease_fulfude + `" disabled>`;
+      html += `<input class="form-control" id="disease_view_input_hausa" value="` + Disease_hausa + `" disabled>`;
       html += "<div>";
       html += "</div>";
       html += "</div>";
       html += "<div class='form-group flex'>";
       html += "<label>" + 'Disease(Fulfude)' + "</label>"
-      html += `<input class="form-control" id="disease_view_input_fulfude" value="` + Disease_hausa + `" disabled>`;
+      html += `<input class="form-control" id="disease_view_input_fulfude" value="` + Disease_fulfude + `" disabled>`;
       html += "<div>";
       html += "</div>";
       html += "</div>";
@@ -398,6 +387,12 @@ function viewSingleDisease(view_det_id) {
       html += "<div class='form-group flex'>";
       html += "<label>" + 'Associated Animal' + "</label>"
       html += `<input class="form-control" id='disease_view_textarea_assocaitedAnimal' value="` + associated_animal + `" disabled>`;
+      html += "<div>";
+      html += "</div>";
+      html += "</div>";
+      html += "<div class='form-group flex'>";
+      html += "<label>" + 'Vaccine' + "</label>"
+      html += `<input class="form-control" id='disease_view_textarea_vaccine' value="` + Vaccine + `" disabled>`;
       html += "<div>";
       html += "</div>";
       html += "</div>";
@@ -433,9 +428,9 @@ function viewSingleDisease(view_det_id) {
       html += "</>";
       html += "</form>"
       html += "<div class=''>"
-      html += "<button  onclick='cancelMessage();'' class='' style='border-radius:20px; background-color: #e7e7e7;'>" +  'Cancel'+ "</button>"
+      html += '<button  onclick="cancelMessage();" class="" style="border-radius:20px; background-color: #e7e7e7;">' +  'Cancel'+ '</button>'
       html += "<button type='edit' class='' id='edit' class='' onclick='return handleEdit()' style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Update'+ "</button>"
-      html += "<button type='submit' class='' id='save' class='' hidden style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Save'+ "</button>"
+      html += '<button  type="submit" class="" id="save" class="" hidden style="background-color: #26d0a8; margin-left:5px; border-radius:20px";  onclick="updateID(event)" data_update_id=' + `${disease_dataId}` + '> Save' + '</button>'
       html += "</div>"
        
       document.getElementById("disease_case_body").innerHTML = html;
@@ -446,6 +441,94 @@ function viewSingleDisease(view_det_id) {
   })
 
   
+}
+
+function updateID(event) {
+  var targetEl = event.target;
+  const view_det_update_id = $(targetEl).attr('data_update_id');
+  updateSingleDisease(view_det_update_id);
+}
+
+function updateSingleDisease(view_det_update_id) {
+  console.log("update single crop" + view_det_update_id)
+  Swal.fire({
+    title: 'Request being processed',
+    text: 'Please wait...',
+    timer: 1000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+
+    Swal.fire({
+      title: "Please wait",
+      text: "Data being updated ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+
+
+    let disease_view_input_hausa = $('#disease_view_input_hausa').val().trim();
+      let disease_view_input_fulfude = $('#disease_view_input_fulfude').val().trim();
+      let disease_view_textarea_keyword = $('#disease_view_textarea_keyword').val();
+      let disease_view_textarea_assocaitedAnimal = $('#disease_view_textarea_assocaitedAnimal').val().trim();
+      let disease_view_textarea_treament = $('#disease_view_textarea_treament').val().trim();
+      let disease_view_textarea_symptoms = $('#disease_view_textarea_symptoms').val();
+      let disease_view_textarea_prevention = $('#disease_view_textarea_prevention').val();
+      let disease_view_textarea_vaccine = $('#disease_view_textarea_vaccine').val();
+
+      console.log(disease_view_input_hausa,+ "" + disease_view_input_fulfude,+ " " + disease_view_textarea_keyword, + " " +disease_view_textarea_assocaitedAnimal, + " " + disease_view_textarea_treament, + " " + disease_view_textarea_symptoms, + " " + disease_view_textarea_prevention)
+
+      const url = 'https://farm-aid-backend.herokuapp.com/api/disease/' + view_det_update_id;
+      const token = localStorage.getItem('access_token');
+      console.log(url)
+    
+      const disease = {
+       "diseaseHausa": disease_view_input_hausa,
+       "diseaseFulfude": disease_view_input_fulfude,
+       "animalAssocaited": disease_view_textarea_assocaitedAnimal,
+       "symptoms": disease_view_textarea_symptoms,
+       "treatment": disease_view_textarea_treament,
+       "vaccine": disease_view_textarea_vaccine,
+       "prevention": disease_view_textarea_prevention,
+       "keyWord": disease_view_textarea_keyword,
+      };
+
+      // create request object
+      var request = new Request(url, {
+        method: 'PUT',
+        body: JSON.stringify(disease),
+        
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          'Authorization': token
+        })
+      });
+
+      fetch(request).then(async (res) => {
+        let resp = await res.json();
+        console.log(resp)
+          if(resp.status !== 201) {
+            Swal.fire({
+              title: "Bad Request",
+              text:   "Verify data being sent",
+              icon: "info",
+              timer: 3000
+            })
+          } else {
+
+            Swal.fire({
+              title: "Update Successsful",
+              text:  "Disease case has been updated successfully",
+              icon: "info",
+              timer: 3000
+            })
+          }
+      })
+      handleunEdit()
+      swal.close();
+  });
 }
 
 function cancelMessage(params) {
@@ -467,4 +550,17 @@ function handleEdit() {
   document.getElementById('save').hidden = false;
   
   return false;
+}
+function handleunEdit() {
+  document.getElementById('disease_view_input_hausa').disabled = true;
+  document.getElementById('disease_view_input_fulfude').disabled = true;
+  document.getElementById('disease_view_textarea_keyword').disabled = true;
+  document.getElementById('disease_view_textarea_assocaitedAnimal').disabled = true;
+  document.getElementById('disease_view_textarea_treament').disabled = true;
+  document.getElementById('disease_view_textarea_symptoms').disabled = true;
+  document.getElementById('disease_view_textarea_prevention').disabled = true;
+  document.getElementById('edit').hidden = false;
+  document.getElementById('save').hidden = true;
+  
+  return true;
 }
