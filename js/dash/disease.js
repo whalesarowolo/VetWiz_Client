@@ -478,11 +478,8 @@ function updateSingleDisease(view_det_update_id) {
       let disease_view_textarea_prevention = $('#disease_view_textarea_prevention').val();
       let disease_view_textarea_vaccine = $('#disease_view_textarea_vaccine').val();
 
-      console.log(disease_view_input_hausa,+ "" + disease_view_input_fulfude,+ " " + disease_view_textarea_keyword, + " " +disease_view_textarea_assocaitedAnimal, + " " + disease_view_textarea_treament, + " " + disease_view_textarea_symptoms, + " " + disease_view_textarea_prevention)
-
       const url = 'https://farm-aid-backend.herokuapp.com/api/disease/' + view_det_update_id;
       const token = localStorage.getItem('access_token');
-      console.log(url)
     
       const disease = {
        "diseaseHausa": disease_view_input_hausa,
@@ -508,7 +505,6 @@ function updateSingleDisease(view_det_update_id) {
 
       fetch(request).then(async (res) => {
         let resp = await res.json();
-        console.log(resp)
           if(resp.status !== 201) {
             Swal.fire({
               title: "Bad Request",
