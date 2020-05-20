@@ -34,7 +34,7 @@
             <div class="control">
               <div class="select">
                 <select id="ussd_state">
-                  <option>Select dropdown</option>
+                  <option disabled>Select dropdown</option>
                   <option>Adamawa</option>
                   <option>Gombe</option>
                   <option>Bornu</option>
@@ -51,13 +51,70 @@
           </div>
 
           <div class="field">
-            <label class="label">Crop produced by farmer</label>
+            <label class="label">Village</label>
             <div class="control">
-              <input id="ussd_crop" class="input" type="text" placeholder="crop prouced by farmer">
+              <input id="ussd_village" class="input" type="text" placeholder="local Government of farmer">
             </div>
-            <p class="help is-success">Please separate each crop by a comma</p>
           </div>
-          
+
+          <div class="field">
+            <label class="label">Any Disability</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_disability">
+                  <option disabled>Select dropdown</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="showCheckboxes()">
+                <select>
+                  <option>Select Crops produced by farmer</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="Cropcheckboxes">
+                <label for="one" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="rice" value="rice"/>Rice</label>
+                <label for="two" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="tomatoes" value="tomatoes"/>Tomatoes</label>
+                <label for="three" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="sorghum" value="sorghum"/>Sorghum</label>
+                <label for="three" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="groundnut" value="goundnut"/>Groundnut</label>
+              </div>
+            </div>
+          </form>
+
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="showAnimalCheckboxes()">
+                <select>
+                  <option>Select Animal produced by farmer</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="Animalcheckboxes">
+                <label for="one" class="label">
+                  <input name="animal_selection" type="checkbox" id="sheep" value="sheep"/>Sheep</label>
+                <label for="two" class="label">
+                  <input name="animal_selection" type="checkbox" id="goat" value="goat" />Goat</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="poultry"  value="poultry"/>Poultry</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="cattle" value="cattle"/>Cattle</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="pig" value="pig"/>Pig</label>
+              </div>
+            </div>
+          </form>
           <!-- <div class="field">
             <label class="label">Username</label>
             <div class="control has-icons-left has-icons-right">
@@ -74,24 +131,115 @@
           
           
           <div class="field">
+            <label for="birthday" class="label">Date of Birthday:</label>
+            <div class="control">
+              <input type="date" id="birthday" name="birthday" class="birthday_input_form">
+              <!-- <input class="input" placeholder="Normal input" type="date" id="birthday" name="birthday"> -->
+            </div>
+          </div>
+
+
+          <div class="field">
             <label class="label">Gender</label>
             <div class="control">
               <div class="select">
                 <select id="ussd_gender">
-                  <option>Select dropdown</option>
+                  <option disabled>Select dropdown</option>
                   <option>Male</option>
                   <option>Female</option>
                 </select>
               </div>
             </div>
           </div>
-          
+
+          <div class="field">
+            <label class="label">Marital Status</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_marital">
+                  <option disabled>Select dropdown</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Educational Level</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_education">
+                  <option disabled>Select dropdown</option>
+                  <option>Primary</option>
+                  <option>Secondary</option>
+                  <option>Tertiary</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="field">
             <label class="label">Farm Size</label>
             <div class="control">
-              <input id="ussd_farmSize" class="input" type="text" placeholder="farm size of farmer">
+              <div class="select">
+                <select id="ussd_farm_size">
+                  <option disabled>Select dropdown</option>
+                  <option>1 hectar</option>
+                  <option>1 - 2 (hectars)</option>
+                  <option>2</option>
+                  <option>2 - 3 (hectars)</option>
+                  <option>3 hectars</option>
+                  <option>3 - 4 (hectars)</option>
+                  <option>4 hectars</option>
+                  <option>4 - 5 (hectars)</option>
+                  <option>5 hectars</option>
+                </select>
+              </div>
             </div>
           </div>
+
+          <div class="field">
+            <label class="label">House Income</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_farm_income">
+                  <option disabled>Select dropdown</option>
+                  <option>less than 10,000</option>
+                  <option>10,000 - 20,000</option>
+                  <option>20,000</option>
+                  <option>20,000 - 30,000</option>
+                  <option>30,000 - 40,000</option>
+                  <option>40,000 - 50,000</option>
+                  <option>greater than 50,000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="sourceOfInforCheckboxes()">
+                <select>
+                  <option>Source of Information</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="sourceOfInfocheckboxes">
+                <label for="one" class="label">
+                  <input name="info_selection" type="checkbox" id="farmer_group" value="farmer's group"/>Farmer Gop</label>
+                <label for="two" class="label">
+                  <input name="info_selection" type="checkbox" id="radio" value="radio" />Radio</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="ga" value="government agency"/>G/A</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="FA" value="field agent"/>Field Agent</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="mobile" value="mobile phone" />Mobile Pho.</label>
+              </div>
+            </div>
+          </form>
+
           
           <div class="field is-grouped">
             <div class="control">
