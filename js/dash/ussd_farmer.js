@@ -37,23 +37,20 @@ $("#ussdFarmer_submit").on('click', function(e) {
 					if(checkedInfoValue[i].type=='checkbox' && checkedInfoValue[i].checked==true)
           selectedInfoItems+=checkedInfoValue[i].value+", ";
 				}
-    
-
-console.log(firstname, lastname, phonNum, state, lga, gender, farm_size, village, disability, selectedCropItems, selectedAnimalItems, birthday, selectedInfoItems, marital, education, farm_income);
 
     // validate empty input
-    // if(firstname == "" || lastname == "" || phonNum == "" || state == "" ||  lga == "" || crop == "" || gender == "" || farm_size =="") {
-    //   $("#login-form").addClass('is-hidden');
-    //   swal.fire({
-    //     title: 'Error Authenticating',
-    //     text: 'You must provide all credentials',
-    //     icon: 'warning',
-    //     timer: 2100
-    //   }).then(()=> {
-    //     $("#login-form").toggleClass('is-hidden');
-    //   });
-    //   return false;
-    // }
+    if(firstname == "" || lastname == "" || phonNum == "" || state == "" ||  lga == "" || selectedCropItems == "" || gender == "" || farm_size =="" || farm_income == "" || education == "" || marital == " " || selectedInfoItems == " " || birthday == " " || selectedAnimalItems == " " || village == " " || disability == " ") {
+      $("#login-form").addClass('is-hidden');
+      swal.fire({
+        title: 'Error Authenticating',
+        text: 'You must provide all credentials',
+        icon: 'warning',
+        timer: 2100
+      }).then(()=> {
+        $("#login-form").toggleClass('is-hidden');
+      });
+      return false;
+    }
 
     // if(phonNum < 10) {
     //   $("#login-form").addClass('is-hidden');
@@ -93,50 +90,60 @@ console.log(firstname, lastname, phonNum, state, lga, gender, farm_size, village
     // }
 
 
-    // swal.showLoading('Please wait...');
+    swal.showLoading('Please wait...');
   
-      // const url = 'https://farm-aid-backend.herokuapp.com/api/onboard';
+      const url = 'https://farm-aid-backend.herokuapp.com/api/onboard';
   
-      // const user = {
-      //   "firstname": firstname,
-      //   "lastname":lastname,
-      //   "phoneNumber":phonNum,
-      //   "state":state,
-      //   "lga":lga,
-      //   "educational_level": "none",
-      //   "crops":crop,
-      //   "gender":gender,
-      //  "farm_size":farm_size
-      // };
+      const ussdFarmer = {
+        "firstname": firstname,
+        "lastname":lastname,
+        "phoneNumber":phonNum,
+        "birthday":birthday,
+        "gender":gender,
+        "state":state,
+        "lga":lga,
+        "village":village,
+        "disability": disability,
+        "marital": marital,
+        "education": education,
+        "crops":selectedCropItems,
+        "animals":selectedAnimalItems,
+       "farm_size":farm_size,
+       "farm_income":farm_income,
+       "source_info":selectedInfoItems,
+      };
   
       // create request object
-      // var request = new Request(url, {
-      //   method: 'POST',
-      //   body: JSON.stringify(user),
-      //   headers: new Headers({
-      //     'Content-Type': 'application/json'
-      //   })
-      // });
+      var request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(ussdFarmer),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      });
 
-      // fetch(request).then(async (res) => {
-      //   let resp = await res.json();
-      //     if(resp.status !== 201) {
-      //       Swal.fire({
-      //         title: "Farmer Already Exist",
-      //         text:   "Farmers Phone Number already exist in the database",
-      //         icon: "info",
-      //         timer: 3000
-      //       })
-      //     } else {
+      fetch(request).then(async (res) => {
+        let resp = await res.json();
+        console.log(resp)
+          if(resp.status !== 201) {
+            Swal.fire({
+              title: "Farmer Already Exist",
+              text:   "Farmers Phone Number already exist in the database",
+              icon: "info",
+              timer: 3000
+            })
+          } else {
 
-      //       Swal.fire({
-      //         title: "Farmer On-Boarded",
-      //         text:  "Farmer has been on_borded",
-      //         icon: "info",
-      //         timer: 3000
-      //       })
-      //     }
-      // })
+            Swal.fire({
+              title: "Farmer On-Boarded",
+              text:  "Farmer has been on_borded",
+              icon: "info",
+              timer: 3000
+            })
+            firstname.value = "";
+
+          }
+      })
 
   });
 
