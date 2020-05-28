@@ -435,6 +435,7 @@ function viewSingleDisease(view_det_id) {
        
       document.getElementById("disease_case_body").innerHTML = html;
       swal.close();
+      document.getElementById('view_single_disease').scrollIntoView()
     }).catch((error) => {
       console.error('Error:', error);
     })
