@@ -52,43 +52,6 @@ $("#ussdFarmer_submit").on('click', function(e) {
       return false;
     }
 
-    // if(phonNum < 10) {
-    //   $("#login-form").addClass('is-hidden');
-    //   swal.fire({
-    //     title: 'Error Authenticating',
-    //     text: 'Phone Number must not be less than 10 digit',
-    //     icon: 'warning',
-    //     timer: 3100
-    //   }).then(()=> {
-    //     $("#login-form").toggleClass('is-hidden');
-    //   });
-    //   return false;
-    // }
-    // if(phonNum > 10) {
-    //   $("#login-form").addClass('is-hidden');
-    //   swal.fire({
-    //     title: 'Error Authenticating',
-    //     text: 'Phone Number must not be greater than 10 digit',
-    //     icon: 'warning',
-    //     timer: 3100
-    //   }).then(()=> {
-    //     $("#login-form").toggleClass('is-hidden');
-    //   });
-    //   return false;
-    // }
-    // if(!phonNum.match(numbers)) {
-    //   $("#login-form").addClass('is-hidden');
-    //   swal.fire({
-    //     title: 'Error Authenticating',
-    //     text: 'Phone Number must be number',
-    //     icon: 'warning',
-    //     timer: 3100
-    //   }).then(()=> {
-    //     $("#login-form").toggleClass('is-hidden');
-    //   });
-    //   return false;
-    // }
-
 
     swal.showLoading('Please wait...');
   
@@ -124,7 +87,6 @@ $("#ussdFarmer_submit").on('click', function(e) {
 
       fetch(request).then(async (res) => {
         let resp = await res.json();
-        console.log(resp)
           if(resp.status !== 201) {
             Swal.fire({
               title: "Farmer Already Exist",
@@ -140,7 +102,18 @@ $("#ussdFarmer_submit").on('click', function(e) {
               icon: "info",
               timer: 3000
             })
-            firstname.value = "";
+            $('#ussd_firstname').val('');
+            $('#ussd_lastname').val('');
+            $('#ussd_phoneNumber').val('');
+            $('#ussd_state').val('');
+            $('#ussd_lga').val('');
+            $('#ussd_village').val('');
+            $('#ussd_state').val('');
+            $('#ussd_state').val('');
+            $('#birthday').val('');
+            document.getElementById('ussd_phoneNumber').disabled = false;
+            document.getElementById('ussd_lga').disabled = false;
+            document.getElementById('ussd_state').disabled = false;
 
           }
       })
@@ -163,7 +136,6 @@ function ussdFarmer(params) {
         const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php';
         $.ajax({url: url, success: function(result){
           parsed = JSON.parse(result)
-          console.log(parsed.length);
           if(parsed.length > 0){
 
             parsed.forEach((td) => {
@@ -172,11 +144,11 @@ function ussdFarmer(params) {
               var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
               record_html_body += "<tr>";
               record_html_body +=  "<td> </td>";
-              record_html_body +=  "<td>" + td.phone_number +  "</td>";
-              record_html_body +=  "<td>" + state + "</td>";
-              record_html_body +=  "<td>" + lga +  "</td>";
-              record_html_body +=  "<td>" + crops +  "</td>";
-              record_html_body +=  '<td><button onclick="populate_form()" class="btn btn-primary">Onboard</button></td>';
+              record_html_body +=  "<td class='ussd_phone_number_onboarding props'>" + td.phone_number +  "</td>";
+              record_html_body +=  "<td class='ussd_state props'>" + state + "</td>";
+              record_html_body +=  "<td class='ussd_lga props'>" + lga +  "</td>";
+              record_html_body +=  "<td class='ussd_crops props'>" + crops +  "</td>";
+              record_html_body +=  '<td><button onclick="populate_form(event);" class="btn btn-primary">Onboard</button></td>';
               record_html_body +=  "</tr>";
             })
             $("#ussd_details_log").empty().append(record_html_body);
@@ -194,8 +166,53 @@ function ussdFarmer(params) {
 
   }
 
-  function populate_form(){
+  function populate_form(event){
     //
+    var row_children = $(event.target.parentElement).parent()
+    var childrenz = $(row_children[0]).children()
+    var usable_childs = [];
+    for (const key in childrenz) {
+      if (childrenz.hasOwnProperty(key)) {
+        const el = childrenz[key];
+        usable_childs.push(el)
+      }
+    }
+    var ussd_phone_val = usable_childs[1].innerHTML
+    var ussd_state_val = usable_childs[2].innerHTML
+    var ussd_lga_val = usable_childs[3].innerHTML
+    var ussd_crops_val = usable_childs[4].innerHTML
+    document.getElementById("ussd_phoneNumber").setAttribute("value", ussd_phone_val);
+    document.getElementById("ussd_state").setAttribute("value", ussd_state_val);
+    document.getElementById('ussd_phoneNumber').disabled = true;
+    
+    if(ussd_lga_val === null || ussd_lga_val === undefined || ussd_lga_val === "N/A" || ussd_lga_val === "others"){
+      document.getElementById('ussd_lga').disabled = false;
+    }else{
+      document.getElementById('ussd_lga').disabled = true;
+      document.getElementById("ussd_lga").setAttribute("value", ussd_lga_val);
+
+    }
+
+    if(ussd_crops_val === "N/A" || ussd_crops_val === null || ussd_crops_val === undefined){
+
+      $("input[value='" + ussd_crops_val + "']").prop('checked', false);
+    } else{
+
+      $("input[value='" + ussd_crops_val + "']").prop('checked', true);
+    }
+
+    if(ussd_state_val === "N/A" || ussd_state_val === undefined || ussd_state_val === null){
+      document.getElementById('ussd_state').disabled = false;
+    } else{
+
+      let element = document.getElementById('ussd_state');
+      element.value = ussd_state_val;
+      document.getElementById('ussd_state').disabled = true;
+      document.getElementById('ussd_firstname').scrollIntoView()
+    }
+
+
+
   }
 
   var expanded = false;
