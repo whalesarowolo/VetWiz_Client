@@ -281,3 +281,40 @@ form button{
 .single_disease_button_section{
     padding: 20px;
 }
+
+#resp-table {
+    width: 100%;
+    display: table;
+    padding: 5px; 
+    border-radius: 10px; 
+    
+}
+#resp-table-header{
+    display: table-header-group;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+.table-header-cell{
+    display: table-cell;
+    padding: 10px;
+    text-align: justify;
+    border-bottom: 1px solid black;
+    border: #26d0a8;
+    border-style: solid 1px;
+}
+#resp-table-body{
+    display: table-row-group;
+}
+.resp-table-row{
+    display: table-row;
+    border-style: dotted;
+}
+.table-body-cell{
+    display: table-cell;
+    padding-left: 20px;
+    border: solid 1px #26d0a8;
+}
+

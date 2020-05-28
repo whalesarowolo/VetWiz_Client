@@ -44,6 +44,85 @@ function logout() {
     window.location.replace('/nvri-login.html');
 }
 
+async function getDiagnosesQueries() {
+  swal.fire({
+    title: 'Please wait',
+    text: 'Fetching Diagnoses Queries',
+    icon: 'info',
+    allowOutsideClick: false,
+    showConfirmButton: false
+  })
+  const diag_query_url = 'https://farm-aid-backend.herokuapp.com/api/nvir/diagnosis'
+  const token = localStorage.getItem('access_token');
+  // create request object
+  var diag_request = new Request(diag_query_url, {
+    method: 'GET',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': token 
+    })
+  });
+
+  fetch(diag_request)
+  .then(async (diag_res) => {
+    var diagnosis_res = diag_res.json();
+
+    if (diagnosis_res !== null) {
+      swal.close();
+      swal.fire({
+          title: 'Diagnoses obtained',
+          text: 'Diagnoses fetched successfully',
+          timer: 3000,
+          icon: 'success'
+      }).then(() => {
+        $("#diagnoses_queries").empty().fadeOut();
+        $("#resp-table-body").empty().fadeOut();
+      swal.fire({
+        title: 'Updating Data',
+        text: 'Please wait...',
+        icon: 'info',
+        allowOutsideClick: false,
+      })
+      diagnosis_res.then((vals) => {
+        var dia_count = 0
+        vals.forEach(dg_query => {
+          dia_count +=1;
+          var html_with_div = `<div class="resp-table-row">
+              <div class="table-body-cell">
+                ` + dia_count +  `
+                </div>
+                <div class="table-body-cell">
+                ` + `Animal <b>` + (dg_query.animal).charAt(0).toUpperCase() + (dg_query.animal).slice(1) + `</b> <br>Disease<b> ` + dg_query.diseasesFound[0] + `
+                </b></div>
+                <div class="table-body-cell">
+                 <p class="control">
+                             <div class="b-checkbox is-primary">
+                                 <input id="checkbox" class="styled" checked type="checkbox">
+                                 <label for="checkbox">
+                                     complete
+                                 </label>
+                             </div>
+                         </p>
+                </div>
+          </div>`;
+          $("#resp-table-body").append(html_with_div);
+     
+      })
+      swal.close();
+      $("#resp-table-body").fadeIn('slow');
+
+      })
+
+      })
+    }
+
+  }).catch((err) => {
+    swal.close();
+    console.log("Request failed...");
+  });
+
+}
+
 function getRegUsers() {
   swal.fire({
     title: 'Please wait',
