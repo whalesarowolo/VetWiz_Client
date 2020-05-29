@@ -270,7 +270,7 @@ function viewDisease(params) {
             let Disease = datas.disease;
             let Disease_hausa = datas.diseaseHausa;
             let Disease_fulfude = datas.diseaseFulfude;
-            let Treatment = datas.treatment;
+            let animal = datas.animal;
             let Vaccine = datas.vaccine;
             let associated_animal = datas.animalAssocaited;
             let key_Word = datas.keyWord;
@@ -284,9 +284,10 @@ function viewDisease(params) {
             html += "<td>" + Disease + "</td>"
             html += "<td>" + Disease_hausa + "</td>"
             html += "<td>" + Disease_fulfude + "</td>"
+            html += "<td>" + animal + "</td>"
             // html += '<td>' + Treatment + '</td>'
             html += "<td>" + associated_animal + "</td>"
-            html += "<td>" + Vaccine + "</td>"
+            // html += "<td>" + Vaccine + "</td>"
             html += "<td>" + key_Word + "</td>"
             html += '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' + `${disease_dataId}` + '> View' + '</span>' 
             html += "</tr>"
@@ -352,6 +353,7 @@ function viewSingleDisease(view_det_id) {
       let associated_animal =data.animalAssocaited;
       let key_Word =data.keyWord;
       let prevention =data.prevention;
+      let animal =data.animal;
       let symptoms =data.symptoms;
       let disease_dataId =data._id;
   
