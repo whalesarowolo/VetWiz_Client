@@ -6,7 +6,7 @@ window.onload = function () {
         exportEnabled: true,
         animationEnabled: true,
         title:{
-            text: "Farmers Value Chain Data Analysis"
+            text: ""
         },
         legend:{
             cursor: "pointer",
@@ -14,7 +14,7 @@ window.onload = function () {
         },
         data: [{
             type: "pie",
-            showInLegend: true,
+            // showInLegend: true,
             toolTipContent: "{name}: <strong>{y}</strong>",
             indexLabel: "{name}",
             dataPoints: [

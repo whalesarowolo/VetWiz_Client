@@ -728,114 +728,65 @@
             <div class="dashboard-wrapper">
 
                 <!-- Main content -->
-                <div id="main-dashboard" class="section-wrapper">
+                <div id="main-dashboard" class="section-wrapper margin-button">
                     <!-- Stat tiles -->
                     <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance_wallet</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Agro-dealers</h3>
-                                    <p>
-                                        <span>10</span>
-                                    </p>
-                                </div>
+                       <div class="market_actor_info_container">
+                           <div class="sms_info_container">
+                            <div class="icon-header sms_icon_market_actor_dashboard">
+                                <i class="material-icons is-primary sms_icon">sms</i>
                             </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance</i>
+                                <div class="sms_info_details">
+                                    <div class="upper_section">
+
+                                        <div class="sms_available_info sms_line_height">
+                                            <p class="white_color">SMS Available</p>
+                                            <span class="sms_span">0</span>
+                                        </div>
+                                        <div class="sms_sent_info sms_line_height">
+                                            <p class="white_color">SMS Sent</p>
+                                            <span class="sms_span">0</span>
+                                        </div>
+                                    </div>
+                                    <button class="button sms_info_section_button">Send SMS</button>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Seed Cos.</h3>
-                                    <p>
-                                        <span>18</span>
-                                    </p>
+                           </div>
+
+
+                           <div class="subscription_info_container">
+                                <div class="icon-header subs_icon_market_actor_dashboard">
+                                    <i class="material-icons is-primary sms_icon">book</i>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">work</i>
+                                <div class="subscription_info_details">
+                                    <p>Current Plan</p>
+                                    <h2 class="subscription_status">NOT SUBSCRIBED</h2>
+                                    <button class="button subs_info_section_button">subscribe to a plan</button>
                                 </div>
-                                <div class="tile-content">
-                                    <h3>Aggregators</h3>
-                                    <p>
-                                        <span>11</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">business</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Off Takers</h3>
-                                    <p>
-                                        <span>13</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons primary">account_balance_wallet</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Input Cos.</h3>
-                                    <p>
-                                        <span>16</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">work</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Paraveterinary</h3>
-                                    <p>
-                                        <span>10</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tile -->
-                        <div class="column is-3">
-                            <div class="dashboard-tile">
-                                <div class="icon-header">
-                                    <i class="material-icons secondary">business</i>
-                                </div>
-                                <div class="tile-content">
-                                    <h3>Ext Agents</h3>
-                                    <p>
-                                        <span>12</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                           </div>
+                       </div>
                     </div>
 
                     <!-- Widgets -->
-                    <div id="chartContainer" style="height: 300px; width: 80%;"></div>
+                    <div>
+
+                    </div>
+                    <div id="chartContainer"></div>
+                    <div class="state_container_section">
+
+                        <div class="state_container">
+                            <h1>Available State: </h1>
+                            <div class="state_naming">
+                                <div class="state_name_section" style="margin-bottom: 10px;">
+                                    <span class="state_border"></span>
+                                    <h2 style="margin-top: -4px; margin-left: 10px;">Adamawa</h2>
+                                </div>
+                                <div class="state_name_section">
+                                    <span class="state_border"></span>
+                                    <h2 style="margin-top: -4px; margin-left: 10px;">Gombe</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
