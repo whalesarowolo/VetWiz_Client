@@ -393,6 +393,10 @@ table tr td:first-child::before {
   display: flex;
 }
 
+.sms_subscription_status{
+  color: rgb(209, 48, 48);
+}
+
 @media only screen and (max-width: 768px) {
   html {
     font-size: 75%;
