@@ -237,6 +237,7 @@ table tr td:first-child::before {
 
 .subscription_info_container{
   display: flex;
+  height: 200px;
 }
 
 .upper_section{

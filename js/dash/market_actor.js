@@ -4,10 +4,27 @@ let sms_button = document.getElementById('sms_sending_button');
 
 if(subscription_status.innerHTML === 'NOT SUBSCRIBED'){
     console.log(subscription_status.innerHTML);
-    document.getElementById("sms_subscription_status_message").style.display = "block";
-    document.getElementById("sms_sending_button").disabled = true;
+
+    function show_sidebar()
+        {
+        document.getElementById('sms_subscription_status_message').style.visibility="visible";
+        }
+
+        function hide_sidebar()
+        {
+        document.getElementById('sms_subscription_status_message').style.visibility="hidden";
+        }
+
+         document.getElementById("sms_sending_button").style.opacity = "0.5";
 }else{
-    document.getElementById("sms_subscription_status_message").style.display = "none";
-    document.getElementById("sms_sending_button").disabled = false;
+    function show_sidebar()
+    {
+    document.getElementById('sms_subscription_status_message').style.visibility="none";
+    }
+
+    function hide_sidebar()
+    {
+    document.getElementById('sms_subscription_status_message').style.visibility="none";
+    }
 
 }
