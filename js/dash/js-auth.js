@@ -2989,7 +2989,10 @@ function weather(params) {
       let temp = data['main']['temp'] - 275;
       currentTemp = temp.toFixed(1)
       icon = data.weather[0].icon;
-      var info = "<p>" + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>"  +  " <br>" +"Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data.weather[0].description).toUpperCase() +   " <br>" +  " Humidity: " + data['main']['humidity'] + "</p>";
+      var d = new Date(data.dt * 1000); // to get the DateTime.
+      var myDate = new Date(d);
+      var local_date = myDate.toLocaleString()
+      var info = "<p>" + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>"  +  " <br>" +"Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data.weather[0].description).toUpperCase() +   " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + local_date +"</p>";
       switch(state) {
         case 'abuja':
           // code block
