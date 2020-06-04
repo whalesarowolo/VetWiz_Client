@@ -22,7 +22,7 @@
                         </a>
                     </p>
                     <p class="control is-expanded">
-                        <input class="input is-rounded" id="the_phonenumber" class="input" type="tel" placeholder="Phone number">
+                        <input class="input is-rounded" id="the_phonenumber" name="phone" type="tel" placeholder="Phone number">
                     </p>
                 </div>
             </div>
@@ -30,6 +30,17 @@
             <div class="field">
                 <label class="label" for="the_email">Email Address</label>
                 <input class="input is-rounded is-medium"  type="email" name="email" id="the_email" class="input">
+            </div>
+            <div class="field is-medium">
+                <label class="label" for="the_role">State</label>
+                <div class="control">
+                    <div class="select is-medium is-rounded is-fullwidth">
+                        <select id="the_state">
+                            <option value="adamawa">Adamawa</option>
+                            <option value="gombe">Gombe</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="field is-medium">
                 <label class="label" for="the_role">Role</label>

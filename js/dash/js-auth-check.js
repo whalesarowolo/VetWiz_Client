@@ -294,8 +294,15 @@ function create_admin(params) {
         });
       }
 
-  
-  
+  $("#the_state").change(function() {
+    console.log("State change...");
+    swal.fire({
+      title: 'Hey',
+      text: 'changing state',
+      timer: 2000,
+      icon: 'info'
+    });
+  });
   
   function persist_user(event) {
     event.preventDefault();
@@ -303,6 +310,8 @@ function create_admin(params) {
     var email = $("#the_email").val();
     var role = $("#the_role").val();
     var password = $("#the_password").val();
+    var the_state = $("#the_state").val();
+    
     var numbers = /^[0-9]+$/;
    // function to validate email
    function IsEmail(email) {
