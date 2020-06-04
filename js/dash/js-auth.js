@@ -3212,8 +3212,8 @@ function weather(params) {
       icon = data.weather[0].icon;
       var d = new Date(data.dt * 1000); // to get the DateTime.
       var myDate = new Date(d);
-      var local_date = myDate.toGMTString()
-      var info = "<p>" + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>"  +  " <br>" +"Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data.weather[0].description).toUpperCase() +   " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + local_date +"</p>";
+      var local_date = d.toLocaleTimeString()
+      var info = "<p>" + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>"  +  " <br>" +"Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data.weather[0].description).toUpperCase() +   " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + d +"</p>";
       switch(state) {
         case 'abuja':
           // code block
