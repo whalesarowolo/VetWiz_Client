@@ -734,7 +734,8 @@
                        <div class="market_actor_info_container">
                            <div class="sms_info_container">
                             <div class="icon-header sms_icon_market_actor_dashboard">
-                                <i class="material-icons is-primary sms_icon">sms</i>
+                                <!-- <i class="material-icons is-primary sms_icon">sms</i> -->
+                                <img src="./img/Group 3.png" alt="sms_icom" srcset="" class="sms_subs_icon">
                             </div>
                                 <div class="sms_info_details">
                                     <div class="upper_section">
@@ -748,19 +749,23 @@
                                             <span class="sms_span">0</span>
                                         </div>
                                     </div>
-                                    <button class="button sms_info_section_button">Send SMS</button>
+                                    <button class="button sms_info_section_button" id="sms_sending_button" onMouseOver="show_sidebar()" onMouseOut="hide_sidebar()">Send SMS</button>
+                                    <div class="sms_subscription_status" id="sms_subscription_status_message">
+                                        <p >Subscribe to enable sending of SMS</p>
+                                    </div>
                                 </div>
                            </div>
 
 
                            <div class="subscription_info_container" style="margin-right: 10px;">
                                 <div class="icon-header subs_icon_market_actor_dashboard">
-                                    <i class="material-icons is-primary sms_icon">book</i>
+                                    <!-- <i class="material-icons is-primary sms_icon">book</i> -->
+                                    <img src="./img/Group 2.png" alt="subs_icon" srcset="">
                                 </div>
                                 <div class="subscription_info_details">
                                     <p>Current Plan</p>
-                                    <h2 class="subscription_status">NOT SUBSCRIBED</h2>
-                                    <button class="button subs_info_section_button">subscribe to a plan</button>
+                                    <h2 class="subscription_status" id="subscription_status">NOT SUBSCRIBED</h2>
+                                    <a href="#pricing"><input type="submit" value="subscribe to a plan" class="button subs_info_section_button"/></a>
                                 </div>
                            </div>
                        </div>
@@ -947,6 +952,7 @@
     <script src="js/dash/js-charts.js"></script>
     <script src="js/dash/js-auth.js"></script>
     <script src="./js/dash/chart.js"></script>
+    <script src="./js/dash/market_actor.js"></script>
 </body>
 
 </html>
