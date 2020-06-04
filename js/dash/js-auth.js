@@ -2963,17 +2963,23 @@ function groudnutGapSwal(params) {
 }
 
 
+function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31 
+            && (charCode < 48 || charCode > 57))
+             return false;
 
+          return true;
+       }
 
 function lat_lon_weather(params) {
 
 
   let lat_value = document.getElementById('latitude_input_field').value;
   let long_value = document.getElementById('longitude_input_field').value;
-  let regExp = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/
-  const matches = lat_value.match(regExp);
-  console.log(matches)
-  if(lat_value == '' || long_value == ''){
+  
+  if(lat_value == '' || lat_value == null || lat_value == undefined || long_value == ''){
     swal.fire({
       title: 'Each field must not be empty',
       text: 'Please fill both input fields',
@@ -2982,7 +2988,9 @@ function lat_lon_weather(params) {
       showConfirmButton: false,
       icon: 'info'
     })
+    return false
   }
+
   swal.fire({
     title: 'Loading Weather Data',
     text: 'Please wait...',
@@ -3002,7 +3010,6 @@ function lat_lon_weather(params) {
     fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat_value + '&lon=' + long_value + '&cnt=10&appid=e447d989b428a1c47bc5e499d121de84')
     .then( response => response.json())
     .then(data => {
-      console.log(data);
       var allDays= ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var d = new Date(data.list[0].dt * 1000); // to get the DateTime. 
       var day2 = new Date(data.list[1].dt * 1000); // to get the DateTime. 
@@ -3035,7 +3042,7 @@ function lat_lon_weather(params) {
       icon = data.list[0].weather[0].icon;
       time = data.list[0].dt;
       rain = data.list[0].rain ? data.list[0].rain: 'not available';
-      console.log(city_name)
+      // console.log(city_name)
     
 
       let temp1 = data.list[1].temp.max - 275;
@@ -3167,6 +3174,9 @@ function lat_lon_weather(params) {
     $("#eigth_log_lat_weather_section").html(info7);
     $("#nineth_log_lat_weather_section").html(info8);
     $("#tenth_log_lat_weather_section").html(info9);
+
+    document.getElementById('latitude_input_field').value = '';
+    document.getElementById('longitude_input_field').value = '';
    
     })
 

@@ -78,8 +78,8 @@
 <div class="container">
     <h1 class="title is-centered" style="margin-top: 20px;"> Input Latitude and Longitude details in the field provided below</h1>
     <div class="longitude_latitude_input">
-        <input class="input is-rounded" type="text" placeholder="Input latitude co-ordinate" id="latitude_input_field">
-        <input class="input is-rounded" type="text" placeholder="Input longitude co-ordinate" id="longitude_input_field">
+        <input class="input is-rounded" type="text" placeholder="Input latitude co-ordinate" id="latitude_input_field" onkeypress="return isNumberKey(event)">
+        <input class="input is-rounded" type="text" placeholder="Input longitude co-ordinate" id="longitude_input_field" onkeypress="return isNumberKey(event)">
         <button class="button is-success is-rounded" id="lat_long_submit_button" onclick="lat_lon_weather()">Submit</button>
     </div>
     <div class="columns forcast_section">
