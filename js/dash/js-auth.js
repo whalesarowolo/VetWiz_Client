@@ -2963,6 +2963,217 @@ function groudnutGapSwal(params) {
 }
 
 
+
+
+function lat_lon_weather(params) {
+
+
+  let lat_value = document.getElementById('latitude_input_field').value;
+  let long_value = document.getElementById('longitude_input_field').value;
+  let regExp = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/
+  const matches = lat_value.match(regExp);
+  console.log(matches)
+  if(lat_value == '' || long_value == ''){
+    swal.fire({
+      title: 'Each field must not be empty',
+      text: 'Please fill both input fields',
+      timer: 4000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    })
+  }
+  swal.fire({
+    title: 'Loading Weather Data',
+    text: 'Please wait...',
+    timer: 3000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    Swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+
+    fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat_value + '&lon=' + long_value + '&cnt=10&appid=e447d989b428a1c47bc5e499d121de84')
+    .then( response => response.json())
+    .then(data => {
+      console.log(data);
+      var allDays= ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var d = new Date(data.list[0].dt * 1000); // to get the DateTime. 
+      var day2 = new Date(data.list[1].dt * 1000); // to get the DateTime. 
+      var day3 = new Date(data.list[2].dt * 1000); // to get the DateTime. 
+      var day4 = new Date(data.list[3].dt * 1000); // to get the DateTime. 
+      var day5 = new Date(data.list[4].dt * 1000); // to get the DateTime. 
+      var day6 = new Date(data.list[5].dt * 1000); // to get the DateTime. 
+      var day7 = new Date(data.list[6].dt * 1000); // to get the DateTime. 
+      var day8 = new Date(data.list[7].dt * 1000); // to get the DateTime. 
+      var day9 = new Date(data.list[8].dt * 1000); // to get the DateTime. 
+      var day10 = new Date(data.list[9].dt * 1000); // to get the DateTime. 
+      var dayName = allDays[d.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName2 = allDays[day2.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName3 = allDays[day3.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName4 = allDays[day4.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName5 = allDays[day5.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName6 = allDays[day6.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName7 = allDays[day7.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName8 = allDays[day8.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName9 = allDays[day9.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+      var dayName10 = allDays[day10.getDay()]; // It will give day index, and based on index we can get day name from the array. 
+
+
+      let temp = data.list[0].temp.max - 275;
+      currentTemp = temp.toFixed(1)
+      let humid = data.list[0].humidity;
+      let city_name = data.city.name;
+      descrip = data.list[0].weather[0].main;
+      main = data.list[0].weather[0].description;
+      icon = data.list[0].weather[0].icon;
+      time = data.list[0].dt;
+      rain = data.list[0].rain ? data.list[0].rain: 'not available';
+      console.log(city_name)
+    
+
+      let temp1 = data.list[1].temp.max - 275;
+      currentTemp1 = temp1.toFixed(1)
+      let humid1 = data.list[1].humidity;
+      let city_name1 = data.city.name;
+      time1 = data.list[1].dt;
+      rain1 = data.list[1].rain ? data.list[1].rain: 'not available';
+      descrip1 = data.list[1].weather[0].description
+      main1 = data.list[1].weather[0].description;
+      icon1 = data.list[1].weather[0].icon;
+
+
+      let temp2 = data.list[2].temp.max - 275;
+      currentTemp2 = temp2.toFixed(1)
+      let humid2 = data.list[2].humidity;
+      time2 = data.list[2].dt;
+      rain2 = data.list[2].rain ? data.list[2].rain: 'not available';
+      descrip2 = data.list[2].weather[0].description
+      main2 = data.list[2].weather[0].description;
+      icon2 = data.list[2].weather[0].icon;
+
+
+      let temp3 = data.list[3].temp.max - 275;
+      currentTemp3 = temp3.toFixed(1)
+      let humid3 = data.list[3].humidity;
+      time3 = data.list[3].dt;
+      rain3 = data.list[3].rain ? data.list[3].rain: 'not available';
+      descrip3 = data.list[3].weather[0].description
+      main3 = data.list[3].weather[0].description;
+      icon3 = data.list[3].weather[0].icon;
+
+
+      let temp4 = data.list[4].temp.max - 275;
+      currentTemp4 = temp4.toFixed(1)
+      let humid4 = data.list[4].humidity;
+      time4 = data.list[4].dt;
+      rain4 = data.list[4].rain ? data.list[4].rain: 'not available';
+      descrip4 = data.list[4].weather[0].description
+      main4 = data.list[4].weather[0].description;
+      icon4 = data.list[4].weather[0].icon;
+
+
+      let temp5 = data.list[5].temp.max - 275;
+      currentTemp5 = temp5.toFixed(1)
+      let humid5 = data.list[5].humidity;
+      time5 = data.list[5].dt;
+      rain5 = data.list[5].rain ? data.list[5].rain: 'not available';
+      descrip5 = data.list[5].weather[0].description
+      main5 = data.list[5].weather[0].description;
+      icon5 = data.list[5].weather[0].icon;
+
+
+      let temp6 = data.list[6].temp.max - 275;
+      currentTemp6 = temp6.toFixed(1)
+      let humid6 = data.list[6].humidity;
+      time6 = data.list[6].dt;
+      rain6 = data.list[6].rain ? data.list[6].rain: 'not available';
+      descrip6 = data.list[6].weather[0].description
+      main6 = data.list[6].weather[0].description;
+      icon6 = data.list[6].weather[0].icon;
+
+
+      let temp7 = data.list[7].temp.max - 275;
+      currentTemp7 = temp7.toFixed(1)
+      let humid7 = data.list[7].humidity;
+      time7 = data.list[7].dt;
+      rain7 = data.list[7].rain ? data.list[7].rain: 'not available';
+      descrip7 = data.list[7].weather[0].description
+      main7 = data.list[7].weather[0].description;
+      icon7 = data.list[7].weather[0].icon;
+
+
+      let temp8 = data.list[8].temp.max - 275;
+      currentTemp8 = temp8.toFixed(1)
+      let humid8 = data.list[8].humidity;
+      time8 = data.list[8].dt;
+      rain8 = data.list[8].rain ? data.list[8].rain: 'not available';
+      descrip8 = data.list[8].weather[0].description
+      main8 = data.list[8].weather[0].description;
+      icon8 = data.list[8].weather[0].icon;
+
+
+      let temp9 = data.list[9].temp.max - 275;
+      currentTemp9 = temp9.toFixed(1)
+      let humid9 = data.list[9].humidity;
+      time9 = data.list[9].dt;
+      rain9 = data.list[9].rain ? data.list[9].rain: 'not available';
+      descrip9 = data.list[9].weather[0].description
+      main9 = data.list[9].weather[0].description;
+      icon9 = data.list[9].weather[0].icon;
+
+     
+    
+    var info = "<p class='weather_cotainer'> " + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>" +  " <br>" + "Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid + " <br>" +   " Rains: " + rain + " <br>" + "Weather: " + (descrip).toUpperCase() +  " <br>" + "Day: "+ dayName + "</p>";
+
+    var info1 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon1 + ".png'>" +  " <br>" +  " Temp: " + currentTemp1 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid1 + " <br>" +  " Rains: " + rain1 + " <br>" + "Weather: " + (descrip1).toUpperCase() + " <br>" + "Day: "+ dayName2 + "</p>";
+
+    var info2 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon2 + ".png'>" +  " <br>" +  "Temp: " + currentTemp2 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid2 + " <br>" + " Rains: " + rain2 + " <br>" + "Weather: " + (descrip2).toUpperCase() + " <br>" + "Day: "+ dayName3 + "</p>";
+
+    var info3 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon3 + ".png'>" +  " <br>" +  "Temp: " + currentTemp3 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid3 + " <br>" + " Rains: " + rain3 + "<br>" + "Weather: " + (descrip3).toUpperCase() + " <br>" + "Day: "+ dayName4 + "</p>";
+
+
+    var info4 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon4 + ".png'>" +  " <br>" +  "Temp: " + currentTemp4 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid4 + " <br>" + " Rains: " + rain4 + "<br>" + "Weather: " + (descrip4).toUpperCase() + " <br>" + "Day: "+ dayName5 + "</p>";
+
+
+    var info5 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon5 + ".png'>" +  " <br>" +  "Temp: " + currentTemp5 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid5 + " <br>" + " Rains: " + rain5 + "<br>" + "Weather: " + (descrip5).toUpperCase() + " <br>" + "Day: "+ dayName6 + "</p>";
+
+
+    var info6 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon6 + ".png'>" +  " <br>" +  "Temp: " + currentTemp6 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid6 + " <br>" + " Rains: " + rain6 + "<br>" + "Weather: " + (descrip6).toUpperCase() + " <br>" + "Day: "+ dayName7 + "</p>";
+
+
+    var info7 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon7 + ".png'>" +  " <br>" +  "Temp: " + currentTemp7 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid7 + " <br>" + " Rains: " + rain7 + "<br>" + "Weather: " + (descrip7).toUpperCase() + " <br>" + "Day: "+ dayName8 + "</p>";
+
+
+    var info8 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon8 + ".png'>" +  " <br>" +  "Temp: " + currentTemp8 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid8 + " <br>" + " Rains: " + rain8 + "<br>" + "Weather: " + (descrip8).toUpperCase() + " <br>" + "Day: "+ dayName9 + "</p>";
+
+    var info9 = "<p> " + "<img src='https://openweathermap.org/img/w/" + icon9 + ".png'>" +  " <br>" +  "Temp: " + currentTemp9 + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + humid9 + " <br>" + " Rains: " + rain9 + "<br>" + "Weather: " + (descrip9).toUpperCase() + " <br>" + "Day: "+ dayName10 + "</p>";
+
+
+
+    $("#first_log_lat_weather_section").html(info);
+    $("#second_log_lat_weather_section").html(info1);
+    $("#third_log_lat_weather_section").html(info2);
+    $("#fourth_log_lat_weather_section").html(info3);
+    $("#fifth_log_lat_weather_section").html(info4);
+    $("#sixth_log_lat_weather_section").html(info5);
+    $("#seventh_log_lat_weather_section").html(info6);
+    $("#eigth_log_lat_weather_section").html(info7);
+    $("#nineth_log_lat_weather_section").html(info8);
+    $("#tenth_log_lat_weather_section").html(info9);
+   
+    })
+
+    Swal.close();
+  });
+};
+
 // weather content
 function weather(params) {
     swal.fire({
@@ -2991,7 +3202,7 @@ function weather(params) {
       icon = data.weather[0].icon;
       var d = new Date(data.dt * 1000); // to get the DateTime.
       var myDate = new Date(d);
-      var local_date = myDate.toLocaleString()
+      var local_date = myDate.toGMTString()
       var info = "<p>" + "<img src='https://openweathermap.org/img/w/" + icon + ".png'>"  +  " <br>" +"Temp: " + currentTemp + "<span>" + " &#8451; " +"</span> " +  " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + "Weather: " + (data.weather[0].description).toUpperCase() +   " <br>" +  " Humidity: " + data['main']['humidity'] + " <br>" + local_date +"</p>";
       switch(state) {
         case 'abuja':

@@ -8,7 +8,7 @@
             <div id="basic-layout" class="dashboard-columns weather_header">
 
                 <h2 class="demo-title">Weather Module</h2>
-                <button  onclick="weatherForcast()" class="button is-primary is-rounded is-left">Click me</button>
+                <button  onclick="weather()" class="button is-primary is-rounded is-left">Click me</button>
             </div>
         </div>
     </div>
@@ -72,5 +72,28 @@
             <div class="column forcast_body" id="nineth_weather_section"></div>
             <div class="column forcast_body" id="tenth_weather_section"></div>
         </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="title is-centered" style="margin-top: 20px;"> Input Latitude and Longitude details in the field provided below</h1>
+    <div class="longitude_latitude_input">
+        <input class="input is-rounded" type="text" placeholder="Input latitude co-ordinate" id="latitude_input_field">
+        <input class="input is-rounded" type="text" placeholder="Input longitude co-ordinate" id="longitude_input_field">
+        <button class="button is-success is-rounded" id="lat_long_submit_button" onclick="lat_lon_weather()">Submit</button>
+    </div>
+    <div class="columns forcast_section">
+        <div class="column is-one-fifth forcast_body" id="first_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="second_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="third_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="fourth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="fifth_log_lat_weather_section"></div>
+    </div>
+    <div class="columns forcast_section">
+        <div class="column is-one-fifth forcast_body" id="sixth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="seventh_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="eigth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="nineth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="tenth_log_lat_weather_section"></div>
     </div>
 </div>

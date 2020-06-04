@@ -218,6 +218,9 @@ table tr td:first-child::before {
   margin-left: 30px;
 }
 
+.longitude_latitude_input{
+  display: flex;
+}
 
 /* dashboard of market actor csss */
 
