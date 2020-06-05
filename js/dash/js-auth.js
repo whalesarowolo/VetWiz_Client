@@ -690,7 +690,7 @@ $("#send_messages").on('click', function(e) {
       showConfirmButton: false
     });
     
-    $("#gombe_farm_table").ready(function() {
+    $("#gombetable").ready(function() {
 
 
       const url = 'https://farm-aid-backend.herokuapp.com/api/farmer/state/Gombe'
@@ -710,7 +710,6 @@ $("#send_messages").on('click', function(e) {
           $("#example_tase").DataTable( {
           data: data,
             "columns": [
-              { "data": " " },
               { "data": "firstname" },
               { "data": "lastname" },
               { "data": "gender" },
@@ -722,7 +721,7 @@ $("#send_messages").on('click', function(e) {
           } );
 
           html = "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-          document.getElementById("ussd_ada").innerHTML = html;
+          document.getElementById("gob").innerHTML = html;
         }
         
         // End DataTable here

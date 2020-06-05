@@ -304,7 +304,7 @@ if ($("#example_ussd").length) {
       { "data": "phoneNumber" },
       { "data": "state" },
       { "data": "lga" },
-      { "data": "marital" }
+      { "data": "date" }
   ]
   } );
   html = "<span>" + "Total Number of Farmers on-boarded via USSD: " + data.length + "</span>"
