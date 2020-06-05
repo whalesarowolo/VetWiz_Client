@@ -557,6 +557,9 @@ $(document).ready(function () {
     document.getElementById("phon_num2").innerHTML = userObj.user.phoneNumber;
     document.getElementById("biz_category").innerHTML = userObj.user.bizCategory;
     document.getElementById("profile_biz_header").innerHTML = userObj.user.bizCategory;
+    if($("#logged_person").length) {
+      document.getElementById("logged_person").innerHTML = "<p>Welcome " + userObj.user.email + "&nbsp;&nbsp;</p>";
+    }
 });
 
 

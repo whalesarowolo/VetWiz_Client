@@ -73,7 +73,9 @@ $(document).ready(function($){
       window.location.replace('/nvri-login.html');
     })
 
-    
+    if ($("#logged_person").length) {
+      $("#logged_person").innerHTML = "<p>Welcome " + userObj.user.lastname + " " + userObj.user.firtsname + "&nbsp;&nbsp;</p>";
+   }
 
     function parseJwt (token) {
       var base64Url = token.split('.')[1];
@@ -135,6 +137,7 @@ $(document).ready(function($){
               if(userObj.user.role == "admin"){
                 history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/livestock.html");
                 window.location.replace("/livestock.html");
+                
               } else {
                 window.location.replace("/nvri-login.html");
               }             
