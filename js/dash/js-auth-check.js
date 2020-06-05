@@ -294,14 +294,8 @@ function create_admin(params) {
         });
       }
 
-  $("#the_state").change(function() {
-    console.log("State change...");
-    swal.fire({
-      title: 'Hey',
-      text: 'changing state',
-      timer: 2000,
-      icon: 'info'
-    });
+  document.getElementById('the_state').addEventListener('change', () => {
+    console.log("State changed...");
   });
   
   function persist_user(event) {
