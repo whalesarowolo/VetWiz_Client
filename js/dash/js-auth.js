@@ -722,7 +722,7 @@ $("#send_messages").on('click', function(e) {
           } );
 
           html = "<span>" + "Total Number of Farmers in Gombe: " + data.length + "</span>"
-          document.getElementById("gob").innerHTML = html;
+          document.getElementById("ussd_ada").innerHTML = html;
         }
         
         // End DataTable here
