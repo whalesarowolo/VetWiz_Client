@@ -960,6 +960,10 @@ function inputTable(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
       
               html += "<tr>";
             html += "<td></td>"
@@ -968,6 +972,7 @@ function inputTable(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("input_table").innerHTML = html;
@@ -1022,6 +1027,10 @@ function offTaker(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
       
               html += "<tr>";
             html += "<td></td>"
@@ -1030,6 +1039,7 @@ function offTaker(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("off_table").innerHTML = html;
@@ -1084,6 +1094,11 @@ function paraVet(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
+              
       
               html += "<tr>";
             html += "<td></td>"
@@ -1092,6 +1107,7 @@ function paraVet(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("para_table").innerHTML = html;
@@ -1146,6 +1162,10 @@ function extTable(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
       
               html += "<tr>";
             html += "<td></td>"
@@ -1154,6 +1174,7 @@ function extTable(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("ext_table").innerHTML = html;
@@ -1208,6 +1229,10 @@ function aggreTable(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
       
               html += "<tr>";
             html += "<td></td>"
@@ -1216,6 +1241,7 @@ function aggreTable(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("aggre_table").innerHTML = html;
@@ -1270,6 +1296,10 @@ function seedTable(params) {
               let phoNum = users.phoneNumber;
               let email = users.email;
               let company = users.company;
+              let date = new Date(users.date);
+              var str = date.toString();
+              let dateObj = new Date(str);
+              let formated_date = dateObj.toDateString();
       
               html += "<tr>";
             html += "<td></td>"
@@ -1278,6 +1308,7 @@ function seedTable(params) {
             html += "<td>" + phoNum + "</td>"
             html += "<td>" + email + "</td>"
             html += "<td>" + company + "</td>"
+            html += "<td>" + formated_date + "</td>"
           html += "</tr>"
       
           document.getElementById("seed_table").innerHTML = html;
@@ -1328,17 +1359,18 @@ function agroTable(params) {
               let table = "#agro_table";
               
               data.map((users) => {
-
-                console.log(users.isAdmin)
                 let usersDetails = users.bizCategory;
                 let usersRole = users.isAdmin;
                 if(usersDetails == "agro-dealer" && usersRole === false) {
-                  console.count(users);
                   let firstname = users.firstname;
                   let lastname = users.lastname;
                   let phoNum = users.phoneNumber;
                   let email = users.email;
                   let company = users.company;
+                  let date = new Date(users.date);
+                  var str = date.toString();
+                  let dateObj = new Date(str);
+                  let formated_date = dateObj.toDateString();
       
                   html += "<tr>";
                 html += "<td></td>"
@@ -1347,6 +1379,7 @@ function agroTable(params) {
                 html += "<td>" + phoNum + "</td>"
                 html += "<td>" + email + "</td>"
                 html += "<td>" + company + "</td>"
+                html += "<td>" + formated_date + "</td>"
               html += "</tr>"
           
               document.getElementById("agro_table").innerHTML = html;

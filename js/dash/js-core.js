@@ -71,6 +71,7 @@ $(document).ready(function(){
                 $('.dashboard-nav, #dashboard-wrapper').addClass('is-pushed');
                 //disable reader mode switch when sidebar is opened
                 $('.reader-switch label').addClass('is-disabled');
+                // $(".side-icon").hide();
             })
 
             $('.menu-wrapper').on("click", function () {
@@ -78,6 +79,7 @@ $(document).ready(function(){
                 $('.dashboard-nav, #dashboard-wrapper').toggleClass('is-pushed');
                 //enable reader mode switch when sidebar is closed
                 $('.reader-switch label').removeClass('is-disabled');
+                // $(".side-icon").show();
             })
 
             $('.icon-box-toggle').bind('click', function (e) {
