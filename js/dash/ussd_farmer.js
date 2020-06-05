@@ -137,17 +137,24 @@ function ussdFarmer(params) {
         $.ajax({url: url, success: function(result){
           parsed = JSON.parse(result)
           if(parsed.length > 0){
-
             parsed.forEach((td) => {
+              var donb = ""
+              if (td.hasOwnProperty('date_onb')) {
+                donb = td.date_onb; 
+              }else{
+                donb = 'N/A'
+              }
               var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
               var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
               var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
+              var date = (donb != '')? donb : 'April/May';
               record_html_body += "<tr>";
               record_html_body +=  "<td> </td>";
               record_html_body +=  "<td class='ussd_phone_number_onboarding props'>" + td.phone_number +  "</td>";
               record_html_body +=  "<td class='ussd_state props'>" + state + "</td>";
               record_html_body +=  "<td class='ussd_lga props'>" + lga +  "</td>";
               record_html_body +=  "<td class='ussd_crops props'>" + crops +  "</td>";
+              record_html_body +=  "<td class='ussd_crops props'>" + date +  "</td>";
               record_html_body +=  '<td><button onclick="populate_form(event);" class="btn btn-primary">Onboard</button></td>';
               record_html_body +=  "</tr>";
             })
