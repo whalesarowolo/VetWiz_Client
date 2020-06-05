@@ -173,6 +173,7 @@ function getRegUsers() {
         if (nvri_user.role == "cahw") {
           cahw_count += 1;
         }
+        $("#logged_person").innerHTML = "<p>Welcome " + nvri_user.lastname + " " + nvri_user.firtsname + "&nbsp;&nbsp;</p>";
         var content_html = `
         <div class="column is-3">
           <div class="flex-card team-card light-bordered light-raised">
