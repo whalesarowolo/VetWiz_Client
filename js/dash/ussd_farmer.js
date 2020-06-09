@@ -270,7 +270,7 @@ function ussdOnboarded(params) {
     showConfirmButton: false,
     icon: 'info'
   }).then(function() {
-    $("#mytable_ussd").fadeOut("fast");
+    $("#mytable_ussd").empty();
     swal.fire({
       title: "Please wait",
       text: "Loading data ....",
@@ -293,8 +293,12 @@ function ussdOnboarded(params) {
       }).then(async (res) => res.json()).then(data => {
         console.log(data.date)
 
-if ($("#example_ussd").length) {
-  $("#example_ussd").DataTable( {
+if ($("#mytable_ussd").length) {
+  $("#mytable_ussd_info").remove();
+  $("#mytable_ussd_paginate").remove();
+  $("#mytable_ussd_length").remove();
+  $("#mytable_ussd_filter").remove();
+  $("#mytable_ussd").DataTable( {
     responsive: true,
     data: data,
     "columns": [
