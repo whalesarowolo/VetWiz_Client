@@ -137,17 +137,24 @@ function ussdFarmer(params) {
         $.ajax({url: url, success: function(result){
           parsed = JSON.parse(result)
           if(parsed.length > 0){
-
             parsed.forEach((td) => {
+              var donb = ""
+              if (td.hasOwnProperty('date_onb')) {
+                donb = td.date_onb; 
+              }else{
+                donb = 'N/A'
+              }
               var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
               var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
               var crops = (td.farmer_crops != null)? td.farmer_crops: 'N/A';
+              var date = (donb != '')? donb : 'April/May';
               record_html_body += "<tr>";
               record_html_body +=  "<td> </td>";
               record_html_body +=  "<td class='ussd_phone_number_onboarding props'>" + td.phone_number +  "</td>";
               record_html_body +=  "<td class='ussd_state props'>" + state + "</td>";
               record_html_body +=  "<td class='ussd_lga props'>" + lga +  "</td>";
               record_html_body +=  "<td class='ussd_crops props'>" + crops +  "</td>";
+              record_html_body +=  "<td class='ussd_crops props'>" + date +  "</td>";
               record_html_body +=  '<td><button onclick="populate_form(event);" class="btn btn-primary">Onboard</button></td>';
               record_html_body +=  "</tr>";
             })
@@ -249,4 +256,67 @@ function sourceOfInforCheckboxes() {
     checkboxes.style.display = "none";
     expanded = false;
   }
+}
+
+function ussdOnboarded(params) {
+
+  addScript('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js');
+    
+   swal.fire({
+    title: 'Loading Farmers On-boarded via USSD',
+    text: 'Please wait...',
+    timer: 4000,
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    icon: 'info'
+  }).then(function() {
+    $("#mytable_ussd").fadeOut("fast");
+    swal.fire({
+      title: "Please wait",
+      text: "Loading data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false
+    });
+
+    $("#ussd_example_adam").ready(function() {
+  
+      const url = 'https://farm-aid-backend.herokuapp.com/api/ussd_farmers'
+      const token = localStorage.getItem('access_token');
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+    
+      fetch(url, {
+        method: "GET",
+        headers
+      }).then(async (res) => res.json()).then(data => {
+        console.log(data.date)
+
+if ($("#example_ussd").length) {
+  $("#example_ussd").DataTable( {
+    responsive: true,
+    data: data,
+    "columns": [
+      { "data": "firstname" },
+      { "data": "lastname" },
+      { "data": "gender" },
+      { "data": "phoneNumber" },
+      { "data": "state" },
+      { "data": "lga" },
+      { "data": "marital" }
+  ]
+  } );
+  html = "<span>" + "Total Number of Farmers on-boarded via USSD: " + data.length + "</span>"
+  document.getElementById("ussd_ada").innerHTML = html;
+} 
+// End DataTable here
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+
+    Swal.close();
+  })
+
 }

@@ -27,6 +27,7 @@
             new Route('msg_queue', 'msg_queue.html'),
             new Route('admin_nvri', 'admin_nvri.html'),
             new Route('ussdFarmer', 'ussdFarmer.html'),
+            new Route('ussd_onboarded_farmers', 'ussd_onboarded_farmers.html'),
         ]);
     }
     init();
