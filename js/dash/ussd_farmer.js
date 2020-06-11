@@ -272,7 +272,7 @@ function ussdOnboarded(params) {
     showConfirmButton: false,
     icon: 'info'
   }).then(function() {
-    $("#mytable_ussd").fadeOut("fast");
+    $("#mytable_ussd").empty();
     swal.fire({
       title: "Please wait",
       text: "Loading data ....",
@@ -293,25 +293,29 @@ function ussdOnboarded(params) {
         method: "GET",
         headers
       }).then(async (res) => res.json()).then(data => {
-        console.log(data.date)
+        console.log(data);
 
-if ($("#example_ussd").length) {
-  $("#example_ussd").DataTable( {
-    responsive: true,
-    data: data,
-    "columns": [
-      { "data": "firstname" },
-      { "data": "lastname" },
-      { "data": "gender" },
-      { "data": "phoneNumber" },
-      { "data": "state" },
-      { "data": "lga" },
-      { "data": "marital" }
-  ]
-  } );
-  html = "<span>" + "Total Number of Farmers on-boarded via USSD: " + data.length + "</span>"
-  document.getElementById("ussd_ada").innerHTML = html;
-} 
+    if ($("#mytable_ussd").length) {
+      $("#mytable_ussd_info").remove();
+      $("#mytable_ussd_paginate").remove();
+      $("#mytable_ussd_length").remove();
+      $("#mytable_ussd_filter").remove();
+      $("#mytable_ussd").DataTable( {
+        responsive: true,
+        data: data,
+        "columns": [
+          { "data": "firstname" },
+          { "data": "lastname" },
+          { "data": "gender" },
+          { "data": "phoneNumber" },
+          { "data": "state" },
+          { "data": "lga" },
+          { "data": "marital" }
+      ]
+      } );
+      html = "<span>" + "Total Number of Farmers on-boarded via USSD: " + data.length + "</span>"
+      document.getElementById("ussd_ada").innerHTML = html;
+    } 
 // End DataTable here
       }).catch((error) => {
         console.error('Error:', error);
