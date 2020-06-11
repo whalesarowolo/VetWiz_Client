@@ -55,7 +55,7 @@ $("#ussdFarmer_submit").on('click', function(e) {
 
     swal.showLoading('Please wait...');
   
-      const url = 'http://localhost:5000/api/onboard';
+      const url = 'https://farm-aid-backend.herokuapp.com/api/onboard';
   
       const ussdFarmer = {
         "firstname": firstname,
