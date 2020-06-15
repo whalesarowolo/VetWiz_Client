@@ -7,119 +7,85 @@
             <!-- Dashboard content -->
             <div id="basic-layout" class="dashboard-columns">
 
-                <h2 class="demo-title">SMS Module
-                    <button class="button is-primary">
-                        Refresh Messages
-                    </button>
-                </h2>
+                <div class="columns">
+                    <div onclick="newMessage(event)" id="ma_start_message" class="column is-2" style="background-color: #00d1b2; color: white; border-radius: 10px; font-weight: bold; text-align: center; cursor: pointer;">
+                        Send new SMS
+                    </div> &nbsp;&nbsp;&nbsp;
+                    <div class="column is-2" style="background-color: white; color: #00d1b2; border-radius: 10px; font-weight: bold; text-align: center; cursor: pointer; display: none;">
+                        View Analytics
+                    </div>
+                    <div class="column">
+
+                    </div>
+                </div>
+                <br>
 
                 <!-- Begin sms holder -->
-
-                <div class="navigation-tabs layout-tabs animated-tabs">
-                    <div class="tabs is-toggle is-fullwidth">
-                        <ul>
-                            <li class="tab-link is-active" data-tab="sms_task" onclick="startModule(event, sms_task);">
-                                <a>SMS</a>
-                            </li>
-                            <li class="tab-link" data-tab="statistics_task" onclick="startModule(event, statistics_task);">
-                                <a>Statistics</a>
-                            </li>
-                            <li class="tab-link" data-tab="subscriber_task" onclick="startModule(event, subscriber_task);">
-                                <a>Subscribers</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="sms_task" class="navtab-content is-active">
-
-                        <!-- Task Group -->
-                        <div class="projects-list-wrapper">
-                            <div class="list-header">
-                                <div class="list-title">
-                                    <span>Send Message</span>
-                                    <div onclick="newMessage()" class="add-button modal-trigger is-primary" data-modal="create-task-modal">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
-                                <div class="list-filter">
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Filter Projects">
-                                        <div class="form-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-filter">
-                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="statistics_task" class="navtab-content">
-
-                        <!-- Files List -->
-                        <div class="projects-list-wrapper">
-                            <div class="list-header">
-                                <div class="list-title">
-                                    <span>Statistics</span>
-                                    <div class="add-button">
-                                        <i class="material-icons">add</i>
-                                    </div>
-                                </div>
-                                <div class="list-filter">
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Filter Projects">
-                                        <div class="form-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-filter">
-                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-body">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div id="subscriber_task" class="navtab-content">
-
-                        <!-- Acticity List -->
-                        <div class="projects-list-wrapper">
-                            <div class="list-header">
-                                <div class="list-title">
-                                    <span>Subscribers</span>
-                                </div>
-                                <div class="list-filter">
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Filter Projects">
-                                        <div class="form-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-filter">
-                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="list-body">
-                                
-                            </div>
-                        </div>
-
-                    </div>
+                
+                <div class="columns">
+                    <div class="column" style="background-color: white; margin-left: 0p;">
+                        <p>SMS History</p>
+                        <hr>
+                        <table class="table is-bordered" style="border-radius: 5px;">
+                            <thead>
+                                <style scoped>
+                                    .table.is-bordered th {
+                                        color:white;
+                                        text-align: center;
+                                    }
+                                </style>
+                              <tr style="background-color: #00d1b2">
+                                <th><abbr title="Position">S/N</abbr></th>
+                                <th>Date</th>
+                                <th>Message</th>
+                                <th>Value Chains</th>
+                                <th>Message</th>
+                                <th>Recipients</th>
+                                <th>Recipient State</th>
+                                <th>SMS Count</th>
+                                <th>Message</th>
+                                <th>Cost</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td>22/10/2020
+                                </td>
+                                <td>
+                                    <b>Cattle</b> <br>Foot and Mouth disease diagnosed <br>Keywords: Salivation, Blisters, wounds in mouth &amp; feet
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                                <td>
+                                    ksksks
+                                </td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+                    </div>                    
                 </div>
                 <!-- End sms holder -->
             </div>

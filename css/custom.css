@@ -1,0 +1,79 @@
+.child-menu .sidebar-menu li a:hover {
+	background-color: #1EAC8B !important;
+}
+.dash-stat {
+	font-size:1.6rem !important;
+	font-weight: 700 !important;
+	color: #26D0A9 !important;
+}
+​
+.dash-card-button {
+	width: 191px;
+	height: 33px;
+	left: 1174px;
+	top: 213px;
+	background: #26D0A9;
+	border: 1px solid #26D0A9;
+	box-sizing: border-box;
+	border-radius: 10px;
+	display: block;
+	width: 100%;
+}
+​
+.subs_info_section_button {
+	min-width: 200px !important;
+	width: 100% !important;
+	box-sizing:border-box !important;
+	display: block !important;
+	border-radius: 10px !important;
+	font-weight: 600 !important;
+	border: 1px solid #26D0A9 !important;
+	margin-top: 8px !important;
+	padding:8px 24px !important;
+}
+​
+.subs_info_section_button:hover {
+	background-color: transparent !important;
+	color: #26D0A9 !important;
+	
+}
+​
+.peity-widget {
+	margin-bottom: 6px !important;
+}
+​
+.green-peity-widget {
+	background-color: #26D0A9 !important;
+	border: 1px solid #26D0A9 !important;
+	color: #fff !important;
+}
+​
+.green-peity-widget .meta span:first-child,
+.green-peity-widget .meta .dash-stat {
+	color: #fff !important;
+}
+​
+.green-peity-widget .subs_info_section_button {
+	background-color: #fff !important;
+	color: #26D0A9 !important;
+	border: 1px solid #fff !important;
+}
+​
+.green-peity-widget .subs_info_section_button:hover {
+	background-color: transparent !important;
+	color: #fff !important;
+	border: 1px solid #fff !important;
+	
+}
+​
+.trial-text {
+	color: #FF6363;
+}
+​
+.color-red {
+	color: #FF6363 !important;
+}
+​
+.state_container {
+	border: 1px solid #26D0A9 !important;
+}
