@@ -75,6 +75,7 @@ $("#ussdFarmer_submit").on('click', function(e) {
        "farm_income":farm_income,
        "source_info":selectedInfoItems,
       };
+      console.log(ussdFarmer)
   
       // create request object
       var request = new Request(url, {
@@ -87,6 +88,7 @@ $("#ussdFarmer_submit").on('click', function(e) {
 
       fetch(request).then(async (res) => {
         let resp = await res.json();
+        console.log(resp)
           if(resp.status !== 201) {
             Swal.fire({
               title: "Farmer Already Exist",
