@@ -435,6 +435,82 @@ return false;
   
 }
 
+function send_approved_sms(msg) {
+  console.log("Sending Approved message");
+  
+  var approved_message_content = msg.msg;
+  var filter = []
+  var state = msg.state
+  var gender = msg.gender.split(','); //string to array
+  var crops = msg.crop.split(','); //string to array
+
+  // gender.forEach(gn => {
+      
+  // });
+  filter.push(gender);
+  filter.push(crops);
+  filter.push(state);
+
+
+
+  //const internal_msg = {
+  const approved_msg = {
+    "msg": approved_message_content,
+    "filter": filter,
+  }
+
+  const approved_url = 'https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter'
+  const my_token = localStorage.getItem('access_token');
+  cancelInternalMessage();
+  console.log("New message: ", approved_msg);
+  swal.fire({
+    title: 'Sending Message',
+    text: 'Please wait...',
+    icon: 'info',
+    allowOutsideClick: false,
+    showConfirmButton: false
+  });
+
+  // create request object
+  var approved_request = new Request(approved_url, {
+    method: 'POST',
+    body: JSON.stringify(approved_msg),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': my_token  
+    })
+  });
+
+  console.log("")
+  // pass request object to `fetch()`
+  fetch(approved_request)
+    .then(async (res) => {
+      //$('.modal').css({ 'display': 'none' });
+      var resp = await res.json();
+      if(resp !== null){
+        swal.close();
+        swal.fire({
+            title: "Message Approved with success",
+            text: "Message has been sent",
+            timer: 3000,
+            icon: 'success',
+        })
+        console.log("Network response from Approved: ", resp);
+      }
+    }).catch((e)=> {
+      swal.close();
+      swal.fire({
+          title: "Message approval wasn't completed",
+          text: "Message Not sent",
+          timer: 3000,
+          icon: 'info',
+      })
+      console.log("Bad request...");
+    });
+  
+
+}
+
 $("#send_internal_messages").on('click', function(e) {
   $("#create_internal_message").css({'display': 'none'});
   console.log("Sending Internal message");
@@ -523,8 +599,7 @@ function ma_approve(e) {
       .then((message) => {
         console.log("Message: ", message);
         swal.close()
-
-
+        send_approved_sms(message);
       });
     //swal.close();
     //Send confirmation to market actor 
