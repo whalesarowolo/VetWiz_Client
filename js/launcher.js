@@ -28,6 +28,7 @@
             new Route('admin_nvri', 'admin_nvri.html'),
             new Route('ussdFarmer', 'ussdFarmer.html'),
             new Route('ussd_onboarded_farmers', 'ussd_onboarded_farmers.html'),
+            new Route('topup', 'topup.html'),
         ]);
     }
     init();

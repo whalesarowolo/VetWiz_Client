@@ -498,15 +498,18 @@ function send_approved_sms(msg) {
         console.log("Network response from Approved: ", resp);
       }
     }).catch((e)=> {
+      debugger
       console.log(e)
+      console.log("I was here");
       swal.close();
       swal.fire({
           title: "Message approval wasn't completed",
           text: "Message Not sent",
           timer: 3000,
           icon: 'info',
-      })
-      console.log("Bad request..." );
+      });
+      console.log("Finally tired");
+      
     });
   
 
