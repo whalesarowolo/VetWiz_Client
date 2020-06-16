@@ -298,31 +298,7 @@ $(document).ready(function($){
     
     });
 
-    // var parseJwt = (token) => {
-    //     try {
-    //       return JSON.parse(atob(token.split('.')[1]));
-    //     } catch (e) {
-    //       return null;
-    //     }
-    // };
-
-    
-
 })
-
-
-// send SMS 
-// function sendSMS(opts) {
-//   fetch('http://localhost:5000/api/send', {
-//     method: 'POST',
-//     body: JSON.stringify(opts),
-//     headers: new Headers()
-//   }).then(function(response) {
-//     return response.json();
-//   }).then(function(data) {
-//     console.log('Sent: ', data);
-//   });
-// }
 
 function goHome() {
   document.location.replace('/dashboard.html');
@@ -385,18 +361,6 @@ if(firstname == "" || lastname == "" || phoneNumber == "" || email == "" ||  pas
   return false;
 }
 
-// if(phoneNumber !== "11") {
-//   $("#admin-create-form").addClass('is-hidden');
-//   swal.fire({
-//     title: 'Error Authenticating',
-//     text: 'Phone Number format is Invalid',
-//     icon: 'warning',
-//     timer: 3100
-//   }).then(()=> {
-//     $("#admin-create-form").toggleClass('is-hidden');
-//   });
-//   return false;
-// }
 if(!phoneNumber.match(numbers)) {
   $("#admin-create-form").addClass('is-hidden');
   swal.fire({
@@ -525,7 +489,42 @@ $("#send_internal_messages").on('click', function(e) {
     });
   
 
-})
+});
+
+// on click of approval button 
+function ma_approve(e) {
+  let keen = $(e.target).attr('data_id');
+  let approved_msg_holder = document.getElementById(keen);
+  let approved_msg = approved_msg_holder.innerText;
+  let states = $(e.target).prevUntil('td.crops').val();
+   swal.fire({
+     title: 'Message Approved',
+     text: 'Please wait... dispatching message to recipients',
+     timer: 3000,
+     allowOutsideClick: false,
+     showConfirmButton: false,
+     icon: 'info'
+   }).then((_) => {
+    console.log("Content: " + approved_msg);
+    console.log("Siblings " + states);
+    swal.fire({
+      title: "Approved Message is beeing sent",
+      text: "Please wait ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+    //Send approved message here
+    /**
+     * Get message to appropriate backend endpoint
+     */
+    //network things here
+    //swal.close();
+    //Send confirmation to market actor 
+   })
+}
+
+
 function parseJwt (token) {
   var base64Url = token.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -591,67 +590,108 @@ $(document).ready(function () {
 
 
 $("#send_messages").on('click', function(e) {
-  $("#create-note-modal").css({'display': 'none'});
+  
   var msg_content = $("#message_content").val();
   var msg_state = $("#slct1").val();
-  var msg_lga = $("#slct2").val();
-  var msg_crop = $("#crop_value").val();
-  var msg_gender = $("#gender_value").val();
-  console.log($("#gender_value").val())
-  swal.fire({
-    title: 'Sending Message Details',
-    text: 'Please wait...',
-    timer: 4000,
-    allowOutsideClick: false,
-    showConfirmButton: false,
-    icon: 'info'
-  }).then(function() {
+  var male_gender = $("#male").is(":checked");
+  var female_gender = $("#female").is(":checked");
+  var msg_gender = (male_gender)? "male": "";
+  msg_gender += + (female_gender)? ",female": "";
 
-    const url = 'https://farm-aid-backend.herokuapp.com/api/masms'
+  var rice_crop = $("#rice_crop").is(":checked");//$('.messageCheckbox:checked').val();
+  var tomatoes_crop = $("#tomatoes_crop").is(":checked");
+  var sorghum_crop = $("#sorghum_crop").is(":checked");
+  var groundnuts_crop = $("#groundnuts_crop").is(":checked");
+  var target_crops = "" + (rice_crop)? "rice": "";// + (tomatoes_crop)? "tomatoes": "" + (sorghum_crop)? "sorghum": "" + (groundnuts_crop)? "groundnuts": "";
+  target_crops += (tomatoes_crop)? ", tomatoes": "";
+  target_crops += (sorghum_crop)? ", sorghum": "";
+  target_crops += (groundnuts_crop)? ", groundnuts": "";
+
+  console.log("Crops " + target_crops);
+  var msg_crop = "" + (target_crops != "")? target_crops: "No Crops selected";
+  console.log("Crops " + msg_crop);
+  console.log("Genders " + msg_gender);
+  if (msg_crop != "No Crops selected") {
+    $("#create-note-modal").css({'z-index': '-4000'});
+    swal.fire({
+      title: 'Sending Message Details',
+      text: 'Please wait...',
+      timer: 4000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
   
-    const token = localStorage.getItem('access_token');
-    var userObj = parseJwt(localStorage.getItem('access_token'));
-    maCompany = userObj.user.company
-    maEmail = userObj.user.email
+      const url = 'https://farm-aid-backend.herokuapp.com/api/masms'
     
-  swal.fire({
-    title: 'Sending Message',
-    text: 'Sending mesage. You will get an Email notificaton if your Message is approved or not',
-    icon: 'info',
-    allowOutsideClick: false,
-    showConfirmButton: false
-  });
-  
-  const newMessage = {
-    state: msg_state,
-    gender: msg_gender,
-    crop: msg_crop,
-    msg: msg_content,
-    company: maCompany,
-    email: maEmail,
-  };
-  // create request object
-    var request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(newMessage),
-      headers: new Headers({
-        'Content-Type': 'application/json'        
-      })
+      const token = localStorage.getItem('access_token');
+      var userObj = parseJwt(localStorage.getItem('access_token'));
+      maCompany = userObj.user.company
+      maEmail = userObj.user.email
+      
+    swal.fire({
+      title: 'Sending Message',
+      text: 'You will get an Email notificaton if your Message is approved or not',
+      icon: 'info',
+      allowOutsideClick: false,
+      showConfirmButton: false
     });
-    // pass request object to `fetch()`
-    fetch(request)
-      .then(async (res) => {
-         //$('.modal').css({ 'display': 'none' });
-      var resp = await res.json();
-      if(resp != null || resp != undefined){
-        swal.close();
-        console.log("Bad request...");
-      }
-      }).catch((e)=> {
-        swal.close();
-        console.log("Bad request...");
+    
+    const newMessage = {
+      state: msg_state,
+      gender: msg_gender,
+      crop: msg_crop,
+      msg: msg_content,
+      company: maCompany,
+      email: maEmail,
+    };
+    // create request object
+      var request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(newMessage),
+        headers: new Headers({
+          'Content-Type': 'application/json'        
+        })
       });
-  })
+      // pass request object to `fetch()`
+      fetch(request)
+        .then(async (res) => {
+           //$('.modal').css({ 'display': 'none' });
+        var resp = await res.json();
+        if(resp != null || resp != undefined){
+          swal.close();
+          //$("#create-note-modal").css({'display': 'block'});
+          swal.fire({
+            title: 'Message',
+            text: 'Your message has been dispatched',
+            icon: 'info',
+            timer: 3000,
+            allowOutsideClick: false,
+            showConfirmButton: false
+          }).then(() => {
+            window.location.reload();
+            console.log("Done sending request...");
+          });
+          
+        }
+        }).catch((e)=> {
+          swal.close();
+          swal.fire({
+            title: 'Error Condition',
+            text: 'Your message has not been dispatched',
+            icon: 'warning',
+            timer: 3000,
+            allowOutsideClick: false,
+            showConfirmButton: true
+          }).then(() => {
+            window.location.reload();
+            //$("#create-note-modal").css({'display': 'block'});
+            console.log("Bad request..." + resp);
+          });
+          
+        });
+    })
+  }
 
  })
 
@@ -2334,8 +2374,6 @@ function toGapSwal(params) {
 
 }
 
-
-
 // sorghum GAP content
 function sorghumGapSwal(params) {
     swal.fire({
@@ -2664,8 +2702,6 @@ function sorghumGapSwal(params) {
   Swal.close();
 
 }
-
-
 
 
 // ground GAP content
@@ -3547,6 +3583,7 @@ function maSMS(params) {
             let state = datas.state;
             let company = datas.company;
             let email = datas.email;
+            let crops = datas.crop;
             let message = datas.msg;
             let dataId = datas._id;
             let date =  new Date(datas.date)
@@ -3557,8 +3594,9 @@ function maSMS(params) {
             html += "<td></td>"
             html += "<td>" + company + "</td>"
             html += "<td>" + email + "</td>"
+            html += "<td class='crops'>" + crops + "</td>"
             html += "<td>" + state + "</td>"
-            html += '<td>' + message + '</td>'
+            html += '<td id=' + `${dataId}` + ' >' + message + '</td>'
             html += "<td>" + newDate + "</td>"
             html += '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="ma_approve(event);" data_id=' + `${dataId}` + '> Approve' + '</span> <hr>' 
             html += '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="ma_reject(event);" data_id=' + `${dataId}` + '>' +  ' Reject' + '</span></td>'
@@ -3579,31 +3617,6 @@ function maSMS(params) {
 
 }
 
-// on clikc of approval button 
-
-function ma_approve(e) {
- let keen = $(e.target).attr('data_id')
-  swal.fire({
-    title: 'You Approved this message',
-    text: 'Please wait...',
-    timer: 3000,
-    allowOutsideClick: false,
-    showConfirmButton: false,
-    icon: 'info'
-  }).then((_) => {
-      swal.fire({
-        title: "Approved Message is been sent",
-        text: "Loading data ....",
-        icon: "info",
-        allowOutsideClick: false,
-        showConfirmButton: false,
-      });
-
-      Swal.close();
-  })
-
- }
-
 //   on click to reject button
 
 function ma_reject(e) {
@@ -3623,9 +3636,9 @@ function ma_reject(e) {
        allowOutsideClick: false,
        showConfirmButton: false,
      });
- 
- 
-     Swal.close();
+
+     //Send mail to market actor on reason
+     swal.close();
    })
  
   }
