@@ -506,7 +506,6 @@ function ma_approve(e) {
      icon: 'info'
    }).then((_) => {
     console.log("Content: " + approved_msg);
-    console.log("Siblings " + states);
     swal.fire({
       title: "Approved Message is beeing sent",
       text: "Please wait ....",
@@ -519,6 +518,14 @@ function ma_approve(e) {
      * Get message to appropriate backend endpoint
      */
     //network things here
+    fetch('https://farm-aid-backend.herokuapp.com/api/masms/' + keen)
+      .then(response => response.json())
+      .then((message) => {
+        console.log("Message: ", message);
+        swal.close()
+
+
+      });
     //swal.close();
     //Send confirmation to market actor 
    })

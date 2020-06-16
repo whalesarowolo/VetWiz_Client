@@ -721,10 +721,10 @@
             <div class="dashboard-wrapper">
                <div class="row" style="margin-bottom:10px">
                   <div class="col-md-5">
-                     Welcome, <a href="#">jebinum@farmnovation.com</a>
+                     Welcome <a class=" is-hidden" href="#">jebinum@farmnovation.com</a>
                   </div>
                   <div class="col-md-7" style="text-align: right">
-                     <strong><span class="trial-text">Your free trial will end in 7 days.</span> <a href="#">Top up</a> to activate account</strong>
+                     <strong><span class="trial-text color-red">Your free trial will end in 7 days.</span> <a href="#">Top up</a> to activate account</strong>
                   </div>
                </div>
                <!-- Main content -->
@@ -732,12 +732,12 @@
                   <!-- Stat tiles -->
                   <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
                      <div class="column is-4">
-                        <div class="peity-widget green-peity-widget">
+                        <div class="peity-widget green-peity-widget" style="background-color:#26D0A9">
                            <span class=""><img style="height:74px" src="images/dash-icon-available-sms.svg"></span>
                            <div class="meta">
-                              <span>SMS AVAILABLE</span>
+                              <span style="color: #fff;">SMS AVAILABLE</span>
                               <span class="dash-stat">10</span>
-                              <a href="#"><input type="submit" value="Send SMS" class="button subs_info_section_button"/></a>
+                              <a href="#"><input type="submit" value="Send SMS" style="background-color: #fff; color: #26D0A9;" class="button subs_info_section_button"/></a>
                            </div>
                         </div>
                      </div>
@@ -805,7 +805,7 @@
       <!-- Create message modal -->
       <div id="create-note-modal" class="modal modal-md icon-action-modal modal-hero">
          <div class="modal-background scaleInCircle"></div>
-         <div class="modal-content scaleIn" style="border-radius: 10px; max-width: 700px; min-width: 400px; overflow-y: scroll;">
+         <div class="modal-content scaleIn" style="border-radius: 10px; overflow-y: scroll;">
             <div class="flex-card simple-shadow" style="overflow: scroll;">
                <h2 class="dark-text">Send New SMS</h2>
                <div class="card-body">
@@ -845,19 +845,19 @@
                         </div>
                         <div class="field-body columns">
                             <div class="field column">
-                                <input class="is-checkradio is-secondary is-circle" id="rice_crop" type="checkbox" name="rice_crop">
+                                <input id="rice_crop" type="checkbox" name="rice_crop">
                                 <label for="rice_crop">Rice</label>
                             </div>
                             <div class="field column">
-                                <input class="is-checkradio is-secondary is-circle" id="tomatoes_crop" type="checkbox" name="tomatoes_crop">
+                                <input id="tomatoes_crop" type="checkbox" name="tomatoes_crop">
                                 <label for="tomatoes_crop">Tomatoes</label>
                             </div>
                             <div class="field column">
-                                <input class="is-checkradio is-secondary is-circle" id="sorghum_crop" type="checkbox" name="sorghum_crop">
+                                <input id="sorghum_crop" type="checkbox" name="sorghum_crop">
                                 <label for="sorghum_crop">Sorghum</label>
                             </div>
                             <div class="field column">
-                                <input class="is-checkradio is-secondary is-circle" id="groundnuts_crop" type="checkbox" name="groundnuts_crop">
+                                <input id="groundnuts_crop" type="checkbox" name="groundnuts_crop">
                                 <label for="groundnuts_crop">Groundnuts</label>
                             </div>
                         </div>
@@ -869,11 +869,11 @@
                         <div class="field-body" style="padding-left: 60px;">
 
                             <div class="field" style="max-width: 80px;">
-                                <input style=" border-radius: 10px;" class="is-secondary is-circle checkbox" id="male" type="checkbox" name="male">
+                                <input style=" border-radius: 10px;" id="male" type="checkbox" name="male">
                                 <label for="Male">Male</label>
                             </div>
                             <div class="field" style="max-width: 80px;">
-                                <input style=" border-radius: 10px;" class="is-secondary is-circle checkbox" id="female" type="checkbox" name="female">
+                                <input style=" border-radius: 10px;" id="female" type="checkbox" name="female">
                                 <label for="Female">Female</label>
                             </div>
                             
