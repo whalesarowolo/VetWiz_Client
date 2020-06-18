@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -18,12 +19,11 @@
       <link rel="stylesheet" href="css/css-icons.min.css">
       <link rel="stylesheet" href="css/gap.css">
       <link rel="stylesheet" href="css/custom.css">
-      
    </head>
    <body>
-     
+      <!--
          <div class="pageloader"></div>
-         <div class="infraloader is-active"></div> <!-- Main sidebar menu -->
+         <div class="infraloader is-active"></div>--> <!-- Main sidebar menu -->
       <nav class="main-menu">
          <div class="main-menu-inner">
             <!-- Side icon menu -->
@@ -623,13 +623,13 @@
             <!-- /Child menu header -->
             <!-- Sidebar menu 1 -->
             <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
-               <li class=""><a class="parent-link" href="/partnerDashboard.html"><span
+               <li class=""><a class="parent-link" href="#"><span
                   class="material-icons">home</span>Dashboard</a>
                </li>
-               <li class=""><a class="parent-link" href="#sms"><span
+               <li class=""><a class="parent-link" href="#"><span
                   class="material-icons">message</span>SMS</a>
                </li>
-               <li class=""><a class="parent-link" href="#topup"><span
+               <li class=""><a class="parent-link" href="#"><span
                   class="material-icons">account_balance_wallet</span>Account Top up</a>
                </li>
             </ul>
@@ -652,14 +652,14 @@
             <!-- /Right sidebar trigger -->
             <a id="mobile-dashboard-trigger" class="navbar-item hamburger-btn is-hidden-desktop"
                href="javascript:void(0);">
-            <span class="menu-toggle is-hidden-mobile">
-               <span class="icon-box-toggle">
-                  <span class="rotate">
-                     <i class="icon-line-top"></i>
-                     <i class="icon-line-center"></i>
-                     <i class="icon-line-bottom"></i>
-                  </span>
-               </span>
+            <span class="menu-toggle">
+            <span class="icon-box-toggle">
+            <span class="rotate">
+            <i class="icon-line-top"></i>
+            <i class="icon-line-center"></i>
+            <i class="icon-line-bottom"></i>
+            </span>
+            </span>
             </span>
             </a>
          </div>
@@ -721,83 +721,62 @@
             <div class="dashboard-wrapper">
                <div class="row" style="margin-bottom:10px">
                   <div class="col-md-5">
-                     Welcome <a class=" is-hidden" href="#">jebinum@farmnovation.com</a>
+                     <a href="#" class="button subs_info_section_button no-block">Top Up History</a>
                   </div>
-                  <div class="col-md-7" style="text-align: right">
-                     <strong><span class="trial-text color-red">Your free trial will end in 7 days.</span> <a href="#">Top up</a> to activate account</strong>
+                  <div class="col-md-7 text-right">
+                     <strong><span class="">Wallet Balance:</span> <span class="dash-stat">₦185,506.00</span></strong>
                   </div>
                </div>
                <!-- Main content -->
                <div id="main-dashboard" class="section-wrapper margin-button">
-                  <!-- Stat tiles -->
-                  <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                     <div class="column is-4">
-                        <div class="peity-widget green-peity-widget" style="background-color:#26D0A9">
-                           <span class=""><img style="height:74px" src="images/dash-icon-available-sms.svg"></span>
-                           <div class="meta">
-                              <span style="color: #fff;">SMS AVAILABLE</span>
-                              <span class="dash-stat">10</span>
-                              <a class="button subs_info_section_button" href="#topup" style="background-color: #fff; color: #26D0A9;">Send SMS</a>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="column is-4">
-                        <div class="peity-widget">
-                           <span class=""><img style="height:74px" src="images/dash-icon-sent-sms.svg"></span>
-                           <div class="meta">
-                              <span>SMS SENT</span>
-                              <span class="dash-stat">0</span>
-                              <a href="#"><input type="submit" value="View Message History" class="button subs_info_section_button"/></a>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="column is-4">
-                        <div class="peity-widget">
-                           <span class=""><img style="height:74px" src="images/dash-icon-wallet.svg"></span>
-                           <div class="meta">
-                              <span>YOUR WALLET</span>
-                              <span class="dash-stat color-red">₦0.00</span>
-                              <a href="#"><input type="submit" value="Top Up Account" class="button subs_info_section_button"/></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="columns">
+                  <!-- Wide tile -->
+                  <div class="columns is-multiline is-event-tiles">
+                     <!-- Event pill -->
                      <div class="column is-12">
-                        <div class="widget-card has-margin">
-                           <div class="card-heading has-icon is-bordered no-margin">
-                              <span>Farmer Value Chain - Data Analysis</span>
-                              <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                        <div class="flex-card light-bordered event-tile">
+                           <div class="event-category padded-content text-center">
+                              <span>Please select top up amount below:</span>
+                              <br><br>
+                              <button class="amount-button" onclick="myFunction()"> ₦ 10,000 <i class="fa fa-check-circle"></i></button>  
+                              <button class="amount-button"> ₦ 15,000 <i class="fa fa-check-circle"></i></button>
+                              <button class="amount-button"> ₦ 30,000 <i class="fa fa-check-circle"></i></button>
+                              <button class="amount-button"> ₦ 50,000 <i class="fa fa-check-circle"></i></button><br>
+                              <button class="amount-button"> ₦ 100,000 <i class="fa fa-check-circle"></i></button>
+                              <button class="amount-button"> ₦ 150,000 <i class="fa fa-check-circle"></i></button>
+                              <button class="amount-button"> ₦ 200,000 <i class="fa fa-check-circle"></i></button>
+                              <button class="amount-button"> ₦ 300,000 <i class="fa fa-check-circle"></i></button>
+                              <div id="topupConfirm" class="amount-selection-confirmation">
+                                 Top up your wallet with ₦100,000 ? &nbsp; <br class="is-hidden-desktop-only">&nbsp;</br><a href="#" class="button subs_info_section_button no-block">Yes, Pay Online</a>
                               </div>
-                           </div>
-                           <div class="card-body no-padding is-responsive">
-                              <div style="padding-top:20px; padding-bottom:30px">
-                                 <div id="chartContainer"></div>
-                                 <div class="state_container_section">
-                                    <div class="state_container">
-                                       <h1>Available States: </h1>
-                                       <div class="state_naming">
-                                          <div class="state_name_section" style="margin-bottom: 10px;">
-                                             <span class="state_border"></span>
-                                             <h2 style="margin-top: -4px; margin-left: 10px;">Adamawa</h2>
-                                          </div>
-                                          <div class="state_name_section">
-                                             <span class="state_border"></span>
-                                             <h2 style="margin-top: -4px; margin-left: 10px;">Gombe</h2>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
+                              <script>
+                                 function myFunction() {
+                                  var x = document.getElementById("topupConfirm");
+                                  if (x.style.display === "block") {
+                                    x.style.display = "none";
+                                  } else {
+                                    x.style.display = "block";
+                                  }
+                                 } 
+                                 
+                                 
+                              </script>
+                              <div class=""><br><br>
+                                 <img src="images/paystack-secured.png" style="height:90px">
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
-
+                  <!--THE OLD-->
+                  <!-- <button  class="side-icon">check</button> -->
+                  <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
+                     <div class="market_actor_info_container">
+                     </div>
+                  </div>
+                  <!--END THE OLD-->
                   <!-- Widgets -->
                   <div>
                   </div>
-                 
                </div>
             </div>
          </div>
@@ -805,23 +784,21 @@
       <!-- Create message modal -->
       <div id="create-note-modal" class="modal modal-md icon-action-modal modal-hero">
          <div class="modal-background scaleInCircle"></div>
-         <div class="modal-content scaleIn" style="border-radius: 10px; overflow-y: scroll;">
-            <div class="flex-card simple-shadow" style="overflow: scroll;">
-               <h2 class="dark-text">Send New SMS</h2>
+         <div class="modal-content scaleIn">
+            <div class="flex-card simple-shadow">
+               <h2 class="dark-text">New Message</h2>
                <div class="card-body">
                   <div class="has-text-centered">
-                     <!-- <div class="image">
+                     <div class="image">
                         <img src="images/icons-note.svg">
-                     </div> -->
-                     <div class="columns">
-                        <div class="column is-capitalized" style="background-color: #D1ECF1; color: #3F7A84; font-weight: bold;">
-                            Please use the options below to target specific Farmers
-                         </div>
+                     </div>
+                     <div class="help-text has-text-left has-text-success has-text-weight-semibold is-capitalized">
+                        Select the paramters below to target specific Farmers
                      </div>
                      <!-- Select Criticals user should use to Get farmers numbers -->
                      <div class="field is-horizontal">
                         <div class="field-label is-normal pull-left">
-                           <label class="label has-text-left">STATE(s)</label>
+                           <label class="label has-text-left">STATE</label>
                         </div>
                         <div class="field-body pull-right">
                            <div class="field is-medium">
@@ -831,77 +808,79 @@
                                        <option value="" disabled selected>--Please choose an option--</option>
                                        <option id="adamawa_state" value="Adamawa">ADAMAWA</option>
                                        <option id="gombe_state" value="Gombe">GOMBE</option>
-                                       <option value="All">All</option>
+                                       <option value="nassarawa">Nasarawa</option>
                                     </select>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-
+                     <div class="field is-horizontal is-hidden" id="lga">
+                        <div class="field-label is-normal">
+                           <label class="label has-text-left">LGA</label>
+                        </div>
+                        <div class="field-body pull-right">
+                           <div class="field is-medium">
+                              <div class="control">
+                                 <div class="select is-medium is-rounded is-fullwidth">
+                                    <select id="slct2" name="slct2">
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                      <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                           <label class="label has-text-left">CROP(s)</label>
+                           <label class="label has-text-left">CROP</label>
                         </div>
-                        <div class="field-body columns">
-                            <div class="field column">
-                                <input id="rice_crop" type="checkbox" name="rice_crop">
-                                <label for="rice_crop">Rice</label>
-                            </div>
-                            <div class="field column">
-                                <input id="tomatoes_crop" type="checkbox" name="tomatoes_crop">
-                                <label for="tomatoes_crop">Tomatoes</label>
-                            </div>
-                            <div class="field column">
-                                <input id="sorghum_crop" type="checkbox" name="sorghum_crop">
-                                <label for="sorghum_crop">Sorghum</label>
-                            </div>
-                            <div class="field column">
-                                <input id="groundnuts_crop" type="checkbox" name="groundnuts_crop">
-                                <label for="groundnuts_crop">Groundnuts</label>
-                            </div>
+                        <div class="field-body pull-right">
+                           <div class="field is-medium">
+                              <div class="control">
+                                 <div class="select is-medium is-rounded is-fullwidth">
+                                    <select id="crop_value">
+                                       <option value="" disabled selected>--Please choose an option--</option>
+                                       <option value="rice">RICE</option>
+                                       <option value="sorghum">SORGHUM</option>
+                                       <option value="tomatoes">TOMATOES</option>
+                                       <option value="groundnut">GROUNDNUT</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                     </div><hr>
+                     </div>
                      <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                           <label class="label has-text-left">Gender</label>
+                           <label class="label has-text-left">GENDER</label>
                         </div>
-                        <div class="field-body" style="padding-left: 60px;">
-
-                            <div class="field" style="max-width: 80px;">
-                                <input style=" border-radius: 10px;" id="male" type="checkbox" name="male">
-                                <label for="Male">Male</label>
-                            </div>
-                            <div class="field" style="max-width: 80px;">
-                                <input style=" border-radius: 10px;" id="female" type="checkbox" name="female">
-                                <label for="Female">Female</label>
-                            </div>
-                            
+                        <div class="field-body pull-right">
+                           <div class="field is-medium">
+                              <div class="control">
+                                 <div class="select is-medium is-rounded is-fullwidth">
+                                    <select id="gender_value">
+                                       <option value="" disabled selected>--Please choose an option--</option>
+                                       <option value="male">MALE</option>
+                                       <option value="female">FEMALE</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
                      </div>
                      <!-- Select Criticals user should use to Get farmers numbers end -->
-                     <div class="fieldset">
-                        <div class="field-label is-normal">
-                            <label class="label has-text-left">Message</label>
-                            <textarea id="message_content" class="textarea" rows="3"
-                              placeholder="Type in your message here" data-limit=320></textarea><span
+                     <div class="columns is-fieldset">
+                        <div class="column">
+                           <textarea id="message_content" class="textarea" rows="3"
+                              placeholder="Write something relevant" data-limit=320></textarea><span
                               class="countdown"></span>
-                         </div>
-                        
+                        </div>
                      </div>
                   </div>
                </div>
                <div class="modal-footer">
-                   <div class="column pull-left">
-                        <div class="row">
-                            <label class="pull-left" for="Cost"></label>Cost</label> &nbsp;&nbsp;
-                            <input style="max-width: 220px; border-radius: 10px;" class="is-rounded number pull-right" id="cost_box" type="number" name="cost_box"> 
-                        </div> 
-                   </div>
-                  <div class="column pull-right">
-                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
-                    <button type="submit" id="send_messages" class="button is-modal">Post messages</button>
-                  </div>
+                  <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                  <button type="submit" id="send_messages" class="button is-modal">Post messages</button>
                </div>
             </div>
          </div>
@@ -952,3 +931,4 @@
       <script src="./js/dash/market_actor.js"></script>
    </body>
 </html>
+

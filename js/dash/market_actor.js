@@ -28,3 +28,18 @@ if(subscription_status.innerHTML === 'NOT SUBSCRIBED'){
     }
 
 }
+
+function myFunction(event, topup_amount) {
+    var target_ele = ($(event.target).children())[0];
+    console.log("Amount: " + topup_amount);
+    target_ele.classList.toggle('fa-check-circle');
+    console.log(target_ele);
+ //let amount_to_topup_by = event.target
+ var x = document.getElementById("topupConfirm");
+ $("#money_holder").empty().append("₦" + topup_amount+ " ?");
+ if (x.style.display === "block") {
+   x.style.display = "none";
+ } else {
+   x.style.display = "block";
+ }
+} 
