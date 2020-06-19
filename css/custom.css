@@ -62,6 +62,10 @@
 	display: none;
 	
 }
+
+.sweet-success {
+	background-color: rgb(76, 246, 167);
+   }
 ​
 @media only screen and (min-width: 768px) {
 	.desktop-right {

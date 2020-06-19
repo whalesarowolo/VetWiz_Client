@@ -26,7 +26,9 @@
                    <button class="amount-button" onclick="myFunction(event, 200000)"> ₦ 200,000 <i class="fa "></i></button>
                    <button class="amount-button" onclick="myFunction(event, 300000)"> ₦ 300,000 <i class="fa "></i></button>
                    <div id="topupConfirm" class="amount-selection-confirmation">
-                      Top up your wallet with <span id="money_holder"></span> &nbsp; <br class="is-hidden-desktop-only">&nbsp;<br><a href="#" class="button subs_info_section_button no-block">Yes, Pay Online</a>
+                      Top up your wallet with <span id="money_holder"></span> &nbsp; <br class="is-hidden-desktop-only">&nbsp;<br>
+                      <button onclick="call_top_up();" id="confirm_topup" class="button subs_info_section_button no-block">Yes, Pay Online</button>
+                      <span id="figu" class="is-hidden"></span>
                    </div>
                    <div class=""><br><br>
                       <img src="images/paystack-secured.png" style="height:90px">
