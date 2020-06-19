@@ -23,7 +23,7 @@
 	*margin-right:-18px !important;
 }
 ​
-.amount-button i:focus {
+.amount-button:focus i{
 	font-size: 22px !important;
 	margin-left:10px !important;
 	float: right !important;
@@ -34,14 +34,13 @@
 }
 ​
 .amount-button:hover {
-	/* border: 2px solid #26D0A9 !important; */
+	border: 2px solid #26D0A9 !important;
 	color: #FFF !important;
 	font-size: 18px !important;
 	background-color: #26D0A9 !important;
 	font-family: Roboto !important;	
 	font-weight: 700 !important;
 }
-​
 .amount-button:focus {
 	border: 2px solid #26D0A9 !important;
 	color: #FFF !important;
@@ -50,6 +49,7 @@
 	font-family: Roboto !important;	
 	font-weight: 700 !important;
 }
+
 .amount-selection-confirmation {
 	background-color: #EBF8F3;
 	padding: 40px;

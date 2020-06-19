@@ -72,7 +72,7 @@ function call_top_up() {
     text: "You won't be able to revert this!",
     icon: 'warning',
     allowOutsideClick: false,
-    background: '#fff url(/img/bg.jpg)',
+    // background: '#fff url(/img/bg.jpg)',
     showCancelButton: true,
     confirmButtonText: 'Yes, top up!',
     backdrop: `
@@ -114,21 +114,17 @@ function call_top_up() {
       )
     }
   })
-  // swal.fire({
-  //   title: 'Please Confirm',
-  //   text: 'Are you shure you want to top up with ₦' + amount + "?",
-  //   icon: 'info',
-  //   buttons: {
-  //     confirm : {text:'Yes, top up!',className:'sweet-success'},
-  //     cancel : 'No, cancel please!'
-  //   },
-  //   // allowOutsideClick: false,
-  //   // showCancelButton: true,
-  //   // cancelButtonText: "No, cancel please!",
-  //   // cancelButtonColor: "#DD6B55",
-  //   // showConfirmButton: true,
-  //   // confirmButtonText: "Yes, top up!",
-  //   // confirmButtonColor: "#26D0A9",
-    
-  // })
+
+
+}
+
+function top_up_history(event) {
+  event.preventDefault();
+  console.log("History is good");
+  swal.fire({
+    title: 'Please wait',
+    text: 'Fetching Your Transaction History',
+    icon: 'info',
+    timer: 3000,
+  });
 }
