@@ -58,6 +58,11 @@ function call_top_up() {
 
   var amount = $("#figu").text();
       //converted_amount = amount * 100;
+    const my_token = localStorage.getItem('access_token');
+    var myHeaders = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': my_token  
+    });
 
   const call_API = 'https://farm-aid-backend.herokuapp.com/api/topup/paystack_init/'+ amount;
   console.log("The top up amount" + amount);
@@ -86,15 +91,28 @@ function call_top_up() {
     cancelButtonText: 'No, cancel!',
     reverseButtons: true,
     preConfirm: () => {
-      return fetch(call_API)
-        .then((response) => {
-          response.json();
-          console.log("Returned from server: ", response);
+
+      var approved_request = new Request(call_API, {
+        method: 'GET',
+        //mode: 'no-cors',
+        //body: JSON.stringify(approved_msg),
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          'authorization': my_token  
         })
-        .then(data => console.log("Paystack data" ,data))
+      });
+      return fetch(approved_request)
+        .then(async (response) => {
+          var resp = await response.json();
+          if(resp.message){
+            console.log("Hahaha")
+            swal.close();
+            console.log("Network response from Approved: ", resp);
+            window.location.replace(resp.authorization_url);
+          }
+        })
+        .then(data => console.log("Paystack payment flow approved and started" ,data))
         .catch((err) => {
-        //Handle error here
-        console.log("No Paystack response");
         })
     }
     
