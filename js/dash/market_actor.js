@@ -56,7 +56,7 @@ function myFunction(event, topup_amount) {
 
 function call_top_up() {
 
-  var amount = $("#figu").text(),
+  var amount = $("#figu").text();
       //converted_amount = amount * 100;
 
   const call_API = 'https://farm-aid-backend.herokuapp.com/api/topup/paystack_init/'+ amount;
