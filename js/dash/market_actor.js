@@ -56,8 +56,10 @@ function myFunction(event, topup_amount) {
 
 function call_top_up() {
 
-  const call_API = 'https://farm-aid-backend.herokuapp.com/';
-  var amount = $("#figu").text();
+  var amount = $("#figu").text(),
+      //converted_amount = amount * 100;
+
+  const call_API = 'https://farm-aid-backend.herokuapp.com/api/topup/paystack_init/'+ amount;
   console.log("The top up amount" + amount);
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -85,7 +87,10 @@ function call_top_up() {
     reverseButtons: true,
     preConfirm: () => {
       return fetch(call_API)
-        .then(response => response.json())
+        .then((response) => {
+          response.json();
+          console.log("Returned from server: ", response);
+        })
         .then(data => console.log("Paystack data" ,data))
         .catch((err) => {
         //Handle error here
@@ -95,6 +100,7 @@ function call_top_up() {
     
       // end call here
   }).then((result) => {
+    console.log("Call results here: ", result);
     if (result.value) {
       // My test call here
       
