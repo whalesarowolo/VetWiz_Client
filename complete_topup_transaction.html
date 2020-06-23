@@ -246,12 +246,17 @@
                     var resp = await res.json();
                     if(resp !== null){
                         swal.close();
+                        //Update the top up balance here
+
                         swal.fire({
                             title: "Top up done",
-                            text: "Your top up was verified successfully",
+                            text: resp,
                             timer: 3000,
                             icon: 'success',
-                        }).then(() => console.log('Done with top up...', resp));
+                        }).then(() => {
+                            //console.log('Done with top up...', resp)
+                            window.location.replace('https://farmaid.net/partnerDashboard.html');
+                        });
                     }
                     }).catch((e)=> {
                     debugger
