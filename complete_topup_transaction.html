@@ -173,26 +173,6 @@
          s1.setAttribute('crossorigin','*');
          s0.parentNode.insertBefore(s1,s0);
          })();
-
-         function verify_payment() {
-             //Get the txnref from the location object
-            //var txn_ref = window.location;
-            var regex = /\=(.*?)\&/;
-            var strToMatch = window.location;
-            var txn_refs = regex.exec(window.location);
-             
-             swal.fire({
-                 title: 'Please wait',
-                 text: 'Your transaction is being verified',
-                 icon: 'info',
-                 allowOutsideClick: false,
-                 showConfirmButton: false,
-                 timer: 3000,
-             }).then(() => {
-                 console.log("Done with this ", txn_refs[1]);
-                 //window.location.replace('https://farmaid.net/partnerDashboard.html');
-             })
-         }
       </script>
       <!--End of Tawk.to Script-->
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -217,5 +197,79 @@
       <script src="js/dash/js-common.js"></script>
       <script src="js/dash/js-auth.js"></script>
       <script src="./js/dash/market_actor.js"></script>
+      <script>
+          function verify_payment() {
+             //Get the txnref from the location object
+            //var txn_ref = window.location;
+            var regex = /\=(.*?)\&/;
+            var strToMatch = window.location;
+            var txn_refs = regex.exec(window.location);
+             
+             swal.fire({
+                 title: 'Please wait',
+                 text: 'Your transaction is being verified',
+                 icon: 'info',
+                 allowOutsideClick: false,
+                 showConfirmButton: false,
+                 timer: 3000,
+             }).then(() => {
+                 console.log("Done with this ", txn_refs[1]);
+                 //Do payment verification from paystack using transaction reference 
+                 // create request object
+                 swal.fire({
+                     title: 'Please wait',
+                     text: 'Verifying your payment transaction',
+                     icon: 'info',
+                     allowOutsideClick: false,
+                     showConfirmButton: false,
+                 });
+                 const my_token = localStorage.getItem('access_token');
+                 var userObj = parseJwt(localStorage.getItem('access_token'));
+                 const payment_info = {
+                    "trxref": txn_refs[1],
+                    "user_id": userObj.user.id,
+                }
+                var verify_request = new Request('https://farm-aid-backend.herokuapp.com/api/paystack_verify', {
+                    method: 'POST',
+                    body: JSON.stringify(payment_info),
+                    headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': my_token  
+                    })
+                });
+
+                console.log("")
+                // pass request object to `fetch()`
+                fetch(approved_request)
+                    .then(async (res) => {
+                    //$('.modal').css({ 'display': 'none' });
+                    var resp = await res.json();
+                    if(resp !== null){
+                        swal.close();
+                        swal.fire({
+                            title: "Top up done",
+                            text: "Your top up was verified successfully",
+                            timer: 3000,
+                            icon: 'success',
+                        }).then(() => console.log('Done with top up...', resp));
+                    }
+                    }).catch((e)=> {
+                    debugger
+                    console.log(e)
+                    console.log("I was here");
+                    swal.close();
+                    swal.fire({
+                        title: "Message approval wasn't completed",
+                        text: "Message Not sent",
+                        timer: 3000,
+                        icon: 'info',
+                    });
+                    console.log("Finally tired");
+                    
+                    });
+                 //window.location.replace('https://farmaid.net/partnerDashboard.html');
+             })
+         }
+      </script>
    </body>
 </html>
