@@ -177,9 +177,9 @@
          function verify_payment() {
              //Get the txnref from the location object
             //var txn_ref = window.location;
-            var regex = /\?(.*?)\=/;
+            var regex = /\=(.*?)\&/;
             var strToMatch = window.location;
-            var txn_ref = regex.exec(window.location);
+            var txn_refs = regex.exec(window.location);
              
              swal.fire({
                  title: 'Please wait',
@@ -189,7 +189,7 @@
                  showConfirmButton: false,
                  timer: 3000,
              }).then(() => {
-                 console.log("Done with this ", txn_ref);
+                 console.log("Done with this ", txn_ref[1]);
                  //window.location.replace('https://farmaid.net/partnerDashboard.html');
              })
          }
