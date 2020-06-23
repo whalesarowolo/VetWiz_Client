@@ -82,7 +82,6 @@ function call_top_up() {
     // background: '#fff url(/img/bg.jpg)',
     showCancelButton: true,
     confirmButtonText: 'Yes, top up!',
-    showLoading: true,
     backdrop: `
     rgba(0,0,123,0.4)
     url("/img/nbg.jpg")
