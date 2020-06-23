@@ -124,65 +124,35 @@
          <div class="dashboard-inner">
             <!-- Dashboard Wrapper -->
             <div class="dashboard-wrapper">
-               <div class="row" style="margin-bottom:10px">
-                  <div class="col-md-5">
-                     Welcome <a class=" is-hidden" href="#">jebinum@farmnovation.com</a>
-                  </div>
-                  <div class="col-md-7" style="text-align: right">
-                     <strong><span class="trial-text color-red">Your free trial will end in 7 days.</span> <a href="#">Top up</a> to activate account</strong>
-                  </div>
-               </div>
+               
                <!-- Main content -->
                <div id="main-dashboard" class="section-wrapper margin-button">
 
                   <!-- Widgets -->
                   <div class="bd-notification is-dark">
                     <h2 class="is-primary has-text-centered "><b>Your Top Up was completed successfully!</b></h2><hr>
-                  <div class="columns is-multiline is-hidden">
-                      <div class="column">
-                        <div class="box has-ribbon">
-                          <div class="ribbon">Default</div>
-                          Box content
-                        </div>
-                      </div>
-                      <div class="column">
-                    
-                        <div class="box has-ribbon">
-                          <div class="ribbon is-primary">Primary</div>
-                          Box content
-                        </div>
-                      </div>
-                      <div class="column">
-                        <div class="box has-ribbon">
-                          <div class="ribbon is-warning">Warning</div>
-                          Box content
-                        </div>
-                      </div>
-                      <div class="column">
-                        <div class="box has-ribbon">
-                          <div class="ribbon is-danger">Danger</div>
-                          Box content
-                        </div>
-                      </div>
-                    </div>
+                 
                     <div class="columns is-multiline">
-                      <div class="column">
-                        <div class="box has-ribbon-left is-small">
-                          <div class="ribbon is-small is-primary">Left ribbon</div><br>
-                          <p>
-                              Thank you for completing your payment. Click <a href="/partnerDashboard.html">here</a> to go back to your dashboard
-                          </p>
-
-                        </div>
-                      </div>
-                    
-                      <div class="column">
-                        <div class="box has-ribbon-bottom is-small">
-                          <div class="ribbon is-small is-primary">Bottom ribbon</div>
-                          Box content
-                        </div>
-                      </div>
+                      
                     </div>
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                          <article class="tile is-child notification">
+                            <div class="content has-text-centered">
+                              <p class="title">Thank you for completing your payment</p>
+                              <p class="subtitle">Please do the following to verify your payments</p>
+                              <div class="content ">
+                                <!-- Content -->
+                                <button style="border-radius: 5px;" class="" onclick="verify_payment()">Verify Payments</button>
+                                <div class="has-ribbon-left is-small is-hidden">
+                                    <div class="ribbon is-small is-secondary">Next Steps</div><br>
+                                    Click <button>here</button> to go back to your dashboard
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                        </div>
+                      </div>
               </div>
                  
                </div>
@@ -203,6 +173,26 @@
          s1.setAttribute('crossorigin','*');
          s0.parentNode.insertBefore(s1,s0);
          })();
+
+         function verify_payment() {
+             //Get the txnref from the location object
+            //var txn_ref = window.location;
+            var regex = /\?(.*?)\=/;
+            var strToMatch = window.location;
+            var matched = regex.exec(window.location)[1];
+             
+             swal.fire({
+                 title: 'Please wait',
+                 text: 'Your transaction is being verified',
+                 icon: 'info',
+                 allowOutsideClick: false,
+                 showConfirmButton: false,
+                 timer: 3000,
+             }).then(() => {
+                 console.log("Done with this ", txn_ref);
+                 //window.location.replace('https://farmaid.net/partnerDashboard.html');
+             })
+         }
       </script>
       <!--End of Tawk.to Script-->
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
