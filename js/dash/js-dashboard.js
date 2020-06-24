@@ -225,6 +225,17 @@ function ricePH(param) {
         $('#rice-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function ricePHHausa(param) {
+    if ($('#rice-ph-hausa-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#rice-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#rice-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#rice-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function riceCM(param) {
     if ($('#rice-CMGT').length) {
         console.log('Creating rice post harvest...');
