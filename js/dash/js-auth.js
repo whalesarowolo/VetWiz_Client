@@ -435,6 +435,81 @@ return false;
   
 }
 
+// forgot password function
+
+$("#forgot_password_button").on('click', function(e) {
+
+  let forgot_email_password = $('#forgot_password_input').val().trim();
+      // function to validate email
+      function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test(email)) {
+          return false;
+        }else{
+          return true;
+        }
+      }
+
+  // validate empty input
+  if(forgot_email_password == "") {
+    swal.fire({
+      title: 'Error Authenticating',
+      text: 'Please provide the required credentials',
+      icon: 'warning',
+      timer: 2100
+    }).then(()=> {
+      $("#login-form").toggleClass('is-hidden');
+    });
+    return false;
+  }
+  if (IsEmail(forgot_email_password)==false) {
+    swal.fire({
+      title: 'Error Authenticating',
+      text: 'Please provide a valid email address',
+      icon: 'warning',
+      timer: 3100
+    }).then(()=> {
+    });
+    return false;
+    }
+
+
+  swal.showLoading('Please wait...');
+  const url = 'https://farm-aid-backend.herokuapp.com/api/users/forgotPassword'
+  // const token = localStorage.getItem('access_token');
+   forgot_email_password
+    let email_obj = {
+      "email": forgot_email_password
+    }
+    // create request object
+    var request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(email_obj),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    });
+
+    fetch(request)
+    .then(async (res) => {
+    var resp = await res.json();
+    if(resp.status == 200){
+      Swal.fire({
+        title: "Reset Password Link Sent",
+        text:  `Please check your email inbox for a link to complete the reset.`,
+        icon: "info",
+        timer: 3000
+    })
+    }
+    }).catch((e)=> {
+      swal.close();
+      console.log("Bad request...");
+    });
+    document.getElementById('forgot_password_input').value = "";
+});
+
+// forgot password function ends 
+
 function send_approved_sms(msg) {
   console.log("Sending Approved message");
   
