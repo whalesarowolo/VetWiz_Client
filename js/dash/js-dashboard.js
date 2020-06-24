@@ -195,6 +195,7 @@ function createCropHausa(param) {
         $('#create-tomatoes-hausa-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+
 function riceInput(param) {
     if ($('#create-rice-modal').length) {
         console.log('Creating rice input...');
@@ -204,6 +205,17 @@ function riceInput(param) {
         $('#create-rice-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceInputHausa(param) {
+    if ($('#create-rice-hausa-modal').length) {
+        console.log('Creating rice input...');
+        $('#create-rice-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-rice-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-rice-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-rice-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function ricePH(param) {
     if ($('#rice-ph-modal').length) {
         console.log('Creating rice post harvest...');

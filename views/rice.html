@@ -1,5 +1,7 @@
  <!-- Files List -->
  <div class="projects-list-wrapper">
+  <h2 class="demo-title">Rice GAP Content</h2>
+  <button  onclick="riceGapSwal()" class="button is-primary is-rounded is-left">Click to Refresh</button>
     <div class="list-body">
         <div class="columns is-multiline">
             <div class="column">
@@ -16,7 +18,8 @@
                                 <th scope="col">Input Details</th>
                                 <th scope="col">Description in English</th>
                                 <th scope="col">Description in Hausa</th>
-                                <th scope="col"><span class="btn_edit" > <a onclick="riceInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="riceInput('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" >Edit Eng</a> </span></th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="riceInputHausa('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" >Edit Hau</a> </span></th>
                               </tr>
                             </thead>
                             <tbody id="rice_input_details">
@@ -39,7 +42,8 @@
                                 <th scope="col">Post Harvest Details</th>
                                 <th scope="col">Description in English</th>
                                 <th scope="col">Description in Hausa</th>
-                                <th scope="col"><span class="btn_edit" > <a onclick="ricePH('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" > Edit</a> </span></th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="ricePH('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" >Edit Eng</a> </span></th>
+                                <th scope="col"><span class="btn_edit" > <a onclick="ricePH('crop')" href="#" class="btn btn-link " row_id="'+row_id+'" >Edit Hau</a> </span></th>
                               </tr>
                             </thead>
                             <tbody id="rice_ph_details">
