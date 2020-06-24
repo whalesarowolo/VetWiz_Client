@@ -271,6 +271,15 @@ function riceAD(param) {
         $('#rice-aggre > .modal-close').removeClass('is-hidden');
     } 
 }
+function createCMGTHausa(param) {
+    if ($('#create-CMGT-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#create-CMGT-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function createCMGT(param) {
     if ($('#create-CMGT').length) {
         console.log('Creating new crop...');
@@ -280,6 +289,8 @@ function createCMGT(param) {
         $('#create-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
 function createpro(param) {
     if ($('#create-prod').length) {
         console.log('Creating new crop...');
