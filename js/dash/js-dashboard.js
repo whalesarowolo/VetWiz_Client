@@ -177,8 +177,6 @@ function sorghumAGGRE(param) {
 
 
 
-
-
 function createCrop(param) {
     if ($('#create-crop-modal').length) {
         console.log('Creating new crop...');
@@ -188,6 +186,16 @@ function createCrop(param) {
         $('#create-crop-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function createCropHausa(param) {
+    if ($('#create-tomatoes-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-tomatoes-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-tomatoes-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-tomatoes-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-tomatoes-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
 function riceInput(param) {
     if ($('#create-rice-modal').length) {
         console.log('Creating rice input...');
@@ -197,6 +205,17 @@ function riceInput(param) {
         $('#create-rice-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceInputHausa(param) {
+    if ($('#create-rice-hausa-modal').length) {
+        console.log('Creating rice input...');
+        $('#create-rice-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-rice-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-rice-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-rice-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function ricePH(param) {
     if ($('#rice-ph-modal').length) {
         console.log('Creating rice post harvest...');
@@ -206,6 +225,17 @@ function ricePH(param) {
         $('#rice-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function ricePHHausa(param) {
+    if ($('#rice-ph-hausa-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#rice-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#rice-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#rice-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function riceCM(param) {
     if ($('#rice-CMGT').length) {
         console.log('Creating rice post harvest...');
@@ -215,6 +245,17 @@ function riceCM(param) {
         $('#rice-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceCMHausa(param) {
+    if ($('#rice-CMGT-hausa').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#rice-CMGT-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function createph(param) {
     if ($('#create-ph-modal').length) {
         console.log('Creating new crop...');
@@ -224,6 +265,17 @@ function createph(param) {
         $('#create-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function createphHausa(param) {
+    if ($('#create-ph-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function ricePD(param) {
     if ($('#rice-prod').length) {
         console.log('Creating new crop...');
@@ -233,6 +285,17 @@ function ricePD(param) {
         $('#rice-prod > .modal-close').removeClass('is-hidden');
     } 
 }
+function ricePDHausa(param) {
+    if ($('#rice-prod_hausa').length) {
+        console.log('Creating new crop...');
+        $('#rice-prod_hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-prod_hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-prod_hausa > .modal-content').addClass('scaleIn');
+        $('#rice-prod_hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function riceWC(param) {
     if ($('#rice-WC').length) {
         console.log('Creating new crop...');
@@ -242,6 +305,17 @@ function riceWC(param) {
         $('#rice-WC > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceWCHausa(param) {
+    if ($('#rice-WC-hausa').length) {
+        console.log('Creating new crop...');
+        $('#rice-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#rice-WC-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function riceAD(param) {
     if ($('#rice-aggre').length) {
         console.log('Creating new crop...');
@@ -249,6 +323,26 @@ function riceAD(param) {
         $('#rice-aggre > .modal-background').addClass('scaleInCircle');
         $('#rice-aggre > .modal-content').addClass('scaleIn');
         $('#rice-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
+function riceADHausa(param) {
+    if ($('#rice-aggre-hausa').length) {
+        console.log('Creating new crop...');
+        $('#rice-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#rice-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+function createCMGTHausa(param) {
+    if ($('#create-CMGT-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#create-CMGT-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function createCMGT(param) {
@@ -260,6 +354,8 @@ function createCMGT(param) {
         $('#create-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
 function createpro(param) {
     if ($('#create-prod').length) {
         console.log('Creating new crop...');
@@ -269,6 +365,17 @@ function createpro(param) {
         $('#create-prod > .modal-close').removeClass('is-hidden');
     } 
 }
+function createproHausa(param) {
+    if ($('#create-prod-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#create-prod-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function createWC(param) {
     if ($('#create-WC').length) {
         console.log('Creating new crop...');
@@ -278,6 +385,17 @@ function createWC(param) {
         $('#create-WC > .modal-close').removeClass('is-hidden');
     } 
 }
+function createWCHausa(param) {
+    if ($('#create-WC-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#create-WC-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function createaggr(param) {
     if ($('#create-aggre').length) {
         console.log('Creating new crop...');
@@ -285,6 +403,15 @@ function createaggr(param) {
         $('#create-aggre > .modal-background').addClass('scaleInCircle');
         $('#create-aggre > .modal-content').addClass('scaleIn');
         $('#create-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createaggrHausa(param) {
+    if ($('#create-aggre-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#create-aggre-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 
