@@ -245,6 +245,15 @@ function riceCM(param) {
         $('#rice-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceCMHausa(param) {
+    if ($('#rice-CMGT-hausa').length) {
+        console.log('Creating rice post harvest...');
+        $('#rice-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#rice-CMGT-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 
 
 function createph(param) {
