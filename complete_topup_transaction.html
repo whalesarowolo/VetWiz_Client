@@ -198,6 +198,8 @@
       <script src="js/dash/js-auth.js"></script>
       <script src="./js/dash/market_actor.js"></script>
       <script>
+
+         window.addEventListener('load', verify_payment());
           function verify_payment() {
              //Get the txnref from the location object
             //var txn_ref = window.location;
@@ -214,7 +216,6 @@
                  timer: 3000,
              }).then(() => {
                  console.log("Done with this ", txn_refs[1]);
-                 //Do payment verification from paystack using transaction reference 
                  // create request object
                  swal.fire({
                      title: 'Please wait',

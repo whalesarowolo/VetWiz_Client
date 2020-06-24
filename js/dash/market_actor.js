@@ -152,3 +152,14 @@ function top_up_history(event) {
     timer: 3000,
   });
 }
+
+function do_calculation() {
+  swal.fire({
+    title: 'Dispatching your message',
+    text: 'Please wait',
+    icon: 'info',
+    timer: 4000,
+    allowOutsideClick: false,
+    showCancelButton: true,
+  });
+}
