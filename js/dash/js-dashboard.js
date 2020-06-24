@@ -305,6 +305,17 @@ function riceWC(param) {
         $('#rice-WC > .modal-close').removeClass('is-hidden');
     } 
 }
+function riceWCHausa(param) {
+    if ($('#rice-WC-hausa').length) {
+        console.log('Creating new crop...');
+        $('#rice-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#rice-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#rice-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#rice-WC-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function riceAD(param) {
     if ($('#rice-aggre').length) {
         console.log('Creating new crop...');
