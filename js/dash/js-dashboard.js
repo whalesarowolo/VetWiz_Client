@@ -177,8 +177,6 @@ function sorghumAGGRE(param) {
 
 
 
-
-
 function createCrop(param) {
     if ($('#create-crop-modal').length) {
         console.log('Creating new crop...');
@@ -186,6 +184,15 @@ function createCrop(param) {
         $('#create-crop-modal > .modal-background').addClass('scaleInCircle');
         $('#create-crop-modal > .modal-content').addClass('scaleIn');
         $('#create-crop-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+function createCropHausa(param) {
+    if ($('#create-tomatoes-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-tomatoes-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-tomatoes-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-tomatoes-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-tomatoes-hausa-modal > .modal-close').removeClass('is-hidden');
     } 
 }
 function riceInput(param) {
