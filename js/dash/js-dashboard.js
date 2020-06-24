@@ -340,6 +340,15 @@ function createaggr(param) {
         $('#create-aggre > .modal-close').removeClass('is-hidden');
     } 
 }
+function createaggrHausa(param) {
+    if ($('#create-aggre-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#create-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 
 function groudnutAggr(param) {
     if ($('#groundnut-aggre').length) {
