@@ -222,6 +222,8 @@ function riceCM(param) {
         $('#rice-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
 function createph(param) {
     if ($('#create-ph-modal').length) {
         console.log('Creating new crop...');
@@ -231,6 +233,17 @@ function createph(param) {
         $('#create-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function createphHausa(param) {
+    if ($('#create-ph-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function ricePD(param) {
     if ($('#rice-prod').length) {
         console.log('Creating new crop...');
