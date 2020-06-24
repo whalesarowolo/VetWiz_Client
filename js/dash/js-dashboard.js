@@ -300,6 +300,17 @@ function createpro(param) {
         $('#create-prod > .modal-close').removeClass('is-hidden');
     } 
 }
+function createproHausa(param) {
+    if ($('#create-prod-hausa').length) {
+        console.log('Creating new crop...');
+        $('#create-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#create-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#create-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#create-prod-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
 function createWC(param) {
     if ($('#create-WC').length) {
         console.log('Creating new crop...');
