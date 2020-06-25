@@ -442,6 +442,18 @@ function groundnutPD(param) {
         $('#groundnut-prod > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
+function groundnutCMGTHausa(param) {
+    if ($('#groundnut-CMGT-hausa').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-CMGT-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutCMGT(param) {
     if ($('#groundnut-CMGT').length) {
         console.log('Creating groundnut input...');
