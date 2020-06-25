@@ -216,6 +216,15 @@ function sorghumWC(param) {
     } 
 }
 
+function sorghumAGGREHausa(param) {
+    if ($('#sorghum-aggre-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumAGGRE(param) {
     if ($('#sorghum-aggre').length) {
         console.log('Creating new crop...');
