@@ -197,6 +197,15 @@ function sorghumPD(param) {
 
 
 
+function sorghumWCHausa(param) {
+    if ($('#sorghum-WC-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-WC-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumWC(param) {
     if ($('#sorghum-WC').length) {
         console.log('Creating new crop...');
