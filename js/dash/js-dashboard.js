@@ -415,6 +415,17 @@ function createaggrHausa(param) {
     } 
 }
 
+
+
+function groudnutAggrHausa(param) {
+    if ($('#groundnut-aggre-hausa').length) {
+        console.log('Creating groundnut aggregation...');
+        $('#groundnut-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groudnutAggr(param) {
     if ($('#groundnut-aggre').length) {
         console.log('Creating groundnut aggregation...');
