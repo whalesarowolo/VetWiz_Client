@@ -176,6 +176,15 @@ function sorghumCMGT(param) {
     } 
 }
 
+function sorghumPDHausa(param) {
+    if ($('#sorgnum-prod-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorgnum-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorgnum-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorgnum-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#sorgnum-prod-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumPD(param) {
     if ($('#sorgnum-prod').length) {
         console.log('Creating new crop...');
@@ -185,6 +194,9 @@ function sorghumPD(param) {
         $('#sorgnum-prod > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
 function sorghumWC(param) {
     if ($('#sorghum-WC').length) {
         console.log('Creating new crop...');
