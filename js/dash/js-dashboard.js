@@ -426,6 +426,15 @@ function groudnutAggr(param) {
 }
 
 
+function groundnutWCHausa(param) {
+    if ($('#groundnut-WC-hausa').length) {
+        console.log('Creating groundnut weather and climate...');
+        $('#groundnut-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-WC-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutWC(param) {
     if ($('#groundnut-WC').length) {
         console.log('Creating groundnut weather and climate...');
