@@ -117,6 +117,15 @@ function cancelInternalMessage(params) {
     $('#create-internal-modal > .modal-close').addClass('is-hidden');
 }
 
+function sorghumInputHausa(param) {
+    if ($('#create-sorghum-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-sorghum-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-sorghum-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-sorghum-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-sorghum-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumInput(param) {
     if ($('#create-sorghum-modal').length) {
         console.log('Creating new crop...');
