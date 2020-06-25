@@ -451,6 +451,19 @@ function groundnutCMGT(param) {
         $('#groundnut-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
+
+function groundnutPHHausa(param) {
+    if ($('#groundnut-ph-hausa-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#groundnut-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutPH(param) {
     if ($('#groundnut-ph-modal').length) {
         console.log('Creating groundnut input...');
@@ -460,6 +473,9 @@ function groundnutPH(param) {
         $('#groundnut-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
 function groundnutInputHausa(param) {
     if ($('#create-groundnut-hausa-modal').length) {
         console.log('Creating groundnut input...');
