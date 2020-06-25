@@ -136,6 +136,15 @@ function sorghumInput(param) {
     } 
 }
 
+function sorghumPHDHausa(param) {
+    if ($('#sorghum-ph-hausa-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#sorghum-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumPHD(param) {
     if ($('#sorghum-ph-modal').length) {
         console.log('Creating rice post harvest...');
@@ -145,6 +154,9 @@ function sorghumPHD(param) {
         $('#sorghum-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
 function sorghumCMGT(param) {
     if ($('#sorghum-CMGT').length) {
         console.log('Creating rice post harvest...');
