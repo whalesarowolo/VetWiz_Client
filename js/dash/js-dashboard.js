@@ -460,6 +460,15 @@ function groundnutPH(param) {
         $('#groundnut-ph-modal > .modal-close').removeClass('is-hidden');
     } 
 }
+function groundnutInputHausa(param) {
+    if ($('#create-groundnut-hausa-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#create-groundnut-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-groundnut-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-groundnut-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-groundnut-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutInput(param) {
     if ($('#create-groundnut-modal').length) {
         console.log('Creating groundnut input...');
