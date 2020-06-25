@@ -120,10 +120,79 @@
                   </div>
                 </div>
                 <div class="column is-4" style="background-color: white;">
-                  <div class="box has-ribbon">
-                    <div class="ribbon is-primary"
-                      style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Summary</div>
-                    Message Reach
+                  <div class="box">
+                    <div class="is-primary has-text-centered"
+                      style="background-color: #00d1b2; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">Summary</div><br>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Male <span id="male_farmer_summary">(2345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Female <span id="female_farmer_summary">(2935)</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Rice <span id="rice_farmer_summary">(19,345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Tomatoes <span id="tomatoes_farmer_summary">(12,935)</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Groundnuts <span id="groundnuts_farmer_summary">(19,345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Sorghum <span id="sorghum_farmer_summary">(9,335)</span>
+                        </p>
+                      </div>
+                    </div><br><br>
+                    <div class="columns is-multiline is-centered">
+                      <style scoped>
+                        .smaller {
+                          padding: 2px;
+                          padding-left: 5px;
+                          border-radius: 5px;
+                        }
+                      </style>
+                      <div class="column">
+                        <div class="columns">
+                          <p class="column smaller has-text pull-left">Adamawa</p>
+                          <input class="column smaller" id="adamawa_farmer_summary" type="number" value="12345">
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="columns">
+                          <p class="column smaller has-text pull-left">Gombe </p>
+                          <input class="column smaller" id="gombe_farmer_summary" type="number" value="12345">
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="columns"style="padding-left: 4px;">
+                      <p class="is-half pull-left">Total Farmers: <span id="total_farmers_summary" ><b>29,230</b></span></p>
+                    </div><hr>
+                    <div class="columns is-multiline is-centered" style="margin-bottom: 0px;">
+                      <p class="column has-text">Total SMS Count: <br>
+                        <span class="column has-text-left pull-left" style="font-weight: bold; color: #00d1b2;"><b>45,307</b></span></p>
+                      <p class="column has-text-right pull-right">Total Cost: <br>
+                        <span class="column has-text-right pull-right" id="total_sms_cost" style="font-weight: bold; color: #00d1b2;"><b>N45,307</b></span></p>
+                    </div>
+                    
+                    <div class="columns is-multiline">
+                      <input class="button is-primary is-rounded" type="button" value="Send Message" />
+                    </div>
                   </div>
                 </div>
               </div>
