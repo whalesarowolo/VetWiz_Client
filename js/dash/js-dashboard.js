@@ -117,6 +117,15 @@ function cancelInternalMessage(params) {
     $('#create-internal-modal > .modal-close').addClass('is-hidden');
 }
 
+function sorghumInputHausa(param) {
+    if ($('#create-sorghum-hausa-modal').length) {
+        console.log('Creating new crop...');
+        $('#create-sorghum-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-sorghum-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-sorghum-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-sorghum-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumInput(param) {
     if ($('#create-sorghum-modal').length) {
         console.log('Creating new crop...');
@@ -127,6 +136,15 @@ function sorghumInput(param) {
     } 
 }
 
+function sorghumPHDHausa(param) {
+    if ($('#sorghum-ph-hausa-modal').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#sorghum-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumPHD(param) {
     if ($('#sorghum-ph-modal').length) {
         console.log('Creating rice post harvest...');
@@ -134,6 +152,18 @@ function sorghumPHD(param) {
         $('#sorghum-ph-modal > .modal-background').addClass('scaleInCircle');
         $('#sorghum-ph-modal > .modal-content').addClass('scaleIn');
         $('#sorghum-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+
+function sorghumCMGTHausa(param) {
+    if ($('#sorghum-CMGT-hausa').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-CMGT-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function sorghumCMGT(param) {
@@ -146,6 +176,15 @@ function sorghumCMGT(param) {
     } 
 }
 
+function sorghumPDHausa(param) {
+    if ($('#sorgnum-prod-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorgnum-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorgnum-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorgnum-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#sorgnum-prod-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumPD(param) {
     if ($('#sorgnum-prod').length) {
         console.log('Creating new crop...');
@@ -153,6 +192,18 @@ function sorghumPD(param) {
         $('#sorgnum-prod > .modal-background').addClass('scaleInCircle');
         $('#sorgnum-prod > .modal-content').addClass('scaleIn');
         $('#sorgnum-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+
+function sorghumWCHausa(param) {
+    if ($('#sorghum-WC-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-WC-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function sorghumWC(param) {
@@ -165,6 +216,15 @@ function sorghumWC(param) {
     } 
 }
 
+function sorghumAGGREHausa(param) {
+    if ($('#sorghum-aggre-hausa').length) {
+        console.log('Creating new crop...');
+        $('#sorghum-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumAGGRE(param) {
     if ($('#sorghum-aggre').length) {
         console.log('Creating new crop...');
@@ -415,6 +475,17 @@ function createaggrHausa(param) {
     } 
 }
 
+
+
+function groudnutAggrHausa(param) {
+    if ($('#groundnut-aggre-hausa').length) {
+        console.log('Creating groundnut aggregation...');
+        $('#groundnut-aggre-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-aggre-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-aggre-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-aggre-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groudnutAggr(param) {
     if ($('#groundnut-aggre').length) {
         console.log('Creating groundnut aggregation...');
@@ -422,6 +493,17 @@ function groudnutAggr(param) {
         $('#groundnut-aggre > .modal-background').addClass('scaleInCircle');
         $('#groundnut-aggre > .modal-content').addClass('scaleIn');
         $('#groundnut-aggre > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+function groundnutWCHausa(param) {
+    if ($('#groundnut-WC-hausa').length) {
+        console.log('Creating groundnut weather and climate...');
+        $('#groundnut-WC-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-WC-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-WC-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-WC-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function groundnutWC(param) {
@@ -433,6 +515,17 @@ function groundnutWC(param) {
         $('#groundnut-WC > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+function groundnutPDHausa(param) {
+    if ($('#groundnut-prod-hausa').length) {
+        console.log('Creating groundnut production...');
+        $('#groundnut-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-prod-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutPD(param) {
     if ($('#groundnut-prod').length) {
         console.log('Creating groundnut production...');
@@ -440,6 +533,18 @@ function groundnutPD(param) {
         $('#groundnut-prod > .modal-background').addClass('scaleInCircle');
         $('#groundnut-prod > .modal-content').addClass('scaleIn');
         $('#groundnut-prod > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+
+function groundnutCMGTHausa(param) {
+    if ($('#groundnut-CMGT-hausa').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-CMGT-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function groundnutCMGT(param) {
@@ -451,6 +556,19 @@ function groundnutCMGT(param) {
         $('#groundnut-CMGT > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
+
+
+function groundnutPHHausa(param) {
+    if ($('#groundnut-ph-hausa-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#groundnut-ph-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-ph-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-ph-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#groundnut-ph-hausa-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
 function groundnutPH(param) {
     if ($('#groundnut-ph-modal').length) {
         console.log('Creating groundnut input...');
@@ -458,6 +576,18 @@ function groundnutPH(param) {
         $('#groundnut-ph-modal > .modal-background').addClass('scaleInCircle');
         $('#groundnut-ph-modal > .modal-content').addClass('scaleIn');
         $('#groundnut-ph-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+
+function groundnutInputHausa(param) {
+    if ($('#create-groundnut-hausa-modal').length) {
+        console.log('Creating groundnut input...');
+        $('#create-groundnut-hausa-modal').removeClass('is-hidden').addClass('is-active');
+        $('#create-groundnut-hausa-modal > .modal-background').addClass('scaleInCircle');
+        $('#create-groundnut-hausa-modal > .modal-content').addClass('scaleIn');
+        $('#create-groundnut-hausa-modal > .modal-close').removeClass('is-hidden');
     } 
 }
 function groundnutInput(param) {
