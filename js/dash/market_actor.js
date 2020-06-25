@@ -48,7 +48,7 @@ function myFunction(event, topup_amount) {
     $(target_ele).css('background-color','#00d1b2');
     //target_ele.classList.toggle('fa-check-circle');
   //let amount_to_topup_by = event.target
-  $("#money_holder").empty().append("₦" + topup_amount+ " ?");
+  $("#money_holder").empty().append("₦" + numberWithCommas(topup_amount) + " ?");
   $("#figu").html(topup_amount);
   $("#topupConfirm").fadeIn('fast');
   
@@ -65,7 +65,7 @@ function call_top_up() {
     });
 
   const call_API = 'https://farm-aid-backend.herokuapp.com/api/topup/paystack_init/'+ amount;
-  console.log("The top up amount" + amount);
+  console.log("The top up amount" + numberWithCommas(amount));
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success',
@@ -75,8 +75,8 @@ function call_top_up() {
   })
   
   swalWithBootstrapButtons.fire({
-    title: 'Top up with ₦' + amount + " ?",
-    text: "You won't be able to revert this!",
+    title: 'Top up with ₦' + numberWithCommas(amount) + " ?",
+    text: "",
     icon: 'warning',
     allowOutsideClick: false,
     // background: '#fff url(/img/bg.jpg)',
@@ -140,6 +140,13 @@ function call_top_up() {
   })
 
 
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  // var parts = x.toString().split(".");
+  // parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // return parts.join(".");
 }
 
 function top_up_history(event) {
