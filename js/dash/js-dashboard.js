@@ -157,6 +157,15 @@ function sorghumPHD(param) {
 
 
 
+function sorghumCMGTHausa(param) {
+    if ($('#sorghum-CMGT-hausa').length) {
+        console.log('Creating rice post harvest...');
+        $('#sorghum-CMGT-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#sorghum-CMGT-hausa > .modal-background').addClass('scaleInCircle');
+        $('#sorghum-CMGT-hausa > .modal-content').addClass('scaleIn');
+        $('#sorghum-CMGT-hausa > .modal-close').removeClass('is-hidden');
+    } 
+}
 function sorghumCMGT(param) {
     if ($('#sorghum-CMGT').length) {
         console.log('Creating rice post harvest...');
