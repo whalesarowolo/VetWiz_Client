@@ -424,6 +424,8 @@ function groudnutAggr(param) {
         $('#groundnut-aggre > .modal-close').removeClass('is-hidden');
     } 
 }
+
+
 function groundnutWC(param) {
     if ($('#groundnut-WC').length) {
         console.log('Creating groundnut weather and climate...');
@@ -431,6 +433,17 @@ function groundnutWC(param) {
         $('#groundnut-WC > .modal-background').addClass('scaleInCircle');
         $('#groundnut-WC > .modal-content').addClass('scaleIn');
         $('#groundnut-WC > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+
+function groundnutPDHausa(param) {
+    if ($('#groundnut-prod-hausa').length) {
+        console.log('Creating groundnut production...');
+        $('#groundnut-prod-hausa').removeClass('is-hidden').addClass('is-active');
+        $('#groundnut-prod-hausa > .modal-background').addClass('scaleInCircle');
+        $('#groundnut-prod-hausa > .modal-content').addClass('scaleIn');
+        $('#groundnut-prod-hausa > .modal-close').removeClass('is-hidden');
     } 
 }
 function groundnutPD(param) {
