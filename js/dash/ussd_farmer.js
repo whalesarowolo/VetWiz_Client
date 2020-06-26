@@ -293,7 +293,6 @@ function ussdOnboarded(params) {
         method: "GET",
         headers
       }).then(async (res) => res.json()).then(data => {
-        console.log(data);
 
     if ($("#mytable_ussd").length) {
       $("#mytable_ussd_info").remove();
