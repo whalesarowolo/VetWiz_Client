@@ -1,385 +1,718 @@
+
+
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Farm Aid</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<meta name="author" content="Farm Aid " />
-		<link rel="icon" type="image/png" href="./favicons/images-favicon.png"/>
+		<link rel="icon" type="image/png" href="assets/landing/favicons/favicon.png" />
+		<title>Farm Aid</title>
+		<!--Core CSS -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="assets/landing/css/bulma.css">
+		<link rel="stylesheet" href="assets/landing/css/app.css">
+		<link rel="stylesheet" href="assets/landing/css/core_demo.css">
+		<link rel="stylesheet" href="assets/landing/css/core.css">
 		      <!-- Global site tag (gtag.js) - Google Analytics -->
-			  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
-			  <script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
+		<script>
 			  window.dataLayer = window.dataLayer || [];
 			  function gtag(){dataLayer.push(arguments);}
 			  gtag('js', new Date());
 		
 			  gtag('config', 'UA-170897809-1');
-			  </script>
-		<link rel="stylesheet" href="css/bulma.min.css" type="text/css" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito|Source+Sans+Pro&display=swap&subset=latin-ext" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		</script>
+		
 		<script src="js/modernizr.custom.js"></script>
 
 	</head>
 	<body>
-		<nav class="navbar" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-			  <a class="navbar-item" href="https://bulma.io">
-				<img src="./img/farm_aid_footer.png" width="100" height="20" style="text-align: center;">
-			  </a>
-		  
-			  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-				<span aria-hidden="true"></span>
-				<span aria-hidden="true"></span>
-				<span aria-hidden="true"></span>
-			  </a>
-			</div>
-		  
-			<div id="navbarBasicExample" class="navbar-menu">
-			  <div class="navbar-start" style="margin-top: 9px; margin-left: 70px;">
-				<a href="#about" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
-				  About
-				</a>
-		  
-				<a href="#services" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
-				  Services
-				</a>
-				<a href="#pricing" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
-				  Pricing
-				</a>
-				<a href="#contact" class="navbar-item" style="padding: 0 50px 0 50px; margin-bottom: 10px;">
-				  Contact Us
-				</a>
-		  
-			  </div>
-		  
-			  <div class="navbar-end">
-				<div class="navbar-item">
-				  <div class="buttons">
-					<a class="button is-primary" id="regIn">
-					  <strong>Sign up</strong>
+		<!--
+			<div class="pageloader"></div>
+			<div class="infraloader is-active"></div> 
+			-->
+		<nav class="navbar is-transparent is-fixed-top is-faded">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="index.html">
+					<img class="light-logo" src="assets/landing/img/logo/farmaid-color.svg" alt="">
+					<img class="dark-logo is-hidden" src="assets/landing/img/logo/farmaid-color.svg" alt="">
 					</a>
-					<a class="button is-primary" id="getIn">
-					  <strongLog>Log in</strong>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
 					</a>
-					
-				  </div>
 				</div>
-			  </div>
+				<div class="navbar-menu">
+					<div class="navbar-start">
+						<a href="#about" class="navbar-item has-hover">
+						About
+						</a>
+						<a href="#features" class="navbar-item has-hover">
+						Features
+						</a>
+						<a href="#pricing" class="navbar-item has-hover">
+						Pricing
+						</a>
+						<a href="#contact" class="navbar-item has-hover">
+						Contact Us
+						</a>
+					</div>
+					<div class="navbar-end has-hover">
+						<a class="navbar-item has-border-right btn modal-trigger info-trigger" data-modal="login-modal">
+						Login
+						</a>
+						<div class="separator"></div>
+						<div class="navbar-item">
+							<a class="button cta-button is-rounded primary-button modal-trigger success-trigger" data-modal="signup-modal">Sign Up</a>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </nav>
-		<div class="container header" style="margin-top:100px;">
-			<div class="slideshow" id="slideshow">
-				<ol class="slides">
-					<li class="current">
-					<div class="description">
-							<h2>Good Agricultural Practices</h2>
-							<p>Provision of real-time and on-demand information on farming best Practices</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/gap.png"/></a>
-							<a href="#"><img src="img/gap-1.jpg"/></a>
-						</div>
-					</li>
-					<li>
-						<div class="description">
-							<h2>Accurate Weather Information</h2>
-							<p>Access to daily weather Information for pre-harvest and post-harvest farming activities to facilitate adequate planning</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/weather.png"/></a>
-							<a href="#"><img src="img/weather-advisory.jpg"/></a>
-						</div>
-					</li>
-					<li>
-						<div class="description">
-							<h2>Sourcing Genuine and Quality Inputs</h2>
-							<p>We provide information to access quality and genuine inputs</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/Agric-inputs.jpg"/></a>
-							<a href="#"><img src="img/fertilizer.jpg"/></a>
-						</div>
-					</li>
-					<li>
-						<div class="description">
-							<h2>Commodity Pricing</h2>
-							<p>Access to farm gate and premium markets prices for crop commodities as well as market linkage that attracts maximum profits on farm produce</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/commodities.jpg"/></a>
-							<a href="#"><img src="img/rice4market.jpg"/></a>
-						</div>
-					</li>
-					<li>
-						<div class="description">
-							<h2>Business and Financial Literacy</h2>
-							<p>Provision of business advisory and financial tips on crop budgeting and farm management</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/business advisory.jpg"/></a>
-							<a href="#"><img src="img/savings.jpg"/></a>
-						</div>
-					</li>
-					<li>
-						<div class="description">
-							<h2>Animal Health and Livestock production</h2>
-							<p>Run health diagnosis to determine vaccines to administer to your animals</p>
-						</div>
-						<div class="tiltview col">
-							<a href="#"><img src="img/animal health.jpg"/></a>
-							<a href="#"><img src="img/chicken.jpg"/></a>
-						</div>
-					</li>
-				</ol>
-			</div>
-			<!-- /slideshow -->
-			<section class="section about-farmaid">
+		</nav>
+		<!-- Hero -->
+		<div class="hero is-relative">
+			<div class="hero-body">
 				<div class="container">
-				<h1 id="about" class="title has-text-centered">About Farm Aid Solution</h1>
-				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
-				<p class="is-size-5 is-medium about"><b>F</b>arm Aid is a technology solution that adopts pull and push system using short message service (SMS), Interactive Voice Response (IVR), Web and farmer call center to engage and provide information on good agricultural practices(GAP) as it relates to crop production, market prices of crops, weather information, business advisory, market linkage, farm inputs sourcing, livestock production and animal health to smallholder farmers. As well as providing a channel which farmers can ask questions on the different aspects of their processes.</p>
-				</div>
-			  </section>
-			  <section id="services" class="section about-farmaid">
-				<div class="container">
-				<h1 class="title has-text-centered">Our Services & Features</h1>
-				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
-				<p class="is-size-5 is-medium about">Farm Aid is an integrated Agriculture extension portal that has a call centre of agricultural experts where you can send in your questions via SMS or make a call to the farmer call center to speak to an expert for instant help on agri-related challenges. Once you sign up, you will also receive agri tips on crop and livestock, market prices and weather updates.</p>
-				</div>
-  			</section>
-		
-			<div class="section main-features">
-				<div class="columns is-2 container">
-					<div class="column card features">
-					<img src="./img/sms-1.png"/>
-					<h1>Good Agricultural Practices (GAP)</h1>
-					<p class="">Instant SMS on farming best practice. For market actors, deliver your message to Farm Aid’s large database of profiled farmers, to build your products’ brand awareness and increase sales.</p>
-					</div>
-
-					<div class="column card features">
-					<img src="./img/weather-icon.png"/>
-					<h1>Weather Advisory Services</h1>
-					<p>Accurate weather information sourced from proven and reliable weather service provider to help smallholder farmer plan their processes.</p>
-					</div>
-
-					<div class="column card features">
-					<img src="./img/animal health.png"/>
-					<h1>Animal Health & Livestock Production</h1>
-					<p>Paravets and Community Animal health workers (CAHW) can subscribe to access information on the diagnosis, treatment and vaccines for animal diseases and sicknesses.</p>
-					</div>
-				</div>
-
-				<div class="columns is-2 container main-features">
-					<div class="column card features">
-					<img src="./img/business advisory.png"/>
-					<h1>Business Advisory & financial literacy</h1>
-					<p>Provision of business advisory and financial tips on crop budgeting and farm management in order to understand the economics of production before accessing loans and other input credit.</p>
-					</div>
-
-					<div class="column card features">
-					<img src="./img/inputs.png"/>
-					<h1>Access to Quality Inputs</h1>
-					<p>Access to genuine/improved crop inputs from trusted input suppliers and seed companies</p>
-					</div>
-
-					<div class="column card features">
-					<img src="./img/market.png"/>
-					<h1>Market Linkage & Commodity Pricing</h1>
-					<p>Get updated information on the prices of food crops to inform your decision on where to sell and when to sell, also get access to information on the demands of premium buyers.</p>
-					</div>
-				</div>
-			</div>
-
-			<div id="pricing" class="container pricing">
-				<h1 class="title has-text-centered">Our Solution Pricing</h1>
-				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
-			
-			<div class="columns pricing is-mobile is-multiline is-centered">
-				
-				<div class="column free is-one-third is-narrow">
-					<div class="price-header">
-						<h2>Free</h2>
-						<p>₦0/<span>Year</span></p>
-					</div>
-					<ul>
-						<li><i class="fa fa-check-circle"></i>GAP tips on 1 Crop</li>
-						<li><i class="fa fa-check-circle"></i>Information request via SMS(1 SMS/month)</li>
-						<li><i class="fa fa-check-circle"></i>Weekly Weather updates</li>
-						<li><i class="fa fa-check-circle"></i>Farm gate commodity pricing</li>
-						<li><i class="fa fa-check-circle"></i>Occasional SMS from value chain actors</li>
-					</ul>
-					<div class="price-button">
-						<a href="./register.html" class="buy-btn buy-btn-free button">Sign up</a>
-					</div>
-
-				</div>
-				<div class="column is-one-third is-narrow is-hidden-tablet"><br><br><br></div>
-
-				<div class="column free is-one-third is-narrow">
-
-					<div class="price-header">
-						<h2>Premium</h2>
-						<p>₦2000/<span>Year</span></p>
-					</div>
-					<ul>
-						<li><i class="fa fa-check-circle"></i>GAP tips on 4 Crops</li>
-						<li><i class="fa fa-check-circle"></i>Information request via SMS(4 SMS/month)</li>
-						<li><i class="fa fa-check-circle"></i>Daily, Weekly, monthly & seasonal weather updates</li>
-						<li><i class="fa fa-check-circle"></i>Commodity prices from premium buyers</li>
-						<li><i class="fa fa-check-circle"></i>Access to expert agronomists via a call center</li>
-						<li><i class="fa fa-check-circle"></i>Alerts on new seed varieties</li>
-						<li><i class="fa fa-check-circle"></i>Occasional SMS from value chain market actors</li>
-						<li><i class="fa fa-check-circle"></i>Monthly business tips on crop budgeting</li>
-					</ul>
-						<div class="price-button">
-							<a href="./register.html" class="buy-btn buy-btn-premium button">Sign up</a>
+					<div class="slider is-vcentered" style="margin-top:100px">
+						<div class="slide_viewer">
+							<div class="slide_group">
+								<div class="slide">
+									<div class="slider-text">
+										<b>Good Agricultural Practices</b>
+										<p style="font-size:16px">Provision of real-time and on-demand information on farming best Practices</p>
+									</div>
+									<!--<img src="assets/landing/img/slide1.png">-->
+								</div>
+								<div class="slide">
+									<div class="slider-text">
+										<b>Accurate Weather Information</b>
+										<p style="font-size:16px">Access to daily weather Information for pre-harvest and post-harvest farming activities to facilitate adequate planning</p>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="slider-text">
+										<b>Sourcing Genuine and Quality Inputs</b>
+										<p style="font-size:16px">We provide information to access quality and genuine inputs</p>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="slider-text">
+										<b>Commodity Pricing</b>
+										<p style="font-size:16px">Access to farm gate and premium markets prices for crop commodities as well as market linkage that attracts maximum profits on farm produce</p>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="slider-text">
+										<b>Business and Financial Literacy</b>
+										<p style="font-size:16px">Provision of business advisory and financial tips on crop budgeting and farm management</p>
+									</div>
+								</div>
+								<div class="slide">
+									<div class="slider-text">
+										<b>Animal Health and Livestock Production</b>
+										<p style="font-size:16px">Run health diagnosis to determine vaccines to administer to your animals</p>
+									</div>
+								</div>
+							</div>
 						</div>
-				</div>
-			</div>
-
-			</div>
-			<div class="container Partners">
-				<h1 class="title has-text-centered">Our Partners</h1>
-				<hr style="border-top: 2px solid #4DBF49; width:20%; margin:0 auto;">
-			<div class="columns Partners-children">
-				<div class="column">
-				<img src="./img/partners/Propcom.png"/>
-				</div>
-				<div class="column">
-				<img src="./img/partners/NVRI_Logo.jpg"/>
-				</div>
-				<div class="column">
-					<img src="./img/partners/openweather.png"/>
-				</div>
-				<div class="column">
-					<img style="min-width: 100%;" src="./img/tef_logo.jpeg"/>
-				</div>
-			</div>
-			</div>
-
-	
-			<div class="column">
-				<div class="get-started has-text-centered">
-					<p>Join over <strong>200,000</strong> smallholder farmers accessing real time, tailor made and demand driven extension services.</h2
-					></p>
-					<div class="get-started-2">
-					<p>If you are a value chain actor, you can provide services to smallholder farmers via this platform</p>
 					</div>
-					<a class="button is-large is-success" style="margin-top:20px;" href="./register.html">Get Started</a>
+					<!-- End // .slider -->
+					<div class="slide_buttons"></div>
+					<div class="directional_nav">
+						<div class="previous_btn" title="Previous">
+							<i class="fa fa-angle-left" style="font-size:50px"></i>
+						</div>
+						<div class="next_btn" title="Next">
+							<i class="fa fa-angle-right" style="font-size:50px"></i>
+						</div>
+					</div>
+					<!-- End // .directional_nav -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+					<script>
+						$('.slider').each(function() {
+						var $this = $(this);
+						var $group = $this.find('.slide_group');
+						var $slides = $this.find('.slide');
+						var bulletArray = [];
+						var currentIndex = 0;
+						var timeout;
+						
+						function move(newIndex) {
+						 var animateLeft, slideLeft;
+						 
+						 advance();
+						 
+						 if ($group.is(':animated') || currentIndex === newIndex) {
+						   return;
+						 }
+						 
+						 bulletArray[currentIndex].removeClass('active');
+						 bulletArray[newIndex].addClass('active');
+						 
+						 if (newIndex > currentIndex) {
+						   slideLeft = '100%';
+						   animateLeft = '-100%';
+						 } else {
+						   slideLeft = '-100%';
+						   animateLeft = '100%';
+						 }
+						 
+						 $slides.eq(newIndex).css({
+						   display: 'block',
+						   left: slideLeft
+						 });
+						 $group.animate({
+						   left: animateLeft
+						 }, function() {
+						   $slides.eq(currentIndex).css({
+						     display: 'none'
+						   });
+						   $slides.eq(newIndex).css({
+						     left: 0
+						   });
+						   $group.css({
+						     left: 0
+						   });
+						   currentIndex = newIndex;
+						 });
+						}
+						
+						function advance() {
+						 clearTimeout(timeout);
+						 timeout = setTimeout(function() {
+						   if (currentIndex < ($slides.length - 1)) {
+						     move(currentIndex + 1);
+						   } else {
+						     move(0);
+						   }
+						 }, 8000);
+						}
+						
+						$('.next_btn').on('click', function() {
+						 if (currentIndex < ($slides.length - 1)) {
+						   move(currentIndex + 1);
+						 } else {
+						   move(0);
+						 }
+						});
+						
+						$('.previous_btn').on('click', function() {
+						 if (currentIndex !== 0) {
+						   move(currentIndex - 1);
+						 } else {
+						   move(3);
+						 }
+						});
+						
+						$.each($slides, function(index) {
+						 var $button = $('<a class="slide_btn">&bull;</a>');
+						 
+						 if (index === currentIndex) {
+						   $button.addClass('active');
+						 }
+						 $button.on('click', function() {
+						   move(index);
+						 }).appendTo('.slide_buttons');
+						 bulletArray.push($button);
+						});
+						
+						advance();
+						});
+						
+					</script>
 				</div>
 			</div>
-
-			 <!--  benefit section ends here -->
-			 <section id="contact" class="is-centered" style="max-width: 98%;">
-				<div class="form-wrapper">
-					<header class="form-head">
-						<h2>Contact Us</h2>
-					</header>
-					<form  action="https://formspree.io/mwknjykr" method="POST">
-						<div class="name-form">
-							<label for="name">Name:</label>
-							<input type="text" name="name" required>
+		</div>
+		<!--End Slider Hero Section-->
+		<div id="about" class="section is-medium is-skewed-sm" style="padding-top:20px" >
+			<div class="container is-reverse-skewed-sm">
+				<div class="content-wrapper">
+					<!-- Icon boxes -->
+					<div class="columns is-vcentered">
+						<div class="column is-5 is-offset-1 has-text-centered">
+							<div class="columns is-vcentered has-text-centered is-multiline">
+								<img src="assets/landing/img/farmaid-in-use.jpg" style="width:90%">
+							</div>
 						</div>
-						<div class="email-form">
-							<label for="email">Email:</label>
-							<input type="email" required name="_replyto">
+						<!-- Feature text -->
+						<div class="column is-7">
+							<div class="side-title">
+								<h3 class="title is-2"><br>What is Farm Aid ?</h3>
+							</div>
+							<p class="side-paragraph has-margin">Farm Aid is a technology solution that adopts pull and push system using short message service (SMS), Interactive Voice Response (IVR), 
+								Web and farmer call center to engage and provide information on good agricultural practices(GAP) as it relates to crop production, 
+								market prices of crops, weather information, business advisory, market linkage, farm inputs sourcing, livestock production and animal 
+								health to smallholder farmers. As well as providing a channel which farmers can ask questions on the different aspects of their processes.
+							</p>
 						</div>
-						<div class="message-form">
-							<label for="message">Message:</label>
-							<textarea name="message" id="styled"></textarea>
-						</div>
-						<button type="submit" value="Send">Submit</button>
-					</form>
+					</div>
 				</div>
-			</section>
-
-
-		<!--Sign Up/ Log In Modal-->
-
-		<div class="modal" id="closeme">
+			</div>
+		</div>
+		<div id="features" class="section is-grey light-green-bg">
+			<div class="container">
+				<!--Wrapper-->
+				<div class="content-wrapper">
+					<div class="columns">
+						<!--Feature text-->
+						<div class="column is-3 slideLeft">
+							<div class="side-title">
+								<h3 class="title is-2">Services & Features</h3>
+							</div>
+							<p class="side-paragraph has-margin">
+								Farm Aid is an integrated Agriculture extension portal that has a call centre of agricultural experts 
+								where you can send in your questions via SMS or make a call to the farmer call center to speak to an 
+								expert for instant help on agri-related challenges. Once you sign up, you will also receive agri tips on 
+								crop and livestock, market prices and weather updates.<br><br>
+								<!--<a href="#contact" class="button cta-button primary-button is-raised is-rounded"><b>FIND OUT MORE</b></a>-->
+							</p>
+						</div>
+						<!--Stacked phones-->
+						<div class="column is-8 is-offset-1 service-columns">
+							<div class="columns is-vcentered is-multiline">
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/sms-1.png" alt="">
+											<h4 class="box-title">Good Agricultural Practices (GAP)</h4>
+											<p>Instant SMS on farming best practice. For market actors, deliver your message to Farm Aid’s large database of profiled farmers, to build your products’ brand awareness and increase sales..</p>
+										</div>
+									</div>
+								</div>
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/weather-icon.png" alt="">
+											<h4 class="box-title">Weather Advisory Services</h4>
+											<p>Accurate weather information sourced from proven and reliable weather service provider to help smallholder farmer plan their processes.</p>
+										</div>
+									</div>
+								</div>
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/animal-health.png" alt="">
+											<h4 class="box-title">Animal Health & Livestock Production</h4>
+											<p>Paravets and Community Animal health workers (CAHW) can subscribe to access information on the diagnosis, 
+												treatment and vaccines for animal diseases and sicknesses.
+											</p>
+										</div>
+									</div>
+								</div>
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/business-advisory.png" alt="">
+											<h4 class="box-title">Business Advisory & financial literacy</h4>
+											<p>Provision of business advisory and financial tips on crop budgeting and farm management in order 
+												to understand the economics of production before accessing loans and other input credit.
+											</p>
+										</div>
+									</div>
+								</div>
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/inputs.png" alt="">
+											<h4 class="box-title">Access to Quality Inputs </h4>
+											<p>Access to genuine/improved crop inputs from trusted input suppliers and seed companies</p>
+										</div>
+									</div>
+								</div>
+								<!-- Icon block -->
+								<div class="column is-6">
+									<div class="box-wrap is-box-reveal feature-box">
+										<div class="icon-box">
+											<img src="assets/landing/img/market.png" alt="">
+											<h4 class="box-title">Market Linkage & Commodity Pricing</h4>
+											<p>Get updated information on the prices of food crops to inform your decision on where to sell 
+												and when to sell, also get access to information on the demands of premium buyers.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Slanted feature Section -->
+		<section id="pricing" class="section section-primary is-medium is-skewed-sm is-relative">
+			<div class="container slanted-container is-reverse-skewed-sm">
+				<!--Title-->
+				<div class="section-title pricing-title has-text-centered">
+					<h2 class="title is-spaced white-title" style="color:#fff">Pricing for Farmers</h2>
+					<h3 class="subtitle" style="color:#fff">Farmers can choose from the two options below</h3>
+				</div>
+				<div class="columns">
+					<div class="column is-5 is-offset-1">
+						<div class="pricing-card is-box-reveal">
+							<h3 class="pricing-title">Free <span class="pull-right colored" style="color:#26D0A9">₦0</h3>
+							<hr>
+							<div class="features">
+								<div class="feature">
+									<span>GAP tips on 1 Crop</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Information request via SMS(1 SMS/month)</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Weekly Weather updates</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Farm gate commodity pricing</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Occasional SMS from value chain actors</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+							</div>
+							<a class="button cta-button primary-button is-fullwidth is-raised is-rounded pricing-bottom-button modal-trigger success-trigger" data-modal="signup-modal"><b>SIGN UP</b></a>
+						</div>
+					</div>
+					<div class="column is-5">
+						<div class="pricing-card is-box-reveal">
+							<h3 class="pricing-title">Premium <span class="pull-right colored" style="color:#26D0A9">₦2,000</h3>
+							<!--
+								<p>Start using our services without paying anything. Start for Free and pay only when you make transactions.</p>-->
+							<hr>
+							<div class="features">
+								<div class="feature">
+									<span>GAP tips on 4 Crops</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Information request via SMS(4 SMS/month)</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Daily, Weekly, monthly & seasonal weather updates</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Commodity prices from premium buyers</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Access to expert agronomists via a call center</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Alerts on new seed varieties</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Occasional SMS from value chain market actors</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+								<div class="feature">
+									<span>Monthly business tips on crop budgeting</span>
+									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
+								</div>
+							</div>
+							<a class="button cta-button primary-button is-fullwidth is-raised is-rounded modal-trigger success-trigger" data-modal="signup-modal"><b>SIGN UP</b></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Slanted feature Section -->
+		<div class="section is-medium parallax is-cover is-relative is-medium section-counter" data-background="assets/landing/img/counter.jpg" data-color="#7F00FF" data-color-opacity="0.8"
+			data-demo-background="assets/landing/img/counter.jpg">
+			<div class="container slanted-container">
+				<div class="content-wrapper">
+					<!-- Counters -->
+					<div class="columns is-vcentered has-text-centered">
+						<div class="column is-4">
+							<div class="parallax-counter">
+								<div class="counter-icon">
+									<i class="im im-icon-MaleFemale"></i>
+								</div>
+								<div class="counter counter-number text-bold">18200</div>
+								<div class="counter-text">Farmers Onboarded</div>
+							</div>
+						</div>
+						<div class="column is-4">
+							<div class="parallax-counter">
+								<div class="counter-icon">
+									<i class="im im-icon-Phone-SMS"></i>
+								</div>
+								<div class="counter counter-number text-bold">319916</div>
+								<div class="counter-text">Informative SMS Sent</div>
+							</div>
+						</div>
+						<div class="column is-4">
+							<div class="parallax-counter">
+								<div class="counter-icon">
+									<i class="im im-icon-Phone-2"></i>
+								</div>
+								<div class="counter counter-number text-bold">1971</div>
+								<div class="counter-text">Call Engagement </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Feature Section 2-->
+		<div id="features-2" class="section" style="padding-top:40px">
+			<div class="container">
+				<!--Wrapper-->
+				<div class="content-wrapper has-margin-bottom">
+					<div class="columns is-vcentered">
+						<!--Laptop-->
+						<div class="column is-5 is-offset-1 is-centered-portrait">
+							<img src="assets/landing/img/value-chain-actors.jpg" class="desk-90" alt="">
+						</div>
+						<!--Content-->
+						<div class="column is-5">
+							<div class="side-title">
+								<h3 class="title is-2">Value Chain Actors</h3>
+							</div>
+							<p class="side-paragraph has-margin">
+								If you are a value chain actor, you can provide services to smallholder farmers via this platform<br><br>
+								<a href="../register.html" class="button cta-button primary-button is-raised is-rounded"><b>SIGN UP NOW</b></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section is-grey light-green-bg partner-sect">
+			<div class="container">
+				<div class="section-title contact-title has-text-centered">
+					<h2 class="title is-spaced is-2 color-green">Our Partners</h2>
+				</div>
+				<div class="columns is-vcentered">
+					<!--Partners-->
+					<div class="column">
+						<div class="partner-logos">
+							<img src="assets/landing/img/Propcom.png" alt="Propcom Mai-karfi" data-toggle="tooltip" data-placement="bottom" data-title="Propcom Mai-karfi">
+							<img src="assets/landing/img/nvri.png" alt="National Veterinary Research Institute (NVRI)" data-toggle="tooltip" data-placement="bottom" data-title="National Veterinary Research Institute (NVRI)">
+							<img src="assets/landing/img/openweather.png" alt="Open Weather Map" data-toggle="tooltip" data-placement="bottom" data-title="Open Weather Map">
+							<img class="is-hidden-mobile" src="assets/landing/img/tef_logo.png" alt="The Tony Elumelu Foundation" data-toggle="tooltip" data-placement="bottom" data-title="The Tony Elumelu Foundation">
+						</div>
+						<div class="partner-logos is-hidden-desktop is-centered">
+							<img class="is-hidden-desktop" src="assets/landing/img/tef_logo.png" alt="The Tony Elumelu Foundation" data-toggle="tooltip" data-placement="bottom" data-title="The Tony Elumelu Foundation">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Feature Section 3-->
+		<div id="contact" class="section">
+			<div class="container">
+				<!--Wrapper-->
+				<div class="content-wrapper">
+					<div class="columns ">
+						<!--Feature text-->
+						<div class="column is-5 is-offset-1">
+							<div class="side-title">
+								<h3 class="title is-2">Reach Us</h3>
+							</div>
+							<p class="side-paragraph has-margin">
+								You can reach us in any of the following ways. We look forward to hearing from you.
+							</p>
+							<br><br>
+							<div class="side-card contact-box">
+								<div class="round-icon is-primary">
+									<i data-feather="mail"></i>
+								</div>
+								<div class="meta">
+									<span>Send us an email</span>
+									<span style="font-size:16px">info@farmaid.net</span>
+								</div>
+							</div>
+							<div class="side-card contact-box">
+								<div class="round-icon is-accent">
+									<i data-feather="phone-call"></i>
+								</div>
+								<div class="meta">
+									<span>Call Us</span>
+									<span style="font-size:16px">+234 (0) 906 239 0503</span>
+								</div>
+							</div>
+						</div>
+						<!--Cards-->
+						<div class="column is-5 is-relative is-centered-portrait">
+							<div class="">
+								<div class="contact-form">
+									<form>
+										<div class="control-material is-primary">
+											<input class="material-input " type="text" required>
+											<span class="material-highlight"></span>
+											<span class="bar"></span>
+											<label>Full Name</label>
+										</div>
+										<div class="control-material is-primary">
+											<input class="material-input " type="text" required>
+											<span class="material-highlight"></span>
+											<span class="bar"></span>
+											<label>Email</label>
+										</div>
+										<div class="control-material is-primary">
+											<input class="material-input " type="text" required>
+											<span class="material-highlight"></span>
+											<span class="bar"></span>
+											<label>Phone</label>
+										</div>
+										<div class="control-material is-primary">
+											<textarea rows="3" required></textarea>
+											<span class="material-highlight"></span>
+											<span class="bar"></span>
+											<label>Message</label>
+										</div>
+										<!--Success Message-->
+										<div class="success-message is-hidden">
+											<h1>Thank You!</h1>
+											<p>Your message has been sent successfully. 
+												We will get back to you within 24hours via the email or phone numnber you provided.
+											</p>
+										</div>
+										<!--/End Success Message-->
+										<!--Error Message-->
+										<div class="error-message is-hidden">
+											<h1>An Error Occured!</h1>
+											<p>Your message could not be sent. Please try again</p>
+										</div>
+										<!--/End Error Message-->
+										<div class="button-wrap">
+											<input class="button cta-button primary-button is-raised is-fullwidth is-rounded" type="submit" value="Send Message">
+										</div>
+									</form>
+								</div>
+								<br><br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Section -->
+		<footer class="footer footer-dark-left">
+			<div class="container">
+				<div class="columns is-vcentered">
+					<div class="column is-6">
+						<div class="mb-20">
+							<img class="small-footer-logo" src="assets/landing/img/logo/farmaid-white.svg" alt="">
+						</div>
+						<div>
+							<span class="moto">© 2020 Copyright Farm Aid by <a class="footer-link" href="https://farmnovation.com" target="_blank">Farm Innovation Nigeria Limited</a> </span>
+							<nav class="level is-mobile mt-20">
+								<div class="level-left level-social">
+									<a href="https://www.facebook.com/FarmInnovationLtd/" target="_blank" class="level-item">
+									<span class="icon"><i class="fa fa-facebook"></i></span>
+									</a>
+									<a href="https://twitter.com/Farmnovation/" target="_blank" class="level-item">
+									<span class="icon"><i class="fa fa-twitter"></i></span>
+									</a>
+									<a href="https://www.linkedin.com/company/farm-innovation-nigeria-limited/" target="_blank" class="level-item">
+									<span class="icon"><i class="fa fa-linkedin"></i></span>
+									</a>
+									<a href="https://www.instagram.com/farmnovation/" class="level-item">
+									<span class="icon"><i class="fa fa-instagram"></i></span>
+									</a>
+								</div>
+							</nav>
+						</div>
+					</div>
+					<div class="column">
+						<div class="footer-nav-right footer-nav-center-mobile">
+							<a class="footer-nav-link" href="livestock.html">Livestock Admin</a>
+							<a class="footer-nav-link" href="login.html">Login</a>
+							<a class="footer-nav-link modal-trigger success-trigger" data-modal="signup-modal">Sign up</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Sign Up Modal-->
+		<div id="signup-modal" class="modal modal-lg modal-success">
 			<div class="modal-background"></div>
-			<form id="sign_in">
-				<div class="modal-card">
-					<header class="modal-card-head">
-					<header class="modal-card-title">Authentication</header>
-					<span class="delete" aria-label="close"></span>
-					</header>
-					<div class="modal-card-body">
-					<!-- Content ... -->
-						<div class="center">
-							<h2 class="form-title"><b>Log in</b></h2>
-							<div class="form-holder">
-								<input type="email" id="email" name="email" class="input" placeholder="Email" />
-								<br><br>
-								<input type="password" id="password" name="password" class="input" placeholder="******" />
+			<div class="modal-content">
+				<div class="flex-card simple-shadow">
+					<div class="card-body">
+						<div class="content">
+							<h2 class="has-text-centered color-green" style="margin-top:10px">Sign Up to Farm Aid</h2>
+							<p class="has-text-centered">Please select from the categories below to continue:</p>
+						</div>
+						<div class="columns is-centered">
+							<div class="column is-5 has-text-centered" onclick="location.href='#'">
+								<div class="signup-category signup-category-disabled" data-toggle="tooltip" data-placement="bottom" data-title="Please check back later">
+									<img src="assets/landing/img/farmer-illustration.svg">
+									<h1>Farmer</h1>
+									<small>Smallholder and largescale farmers</small> 
+								</div>
+							</div>
+							<div class="column is-5 has-text-centered" onclick="location.href='register.html'">
+								<div class="signup-category">
+									<img src="assets/landing/img/market-actor-illustration.svg">
+									<h1>Market Actor</h1>
+									<small>Off-takers, agro-dealers, seed suppliers etc</small> 
+								</div>
 							</div>
 						</div>
+						<br>
 					</div>
-					<footer class="modal-card-foot">
-					<button class="button is-success" is-right>Login</button>
-					<a id="register" class="button is-success" is-right>Register</a>
-					</footer>
 				</div>
-			</form>
-
-			<form id="sign_up" style="display: none;">
-				<div class="modal-card">
-					<header class="modal-card-head">
-					<header class="modal-card-title">Authentication</header>
-					<span class="delete" aria-label="close"></span>
-					</header>
-					<div class="modal-card-body">
-					<!-- Content ... -->
-						<div class="center">
-							<h2 class="form-title"><b>Log in</b></h2>
-							<div class="form-holder">
-								<input type="email" id="signup_email" name="signup_email" class="input" placeholder="Email" />
-								<br><br>
-								<input type="password" id="signup_password" name="signup_password" class="input" placeholder="******" />
+			</div>
+			<button class="modal-close is-large is-hidden" aria-label="close"></button>
+		</div>
+		<!-- Login Modal-->
+		<div id="login-modal" class="modal modal-lg modal-info">
+			<div class="modal-background"></div>
+			<div class="modal-content">
+				<div class="flex-card simple-shadow">
+					<div class="card-body">
+						<div class="content">
+							<h2 class="has-text-centered color-green" style="margin-top:10px">Login to Farm Aid</h2>
+							<p class="has-text-centered">Please select from the categories below to continue:</p>
+						</div>
+						<div class="columns is-centered">
+							<div class="column is-5 has-text-centered" onclick="location.href='login.html'">
+								<div class="signup-category">
+									<img src="assets/landing/img/logo/farmaid-min.png">
+									<h1>Farm Aid Portal</h1>
+									<small>Market Actors, Agronomists etc</small> 
+								</div>
+							</div>
+							<div class="column is-5 has-text-centered" onclick="location.href='nvri-login.html'">
+								<div class="signup-category">
+									<img src="assets/landing/img/nvri.png">
+									<h1>NVRI Admin</h1>
+									<small>Livestock Administrative Portal</small> 
+								</div>
 							</div>
 						</div>
+						<br>
 					</div>
-					<footer class="modal-card-foot">
-					<button class="button is-success" is-right>Login</button>
-					<a id="register" class="button is-success" is-right>Register</a>
-					</footer>
 				</div>
-			</form>
-			
+			</div>
+			<button class="modal-close is-large is-hidden" aria-label="close"></button>
 		</div>
-		<script src="js/jquery.js"></script>
-		<script src="js/swal.js"></script>	
-		<script src="js/scripter.js"></script>
-		<script src="js/classie.js"></script>
-		<script src="js/tiltSlider.js"></script>
-		<script>
-			new TiltSlider(document.getElementById('slideshow'));
-		</script>
-		<div class="columns is-centered footer-container has-text-centered">
-		<div class="footer-logo column is-2">
-			<img src="./img/farm_aid_footer.png"/>
-		</div>
-		<div class="column is-5 copyright">
-    		<p>
-				 &copy; 2020 Copyright <strong>Farm Aid</strong> by <a href="https://farminnovation.com">Farm Innovation Nigeria Ltd</a> 
-			</p>
-		</div>
-		<div class="column social-media is-5" >
-			<li class="btn-footer"><a href="https://www.facebook.com/383131359176435?referrer=whatsapp"  target="_blank"><i class="fa fa-facebook"></i></a></li>
-			<li class="btn-footer"><a href="https://twitter.com/Farmnovation?s=08" target="_blank"><i class="fa fa-twitter"></i></a></li>
-			<li class="btn-footer"><a href="https://www.instagram.com/p/B_CMXCegYlD/?igshid=trdirl4nqthb"  target="_blank"><i class="fa fa-instagram"></i></a></li>
-			<li class="btn-footer btn-dash is-primary"><a style="padding-right: 30px;" href="/livestock.html"><i class="fa fa-key"></i>&nbsp;&nbsp;Livestock Admin</a></li>
-		</div>
-		</div>
-		<script src="./js/index.js"></script>
+		<!-- Back To Top Button -->
+		<div id="backtotop"><a href="#"></a></div>
+		<!-- Concatenated js plugins -->
+		<script src="assets/landing/js/app.js"></script>
+		<!-- js -->
+		<script src="assets/landing/js/functions.js"></script>
+		<script src="assets/landing/js/main.js"></script>
 	</body>
 </html>
+
