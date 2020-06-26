@@ -9,7 +9,47 @@
     margin-bottom: 40px;
 }
 
-.onboarding_right_section{
-    
+.onboardingSubmit{
+    background-color: #20c997;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 15px 50px 15px 50px;
+}
 
+.container{
+    padding-bottom: 20px;
+}
+@media only screen and (min-width: 1024px)  {
+    .desktop_first_section{
+        display: flex !important;
+        justify-content: space-between;
+    }
+    .input_firstname{
+        width: 500px;
+    }
+    .third_section_farmer_from{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .select_section_from{
+        width: 500px;
+    }
+    .container{
+        padding-bottom: 70px;
+    }
+    .onboardingSubmit{
+        background-color: #20c997;
+        color: #ffffff;
+        font-weight: bold;
+        margin-top: 20px;
+        padding: 15px 50px 15px 50px;
+    }
+    .onboarding_section img{
+        width: 60%;
+        margin-top: 50px;
+        margin: auto;
+        margin-left: 20%;
+    }
 }
