@@ -17,24 +17,16 @@
 		<link rel="stylesheet" href="assets/landing/css/app.css">
 		<link rel="stylesheet" href="assets/landing/css/core_demo.css">
 		<link rel="stylesheet" href="assets/landing/css/core.css">
-		<link rel="icon" type="image/png" href="./favicons/images-favicon.png"/>
 		      <!-- Global site tag (gtag.js) - Google Analytics -->
-			  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
-			  <script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
+		<script>
 			  window.dataLayer = window.dataLayer || [];
 			  function gtag(){dataLayer.push(arguments);}
 			  gtag('js', new Date());
 		
 			  gtag('config', 'UA-170897809-1');
-			  </script>
-		<link rel="stylesheet" href="css/bulma.min.css" type="text/css" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito|Source+Sans+Pro&display=swap&subset=latin-ext" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		</script>
+		
 		<script src="js/modernizr.custom.js"></script>
 
 	</head>
@@ -587,7 +579,7 @@
 											<label>Message</label>
 										</div>
 										<!--Success Message-->
-										<div class="success-message">
+										<div class="success-message is-hidden">
 											<h1>Thank You!</h1>
 											<p>Your message has been sent successfully. 
 												We will get back to you within 24hours via the email or phone numnber you provided.
@@ -595,7 +587,7 @@
 										</div>
 										<!--/End Success Message-->
 										<!--Error Message-->
-										<div class="error-message">
+										<div class="error-message is-hidden">
 											<h1>An Error Occured!</h1>
 											<p>Your message could not be sent. Please try again</p>
 										</div>
@@ -700,7 +692,7 @@
 									<small>Market Actors, Agronomists etc</small> 
 								</div>
 							</div>
-							<div class="column is-5 has-text-centered" onclick="location.href='register.html'">
+							<div class="column is-5 has-text-centered" onclick="location.href='nvri-login.html'">
 								<div class="signup-category">
 									<img src="assets/landing/img/nvri.png">
 									<h1>NVRI Admin</h1>
