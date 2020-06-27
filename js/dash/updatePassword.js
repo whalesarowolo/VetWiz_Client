@@ -5,7 +5,6 @@ function updatePasword(event) {
     let update_email = document.getElementById("exampleInputEmail1").value
     let update_password = document.getElementById("InputPassword1").value
     let update_password_confirm = document.getElementById("InputPasswordConfrim").value
-    console.log(update_email, update_password.length, update_password_confirm)
 
     if(update_email == "" || update_password == ""){
         swal({

@@ -75,7 +75,7 @@ $("#ussdFarmer_submit").on('click', function(e) {
        "farm_income":farm_income,
        "source_info":selectedInfoItems,
       };
-      console.log(ussdFarmer)
+      
   
       // create request object
       var request = new Request(url, {
