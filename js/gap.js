@@ -23,34 +23,6 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-//  weather and climate detais
-$("#groundnut_wc_detail").on('click', function(e) {
-  let temp = $('#groundnut_tds').val();
-  let rainfall = $('#groundnut_rd').val();
-  let humility = $('#groundnut_hds').val();
-  //  validate empty input boxes
-  if(temp != null || rainfall != null ||  humility != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let tempClimate = {
-      temperature: temp,
-      rainFall: rainfall,
-      humility: humility,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(tempClimate),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //  aggrgation details ends here
 $("#groudnut_agg").on('click', function(e) {
   let labelling = $('#groundnut_ld').val();
