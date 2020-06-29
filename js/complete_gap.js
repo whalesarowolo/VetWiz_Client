@@ -138,4 +138,62 @@ $("#tomatoes_post_harvest_hausa").on('click', function(e) {
     }
   })
 
+// aggregation 
+  $("#tomatoes_agg").on('click', function(e) {
+    let labelling = $('#to_ld').val();
+    let pricing = $('#to_pdss').val();
+    let lineage = $('#to_mld').val();
+    let offTaker = $('#to_otd').val();
+    //  validate empty input boxes
+    if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/aggregation/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let aggregation = {
+        labelling: labelling,
+        pricing: pricing,
+        market_linage: lineage,
+        off_taker: offTaker,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(aggregation),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  });
+  $("#tomatoes_agg_hausa").on('click', function(e) {
+    let labelling = $('#to_ld_hausa').val();
+    let pricing = $('#to_pdss_hausa').val();
+    let lineage = $('#to_mld_hausa').val();
+    let offTaker = $('#to_otd_hausa').val();
+    //  validate empty input boxes
+    if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_aggregation/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let aggregation = {
+        labelling: labelling,
+        pricing: pricing,
+        market_linage: lineage,
+        off_taker: offTaker,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(aggregation),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  });
+
 // tomatoes GAP functioanlity  ends
