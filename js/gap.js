@@ -17,34 +17,6 @@ $(document).ready(function () {
 //  aggrgation details ends here
 
 
-//  weather and climate detais
-  $("#tomaotes_wc").on('click', function(e) {
-    let temp = $('#to_tds').val();
-    let rainfall = $('#to_rd').val();
-    let humility = $('#to_hds').val();
-    //  validate empty input boxes
-    if(temp != null || rainfall != null ||  humility != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/weather/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let tempClimate = {
-        temperature: temp,
-        rainFall: rainfall,
-        humility: humility,
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(tempClimate),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  })
-
 //   production details
 $("#tomatoes_prod").on('click', function(e) {
     let landSelection = $('#to_ls').val();
