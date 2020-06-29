@@ -23,68 +23,6 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-// groundnut crop management details
-$("#groundnut_Mgt").on('click', function(e) {
-  let weed = $('#groundnut_wcd').val();
-  let fertilizer = $('#groundnut_fad').val();
-  let cpp = $('#groundnut_cppd').val();
-  let pestDisease = $('#groundnut_pdcd').val();
-  //  validate empty input boxes
-  if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let cropMag = {
-      weedControl: weed,
-      fertilizerApplication: fertilizer,
-      cpp: cpp,
-      pest_disease_control: pestDisease,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(cropMag),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
-//   production details
-$("#groundnut_prod").on('click', function(e) {
-  let landSelection = $('#groundnut_ls').val();
-  let landPreparation = $('#groundnut_lp').val();
-  let plantTech = $('#groundnut_pt').val();
-  let harvest = $('#groundnut_hd').val();
-  let mech = $('#groundnut_md').val();
-  //  validate empty input boxes
-  if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let production = {
-      landSelection: landSelection,
-      landPreparation: landPreparation,
-      plantingTechnique: plantTech,
-      harvesting: harvest,
-      mechanization: mech
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(production),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //  weather and climate detais
 $("#groundnut_wc_detail").on('click', function(e) {
   let temp = $('#groundnut_tds').val();
