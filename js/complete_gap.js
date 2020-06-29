@@ -495,4 +495,62 @@ $("#rice_post_harvest_hausa").on('click', function(e) {
     }
   })
 
+  // rice crop management details
+$("#rice_Mgt").on('click', function(e) {
+  let weed = $('#rice_wcd').val();
+  let fertilizer = $('#rice_fad').val();
+  let cpp = $('#rice_cppd').val();
+  let pestDisease = $('#rice_pdcd').val();
+  //  validate empty input boxes
+  if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crops/cropMag/5ef9bad1c50f0e0017df379c'
+    let token = localStorage.getItem('access_token');
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    let cropMag = {
+      weedControl: weed,
+      fertilizerApplication: fertilizer,
+      cpp: cpp,
+      pest_disease_control: pestDisease,
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(cropMag),
+      headers
+    }).then(async (res) => { 
+      let resp = await res.json();
+      console.log(resp)
+    })
+  }
+})
+$("#rice_Mgt_Hausa").on('click', function(e) {
+  let weed = $('#rice_wcd_hausa').val();
+  let fertilizer = $('#rice_fad_hausa').val();
+  let cpp = $('#rice_cppd_hausa').val();
+  let pestDisease = $('#rice_pdcd_hausa').val();
+  //  validate empty input boxes
+  if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+    let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_cropMag/5ef9bad1c50f0e0017df379c'
+    let token = localStorage.getItem('access_token');
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    let cropMag = {
+      weedControl: weed,
+      fertilizerApplication: fertilizer,
+      cpp: cpp,
+      pest_disease_control: pestDisease,
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(cropMag),
+      headers
+    }).then(async (res) => { 
+      let resp = await res.json();
+      console.log(resp)
+    })
+  }
+})
+
 // Ricw GAP functioanlity  ends

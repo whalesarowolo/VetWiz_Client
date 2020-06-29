@@ -24,36 +24,6 @@ $(document).ready(function () {
   //  rice crop javascript functions
 
 
-//  post harvest details for rice
-$("#rice_post_harvest").on('click', function(e) {
-  let threshing = $('#rice_td').val();
-  let drying = $('#rice_db').val();
-  let packaging = $('#rice_pds').val();
-  let storage = $('#rice_sds').val();
-  //  validate empty input boxes
-  if(threshing != null || drying != null ||  packaging != null || storage != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65ef8d2292e400173b6daa'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let postHarvest = {
-      threshing: threshing,
-      drying: drying,
-      packaging: packaging,
-      storage: storage,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(postHarvest),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 // rice crop management details
 $("#rice_Mgt").on('click', function(e) {
   let weed = $('#rice_wcd').val();
