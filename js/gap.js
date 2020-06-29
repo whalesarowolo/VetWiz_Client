@@ -24,36 +24,6 @@ $(document).ready(function () {
   //  rice crop javascript functions
 
 
-// rice crop management details
-$("#rice_Mgt").on('click', function(e) {
-  let weed = $('#rice_wcd').val();
-  let fertilizer = $('#rice_fad').val();
-  let cpp = $('#rice_cppd').val();
-  let pestDisease = $('#rice_pdcd').val();
-  //  validate empty input boxes
-  if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65ef8d2292e400173b6daa'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let cropMag = {
-      weedControl: weed,
-      fertilizerApplication: fertilizer,
-      cpp: cpp,
-      pest_disease_control: pestDisease,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(cropMag),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //   production details
 $("#rice_prod").on('click', function(e) {
   let landSelection = $('#rice_ls').val();

@@ -553,4 +553,68 @@ $("#rice_Mgt_Hausa").on('click', function(e) {
   }
 })
 
+//   production details
+$("#rice_prod").on('click', function(e) {
+    let landSelection = $('#rice_ls').val();
+    let landPreparation = $('#rice_lp').val();
+    let plantTech = $('#rice_pt').val();
+    let harvest = $('#rice_hd').val();
+    let mech = $('#rice_md').val();
+    //  validate empty input boxes
+    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/production/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let production = {
+        landSelection: landSelection,
+        landPreparation: landPreparation,
+        plantingTechnique: plantTech,
+        harvesting: harvest,
+        mechanization: mech
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(production),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+  //   production details
+$("#rice_prod_hausa").on('click', function(e) {
+    let landSelection = $('#rice_ls_hausa').val();
+    let landPreparation = $('#rice_lp_hausa').val();
+    let plantTech = $('#rice_pt_hausa').val();
+    let harvest = $('#rice_hd_hausa').val();
+    let mech = $('#rice_md_hausa').val();
+    //  validate empty input boxes
+    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_production/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let production = {
+        landSelection: landSelection,
+        landPreparation: landPreparation,
+        plantingTechnique: plantTech,
+        harvesting: harvest,
+        mechanization: mech
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(production),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // Ricw GAP functioanlity  ends
