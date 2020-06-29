@@ -24,37 +24,6 @@ $(document).ready(function () {
   //  rice crop javascript functions
 
 
-
-// sorghum crop management details
-$("#sorghum_Mgt").on('click', function(e) {
-  let weed = $('#sorghum_wcd').val();
-  let fertilizer = $('#sorghum_fad').val();
-  let cpp = $('#sorghum_cppd').val();
-  let pestDisease = $('#sorghum_pdcd').val();
-  //  validate empty input boxes
-  if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e66044d2ac52800173cfe52'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let cropMag = {
-      weedControl: weed,
-      fertilizerApplication: fertilizer,
-      cpp: cpp,
-      pest_disease_control: pestDisease,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(cropMag),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //   production details
 $("#sorgnum_prod").on('click', function(e) {
   let landSelection = $('#sorgnum_ls').val();

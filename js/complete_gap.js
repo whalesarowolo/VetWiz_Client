@@ -1276,4 +1276,68 @@ $("#sorghum_Mgt_hausa").on('click', function(e) {
       })
     }
   })
+
+  //   production details
+$("#sorgnum_prod").on('click', function(e) {
+    let landSelection = $('#sorgnum_ls').val();
+    let landPreparation = $('#sorgnum_lp').val();
+    let plantTech = $('#sorgnum_pt').val();
+    let harvest = $('#sorgnum_hd').val();
+    let mech = $('#sorgnum_md').val();
+    //  validate empty input boxes
+    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/production/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let production = {
+        landSelection: landSelection,
+        landPreparation: landPreparation,
+        plantingTechnique: plantTech,
+        harvesting: harvest,
+        mechanization: mech
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(production),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+
+$("#sorgnum_prod_hausa").on('click', function(e) {
+    let landSelection = $('#sorgnum_ls_hausa').val();
+    let landPreparation = $('#sorgnum_lp_hausa').val();
+    let plantTech = $('#sorgnum_pt_hausa').val();
+    let harvest = $('#sorgnum_hd_hausa').val();
+    let mech = $('#sorgnum_md_hausa').val();
+    //  validate empty input boxes
+    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_production/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let production = {
+        landSelection: landSelection,
+        landPreparation: landPreparation,
+        plantingTechnique: plantTech,
+        harvesting: harvest,
+        mechanization: mech
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(production),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
 // Sorghum GAP functioanlity  ends
