@@ -24,38 +24,6 @@ $(document).ready(function () {
   //  rice crop javascript functions
 
 
-//  Groundnut details input
-$("#groundnut_input_button").on('click', function(e) {
-  let seedSelection = $('#groundnut_ssd').val();
-  let seedSource = $('#groundnut_ss').val();
-  let seedFertilizer = $('#groundnut_ssf').val();
-  let seedHerbicide = $('#groundnut_sh').val();
-  let seedProtection = $('#groundnut_cpd').val();
-  //  validate empty input boxes
-  if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let input = {
-      "seedSelection": seedSource,
-      "seedSource": seedSource,
-      "fertilizer": seedFertilizer,
-      "herbicides": seedHerbicide,
-      "cropProtectionProduct": seedProtection
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(input),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //  post harvest details for groundnut
 $("#groundnut_post_harvest").on('click', function(e) {
   let threshing = $('#groundnut_td').val();

@@ -796,4 +796,62 @@ $("#groundnut_input_hausa_button").on('click', function(e) {
     }
   })
 
+  //  post harvest details for groundnut
+$("#groundnut_post_harvest").on('click', function(e) {
+    let threshing = $('#groundnut_td').val();
+    let drying = $('#groundnut_db').val();
+    let packaging = $('#groundnut_pds').val();
+    let storage = $('#groundnut_sds').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/postHarvest/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#groundnut_post_harvest_hausa").on('click', function(e) {
+    let threshing = $('#groundnut_td_hausa').val();
+    let drying = $('#groundnut_db_hausa').val();
+    let packaging = $('#groundnut_pds_Hausa').val();
+    let storage = $('#groundnut_sds_hausa').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_postHarvest/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // Groundnut GAP functioanlity  ends
