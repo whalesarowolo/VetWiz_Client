@@ -80,4 +80,62 @@ $("#tomatoes_input_button_hausa").on('click', function(e) {
     }
   })
 
+  //  post harvest details ends
+$("#tomatoes_post_harvest").on('click', function(e) {
+    let threshing = $('#to_td').val();
+    let drying = $('#to_db').val();
+    let packaging = $('#to_pds').val();
+    let storage = $('#to_sds').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/postHarvest/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#tomatoes_post_harvest_hausa").on('click', function(e) {
+    let threshing = $('#to_td_hausa').val();
+    let drying = $('#to_db_hausa').val();
+    let packaging = $('#to_pds_hausa').val();
+    let storage = $('#to_sds_hausa').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_postHarvest/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // tomatoes GAP functioanlity  ends

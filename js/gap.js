@@ -13,67 +13,6 @@ $(document).ready(function () {
 });
 
 //  input details ends
-$("#tomatoes_input_button").on('click', function(e) {
-    let seedSelection = $('#to_ssd').val();
-    let seedSource = $('#to_ss').val();
-    let seedFertilizer = $('#to_ssf').val();
-    let seedHerbicide = $('#to_sh').val();
-    let seedProtection = $('#to_cpd').val();
-    console.log(seedProtection)
-    //  validate empty input boxes
-    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let input = {
-        "seedSelection": seedSource,
-        "seedSource": seedSource,
-        "fertilizer": seedFertilizer,
-        "herbicides": seedHerbicide,
-        "cropProtectionProduct": seedProtection
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(input),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  })
-
-//  post harvest details ends
-$("#tomatoes_post_harvest").on('click', function(e) {
-    let threshing = $('#to_td').val();
-    let drying = $('#to_db').val();
-    let packaging = $('#to_pds').val();
-    let storage = $('#to_sds').val();
-    //  validate empty input boxes
-    if(threshing != null || drying != null ||  packaging != null || storage != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let postHarvest = {
-        threshing: threshing,
-        drying: drying,
-        packaging: packaging,
-        storage: storage,
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(postHarvest),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  })
 
 //  aggrgation details ends here
 $("#tomatoes_agg").on('click', function(e) {
