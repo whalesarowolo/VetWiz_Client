@@ -730,3 +730,70 @@ $("#rice_agg_hausa").on('click', function(e) {
   });
 
 // Ricw GAP functioanlity  ends
+
+
+// Groundnut GAP functioanlity  
+
+//  Groundnut details input
+$("#groundnut_input_button").on('click', function(e) {
+    let seedSelection = $('#groundnut_ssd').val();
+    let seedSource = $('#groundnut_ss').val();
+    let seedFertilizer = $('#groundnut_ssf').val();
+    let seedHerbicide = $('#groundnut_sh').val();
+    let seedProtection = $('#groundnut_cpd').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/input/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#groundnut_input_hausa_button").on('click', function(e) {
+    let seedSelection = $('#groundnut_ssd_hausa').val();
+    let seedSource = $('#groundnut_ss_hausa').val();
+    let seedFertilizer = $('#groundnut_ssf_hausa').val();
+    let seedHerbicide = $('#groundnut_sh_hausa').val();
+    let seedProtection = $('#groundnut_cpd_hausa').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_input/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+// Groundnut GAP functioanlity  ends
