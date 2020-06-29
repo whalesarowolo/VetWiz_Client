@@ -18,34 +18,6 @@ $(document).ready(function () {
 
 
   // input details ends here
-$("#tomatoes_Mgt").on('click', function(e) {
-    let weed = $('#to_wcd').val();
-    let fertilizer = $('#to_fad').val();
-    let cpp = $('#to_cppd').val();
-    let pestDisease = $('#to_pdcd').val();
-    //  validate empty input boxes
-    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/cropMag/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let cropMag = {
-        weedControl: weed,
-        fertilizerApplication: fertilizer,
-        cpp: cpp,
-        pest_disease_control: pestDisease,
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(cropMag),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  })
 
 
 

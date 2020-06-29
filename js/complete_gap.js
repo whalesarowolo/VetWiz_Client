@@ -371,3 +371,70 @@ $("#tomatoes_prod").on('click', function(e) {
   })
 
 // tomatoes GAP functioanlity  ends
+
+
+// Ricw GAP functioanlity 
+
+  //  input details for rice
+  $("#rice_input_button").on('click', function(e) {
+    let seedSelection = $('#rice_ssd').val();
+    let seedSource = $('#rice_ss').val();
+    let seedFertilizer = $('#rice_ssf').val();
+    let seedHerbicide = $('#rice_sh').val();
+    let seedProtection = $('#rice_cpd').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/input/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+  $("#rice_input_button_hausa").on('click', function(e) {
+    let seedSelection = $('#rice_ssd_hausa').val();
+    let seedSource = $('#rice_ss_hausa').val();
+    let seedFertilizer = $('#rice_ssf_hausa').val();
+    let seedHerbicide = $('#rice_sh_hausa').val();
+    let seedProtection = $('#rice_cpd_hausa').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_input/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+// Ricw GAP functioanlity  ends
