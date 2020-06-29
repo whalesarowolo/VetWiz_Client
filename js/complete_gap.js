@@ -854,4 +854,62 @@ $("#groundnut_post_harvest_hausa").on('click', function(e) {
     }
   })
 
+  // groundnut crop management details
+$("#groundnut_Mgt").on('click', function(e) {
+    let weed = $('#groundnut_wcd').val();
+    let fertilizer = $('#groundnut_fad').val();
+    let cpp = $('#groundnut_cppd').val();
+    let pestDisease = $('#groundnut_pdcd').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/cropMag/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#groundnut_Mgt_hausa").on('click', function(e) {
+    let weed = $('#groundnut_wcd_hausa').val();
+    let fertilizer = $('#groundnut_fad_hausa').val();
+    let cpp = $('#groundnut_cppd_hausa').val();
+    let pestDisease = $('#groundnut_pdcd_hausa').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_cropMag/5ef9bb21c50f0e0017df379e'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // Groundnut GAP functioanlity  ends

@@ -23,37 +23,6 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-
-//  post harvest details for groundnut
-$("#groundnut_post_harvest").on('click', function(e) {
-  let threshing = $('#groundnut_td').val();
-  let drying = $('#groundnut_db').val();
-  let packaging = $('#groundnut_pds').val();
-  let storage = $('#groundnut_sds').val();
-  //  validate empty input boxes
-  if(threshing != null || drying != null ||  packaging != null || storage != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let postHarvest = {
-      threshing: threshing,
-      drying: drying,
-      packaging: packaging,
-      storage: storage,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(postHarvest),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 // groundnut crop management details
 $("#groundnut_Mgt").on('click', function(e) {
   let weed = $('#groundnut_wcd').val();
