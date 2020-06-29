@@ -17,39 +17,6 @@ $(document).ready(function () {
 //  aggrgation details ends here
 
 
-//   production details
-$("#tomatoes_prod").on('click', function(e) {
-    let landSelection = $('#to_ls').val();
-    let landPreparation = $('#to_lp').val();
-    let plantTech = $('#to_pt').val();
-    let harvest = $('#to_hd').val();
-    let mech = $('#to_md').val();
-    console.log("you click me")
-    //  validate empty input boxes
-    if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let production = {
-        landSelection: landSelection,
-        landPreparation: landPreparation,
-        plantingTechnique: plantTech,
-        harvesting: harvest,
-        mechanization: mech
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(production),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  })
-
   // input details ends here
 $("#tomatoes_Mgt").on('click', function(e) {
     let weed = $('#to_wcd').val();

@@ -313,4 +313,61 @@ $("#tomatoes_prod").on('click', function(e) {
     }
   })
 
+  $("#tomatoes_Mgt").on('click', function(e) {
+    let weed = $('#to_wcd').val();
+    let fertilizer = $('#to_fad').val();
+    let cpp = $('#to_cppd').val();
+    let pestDisease = $('#to_pdcd').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/cropMag/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+  $("#tomatoes_Mgt_hausa").on('click', function(e) {
+    let weed = $('#to_wcd_hausa').val();
+    let fertilizer = $('#to_fad_hausa').val();
+    let cpp = $('#to_cppd_hausa').val();
+    let pestDisease = $('#to_pdcd_hausa').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_cropMag/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // tomatoes GAP functioanlity  ends
