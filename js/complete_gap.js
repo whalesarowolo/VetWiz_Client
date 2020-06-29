@@ -1090,3 +1090,70 @@ $("#groudnut_agg_hausa").on('click', function(e) {
   });
 
 // Groundnut GAP functioanlity  ends
+
+
+// Sorghum GAP functioanlity  
+
+//  Sorghum details input
+$("#sorghum_input_button").on('click', function(e) {
+    let seedSelection = $('#sorghum_ssd').val();
+    let seedSource = $('#sorghum_ss').val();
+    let seedFertilizer = $('#sorghum_ssf').val();
+    let seedHerbicide = $('#sorghum_sh').val();
+    let seedProtection = $('#sorghum_cpd').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/input/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#sorghum_input_button_hausa").on('click', function(e) {
+    let seedSelection = $('#sorghum_ssd_hausa').val();
+    let seedSource = $('#sorghum_ss_hausa').val();
+    let seedFertilizer = $('#sorghum_ssf_hausa').val();
+    let seedHerbicide = $('#sorghum_sh_hausa').val();
+    let seedProtection = $('#sorghum_cpd_hausa').val();
+    //  validate empty input boxes
+    if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_input/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let input = {
+        "seedSelection": seedSource,
+        "seedSource": seedSource,
+        "fertilizer": seedFertilizer,
+        "herbicides": seedHerbicide,
+        "cropProtectionProduct": seedProtection
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+// Sorghum GAP functioanlity  ends

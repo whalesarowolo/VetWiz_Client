@@ -23,68 +23,9 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-//  aggrgation details ends here
-$("#groudnut_agg").on('click', function(e) {
-  let labelling = $('#groundnut_ld').val();
-  let pricing = $('#groundnut_pdss').val();
-  let lineage = $('#groundnut_mld').val();
-  let offTaker = $('#groudnut_otd').val();
-  //  validate empty input boxes
-  if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e65f01f2292e400173b6dab'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let aggregation = {
-      labelling: labelling,
-      pricing: pricing,
-      market_linage: lineage,
-      off_taker: offTaker,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(aggregation),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-});
 
 
-//  Sorghum details input
-$("#sorghum_input_button").on('click', function(e) {
-  let seedSelection = $('#sorghum_ssd').val();
-  let seedSource = $('#sorghum_ss').val();
-  let seedFertilizer = $('#sorghum_ssf').val();
-  let seedHerbicide = $('#sorghum_sh').val();
-  let seedProtection = $('#sorghum_cpd').val();
-  //  validate empty input boxes
-  if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e66044d2ac52800173cfe52'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let input = {
-      "seedSelection": seedSource,
-      "seedSource": seedSource,
-      "fertilizer": seedFertilizer,
-      "herbicides": seedHerbicide,
-      "cropProtectionProduct": seedProtection
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(input),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
+
 
 //  post harvest details for sorghum
 $("#sorghum_post_harvest").on('click', function(e) {
