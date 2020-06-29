@@ -1340,4 +1340,61 @@ $("#sorgnum_prod_hausa").on('click', function(e) {
       })
     }
   })
+
+
+  //  weather and climate detais
+$("#sorghum_wc_detail").on('click', function(e) {
+    let temp = $('#sorghum_tds').val();
+    let rainfall = $('#sorghum_rd').val();
+    let humility = $('#sorghum_hds').val();
+    //  validate empty input boxes
+    if(temp != null || rainfall != null ||  humility != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/weather/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let tempClimate = {
+        temperature: temp,
+        rainFall: rainfall,
+        humility: humility,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(tempClimate),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+
+$("#sorghum_wc_detail_hausa").on('click', function(e) {
+    let temp = $('#sorghum_tds_hausa').val();
+    let rainfall = $('#sorghum_rd_hausa').val();
+    let humility = $('#sorghum_hds_hausa').val();
+    //  validate empty input boxes
+    if(temp != null || rainfall != null ||  humility != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_weather/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let tempClimate = {
+        temperature: temp,
+        rainFall: rainfall,
+        humility: humility,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(tempClimate),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
 // Sorghum GAP functioanlity  ends
