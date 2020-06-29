@@ -1216,4 +1216,64 @@ $("#sorghum_post_harvest_hausa").on('click', function(e) {
     }
   })
 
+
+  // sorghum crop management details
+$("#sorghum_Mgt").on('click', function(e) {
+    let weed = $('#sorghum_wcd').val();
+    let fertilizer = $('#sorghum_fad').val();
+    let cpp = $('#sorghum_cppd').val();
+    let pestDisease = $('#sorghum_pdcd').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/cropMag/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+
+$("#sorghum_Mgt_hausa").on('click', function(e) {
+    let weed = $('#sorghum_wcd_hausa').val();
+    let fertilizer = $('#sorghum_fad_hausa').val();
+    let cpp = $('#sorghum_cppd_hausa').val();
+    let pestDisease = $('#sorghum_pdcd_hausa').val();
+    //  validate empty input boxes
+    if(weed != null || fertilizer != null ||  cpp != null || pestDisease != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_cropMag/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let cropMag = {
+        weedControl: weed,
+        fertilizerApplication: fertilizer,
+        cpp: cpp,
+        pest_disease_control: pestDisease,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(cropMag),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
 // Sorghum GAP functioanlity  ends

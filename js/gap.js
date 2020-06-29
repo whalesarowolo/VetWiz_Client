@@ -25,38 +25,6 @@ $(document).ready(function () {
 
 
 
-
-
-//  post harvest details for sorghum
-$("#sorghum_post_harvest").on('click', function(e) {
-  let threshing = $('#sorghum_td').val();
-  let drying = $('#sorghum_db').val();
-  let packaging = $('#sorghum_pds').val();
-  let storage = $('#sorghum_sds').val();
-  //  validate empty input boxes
-  if(threshing != null || drying != null ||  packaging != null || storage != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/postHarvest/5e66044d2ac52800173cfe52'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let postHarvest = {
-      threshing: threshing,
-      drying: drying,
-      packaging: packaging,
-      storage: storage,
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(postHarvest),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 // sorghum crop management details
 $("#sorghum_Mgt").on('click', function(e) {
   let weed = $('#sorghum_wcd').val();
