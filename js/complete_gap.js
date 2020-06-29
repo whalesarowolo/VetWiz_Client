@@ -437,4 +437,62 @@ $("#tomatoes_prod").on('click', function(e) {
     }
   })
 
+  //  post harvest details for rice
+$("#rice_post_harvest").on('click', function(e) {
+    let threshing = $('#rice_td').val();
+    let drying = $('#rice_db').val();
+    let packaging = $('#rice_pds').val();
+    let storage = $('#rice_sds').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/postHarvest/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+$("#rice_post_harvest_hausa").on('click', function(e) {
+    let threshing = $('#rice_td_hausa').val();
+    let drying = $('#rice_db_hausa').val();
+    let packaging = $('#rice_pds_hausa').val();
+    let storage = $('#rice_sds_hausa').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_postHarvest/5ef9bad1c50f0e0017df379c'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // Ricw GAP functioanlity  ends

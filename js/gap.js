@@ -23,37 +23,6 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-  //  input details for rice
-$("#rice_input_button").on('click', function(e) {
-  let seedSelection = $('#rice_ssd').val();
-  let seedSource = $('#rice_ss').val();
-  let seedFertilizer = $('#rice_ssf').val();
-  let seedHerbicide = $('#rice_sh').val();
-  let seedProtection = $('#rice_cpd').val();
-  //  validate empty input boxes
-  if(seedSource != null || seedFertilizer != null ||  seedHerbicide != null || seedProtection != null || seedSelection !== null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/input/5e65ef8d2292e400173b6daa'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let input = {
-      "seedSelection": seedSource,
-      "seedSource": seedSource,
-      "fertilizer": seedFertilizer,
-      "herbicides": seedHerbicide,
-      "cropProtectionProduct": seedProtection
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(input),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
 
 //  post harvest details for rice
 $("#rice_post_harvest").on('click', function(e) {
