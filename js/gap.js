@@ -23,39 +23,6 @@ $(document).ready(function () {
 
   //  rice crop javascript functions
 
-
-//   production details
-$("#rice_prod").on('click', function(e) {
-  let landSelection = $('#rice_ls').val();
-  let landPreparation = $('#rice_lp').val();
-  let plantTech = $('#rice_pt').val();
-  let harvest = $('#rice_hd').val();
-  let mech = $('#rice_md').val();
-  //  validate empty input boxes
-  if(landSelection != null || landPreparation != null || plantTech != null || harvest != null || mech != null) {
-    let url = 'https://farm-aid-backend.herokuapp.com/api/crop/production/5e65ef8d2292e400173b6daa'
-    let token = localStorage.getItem('access_token');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', token);
-    let production = {
-      landSelection: landSelection,
-      landPreparation: landPreparation,
-      plantingTechnique: plantTech,
-      harvesting: harvest,
-      mechanization: mech
-    }
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(production),
-      headers
-    }).then(async (res) => { 
-      let resp = await res.json();
-      console.log(resp)
-    })
-  }
-})
-
 //  weather and climate detais
 $("#rice_wc_detail").on('click', function(e) {
   let temp = $('#rice_tds').val();
