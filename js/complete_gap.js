@@ -196,4 +196,58 @@ $("#tomatoes_post_harvest_hausa").on('click', function(e) {
     }
   });
 
+  //  weather and climate detais
+  $("#tomaotes_wc").on('click', function(e) {
+    let temp = $('#to_tds').val();
+    let rainfall = $('#to_rd').val();
+    let humility = $('#to_hds').val();
+    //  validate empty input boxes
+    if(temp != null || rainfall != null ||  humility != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/weather/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let tempClimate = {
+        temperature: temp,
+        rainFall: rainfall,
+        humility: humility,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(tempClimate),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+  $("#tomaotes_wc_hausa").on('click', function(e) {
+    let temp = $('#to_tds_hausa').val();
+    let rainfall = $('#to_rd_hausa').val();
+    let humility = $('#to_hds_hausa').val();
+    //  validate empty input boxes
+    if(temp != null || rainfall != null ||  humility != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_weather/5ef9bb54c50f0e0017df379f'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let tempClimate = {
+        temperature: temp,
+        rainFall: rainfall,
+        humility: humility,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(tempClimate),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // tomatoes GAP functioanlity  ends

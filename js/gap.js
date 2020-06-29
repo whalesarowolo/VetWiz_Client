@@ -15,34 +15,6 @@ $(document).ready(function () {
 //  input details ends
 
 //  aggrgation details ends here
-$("#tomatoes_agg").on('click', function(e) {
-    let labelling = $('#to_ld').val();
-    let pricing = $('#to_pdss').val();
-    let lineage = $('#to_mld').val();
-    let offTaker = $('#to_otd').val();
-    //  validate empty input boxes
-    if(labelling != null || pricing != null ||  lineage != null || offTaker != null) {
-      let url = 'https://farm-aid-backend.herokuapp.com/api/crop/aggregation/5e65f07e2292e400173b6dac'
-      let token = localStorage.getItem('access_token');
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token);
-      let aggregation = {
-        labelling: labelling,
-        pricing: pricing,
-        market_linage: lineage,
-        off_taker: offTaker,
-      }
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify(aggregation),
-        headers
-      }).then(async (res) => { 
-        let resp = await res.json();
-        console.log(resp)
-      })
-    }
-  });
 
 
 //  weather and climate detais
