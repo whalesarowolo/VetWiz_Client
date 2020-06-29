@@ -1156,4 +1156,64 @@ $("#sorghum_input_button_hausa").on('click', function(e) {
     }
   })
 
+  //  post harvest details for sorghum
+$("#sorghum_post_harvest").on('click', function(e) {
+    let threshing = $('#sorghum_td').val();
+    let drying = $('#sorghum_db').val();
+    let packaging = $('#sorghum_pds').val();
+    let storage = $('#sorghum_sds').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/postHarvest/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
+
+$("#sorghum_post_harvest_hausa").on('click', function(e) {
+    let threshing = $('#sorghum_td_hausa').val();
+    let drying = $('#sorghum_db_hausa').val();
+    let packaging = $('#sorghum_pds_hausa').val();
+    let storage = $('#sorghum_sds_hausa').val();
+    //  validate empty input boxes
+    if(threshing != null || drying != null ||  packaging != null || storage != null) {
+      let url = 'https://farm-aid-backend.herokuapp.com/api/crops/hausa_postHarvest/5ef9bb15c50f0e0017df379d'
+      let token = localStorage.getItem('access_token');
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      headers.append('Authorization', token);
+      let postHarvest = {
+        threshing: threshing,
+        drying: drying,
+        packaging: packaging,
+        storage: storage,
+      }
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(postHarvest),
+        headers
+      }).then(async (res) => { 
+        let resp = await res.json();
+        console.log(resp)
+      })
+    }
+  })
+
 // Sorghum GAP functioanlity  ends
