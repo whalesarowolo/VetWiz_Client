@@ -19,6 +19,9 @@ function farmerSelfOnboardingbtn(event) {
     let cropProduced = $('#cropProducedByFarmer').val();
     let animalProduced = $('#animalProducedByFarmer').val();
     let sourceInfo = $('#sourceInfo').val();
+    var crop_strings = "";
+    var animal_strings = "";
+    var source_strings = "";
 
     if(firstname == "" || lastname == "" || phonNum == "" || state == "" || lga == "" || village == "" || disability == "" || gender == "" || marital == "" || education == "" || farm_size == "" || farm_size == "" || farm_income == "" || birthday == "" || cropProduced == "" || animalProduced == "" || sourceInfo == ""){
         swal({
@@ -32,8 +35,21 @@ function farmerSelfOnboardingbtn(event) {
 
     swal('Please wait...');
 
-    const url = 'https://farm-aid-backend.herokuapp.com/api/onboard'
+    const url = 'https://farm-aid-backend.herokuapp.com/api/onboard';
 
+    for (let index = 0; index < cropProduced.length; index++) {
+      crop_strings += cropProduced[index] + ",";
+    }
+    for (let index = 0; index < animalProduced.length; index++) {
+      animal_strings += animalProduced[index] + ",";
+    }
+    for (let index = 0; index < sourceInfo.length; index++) {
+      source_strings += sourceInfo[index] + ",";
+    }
+
+    var final_crops = crop_strings.substring(0,crop_strings.length - 1)
+    var final_animal = animal_strings.substring(0,animal_strings.length - 1)
+    var final_info = source_strings.substring(0,source_strings.length - 1)
     const selfOnboardedFarmer = {
         "firstname": firstname,
         "lastname":lastname,
@@ -46,17 +62,17 @@ function farmerSelfOnboardingbtn(event) {
         "disability": disability,
         "marital": marital,
         "education": education,
-        "crops":cropProduced,
-        "animals":animalProduced,
+        "crops":final_crops,
+        "animals":final_animal,
        "farm_size":farm_size,
        "farm_income":farm_income,
-       "source_info":sourceInfo,
+       "source_info":final_info,
       };
 
        // create request object
        var request = new Request(url, {
-        method: 'POST',
-        body: JSON.stringify(selfOnboardedFarmer),
+           method: 'POST',
+           body: JSON.stringify(selfOnboardedFarmer),
         headers: new Headers({
           'Content-Type': 'application/json'
         })
@@ -64,16 +80,8 @@ function farmerSelfOnboardingbtn(event) {
 
       fetch(request).then(async (res) => {
         let resp = await res.json()
-          if(resp.status !== 201) {
-            Swal.fire({
-              title: "Farmer Already Exist",
-              text:   "Farmers Phone Number already exist in the database",
-              icon: "info",
-              timer: 3000
-            })
-          } else {
-
-            Swal.fire({
+          if(resp.status == 201) {
+            swal({
               title: "Farmer On-Boarded",
               text:  "Farmer has been on_borded",
               icon: "info",
@@ -87,9 +95,24 @@ function farmerSelfOnboardingbtn(event) {
             $('#exampleInputVillage').val('');
             $('#ussd_state').val('');
             $('#exampleInputBirthday').val('');
+          } else {
+            swal({
+              title: "Farmer Already Exist",
+              text:   "Farmers Phone Number already exist in the database",
+              icon: "info",
+              timer: 3000
+            })
 
           }
-      })
+      }).catch(function(error) {
+        swal({
+          title: "Server Error",
+          text:   "Sorry, Server Error",
+          icon: "info",
+          timer: 3000
+        })
+            console.log("Bad request...");
+      });
 
 
 }
