@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> FarmAid :: Register</title>
+    <link rel="icon" type="image/png" href="favicons/images-favicon.png">
+    <!--Core CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/css-bulma.css">
+    <link rel="stylesheet" href="css/css-app.css">
+    <link rel="stylesheet" href="css/css-dashboard.css">
+    <link rel="stylesheet" href="css/css-icons.min.css">
+</head>
+
+<body>
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+    <section class="hero is-fullheight is-light-grey is-bold">
+
+        <div class="hero-body">
+            <div class="container">
+
+                <!-- Classic inputs -->
+                <div id="classic" class="login-form-wrapper">
+
+                    <!-- Classic register form -->
+
+                    <div id="register-form" class="animated preFadeInLeft fadeInLeft">
+                        <div class="auth-card">
+                            <div class="auth-card-header header-primary">
+                                <h2 class="has-text-centered is-hidden-mobile">Register for an account</h2>
+                                <h3 class="is-hidden-desktop">Register for an account</h3>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="register-firstname" name="fname" type="text" placeholder="First Name" required>
+                                    <div class="form-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="register-lastname" name="lname" type="text" placeholder="Last Name">
+                                    <div class="form-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="register-phonNum" name="phonenumber" type="text" placeholder="Phone Number">
+                                    <div class="form-icon">
+                                        <i data-feather="phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="register-email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email">
+                                    <div class="form-icon">
+                                        <i data-feather="mail"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="register-company" name="company" type="text"
+                                        placeholder="Company/Organization/Business name">
+                                    <div class="form-icon">
+                                        <i data-feather="phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start category list here -->
+
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">Category</label>
+                                </div>
+                                <div class="field-body pull-right">
+                                    <div class="field is-medium">
+                                        <div class="control">
+                                            <div class="select is-medium is-rounded is-fullwidth">
+                                                <select id="register-category">
+                                                    <option value="agro-dealer" selected>Agro Dealer</option>
+                                                    <option value="aggregator">Aggregator</option>
+                                                    <option value="agronomist">Agronomist</option>
+                                                    <option value="ext_agent">Extention Agent</option>
+                                                    <option value="input_company">Input Company</option>
+                                                    <option value="off_taker">Off-taker</option>
+                                                    <option value="paraVet">Paravetinary Company</option>
+                                                    <option value="seed_supplier">Seed Supplier</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- End category list here -->
+
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" id="register-password" name="signup_password" placeholder="Password *****"
+                                        class="input">
+                                    <div class="form-icon">
+                                        <i data-feather="lock"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-wrap">
+                                <button id="signup_new" class="button">Submit</button>
+                            </div>
+                        </div>
+                        <p class="has-text-centered">
+                            <a id="back-to-login-ii" href="./login.html">Back to login</a>
+                        </p>
+                    </div>
+
+                    <!-- /Classic register form -->
+                </div>
+                <!-- /Classic inputs -->
+
+            </div>
+        </div>
+    </section><!-- Concatenated jQuery and plugins -->
+    <script src="js/jquery.js"></script>
+	<script src="js/swal.js"></script>
+    <script src="js/regis.js"></script>
+    <script src="js/dash/js-app.js"></script>
+    <script src="js/dash/js-core.js"></script>
+    <script src="js/dash/js-components-modals.js"></script>
+</body>
+
+</html>

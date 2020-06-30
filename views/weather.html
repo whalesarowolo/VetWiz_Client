@@ -1,0 +1,99 @@
+<div class="dashboard-inner">
+
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+
+        <div id="main-dashboard" class="section-wrapper">
+            <!-- Dashboard content -->
+            <div id="basic-layout" class="dashboard-columns weather_header">
+
+                <h2 class="demo-title">Weather Module</h2>
+                <button  onclick="weather()" class="button is-primary is-rounded is-left">Click me</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="columns is-full">
+
+    <div class="column weather_body weather_column_space" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Abuja</h1>
+        <div id="abuja_info" class="field is-grouped paragraph" style="background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+    </div>
+
+
+    <div class="column weather_body weather_column_space" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Adamawa</h1>
+        <div id="adamawa_info" class="field is-grouped paragraph" style="background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+    </div>
+
+
+    <div class="column weather_body weather_column_space" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Gombe</h1>
+        <div id="gombe_info" class="field is-grouped paragraph" style="background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+    </div>
+
+
+    <div class="column weather_body weather_column_space" style="box-shadow: 2px 2px 3px #acaefe; border-radius: 10px;">
+        <h1 class="title is-centered">Nasarawa</h1>
+        <div id="nasa_info" class="field is-grouped paragraph" style="background-repeat: no-repeat; min-height: 300px;">
+            
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1 class="title is-centered">Select a state below to get the Weather Forcast</h1>
+    <div class="select is-success is-medium">
+        <select id="weather_forcaste" onchange="weatherForcast()">
+          <option>Select dropdown</option>
+          <option value="Abuja">Abuja</option>
+          <option value="Adamawa">Adamawa</option>
+          <option value="Nassarawa">Nassarawa</option>
+          <option value="Gombe">Gombe</option>
+        </select>
+      </div>
+    <div class="columns forcast_main_section">
+        <div class="columns forcast_section">
+            <div class="column is-one-fifth forcast_body" id="first_weather_section"></div>
+            <div class="column forcast_body" id="second_weather_section"></div>
+            <div class="column forcast_body" id="third_weather_section"></div>
+            <div class="column forcast_body" id="fourth_weather_section"></div>
+            <div class="column forcast_body" id="fifth_weather_section"></div>
+        </div>
+        <div class="columns forcast_section">
+            <div class="column is-one-fifth forcast_body" id="sixth_weather_section"></div>
+            <div class="column forcast_body" id="seventh_weather_section"></div>
+            <div class="column forcast_body" id="eigth_weather_section"></div>
+            <div class="column forcast_body" id="nineth_weather_section"></div>
+            <div class="column forcast_body" id="tenth_weather_section"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="title is-centered" style="margin-top: 20px;"> Input Latitude and Longitude details in the field provided below</h1>
+    <div class="longitude_latitude_input">
+        <input class="input is-rounded" type="text" placeholder="Input latitude co-ordinate" id="latitude_input_field" onkeypress="return isNumberKey(event)">
+        <input class="input is-rounded" type="text" placeholder="Input longitude co-ordinate" id="longitude_input_field" onkeypress="return isNumberKey(event)">
+        <button class="button is-success is-rounded" id="lat_long_submit_button" onclick="lat_lon_weather()">Submit</button>
+    </div>
+    <div class="columns forcast_section">
+        <div class="column is-one-fifth forcast_body" id="first_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="second_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="third_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="fourth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="fifth_log_lat_weather_section"></div>
+    </div>
+    <div class="columns forcast_section">
+        <div class="column is-one-fifth forcast_body" id="sixth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="seventh_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="eigth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="nineth_log_lat_weather_section"></div>
+        <div class="column forcast_body" id="tenth_log_lat_weather_section"></div>
+    </div>
+</div>

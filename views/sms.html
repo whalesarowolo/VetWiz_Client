@@ -1,0 +1,267 @@
+<div class="dashboard-inner">
+
+  <!-- Dashboard Wrapper -->
+  <div class="dashboard-wrapper">
+
+    <div id="main-dashboard" class="section-wrapper">
+      <!-- Dashboard content -->
+      <div id="basic-layout" class="dashboard-columns">
+
+        <div class="columns">
+          <div onclick="newMessage(event)" id="ma_start_message" class="column is-2"
+            style="background-color: #00d1b2; color: white; border-radius: 10px; font-weight: bold; text-align: center; cursor: pointer;">
+            Send new SMS
+          </div> &nbsp;&nbsp;&nbsp;
+          <div class="column is-2"
+            style="background-color: white; color: #00d1b2; border-radius: 10px; font-weight: bold; text-align: center; cursor: pointer; display: none;">
+            View Analytics
+          </div>
+          <div class="column">
+
+          </div>
+        </div>
+        <br>
+
+        <!-- Begin sms holder -->
+
+        <div class="columns">
+          <div class="column" style=" margin-left: 0p;">
+            <p class="is-hidden is-capitalized"
+              style="background-color: #D1ECF1; padding: 10px; color: #3F7A84; font-weight: bold; font-weight: bold; text-align: center;">
+              Please use the options below to target specific Farmers</p>
+            <div class="is-hidden column is-capitalized"
+              style="background-color: #D1ECF1; color: #3F7A84; font-weight: bold;">
+              Please use the options below to target specific Farmers
+            </div>
+            <div class="bd-notification is-dark">
+              <div class="columns">
+                <div class="column" style="background-color: white;">
+                  <div class="columns is-multiline">
+                    <div class="column is-fluid">
+                      <p class="is-capitalized"
+              style="background-color: #D1ECF1; padding: 10px; color: #3F7A84; font-weight: bold; font-weight: bold; text-align: center;">
+              Please use the options below to target specific Farmers</p>
+                      <div class="columns">
+                        
+                        <div class="column">
+                          
+                          <div class="box has-ribbon">
+                            <div class="ribbon is-primary"
+                              style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">State(s)</div><br>
+                            <div class="field">
+                              <input class="is-checkradio is-block" id="state_Adamawa" type="radio" name="stateRadio">
+                              <label for="state_Adamawa">Adamawa</label>
+                              <input class="is-checkradio is-block" id="state_Gombe" type="radio" name="stateRadio">
+                              <label for="state_Gombe">Gombe</label>
+                              <input class="is-checkradio is-block" id="state_All" type="radio" name="stateRadio" checked="checked">
+                              <label for="state_All">All</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="column">
+    
+                          <div class="box has-ribbon">
+                            <div class="ribbon is-primary"
+                              style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">Gender</div><br>
+                            <div class="field">
+                              <input class="is-checkradio is-block" id="gender_Male" type="radio" name="genderRadio">
+                              <label for="gender_Male">Male</label>
+                              <input class="is-checkradio is-block" id="gender_Female" type="radio" name="genderRadio">
+                              <label for="gender_Female">Female</label>
+                              <input class="is-checkradio is-block" id="gender_All" type="radio" name="genderRadio"
+                                checked="checked">
+                              <label for="gender_All">All</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns is-multiline">
+                    <div class="column is-fluid">
+                      <div class="box has-ribbon">
+                        <div class="ribbon is-primary"
+                          style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+                          Value Chains
+                        </div><br>
+                        <div class="field">
+                          <input class="is-checkradio is-block is-primary" id="crop_Rice" type="checkbox" name="crop_Rice"
+                            checked="checked">
+                          <label for="crop_Rice">Rice</label>
+                          <input class="is-checkradio is-block is-primary" id="crop_Groundnuts" type="checkbox"
+                            name="crop_Groundnuts">
+                          <label for="crop_Groundnuts">Groundnuts</label>
+                          <input class="is-checkradio is-block is-primary" id="crop_Tomatoes" type="checkbox"
+                            name="crop_Tomatoes">
+                          <label for="crop_Tomatoes">Tomatoes</label>
+                          <input class="is-checkradio is-block is-primary" id="crop_Sorghum" type="checkbox"
+                            name="crop_Sorghum">
+                          <label for="crop_Sorghum">Sorghum</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns is-multiline">
+                    <div class="column is-fluid">
+                      <div class="box has-ribbon">
+                        <div class="ribbon is-primary"
+                          style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+                          Message Content
+                        </div><br>
+                        <div class="field">
+                          <label style="padding-left: 5px;" for="crop_Tomatoes">Type your Message</label>
+                          <textarea style="border-radius: 10px; min-width: 99%; margin: auto;" placeholder="Gamalin 20 is a good alternative" class="is-fluid is-block" id="ma_sms_text"
+                            name="ma_sms_text"></textarea><br>
+                          <input style="max-width: max-content; float: right;" class="button is-primary is-rounded" onclick="do_calculation()" type="button" value="Next" />
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-4" style="background-color: white;">
+                  <div class="box">
+                    <div class="is-primary has-text-centered"
+                      style="background-color: #00d1b2; color: white; font-weight: bold; padding-top: 5px; padding-bottom: 5px;">Summary</div><br>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Male <span id="male_farmer_summary">(2345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Female <span id="female_farmer_summary">(2935)</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Rice <span id="rice_farmer_summary">(19,345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Tomatoes <span id="tomatoes_farmer_summary">(12,935)</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Groundnuts <span id="groundnuts_farmer_summary">(19,345)</span>
+                        </p>
+                      </div>
+                      <div class="column">
+                        <p class="has-text pull-left">
+                          Sorghum <span id="sorghum_farmer_summary">(9,335)</span>
+                        </p>
+                      </div>
+                    </div><br><br>
+                    <div class="columns is-multiline is-centered">
+                      <style scoped>
+                        .smaller {
+                          padding: 2px;
+                          padding-left: 5px;
+                          border-radius: 5px;
+                        }
+                      </style>
+                      <div class="column">
+                        <div class="columns">
+                          <p class="column smaller has-text pull-left">Adamawa</p>
+                          <input class="column smaller" id="adamawa_farmer_summary" type="number" value="12345">
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="columns">
+                          <p class="column smaller has-text pull-left">Gombe </p>
+                          <input class="column smaller" id="gombe_farmer_summary" type="number" value="12345">
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="columns"style="padding-left: 4px;">
+                      <p class="is-half pull-left">Total Farmers: <span id="total_farmers_summary" ><b>29,230</b></span></p>
+                    </div><hr>
+                    <div class="columns is-multiline is-centered" style="margin-bottom: 0px;">
+                      <p class="column has-text">Total SMS Count: <br>
+                        <span class="column has-text-left pull-left" style="font-weight: bold; color: #00d1b2;"><b>45,307</b></span></p>
+                      <p class="column has-text-right pull-right">Total Cost: <br>
+                        <span class="column has-text-right pull-right" id="total_sms_cost" style="font-weight: bold; color: #00d1b2;"><b>N45,307</b></span></p>
+                    </div>
+                    
+                    <div class="columns is-multiline">
+                      <input class="button is-primary is-rounded" type="button" value="Send Message" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <table class="is-hidden table is-bordered" style="border-radius: 5px;">
+              <thead>
+                <style scoped>
+                  .table.is-bordered th {
+                    color: white;
+                    text-align: center;
+                  }
+                </style>
+                <tr style="background-color: #00d1b2">
+                  <th><abbr title="Position">S/N</abbr></th>
+                  <th>Date</th>
+                  <th>Message</th>
+                  <th>Value Chains</th>
+                  <th>Message</th>
+                  <th>Recipients</th>
+                  <th>Recipient State</th>
+                  <th>SMS Count</th>
+                  <th>Message</th>
+                  <th>Cost</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>22/10/2020
+                  </td>
+                  <td>
+                    <b>Cattle</b> <br>Foot and Mouth disease diagnosed <br>Keywords: Salivation, Blisters, wounds in
+                    mouth &amp; feet
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                  <td>
+                    ksksks
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- End sms holder -->
+      </div>
+    </div>
+  </div>
+</div>

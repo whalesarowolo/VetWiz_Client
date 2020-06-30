@@ -1,0 +1,149 @@
+<div class="dashboard-inner">
+
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+
+        <div id="main-dashboard" class="section-wrapper">
+            <!-- Dashboard content -->
+            <div id="basic-layout" class="dashboard-columns">
+
+                <h2 class="demo-title">Internal SMS
+                    <button class="button is-primary" onclick="updateFromSMAP();">
+                        Refresh Messages
+                    </button>
+                </h2>
+
+                <!-- Begin sms holder -->
+
+                <div class="navigation-tabs layout-tabs animated-tabs">
+                    <div class="tabs is-toggle is-fullwidth">
+                        <ul>
+                            <li class="tab-link is-active" data-tab="internal_sms_task" onclick="startModule(event, internal_sms_task);">
+                                <a>SMS</a>
+                            </li>
+                            <li class="tab-link" data-tab="statistics_task" onclick="startModule(event, statistics_task);">
+                                <a>Statistics</a>
+                            </li>
+                            <li class="tab-link" data-tab="subscriber_task" onclick="startModule(event, subscriber_task);">
+                                <a>Subscribers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="internal_sms_task" class="navtab-content is-active">
+
+                        <!-- Task Group -->
+                        <div class="projects-list-wrapper">
+                            <div class="list-header">
+                                <div class="list-title">
+                                    <span>Send Internal Message</span>
+                                    <div onclick="newInternalMessage()" class="add-button modal-trigger is-primary" data-modal="create-task-modal">
+                                        <i class="material-icons">add</i>
+                                    </div>
+                                </div>
+                                <div class="list-filter">
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Filter Projects">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-filter">
+                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-body">
+                                <div class="columns is-multiline">
+                                    <div class="column">
+
+                                        <!-- SMS group -->
+                                        <div class="tasks-wrapper">
+                                            <div class="header">
+                                                <h4 class="no-margin-bottom">Sent messages<small>(1)</small></h4>
+
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- /Task Group -->
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="statistics_task" class="navtab-content">
+
+                        <!-- Files List -->
+                        <div class="projects-list-wrapper">
+                            <div class="list-header">
+                                <div class="list-title">
+                                    <span>Statistics</span>
+                                    <div class="add-button">
+                                        <i class="material-icons">add</i>
+                                    </div>
+                                </div>
+                                <div class="list-filter">
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Filter Projects">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-filter">
+                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-body">
+                                <div class="columns is-multiline">
+                                    <div class="column">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="subscriber_task" class="navtab-content">
+
+                        <!-- Acticity List -->
+                        <div class="projects-list-wrapper">
+                            <div class="list-header">
+                                <div class="list-title">
+                                    <span>Subscribers</span>
+                                </div>
+                                <div class="list-filter">
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Filter Projects">
+                                        <div class="form-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-filter">
+                                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-body">
+                                <div class="columns is-multiline">
+                                    <div class="column">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End sms holder -->
+            </div>
+        </div>
+    </div>
+</div>

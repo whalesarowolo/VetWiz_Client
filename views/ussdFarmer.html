@@ -1,0 +1,282 @@
+<h2 class="demo-title">On-boarding of farmers via USSD</h2>
+
+<div class="columns ussd_section is-mobile is-multiline is-centered">
+    <div class="column ussd_form">
+        <div class="field">
+            <label class="label">First name</label>
+            <div class="control">
+              <input class="input" id="ussd_firstname" type="text" onfocus="this.value=''" placeholder="Farmer's first name">
+            </div>
+          </div>
+
+        <div class="field">
+            <label class="label">Last name</label>
+            <div class="control">
+              <input class="input" id="ussd_lastname" type="text" onfocus="this.value=''" placeholder="Farmer's last name">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Phone Number of Farmer</label>
+            <div class="control">
+              <input id="ussd_phoneNumber" class="input is-rounded" onfocus="this.value=''" id="the_phonenumber" class="input" type="tel" placeholder="phone number of farmer">
+            </div>
+            <!-- <div class="field has-addons">
+                <!-- <p class="control">
+                    <a class="button is-static">
+                        +234
+                    </a>
+                </p> -->
+                <!-- <p class="control is-expanded">
+                    <input id="ussd_phoneNumber" class="input is-rounded" onfocus="this.value=''" id="the_phonenumber" class="input" type="tel" placeholder="phone number of farmer">
+                </p>
+            </div> -->
+        </div>
+
+        <div class="field">
+            <label class="label">State</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_state">
+                  <option disabled>Select dropdown</option>
+                  <option>Adamawa</option>
+                  <option>Gombe</option>
+                  <option>Bornu</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Local Government</label>
+            <div class="control">
+              <input id="ussd_lga" class="input" onfocus="this.value=''" type="text" placeholder="local Government of farmer">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Village</label>
+            <div class="control">
+              <input id="ussd_village" class="input" onfocus="this.value=''" type="text" placeholder="local Government of farmer">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Any Disability</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_disability">
+                  <option disabled>Select dropdown</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="showCheckboxes()">
+                <select>
+                  <option>Select Crops produced by farmer</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="Cropcheckboxes">
+                <label for="one" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="rice" value="Rice"/>Rice</label>
+                <label for="two" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="tomatoes" value="Tomatoes"/>Tomatoes</label>
+                <label for="three" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="sorghum" value="Sorghum"/>Sorghum</label>
+                <label for="three" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="groundnut" value="Goundnut"/>Groundnuts</label>
+                <label for="three" class="label">
+                  <input class="crops_input_value" name="acs" type="checkbox" id="none" value="None"/>none</label>
+              </div>
+            </div>
+          </form>
+
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="showAnimalCheckboxes()">
+                <select>
+                  <option>Select Animal produced by farmer</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="Animalcheckboxes">
+                <label for="one" class="label">
+                  <input name="animal_selection" type="checkbox" id="sheep" value="sheep"/>Sheep</label>
+                <label for="two" class="label">
+                  <input name="animal_selection" type="checkbox" id="goat" value="goat" />Goat</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="poultry"  value="poultry"/>Poultry</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="cattle" value="cattle"/>Cattle</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="pig" value="pig"/>Pig</label>
+                <label for="three" class="label">
+                  <input name="animal_selection" type="checkbox" id="animal_none" value="none"/>none</label>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+            <p class="help is-success">This username is available</p>
+          </div> -->
+          
+          
+          <div class="field">
+            <label for="birthday" class="label">Date of Birthday:</label>
+            <div class="control">
+              <input type="date" id="birthday" name="birthday" class="birthday_input_form">
+              <!-- <input class="input" placeholder="Normal input" type="date" id="birthday" name="birthday"> -->
+            </div>
+          </div>
+
+
+          <div class="field">
+            <label class="label">Gender</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_gender">
+                  <option disabled>Select dropdown</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Marital Status</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_marital">
+                  <option disabled>Select dropdown</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Educational Level</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_education">
+                  <option disabled>Select dropdown</option>
+                  <option>Primary</option>
+                  <option>Secondary</option>
+                  <option>Tertiary</option>
+                  <option>Religious</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Farm Size</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_farm_size">
+                  <option disabled>Select dropdown</option>
+                  <option>1 hectar</option>
+                  <option>1 - 2 (hectars)</option>
+                  <option>2</option>
+                  <option>2 - 3 (hectars)</option>
+                  <option>3 hectars</option>
+                  <option>3 - 4 (hectars)</option>
+                  <option>4 hectars</option>
+                  <option>4 - 5 (hectars)</option>
+                  <option>5 hectars</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">House Income</label>
+            <div class="control">
+              <div class="select">
+                <select id="ussd_farm_income">
+                  <option disabled>Select dropdown</option>
+                  <option>less than 10,000</option>
+                  <option>10,000 - 20,000</option>
+                  <option>20,000</option>
+                  <option>20,000 - 30,000</option>
+                  <option>30,000 - 40,000</option>
+                  <option>40,000 - 50,000</option>
+                  <option>greater than 50,000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox select" onclick="sourceOfInforCheckboxes()">
+                <select>
+                  <option>Source of Information</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="sourceOfInfocheckboxes">
+                <label for="one" class="label">
+                  <input name="info_selection" type="checkbox" id="farmer_group" value="farmer's group"/>Farmer Gop</label>
+                <label for="two" class="label">
+                  <input name="info_selection" type="checkbox" id="radio" value="radio" />Radio</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="ga" value="government agency"/>G/A</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="FA" value="field agent"/>Field Agent</label>
+                <label for="three" class="label">
+                  <input name="info_selection" type="checkbox" id="mobile" value="mobile phone" />Mobile Pho.</label>
+              </div>
+            </div>
+          </form>
+
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" id="ussdFarmer_submit">Submit</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancel</button>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="column ussd_numbers">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">State</th>
+                <th scope="col">LGA</th>
+                <th scope="col">Crop</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="ussd_details_log">
+             
+            </tbody>
+          </table>
+    </div>
+  </div>

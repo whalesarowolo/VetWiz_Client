@@ -1,0 +1,320 @@
+.dieases-container{
+    border: 1px solid rgb(201, 196, 196);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
+}
+
+.disease-section1{
+    border: 1px solid rgb(201, 196, 196);
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.disease-section2{
+    border: 1px solid rgb(201, 196, 196);
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.disease-details{
+    padding-bottom: 100px;
+}
+
+.disease_label{
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.disaseName-section input{
+    margin: 10px 0px;
+    padding: 20px;
+    border: none !important;
+}
+.disease-details textarea{
+   margin: auto;
+}
+
+.associated_animal input{
+    width: 350px;
+    padding: 10px 10px;
+}
+
+.symptom-section input, .keyword-section input, .prevention-section input{
+    width: 350px;
+    margin-left: 30px;
+}
+
+.symptom-section form, .keyword-section form, .prevention-section form{
+    box-sizing: border-box;
+}
+
+form input{
+    border: none !important;
+    background: white;
+}
+
+form button{
+    border: none !important;
+    background: white;
+    color: black;
+}
+
+.symptom-container, keyword-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.symptom-list, keyword-list{
+    min-width: 30%;
+    list-style: none;
+}
+
+.symptom{
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.7s ease;
+}
+
+.symptom-item{
+    padding: 0rem 0.5rem;
+}
+
+.symptom li {
+    flex: 1;
+    cursor: pointer;
+}
+
+.trash-btn{
+    background: red;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+/* form input, form button{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    background: white;
+} */
+
+.disease_submit{
+   display: flex;
+   justify-content: center;
+   padding: 20px 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .dieases-container{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+  /* Remove margins and padding from the list */
+  #myUL-symptom, #myUL-keyword, #myUL-prevention, #animal_myU {
+    margin: 0;
+    padding: 0;
+    max-width: 350px;
+    overflow-wrap: break-word;
+    margin: auto;
+  }
+  
+  /* Style the list items */
+  #myUL-symptom li, #myUL-keyword li, #myUL-prevention li, #animal_myU li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 20px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+  #myUL-symptom li:nth-child(odd), #myUL-keyword li:nth-child(odd), #myUL-prevention li:nth-child(odd), #animal_myU li:nth-child(odd) {
+    background: #f9f9f9;
+  }
+  
+  /* Darker background-color on hover */
+  #myUL-symptom li:hover, #myUL-keyword li:hover, #myUL-prevention li:hover, #animal_myU li:hover {
+    background: #ddd;
+  }
+  
+
+  .header-keyword h2{
+      color: black;
+      text-transform: uppercase;
+  }
+  
+  /* Style the header */
+.header-keyword {
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Clear floats after the header */
+  .header-keyword:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the input */
+ #myDIV-symptom input, #myDIV-animal input, #myDIV-prevention input, #myDIV-keyword input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    overflow-wrap: break-word;
+  }
+  
+  /* Style the "Add" button */
+  .addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #26d0a8;
+    color: #fff;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .addBtn:hover {
+    background-color: #bbb;
+  }
+
+  #view_disease{
+     margin-left: -40px;
+     width: 90vw;
+  }
+  /* max-width: 350px;
+    overflow-wrap: break-word;
+    margin: auto; */
+
+#view_single_disease{
+    height: 220vh;
+    margin-top: -10px;
+}
+
+.modal-background{
+    background: #26d0a8 !important;
+    height: 200px !important;
+}
+#view_single_disease .single_disease_body{
+    margin-top: -700px;
+    margin-bottom: -100px;
+    padding-bottom: -100px;
+    height: 140% !important;
+}
+
+#disease_case_body .single_single_innerSection{
+       border: 1px solid rgb(16, 213, 23);
+      padding-bottom: 100px;
+      height: 140%;
+
+}
+
+#disease_case_body .disease_box{
+    margin-top: -50px;
+    padding-bottom: 100px;
+}
+
+#disease_case_body{
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.modal-footer{
+    margin-top: -190px !important;
+}
+
+.flex{
+    display: flex;
+}
+
+#disease_case_body textarea{
+    width: 300px;
+    margin: auto;
+    margin-right: -1px;
+    margin-top: 10px;
+}
+
+#disease_case_body input{
+    width: 300px;
+    margin: auto;
+    margin-right: -5px;
+}
+
+#disease_case_body label{
+  margin-top: 10px;
+}
+
+.single_disease_button_section{
+    padding: 20px;
+}
+
+#resp-table {
+    width: 100%;
+    display: table;
+    padding: 5px; 
+    border-radius: 10px; 
+    
+}
+#resp-table-header{
+    display: table-header-group;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+.table-header-cell{
+    display: table-cell;
+    padding: 10px;
+    text-align: justify;
+    border-bottom: 1px solid black;
+    border: #26d0a8;
+    border-style: solid 1px;
+}
+#resp-table-body{
+    display: table-row-group;
+}
+.resp-table-row{
+    display: table-row;
+    border-style: dotted;
+}
+.table-body-cell{
+    display: table-cell;
+    padding-left: 20px;
+    border: solid 1px #26d0a8;
+}
+

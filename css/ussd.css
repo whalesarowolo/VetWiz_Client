@@ -1,0 +1,80 @@
+.ussd_section{
+    border: 1px solid rgb(201, 196, 196);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ussd_form{
+    border: 1px solid rgb(201, 196, 196);
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ussd_numbers{
+    border: 1px solid rgb(201, 196, 196);
+    margin: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ussd_form input{
+    padding: 15px 10px;
+    width: 70%;
+}
+
+#birthday{
+    padding: 5px 10px;
+    border:1px solid  black;
+    border-radius: 10px;
+    text-decoration: none;
+    outline: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .ussd_section{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+  .multiselect {
+    width: 300px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .selectBox {
+    position: relative;
+  }
+  
+  .selectBox select {
+    /* width: 100%; */
+    font-weight: bold;
+  }
+  
+  .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  #Cropcheckboxes, #Animalcheckboxes, #sourceOfInfocheckboxes {
+    display: none;
+    border: 1px #dadada solid;
+    display: flex;
+    text-align: center;
+  }
+  
+  #Cropcheckboxes label, #Animalcheckboxes label, #sourceOfInfocheckboxes label {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+  
+  #Cropcheckboxes label:hover, #Animalcheckboxes label:hover, #sourceOfInfocheckboxes label:hover {
+    background-color: #1e90ff;
+  }

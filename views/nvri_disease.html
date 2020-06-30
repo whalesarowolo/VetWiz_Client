@@ -1,0 +1,118 @@
+<div class="columns is-full">
+
+    <div class="columns nvri_users is-vcentered is-multiline animated preFadeInUp fadeInUp">
+        <!-- Registered Users -->
+        <div class="column is-full">
+            <h2 class="button btn-dash secondary-btn is-raised">Disease</h2>
+        </div>
+    </div>
+</div>
+
+<div class="columns is-mobile is-multiline is-centered dieases-container">
+    <div class="column disease-section1">
+     
+        <div class="column disease-section1 disease-details">
+
+            <div class="disaseName-section">
+                <div class="control">
+                    <input id="disease_name" class="input is-hovered" type="text" placeholder="Name of Disease">
+                </div>
+                <div class="control">
+                    <input id="disease_name_hausa" class="input is-hovered" type="text" placeholder="Disease name in Hausa">
+                </div>
+                <div class="control">
+                    <input id="disease_name_fulfude" class="input is-hovered" type="text" placeholder="Disease name in Fulfude">
+                </div>
+
+                <div class="column disease-section1 disease-details symptom-section">
+                    <h2 class="disease_label">Add Animals Assocaited with this Disease</h2>
+                    <div class="symptom_error">
+        
+                    </div>
+                    <div id="myDIV-animal" class="header-keyword">
+                        <input type="text" id="animal_myInput" placeholder="Add Animals">
+                        <span onclick="diseaseAnimal()" class="addBtn">Add</span>
+                      </div>
+                      
+                      <ul id="animal_myU">
+        
+                      </ul>
+                </div>
+
+            </div>
+            
+          </div>
+
+
+        <div class="column disease-section1 disease-details symptom-section">
+            <h2 class="disease_label">Add Preventive measure Assocaited with this Disease</h2>
+            <div class="symptom_error">
+
+            </div>
+            <div id="myDIV-prevention" class="header-keyword">
+                <input type="text" id="myInpu_prevention" placeholder="Add Preventive Measures">
+                <span onclick="animalPrevention()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-prevention">
+
+              </ul>
+        </div>
+
+
+        <div class="column disease-section1 disease-details">
+            <h2 class="disease_label">Add a Treatment</h2>
+            <div class="control">
+                <textarea id="disease_treatment" class="textarea is-hovered" placeholder="Input Treatment procedure for the disease case"></textarea>
+              </div>
+          </div>
+
+    </div>
+
+
+
+    <div class="column disease-section2">
+     
+        <div class="column disease-section1 disease-details symptom-section">
+            <h2 class="disease_label">Add Symptoms associated with this disease</h2>
+            <div class="symptom_error">
+
+            </div>
+            <div id="myDIV-symptom" class="header-keyword">
+                <input type="text" id="myInput_symptom" placeholder="Add Symptoms">
+                <span onclick="newElement()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-symptom">
+
+              </ul>
+        </div>
+
+
+        <div class="column disease-section1 disease-details keyword-section">
+            <h2 class="disease_label">Add Key Word Associated with the Disease Case</h2>
+            <div id="myDIV-keyword" class="header-keyword">
+                <input type="text" id="myInput_keyword" placeholder="Add Key Word">
+                <span onclick="newKeyword()" class="addBtn">Add</span>
+              </div>
+              
+              <ul id="myUL-keyword">
+
+              </ul>
+        </div>
+
+
+        <div class="column disease-section1 disease-details">
+            <h2 class="disease_label">Add Vaccine</h2>
+            <div class="control">
+                <textarea id="disease_vaccine" class="textarea is-hovered" placeholder="Input Vaccine needed for this Disease case"></textarea>
+              </div>
+          </div>
+
+    </div>
+
+    
+</div>
+<div class="control disease_submit">
+    <button onclick="persist_new_disease()" class="button is-primary is-medium">Submit</button>
+</div>
