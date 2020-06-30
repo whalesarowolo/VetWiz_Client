@@ -1884,7 +1884,7 @@ function riceGapSwal(params) {
       } 
 
     $("#rice_pro_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1943,7 +1943,7 @@ function riceGapSwal(params) {
 
 
     $("#rice_wc_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -1986,7 +1986,7 @@ function riceGapSwal(params) {
 
 
     $("#rice_aggr_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2039,7 +2039,7 @@ function riceGapSwal(params) {
 
 
     $("#rice_cm_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2092,7 +2092,7 @@ function riceGapSwal(params) {
 
 
     $("#rice_ph_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2145,7 +2145,7 @@ function riceGapSwal(params) {
 
 
     $("#rice_input_details").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65ef8d2292e400173b6daa'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2232,7 +2232,7 @@ function toGapSwal(params) {
       } 
 
     $("#to_pro").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2287,7 +2287,7 @@ function toGapSwal(params) {
 
 
     $("#to_we").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2330,7 +2330,7 @@ function toGapSwal(params) {
 
 
     $("#to_aggr").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2380,7 +2380,7 @@ function toGapSwal(params) {
 
 
     $("#to_mtg").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2429,7 +2429,7 @@ function toGapSwal(params) {
 
 
     $("#to_harv").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2478,7 +2478,7 @@ function toGapSwal(params) {
 
 
     $("#to_input").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f07e2292e400173b6dac'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb54c50f0e0017df379f'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2561,7 +2561,7 @@ function sorghumGapSwal(params) {
       } 
 
     $("#sorghum_pro_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2616,7 +2616,7 @@ function sorghumGapSwal(params) {
 
 
     $("#sorghum_wc_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2659,7 +2659,7 @@ function sorghumGapSwal(params) {
 
 
     $("#sorghum_aggre_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2709,7 +2709,7 @@ function sorghumGapSwal(params) {
 
 
     $("#sorghum_cropMgt_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2758,7 +2758,7 @@ function sorghumGapSwal(params) {
 
 
     $("#sorghum_ph_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2807,7 +2807,7 @@ function sorghumGapSwal(params) {
 
 
     $("#sorghum_input_table").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e66044d2ac52800173cfe52'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb15c50f0e0017df379d'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2891,7 +2891,7 @@ function groudnutGapSwal(params) {
       } 
 
     $("#groundnut_pro").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2946,7 +2946,7 @@ function groudnutGapSwal(params) {
 
 
     $("#groundnut_wc").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -2989,7 +2989,7 @@ function groudnutGapSwal(params) {
 
 
     $("#groundnut_aggre").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -3039,7 +3039,7 @@ function groudnutGapSwal(params) {
 
 
     $("#groundnut_cmt").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -3088,7 +3088,7 @@ function groudnutGapSwal(params) {
 
 
     $("#groundnut_ph").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -3137,7 +3137,7 @@ function groudnutGapSwal(params) {
 
 
     $("#groundnut_input").ready(function() {
-      const url = 'https://farm-aid-backend.herokuapp.com/api/crop/5e65f01f2292e400173b6dab'
+      const url = 'https://farm-aid-backend.herokuapp.com/api/crops/5ef9bb21c50f0e0017df379e'
       const token = localStorage.getItem('access_token');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
