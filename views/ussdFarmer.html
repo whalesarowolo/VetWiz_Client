@@ -262,21 +262,27 @@
 
 
     <div class="column ussd_numbers">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">State</th>
-                <th scope="col">LGA</th>
-                <th scope="col">Crop</th>
-                <th scope="col">Date</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody id="ussd_details_log">
-             
-            </tbody>
-          </table>
+      <div class="columns is-10 pull-right">
+        <div class="column pull-left button has-text-centered" id="farmer_current_page" style="padding-bottom: 5px;">Page <span id="page_number">1</span></div>
+        <div class="column"></div>
+        <div class="column button is-primary is-rounded has-text-centered" id="farmer_previous_page">Previous Page</div>
+        <div class="column button is-primary is-rounded has-text-centered" id="farmer_next_page">Next Page</div>
+      </div>
+      <table class="table table-striped" id="from_ussd_channel">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">State</th>
+              <th scope="col">LGA</th>
+              <th scope="col">Crop</th>
+              <th scope="col">Date</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="ussd_details_log">
+            
+          </tbody>
+        </table>
     </div>
   </div>

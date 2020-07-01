@@ -1,4 +1,8 @@
 // onClick event for sign up button
+$(document).ready(function() {
+  var farmer_current_page = 1;
+})
+
 $("#ussdFarmer_submit").on('click', function(e) {
 
     let firstname = $('#ussd_firstname').val().trim();
@@ -122,29 +126,30 @@ $("#ussdFarmer_submit").on('click', function(e) {
 
   });
 
-function ussdFarmer(params) {
-    let html = "";
+function ussdFarmer(page=1) {
     swal.fire({
-      title: 'Loading USSD farmers Records',
+      title: 'Loading farmers Records',
       text: 'Please wait...',
       allowOutsideClick: false,
       showConfirmButton: false,
       icon: 'info'
     });
 
-
     $("#ussd_details_log").ready(function() {
-      let record_html_body = ""
-      const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php';
-      $.ajax({url: url, success: function(result){
-        parsed = JSON.parse(result)
-        if(parsed.length > 0){
-          parsed.forEach((td) => {
-            var donb = ""
+      let record_html_body = "";
+
+      const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php?page=' + page;
+      $.ajax({url: url, success: function(data){
+        console.table(data);
+        const itd = JSON.parse(data);
+        for (let index = 0; index < itd.length; index++) {
+          var td = itd[index];
+          console.log("Data: ", td);
+          var donb = "";
             if (td.hasOwnProperty('date_onb')) {
               donb = td.date_onb; 
-            }else{
-              donb = 'N/A'
+            } else {
+              donb = 'N/A';
             }
             var state = (td.farmer_state != null)? td.farmer_state: 'N/A';
             var lga = (td.farmer_lga != null)? td.farmer_lga: 'N/A';
@@ -159,14 +164,13 @@ function ussdFarmer(params) {
             record_html_body +=  "<td class='ussd_crops props'>" + date +  "</td>";
             record_html_body +=  '<td><button onclick="populate_form(event);" class="btn btn-primary">Onboard</button></td>';
             record_html_body +=  "</tr>";
-          })
-          $("#ussd_details_log").empty().append(record_html_body);
-
-        }
-        
-        swal.close()
           
+        }
 
+        $("#ussd_details_log").empty().append(record_html_body);
+
+        swal.close();
+      
       }});
       
       
@@ -174,6 +178,7 @@ function ussdFarmer(params) {
     });
 
   }
+
 
   function populate_form(event){
     //
@@ -325,3 +330,28 @@ function ussdOnboarded(params) {
   })
 
 }
+
+
+$("#ussd_numbers").ready(function() {
+  farmer_current_page = 1;
+  $("#page_number").innerHTML = farmer_current_page;
+  console.log("Paging ready");
+  ussdFarmer(1);
+
+  $("#farmer_previous_page").on('click', function() {
+    if (farmer_current_page <= 1) {
+      return false;
+    } else {
+      $("#page_number").empty().append(farmer_current_page -= 1);
+      ussdFarmer(farmer_current_page);
+      console.log("Paging Previous");
+    }
+  });
+  
+  $("#farmer_next_page").on('click', function() {
+    $("#page_number").empty().append(farmer_current_page += 1);
+    ussdFarmer(farmer_current_page);
+    console.log("Paging Next");
+  });
+});
+
