@@ -940,7 +940,8 @@
       $(document).ready(function () {
 
          $("#message").on('change input keyup paste', function () {
-            if(this.value.length > 5 && this.value != "") {
+            console.log((this.value).toString);
+            if(this.value.length > 5) {
                if($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
                   $(".button.subs_info_section_button.white-button").removeClass('white-button-disabled');
                }   
