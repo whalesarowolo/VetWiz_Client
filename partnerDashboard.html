@@ -935,7 +935,7 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"></script>
-      
+
    <!--Char Count for SMS Composition-->
 
    <script>
@@ -956,22 +956,36 @@
          part2Count = 158;
          part3Count = 158;
 
-         $('#message').keyup(function () {
+         $('#message').keyup(function () { 
+
             var chars = $(this).val().length;
+
             messages = 0;
+
             remaining = 0;
+
             total = 0;
+
             if (chars <= part1Count) {
+
                messages = 1;
+
                remaining = part1Count - chars;
+
             } else if (chars <= (part1Count + part2Count)) {
+
                messages = 2;
+
                remaining = part1Count + part2Count - chars;
+
             } else if (chars > (part1Count + part2Count)) {
+
                moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
                remaining = part1Count + part2Count + (moreM * part3Count) - chars;
                messages = 2 + moreM;
+
             }
+
             $('#remaining').text(remaining);
             $('#messages').text(messages);
             $('#total').text(chars);
@@ -981,8 +995,11 @@
             else $('.mplural').hide();
             if (chars > 1) $('.tplural').show();
             else $('.tplural').hide();
+
          });
+
          $('#message').keyup();
+         
       });
    </script>
    <!-- Routing start -->
