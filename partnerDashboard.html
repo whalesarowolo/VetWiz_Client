@@ -886,14 +886,14 @@
                            </div>
                            <!--Total Farmer Count-->
                            <div class="total-farmers-preview">
-                              Total Farmers: <span>7,310</span>
+                              Total Farmers: <span id="total_target_farmers">7,310</span>
                            </div>
                         </div>
                      </div>
                      <!--SMS Count and Cost -->
                      <div class="column is-12">
                         <div class="count-and-cost">
-                           SMS Count: <span>14,620</span> &nbsp;|&nbsp; Cost: <span>₦185,506</span>
+                           SMS Count: <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost: <span id="total_sms_cost">₦185,506</span>
                         </div>
                      </div>
                   </div>
@@ -942,7 +942,7 @@
       $(document).ready(function () {
 
          $("#message").on('change input keyup paste', function () {
-            let regx = /^(\s+)$/;
+            let regx = /^\s+$/;
             if(this.value.length > 5 && !(this.value).toString().match(regx)) {
                if($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
                   $(".button.subs_info_section_button.white-button").removeClass('white-button-disabled');
@@ -1002,7 +1002,7 @@
 
       });
    </script>
-   
+
    <!-- Routing start -->
    <script src="js/farmaid_route.js"></script>
    <script src="js/farmaid_router.js"></script>
