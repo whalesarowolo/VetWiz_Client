@@ -1,5 +1,5 @@
 let subscription_status = document.getElementById('subscription_status');
-let sms_button = document.getElementById('sms_sending_button');
+let sms_button = document.getElementById('sms_sending_button');		
 
 if(subscription_status.innerHTML === 'NOT SUBSCRIBED'){
     console.log(subscription_status.innerHTML);
@@ -138,7 +138,6 @@ function call_top_up() {
       )
     }
   })
-
 
 }
 

@@ -832,7 +832,7 @@
 								<div class="inner">
 									<div class="is-centered">
 										<br><br>
-										<div onclick="newMessage(event)" class="button subs_info_section_button white-button no-block">Preview Message</div>
+										<div onclick="newMessage(event)" class="white-button-disabled button subs_info_section_button white-button no-block">Preview Message</div>
 									</div>
 								</div>
 							</div>
@@ -971,44 +971,44 @@
 			crossorigin="anonymous"></script>
 		<!--Char Count for SMS Composition-->
 		<script>
-			$(document).ready(function(){
-			
-			 part1Count = 160;
-			 part2Count = 158;
-			 part3Count = 158;
-			
-			 $('#message').keyup(function(){
-			     var chars = $(this).val().length;
-			         messages = 0;
-			         remaining = 0;
-			         total = 0;
-			     if (chars <= part1Count) {
-			         messages = 1;
-			         remaining = part1Count - chars;
-			     } else if (chars <= (part1Count + part2Count)) { 
-			         messages = 2;
-			         remaining = part1Count + part2Count - chars;
-			     } else if (chars > (part1Count + part2Count)) { 
-			         moreM = Math.ceil((chars - part1Count - part2Count) / part3Count) ;
-			         remaining = part1Count + part2Count + (moreM * part3Count) - chars;
-			         messages = 2 + moreM;
-			     }
-			     $('#remaining').text(remaining);
-			     $('#messages').text(messages);
-			     $('#total').text(chars);
-			     if (remaining > 1) $('.cplural').show();
-			         else $('.cplural').hide();
-			     if (messages > 1) $('.mplural').show();
-			         else $('.mplural').hide();
-			     if (chars > 1) $('.tplural').show();
-			         else $('.tplural').hide();
-			 });
-			 $('#message').keyup();
+			$(document).ready(function () {
+
+				part1Count = 160;
+				part2Count = 158;
+				part3Count = 158;
+
+				$('#message').keyup(function () {
+					var chars = $(this).val().length;
+					messages = 0;
+					remaining = 0;
+					total = 0;
+					if (chars <= part1Count) {
+						messages = 1;
+						remaining = part1Count - chars;
+					} else if (chars <= (part1Count + part2Count)) {
+						messages = 2;
+						remaining = part1Count + part2Count - chars;
+					} else if (chars > (part1Count + part2Count)) {
+						moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
+						remaining = part1Count + part2Count + (moreM * part3Count) - chars;
+						messages = 2 + moreM;
+					}
+					$('#remaining').text(remaining);
+					$('#messages').text(messages);
+					$('#total').text(chars);
+					if (remaining > 1) $('.cplural').show();
+					else $('.cplural').hide();
+					if (messages > 1) $('.mplural').show();
+					else $('.mplural').hide();
+					if (chars > 1) $('.tplural').show();
+					else $('.tplural').hide();
+				});
+				$('#message').keyup();
 			});
-			
-			
-			
-			
+
+
+
+
 		</script>
 		<!--/End Char Count-->
 		<!-- Routing start -->
