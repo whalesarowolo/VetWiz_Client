@@ -961,32 +961,34 @@
          $('#message').keyup(function () {
 
          // state tracking
-         var chosen_states, chosen_crops = [];
+         var chosen_states = [];
+         var chosen_crops = [];
 
          const state_els = $(".select_state");
          const select_crops = $(".select_crops");
          
          //add_state function
          function add_state(new_state) {
-            if (chosen_states.indexOf(new_state) !== -1) {
+            if (chosen_states.indexOf(new_state) == -1) {
                chosen_states.push(new_state);
             }
          }
 
          //add_crop function
          function add_crop(new_crop) {
-            if (chosen_crops.indexOf(new_crop) !== -1) {
+            if (chosen_crops.indexOf(new_crop) == -1) {
                chosen_crops.push(new_crop);
             }
          }
 
          for (const state of state_els) {
-            console.log((state.checked)? state.value + " Checked" : state.value + " Not Checked");
+            (state.checked)? add_state(state.value) : console.log(state.value + " Not selected");
+            console.log("Selected states are: 👉🏻", chosen_states);
          }
 
          for (const crop of select_crops) {
-            (crop.checked)? add_crop(crop.value): console.log(Dat);
-            console.log((crop.checked)? add_crop(crop.value) : crop.value + " Not Selected");
+            (crop.checked)? add_crop(crop.value): console.log(crop.value + " Not selected");
+            console.log("Selected crops are: 👉🏻", chosen_crops);
          }
 
          // end state tracking
@@ -1034,30 +1036,7 @@
          $('#message').keyup();
 
       });
-
       
-      
-      // function calc_states(state) {
-      //    console.log(state)
-      //    var target_states = [];
-      //    if ($('#select_state#adamawa').attr('checked')) {
-      //       if (target_states.indexOf(state) == -1) {
-      //          target_states.push(state);
-      //          console.log("Added 👉🏻 ", "Adamawa");
-      //          console.log("Target states: ", target_states)
-      //       }
-            
-      //    }
-
-      //    if ($('#select_state#gombe').is(':checked')) {
-      //       if (target_states.indexOf(state) == -1) {
-      //          target_states.push(state);
-      //          console.log("Added 👉🏻 ", "Gombe");
-      //          console.log("Target states: ", target_states)
-      //       }
-            
-      //    }
-      // }
    </script>
 
    <!-- Routing start -->
