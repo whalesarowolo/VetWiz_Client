@@ -942,6 +942,17 @@
    <script>
       $(document).ready(function () {
 
+         if ($("#message").length) {
+            console.log("Inside checker");
+            $('input[type="checkbox"]').attr("checked", "checked");
+            // $(".select_state").each((ele) => {
+            //    $(ele).attr("checked", true);
+            // });
+            // $(".select_crops").each((crp) => {
+            //    $(crp).attr("checked", true);
+            // });
+         } 
+
          $("#message").on('change input keyup paste', function () {
             let regx = /^(\s+)$/;
             if (this.value.length > 5 && !(this.value).toString().match(regx)) {
@@ -982,14 +993,15 @@
          }
 
          for (const state of state_els) {
-            (state.checked)? add_state(state.value) : console.log(state.value + " Not selected");
-            console.log("Selected states are: 👉🏻", chosen_states);
+            if (state.checked) {add_state(state.value)}  
          }
 
          for (const crop of select_crops) {
-            (crop.checked)? add_crop(crop.value): console.log(crop.value + " Not selected");
-            console.log("Selected crops are: 👉🏻", chosen_crops);
+            if (crop.checked) {add_crop(crop.value)}   
          }
+
+         if (chosen_states.length > 0){console.log("Selected states are: 👉🏻", chosen_states)}
+         if (chosen_crops.length > 0) {console.log("Selected crops are: 👉🏻", chosen_crops)}
 
          // end state tracking
 
@@ -1036,7 +1048,7 @@
          $('#message').keyup();
 
       });
-      
+
    </script>
 
    <!-- Routing start -->
