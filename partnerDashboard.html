@@ -893,7 +893,8 @@
                      <!--SMS Count and Cost -->
                      <div class="column is-12">
                         <div class="count-and-cost">
-                           SMS Count: <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost: <span id="total_sms_cost">₦185,506</span>
+                           SMS Count: <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost: <span
+                              id="total_sms_cost">₦185,506</span>
                         </div>
                      </div>
                   </div>
@@ -943,10 +944,10 @@
 
          $("#message").on('change input keyup paste', function () {
             let regx = /^(\s+)$/;
-            if(this.value.length > 5 && !(this.value).toString().match(regx)) {
-               if($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
+            if (this.value.length > 5 && !(this.value).toString().match(regx)) {
+               if ($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
                   $(".button.subs_info_section_button.white-button").removeClass('white-button-disabled');
-               }   
+               }
             } else {
                $(".button.subs_info_section_button.white-button").addClass('white-button-disabled');
             }
@@ -956,8 +957,39 @@
          part2Count = 158;
          part3Count = 158;
 
+
+         $('#message').keyup(function () {
+
+         // state tracking
+         var chosen_states, chosen_crops = [];
+
+         const state_els = $(".select_state");
+         const select_crops = $(".select_crops");
          
-         $('#message').keyup(function () { 
+         //add_state function
+         function add_state(new_state) {
+            if (chosen_states.indexOf(new_state) !== -1) {
+               chosen_states.push(new_state);
+            }
+         }
+
+         //add_crop function
+         function add_crop(new_crop) {
+            if (chosen_crops.indexOf(new_crop) !== -1) {
+               chosen_crops.push(new_crop);
+            }
+         }
+
+         for (const state of state_els) {
+            console.log((state.checked)? state.value + " Checked" : state.value + " Not Checked");
+         }
+
+         for (const crop of select_crops) {
+            (crop.checked)? add_crop(crop.value): console.log(Dat);
+            console.log((crop.checked)? add_crop(crop.value) : crop.value + " Not Selected");
+         }
+
+         // end state tracking
 
             var chars = $(this).val().length;
 
@@ -1002,6 +1034,30 @@
          $('#message').keyup();
 
       });
+
+      
+      
+      // function calc_states(state) {
+      //    console.log(state)
+      //    var target_states = [];
+      //    if ($('#select_state#adamawa').attr('checked')) {
+      //       if (target_states.indexOf(state) == -1) {
+      //          target_states.push(state);
+      //          console.log("Added 👉🏻 ", "Adamawa");
+      //          console.log("Target states: ", target_states)
+      //       }
+            
+      //    }
+
+      //    if ($('#select_state#gombe').is(':checked')) {
+      //       if (target_states.indexOf(state) == -1) {
+      //          target_states.push(state);
+      //          console.log("Added 👉🏻 ", "Gombe");
+      //          console.log("Target states: ", target_states)
+      //       }
+            
+      //    }
+      // }
    </script>
 
    <!-- Routing start -->

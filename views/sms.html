@@ -21,12 +21,10 @@
                 <h2>Farmer Location:</h2>
               </div>
               <div class="column">
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckbox" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckbox">Adamawa</label>
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckboxTwo" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckboxTwo">Gombe</label>
+                <input class="is-checkradio is-success has-background-color select_state" value="adamawa" id="adamawa" type="checkbox">
+                <label for="adamawa">Adamawa</label>
+                <input class="is-checkradio is-success has-background-color select_state" value="gombe" id="gombe" type="checkbox">
+                <label for="gombe">Gombe</label>
               </div>
             </div>
             <div class="columns">
@@ -34,18 +32,14 @@
                 <h2>Target Crops:</h2>
               </div>
               <div class="column">
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckboxThree" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckboxThree">Rice</label>
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckboxFour" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckboxFour">Groundnut</label>
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckboxFive" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckboxFive">Tomatoes</label>
-                <input class="is-checkradio is-success has-background-color" id="exampleCheckboxSix" type="checkbox"
-                  checked="checked">
-                <label for="exampleCheckboxSix">Soghurm</label>
+                <input class="is-checkradio is-success has-background-color select_crops" value="rice" id="rice_crop" type="checkbox">
+                <label for="rice_crop">Rice</label>
+                <input class="is-checkradio is-success has-background-color select_crops" value="groundnut" id="groundnut_crop" type="checkbox">
+                <label for="groundnut_crop">Groundnut</label>
+                <input class="is-checkradio is-success has-background-color select_crops" value="tomatoes" id="tomatoes_crop" type="checkbox">
+                <label for="tomatoes_crop">Tomatoes</label>
+                <input class="is-checkradio is-success has-background-color select_crops" value="sorghum" id="sorghum_crop" type="checkbox">
+                <label for="sorghum_crop">Soghurm</label>
               </div>
             </div>
           </div>
@@ -101,7 +95,7 @@
               SMS Pages:
             </div>
             <div class="column is-7 text-right">
-              <span id="messages">1</span>
+              <span id="number_of_message_pages">1</span>
             </div>
           </div>
           <div class="columns sms-summary-row is-vcentered is-mobile">
