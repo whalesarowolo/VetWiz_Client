@@ -224,7 +224,7 @@
                      allowOutsideClick: false,
                      showConfirmButton: false,
                  });
-                 const my_token = localStorage.getItem('access_token');
+                 const m_token = localStorage.getItem('access_token');
                  var userObj = parseJwt(localStorage.getItem('access_token'));
                  const payment_info = {
                     "trxref": txn_refs[1],
@@ -235,17 +235,14 @@
                     body: JSON.stringify(payment_info),
                     headers: new Headers({
                     'Content-Type': 'application/json',
-                    'authorization': my_token  
+                    'authorization': m_token  
                     })
                 });
 
-                console.log("")
+                console.log("");
                 // pass request object to `fetch()`
-                fetch(verify_request)
-                    .then(async (res) => {
-                    //$('.modal').css({ 'display': 'none' });
-                    var resp = await res.json();
-                    if(resp !== null){
+                let respond = await fetch(verify_request);
+                  if(respond !== null){
                         swal.close();
                         //Update the top up balance here
 
@@ -254,25 +251,40 @@
                             text: resp,
                             timer: 3000,
                             icon: 'success',
-                        }).then(() => {
-                            //console.log('Done with top up...', resp)
-                            window.location.replace('https://farmaid.net/partnerDashboard.html');
-                        });
+                        }).then(() => console.log("The response: ", respond));
                     }
-                    }).catch((e)=> {
-                    debugger
-                    console.log(e)
-                    console.log("I was here");
-                    swal.close();
-                    swal.fire({
-                        title: "Message approval wasn't completed",
-                        text: "Message Not sent",
-                        timer: 3000,
-                        icon: 'info',
-                    });
-                    console.log("Finally tired");
+
+                  //   .then(async (response_final) => {
+                  //   //$('.modal').css({ 'display': 'none' });
+                  //   //var resp = await response_final.json();
+                  //   if(response_final !== null){
+                  //       swal.close();
+                  //       //Update the top up balance here
+
+                  //       swal.fire({
+                  //           title: "Top up done",
+                  //           text: resp,
+                  //           timer: 3000,
+                  //           icon: 'success',
+                  //       }).then(() => {
+                  //           //console.log('Done with top up...', resp)
+                  //           window.location.replace('https://farmaid.net/partnerDashboard.html');
+                  //       });
+                  //   }
+                  //   }).catch((e)=> {
+                  //   debugger
+                  //   console.log(e)
+                  //   console.log("I was here");
+                  //   swal.close();
+                  //   swal.fire({
+                  //       title: "Message approval wasn't completed",
+                  //       text: "Message Not sent",
+                  //       timer: 3000,
+                  //       icon: 'info',
+                  //   });
+                  //   console.log("Finally tired");
                     
-                    });
+                  //   });
                  //window.location.replace('https://farmaid.net/partnerDashboard.html');
              })
          }
