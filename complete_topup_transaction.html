@@ -308,6 +308,7 @@
             $.ajax({
               url: "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
               type: "POST",
+              method:"no-cors",
               headers: { authorization: m_token },
               body: JSON.stringify(payment_info),
                error: function(err) {
