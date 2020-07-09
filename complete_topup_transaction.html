@@ -293,10 +293,13 @@
               user_id: userObj.user.id,
             };
             const verify_request = new Request(
-              "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify?trxref=" + txn_refs[1] + "&user_id=" + userObj.user.id,
+              "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify?trxref=" +
+                txn_refs[1] +
+                "&user_id=" +
+                userObj.user.id,
               {
                 method: "GET",
-               //  body: JSON.stringify(payment_info),
+                //  body: JSON.stringify(payment_info),
                 headers: new Headers({
                   "Content-Type": "application/json",
                   authorization: m_token,
@@ -326,11 +329,20 @@
               .then((some) => {
                 swal.close();
                 let final_out = some.json();
+                swal.fire({
+                  title: "Bad things happened",
+                  text: "Not successful",
+                  timer: 3000,
+                });
                 console.log(final_out);
               })
               .catch((err) => {
                 swal.close();
-                console.log("Bad things happened: ", err);
+                swal.fire({
+                  title: "Bad things happened",
+                  text: "Not successful",
+                  timer: 3000,
+                });
               });
           });
       }
