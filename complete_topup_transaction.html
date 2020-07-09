@@ -292,7 +292,7 @@
               trxref: txn_refs[1],
               user_id: userObj.user.id,
             };
-            var verify_request = new Request(
+            const verify_request = new Request(
               "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
               {
                 method: "POST",
@@ -305,21 +305,33 @@
             );
 
             // Try Ajax
-            $.ajax({
-              url: "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
-              type: "POST",
-              method:"no-cors",
-              headers: { authorization: m_token },
-              body: JSON.stringify(payment_info),
-               error: function(err) {
-                  console.log("Something bad: ", err);
-                  swal.close();
-               },
-               success: function(data) {
-                  console.log("Success!");
-                  swal.close();
-               }
-            });
+            // $.ajax({
+            //   url: "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
+            //   type: "POST",
+            //   method:"no-cors",
+            //   headers: { authorization: m_token },
+            //   body: JSON.stringify(payment_info),
+            //    error: function(err) {
+            //       console.log("Something bad: ", err);
+            //       swal.close();
+            //    },
+            //    success: function(data) {
+            //       console.log("Success!");
+            //       swal.close();
+            //    }
+            // });
+
+            // pass request object to `fetch()`
+            fetch(verify_request)
+              .then((some) => {
+                swal.close();
+                let final_out = some.json();
+                console.log(final_out);
+              })
+              .catch((err) => {
+                swal.close();
+                console.log("Bad things happened: ", err);
+              });
           });
       }
     </script>
