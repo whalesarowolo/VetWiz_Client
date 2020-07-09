@@ -239,40 +239,18 @@
                     })
                 });
 
-                console.log("");
                 // pass request object to `fetch()`
-                let respond = await fetch(verify_request);
-                  if(respond !== null){
-                        swal.close();
-                        //Update the top up balance here
-
-                        swal.fire({
-                            title: "Top up done",
-                            text: resp,
-                            timer: 3000,
-                            icon: 'success',
-                        }).then(() => console.log("The response: ", respond));
-                    }
-
+                let response = await fetch(verify_request);
+                console.log(response);
                   //   .then(async (response_final) => {
                   //   //$('.modal').css({ 'display': 'none' });
                   //   //var resp = await response_final.json();
-                  //   if(response_final !== null){
+                  //    if(response_final !== null){
                   //       swal.close();
                   //       //Update the top up balance here
-
-                  //       swal.fire({
-                  //           title: "Top up done",
-                  //           text: resp,
-                  //           timer: 3000,
-                  //           icon: 'success',
-                  //       }).then(() => {
-                  //           //console.log('Done with top up...', resp)
-                  //           window.location.replace('https://farmaid.net/partnerDashboard.html');
-                  //       });
-                  //   }
+                  //       window.location.replace('https://farmaid.net/partnerDashboard.html');
+                  //    }
                   //   }).catch((e)=> {
-                  //   debugger
                   //   console.log(e)
                   //   console.log("I was here");
                   //   swal.close();
