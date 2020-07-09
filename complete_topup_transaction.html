@@ -200,7 +200,7 @@
       <script>
 
          window.addEventListener('load', verify_payment());
-          function verify_payment() {
+          async function verify_payment() {
              //Get the txnref from the location object
             //var txn_ref = window.location;
             var regex = /\=(.*?)\&/;
