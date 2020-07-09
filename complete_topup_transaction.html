@@ -309,7 +309,7 @@
               url: "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
               type: "POST",
               headers: { authorization: m_token },
-              data: JSON.stringify(payment_info),
+              body: JSON.stringify(payment_info),
                error: function(err) {
                   console.log("Something bad: ", err);
                   swal.close();
@@ -319,18 +319,6 @@
                   swal.close();
                }
             });
-
-            // pass request object to `fetch()`
-            // fetch(verify_request)
-            //   .then((some) => {
-            //     swal.close();
-            //     let final_out = some.json();
-            //     console.log(final_out);
-            //   })
-            //   .catch((err) => {
-            //     swal.close();
-            //     console.log("Bad things happened: ", err);
-            //   });
           });
       }
     </script>
