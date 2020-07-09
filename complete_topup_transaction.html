@@ -199,8 +199,7 @@
       <script src="./js/dash/market_actor.js"></script>
       <script>
 
-         window.addEventListener('load', verify_payment());
-          async function verify_payment() {
+         (async () => {
              //Get the txnref from the location object
             //var txn_ref = window.location;
             var regex = /\=(.*?)\&/;
@@ -241,31 +240,11 @@
 
                 // pass request object to `fetch()`
                 let response = await fetch(verify_request);
-                console.log(response);
-                  //   .then(async (response_final) => {
-                  //   //$('.modal').css({ 'display': 'none' });
-                  //   //var resp = await response_final.json();
-                  //    if(response_final !== null){
-                  //       swal.close();
-                  //       //Update the top up balance here
-                  //       window.location.replace('https://farmaid.net/partnerDashboard.html');
-                  //    }
-                  //   }).catch((e)=> {
-                  //   console.log(e)
-                  //   console.log("I was here");
-                  //   swal.close();
-                  //   swal.fire({
-                  //       title: "Message approval wasn't completed",
-                  //       text: "Message Not sent",
-                  //       timer: 3000,
-                  //       icon: 'info',
-                  //   });
-                  //   console.log("Finally tired");
-                    
-                  //   });
-                 //window.location.replace('https://farmaid.net/partnerDashboard.html');
+                let final_out = await response.json();
+                console.log(final_out);
              })
-         }
+         })();
+         
       </script>
    </body>
 </html>
