@@ -241,10 +241,11 @@
 
                 // pass request object to `fetch()`
                 try {
-                   swal.close();
+                   
                   let response = await fetch(verify_request);
                   let final_out = await response.json();
                   console.log(final_out);
+                  swal.close();
                 } catch (error) {
                    console.log("Error :", error)
                 }
