@@ -311,10 +311,12 @@
               headers: { Authorization: m_token },
               data: JSON.stringify(payment_info),
                error: function(err) {
-                  console.log("Something bad: ", err)
+                  console.log("Something bad: ", err);
+                  swal.close();
                },
                success: function(data) {
                   console.log("Success!");
+                  swal.close();
                }
             });
 
