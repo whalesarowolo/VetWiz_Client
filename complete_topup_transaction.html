@@ -240,15 +240,15 @@
                 });
 
                 // pass request object to `fetch()`
-                try {
-                   
-                  let response = await fetch(verify_request);
-                  let final_out = await response.json();
-                  console.log(final_out);
-                  swal.close();
-                } catch (error) {
-                   console.log("Error :", error)
-                }
+                fetch(verify_request)
+                  .then((some) => {
+                     swal.close();
+                     let final_out = some.json();
+                     console.log(final_out);
+                  }).catch((err) => {
+                     swal.close();
+                     console.log("Bad things happened: ", err)
+                  });
              })
          }
       </script>
