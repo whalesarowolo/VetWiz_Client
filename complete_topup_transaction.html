@@ -199,7 +199,8 @@
       <script src="./js/dash/market_actor.js"></script>
       <script>
 
-         (async () => {
+         window.addEventListener('load', verify_payment());
+         function verify_payment() {
              //Get the txnref from the location object
             //var txn_ref = window.location;
             var regex = /\=(.*?)\&/;
@@ -213,7 +214,7 @@
                  allowOutsideClick: false,
                  showConfirmButton: false,
                  timer: 3000,
-             }).then(() => {
+             }).then(async () => {
                  console.log("Done with this ", txn_refs[1]);
                  // create request object
                  swal.fire({
@@ -239,12 +240,15 @@
                 });
 
                 // pass request object to `fetch()`
-                let response = await fetch(verify_request);
-                let final_out = await response.json();
-                console.log(final_out);
+                try {
+                  let response = await fetch(verify_request);
+                  let final_out = await response.json();
+                  console.log(final_out);
+                } catch (error) {
+                   console.log("Error :", error)
+                }
              })
-         })();
-         
+         }
       </script>
    </body>
 </html>
