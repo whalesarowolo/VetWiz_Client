@@ -259,8 +259,7 @@
     <script src="js/dash/js-auth.js"></script>
     <script src="./js/dash/market_actor.js"></script>
     <script>
-      window.addEventListener("load", verify_payment());
-      function verify_payment() {
+      (async () => {
         //Get the txnref from the location object
         //var txn_ref = window.location;
         var regex = /\=(.*?)\&/;
@@ -304,23 +303,6 @@
               }
             );
 
-            // Try Ajax
-            // $.ajax({
-            //   url: "https://farm-aid-backend.herokuapp.com/api/topup/paystack_verify",
-            //   type: "POST",
-            //   method:"no-cors",
-            //   headers: { authorization: m_token },
-            //   body: JSON.stringify(payment_info),
-            //    error: function(err) {
-            //       console.log("Something bad: ", err);
-            //       swal.close();
-            //    },
-            //    success: function(data) {
-            //       console.log("Success!");
-            //       swal.close();
-            //    }
-            // });
-
             // pass request object to `fetch()`
             fetch(verify_request)
               .then((some) => {
@@ -334,6 +316,7 @@
               });
           });
       }
+    )();
     </script>
   </body>
 </html>
