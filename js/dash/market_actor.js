@@ -181,9 +181,10 @@ function do_calculation() {
     });
 })();
 
-$(document).ready(() => {
+$(document).ready(function() {
   if ($(".topup_balance").length) {
     let wallety = localStorage.getItem('topup_balance');
+    console.log("Here: ", wallety);
     if (wallety) {
       $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
     }
