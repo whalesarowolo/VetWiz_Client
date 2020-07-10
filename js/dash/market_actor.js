@@ -6,7 +6,6 @@ function get_wallet_balance() {
   setInterval(() => {
     if ($(".topup_balance").length) {
       var wallety = localStorage.getItem('topup_balance');
-      console.log("Here: ", wallety);
       if (wallety) {
         $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
       }
