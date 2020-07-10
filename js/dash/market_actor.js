@@ -173,12 +173,16 @@ function do_calculation() {
         $(".wallet_balance").removeClass('color-red').html("₦" + (numberWithCommas(walletBalance.balance)));
         $(".low_sms").addClass('is-hidden');
         $(".sms_units_available").html("" + numberWithCommas(Math.floor(Number(walletBalance.balance) / 5.0 + 100))); 
-        $(".topup_balance").ready(() => {
-          $(".topup_balance").html("₦" + (numberWithCommas(walletBalance.balance)));
-        });
+        localStorage.setItem('topup_balance', walletBalance.balance)
       }
     })
     .catch((err) => {
       console.log("There was a problem: ", err);
     });
 })();
+
+$(document).ready(() => {
+  if ($(".topup_balance").length) {
+    $(".topup_balance").html("₦" + (numberWithCommas( (Number(localStorage.getItem('topup_balance'))? Number(localStorage.getItem('topup_balance')): 0.0) )));
+  }
+})
