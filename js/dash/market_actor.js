@@ -167,10 +167,10 @@ function do_calculation() {
   // pass request object to `fetch()`
   fetch(wallet_balance_request)
     .then(async (balance) => {
-      let wallet_balance = await balance.json();
-      console.table("Wallet Balance: ", wallet_balance);
-      if (Number(wallet_balance.walletBalance.balance) > 0.0) {
-        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + numberWithCommas(Number(wallet_balance.walletBalance.balance));
+      let { walletBalance } = await balance.json();
+      console.table(walletBalance);
+      if (Number(walletBalance.balance) > 0.0) {
+        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + numberWithCommas(Number(walletBalance.balance));
       }
     })
     .catch((err) => {
