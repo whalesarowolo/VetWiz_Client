@@ -169,13 +169,9 @@ function do_calculation() {
     .then(async (balance) => {
       let wallet_balance = await balance.json();
       console.table("Wallet Balance: ", wallet_balance);
-      swal.fire({
-        title: 'Your wallet Balance',
-        text: 'You currently have N' + wallet_balance.walletBalance,
-        icon: 'info',
-        allowOutsideClick: false,
-        showConfirmButton: true,
-      })
+      if (Number(wallet_balance.walletBalance) > 0.0) {
+        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + wallet_balance.walletBalance;
+      }
     })
     .catch((err) => {
       console.log("There was a problem: ", err);
