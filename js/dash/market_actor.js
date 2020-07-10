@@ -170,7 +170,7 @@ function do_calculation() {
       let { walletBalance } = await balance.json();
       console.table(walletBalance);
       if (Number(walletBalance.balance) > 0.0) {
-        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + numberWithCommas(Number(walletBalance.balance));
+        $(".wallet_balance").removeClass('color-red').html("₦" + (walletBalance.balance));
       }
     })
     .catch((err) => {
