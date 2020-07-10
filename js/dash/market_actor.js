@@ -189,6 +189,7 @@ function do_calculation() {
       }
     })
     .catch((err) => {
+      //Do nothing but log here
       console.log("There was a problem: ", err);
     });
 })();
