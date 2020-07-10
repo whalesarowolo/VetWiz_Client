@@ -1,7 +1,8 @@
 let subscription_status = document.getElementById("subscription_status");
 let sms_button = document.getElementById("sms_sending_button");
 
-$(".dash-stat.topup_balance").ready(function() {
+function get_wallet_balance() {
+  console.log("Getting wallet balance");
   setTimeout(() => {
     if ($(".topup_balance").length) {
       var wallety = localStorage.getItem('topup_balance');
@@ -11,7 +12,7 @@ $(".dash-stat.topup_balance").ready(function() {
       }
     }
   }, 6000)
-})
+}
 
 function myFunction(event, topup_amount) {
   if ($("#topupConfirm").length) {
