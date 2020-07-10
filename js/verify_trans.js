@@ -47,9 +47,10 @@
           .then(async (some) => {
             swal.close();
             let final_out = await some.json();
+            console.table(final_out);
             swal.fire({
-                title: 'Completing transaction',
-                text: 'Your payment has been verified' + final_out,
+                title: 'Completing Topup transaction',
+                text: 'Your payment has been verified and added to your wallet!',
                 timer: 3000,
                 icon: 'success'
                 }).then(() => {
