@@ -2,7 +2,7 @@ let subscription_status = document.getElementById("subscription_status");
 let sms_button = document.getElementById("sms_sending_button");
 
 $(".dash-stat.topup_balance").ready(function() {
-  setInterval(() => {
+  setTimeout(() => {
     if ($(".topup_balance").length) {
       var wallety = localStorage.getItem('topup_balance');
       console.log("Here: ", wallety);
@@ -10,7 +10,7 @@ $(".dash-stat.topup_balance").ready(function() {
         $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
       }
     }
-  }, 6000);
+  }, 6000)
 })
 
 function myFunction(event, topup_amount) {
@@ -85,7 +85,7 @@ function call_top_up() {
           //body: JSON.stringify(approved_msg),
           headers: new Headers({
             "Content-Type": "application/json",
-            authorization: my_token,
+            "authorization": my_token,
           }),
         });
         return fetch(approved_request)
