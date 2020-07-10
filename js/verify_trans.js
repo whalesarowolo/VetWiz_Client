@@ -44,7 +44,7 @@
 
         // pass request object to `fetch()`
         fetch(verify_request)
-          .then((some) => {
+          .then(async (some) => {
             swal.close();
             let final_out = await some.json();
             swal.fire({
