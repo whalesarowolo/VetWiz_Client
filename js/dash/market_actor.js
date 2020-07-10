@@ -1,6 +1,18 @@
 let subscription_status = document.getElementById("subscription_status");
 let sms_button = document.getElementById("sms_sending_button");
 
+$(document).ready(function() {
+  setInterval(() => {
+    if ($(".topup_balance").length) {
+      let wallety = localStorage.getItem('topup_balance');
+      console.log("Here: ", wallety);
+      if (wallety) {
+        $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
+      }
+    }
+  }, 6000);
+})
+
 function myFunction(event, topup_amount) {
   if ($("#topupConfirm").length) {
     $("#topupConfirm").css("display", "none");
@@ -181,14 +193,3 @@ function do_calculation() {
     });
 })();
 
-function get_balance() {
-  if ($(".topup_balance").length) {
-    let wallety = localStorage.getItem('topup_balance');
-    console.log("Here: ", wallety);
-    if (wallety) {
-      $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
-    }
-  }
-}
-
-get_balance();
