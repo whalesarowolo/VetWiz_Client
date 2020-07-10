@@ -183,6 +183,9 @@ function do_calculation() {
 
 $(document).ready(() => {
   if ($(".topup_balance").length) {
-    $(".topup_balance").html("₦" + (numberWithCommas( (Number(localStorage.getItem('topup_balance'))? Number(localStorage.getItem('topup_balance')): 0.0) )));
+    let wallety = localStorage.getItem('topup_balance');
+    if (wallety) {
+      $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
+    }
   }
 })
