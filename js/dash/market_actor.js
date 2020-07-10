@@ -130,10 +130,8 @@ function call_top_up() {
 }
 
 function numberWithCommas(x) {
+  //Clean implementation for brevity
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  // var parts = x.toString().split(".");
-  // parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // return parts.join(".");
 }
 
 function top_up_history(event) {
