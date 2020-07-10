@@ -181,7 +181,7 @@ function do_calculation() {
     });
 })();
 
-$(document).ready(function() {
+function get_balance() {
   if ($(".topup_balance").length) {
     let wallety = localStorage.getItem('topup_balance');
     console.log("Here: ", wallety);
@@ -189,4 +189,6 @@ $(document).ready(function() {
       $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
     }
   }
-})
+}
+
+get_balance();
