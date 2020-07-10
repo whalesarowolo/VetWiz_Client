@@ -171,6 +171,8 @@ function do_calculation() {
       console.table(walletBalance);
       if (Number(walletBalance.balance) > 0.0) {
         $(".wallet_balance").removeClass('color-red').html("₦" + (numberWithCommas(walletBalance.balance)));
+        $(".low_sms").addClass('is-hidden');
+        $(".sms_units_available").html(Number(walletBalance.balance) / 5.0 + 100);
       }
     })
     .catch((err) => {
