@@ -180,7 +180,6 @@ function do_calculation() {
   fetch(wallet_balance_request)
     .then(async (balance) => {
       let { walletBalance } = await balance.json();
-      console.table(walletBalance);
       if (Number(walletBalance.balance) > 0.0) {
         $(".wallet_balance").removeClass('color-red').html("₦" + (numberWithCommas(walletBalance.balance)));
         $(".low_sms").addClass('is-hidden');
