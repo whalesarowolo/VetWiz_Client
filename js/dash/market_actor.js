@@ -169,8 +169,8 @@ function do_calculation() {
     .then(async (balance) => {
       let wallet_balance = await balance.json();
       console.table("Wallet Balance: ", wallet_balance);
-      if (Number(wallet_balance.walletBalance) > 0.0) {
-        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + wallet_balance.walletBalance;
+      if (Number(wallet_balance.walletBalance.balance) > 0.0) {
+        $(".wallet_balance").removeClass('color-red').innerHTML = "₦" + numberWithCommas(Number(wallet_balance.walletBalance.balance));
       }
     })
     .catch((err) => {
