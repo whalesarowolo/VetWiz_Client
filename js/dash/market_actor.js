@@ -1,10 +1,10 @@
 let subscription_status = document.getElementById("subscription_status");
 let sms_button = document.getElementById("sms_sending_button");
 
-$(document).ready(function() {
+$(".dash-stat.topup_balance").ready(function() {
   setInterval(() => {
     if ($(".topup_balance").length) {
-      let wallety = localStorage.getItem('topup_balance');
+      var wallety = localStorage.getItem('topup_balance');
       console.log("Here: ", wallety);
       if (wallety) {
         $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
