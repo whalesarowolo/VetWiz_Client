@@ -146,7 +146,7 @@ function do_calculation() {
   });
 }
 
-(async () => {
+(async function check_balance() {
   const m_token = localStorage.getItem("access_token");
   var userObj = parseJwt(localStorage.getItem("access_token"));
   let wallet_id_info = {
