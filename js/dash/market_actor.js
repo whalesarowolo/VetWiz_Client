@@ -172,8 +172,10 @@ function do_calculation() {
       if (Number(walletBalance.balance) > 0.0) {
         $(".wallet_balance").removeClass('color-red').html("₦" + (numberWithCommas(walletBalance.balance)));
         $(".low_sms").addClass('is-hidden');
-        $(".sms_units_available").html("" + numberWithCommas(Math.floor(Number(walletBalance.balance) / 5.0 + 100)));
-        
+        $(".sms_units_available").html("" + numberWithCommas(Math.floor(Number(walletBalance.balance) / 5.0 + 100))); 
+        $(".topup_balance").ready(() => {
+          $(".topup_balance").html("₦" + (numberWithCommas(walletBalance.balance)));
+        });
       }
     })
     .catch((err) => {
