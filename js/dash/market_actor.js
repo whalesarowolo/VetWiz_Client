@@ -3,7 +3,7 @@ let sms_button = document.getElementById("sms_sending_button");
 
 function get_wallet_balance() {
   console.log("Getting wallet balance");
-  setTimeout(() => {
+  setInterval(() => {
     if ($(".topup_balance").length) {
       var wallety = localStorage.getItem('topup_balance');
       console.log("Here: ", wallety);
