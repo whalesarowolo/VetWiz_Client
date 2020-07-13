@@ -561,8 +561,8 @@ function send_approved_sms(msg) {
   fetch(approved_request)
     .then(async (res) => {
       //$('.modal').css({ 'display': 'none' });
-      var resp = await res.json();
-      if(resp !== null){
+      //var resp = await res.json();
+      if(res !== null){
         swal.close();
         swal.fire({
             title: "Message Approved with success",
@@ -570,7 +570,7 @@ function send_approved_sms(msg) {
             timer: 3000,
             icon: 'success',
         })
-        console.log("Network response from Approved: ", resp);
+        console.log("Network response from Approved: ", res);
       }
     }).catch((e)=> {
       debugger
