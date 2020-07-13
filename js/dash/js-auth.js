@@ -542,7 +542,7 @@ function send_approved_sms(msg) {
 
   // create request object
   var approved_request = new Request(approved_url, {
-    method: 'PATCH',
+    method: 'POST',
     body: JSON.stringify(approved_msg),
     headers: new Headers({
       'Content-Type': 'application/json',
