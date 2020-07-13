@@ -534,7 +534,7 @@ function send_approved_sms(msg) {
     "filter": filter,
   }
 
-  const approved_url = 'https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter';
+  const approved_url = "https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter";
   const my_token = localStorage.getItem('access_token');
   cancelInternalMessage();
   console.log("New message: ", approved_msg);
@@ -677,8 +677,9 @@ function ma_approve(e) {
       .then(response => response.json())
       .then((message) => {
         console.log("Message: ", message);
-        swal.close()
-        send_approved_sms(message);
+        swal.close();
+        console.log("done here...");
+        //send_approved_sms(message);
       });
     //swal.close();
     //Send confirmation to market actor 
