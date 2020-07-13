@@ -528,7 +528,7 @@ function send_approved_sms(msg) {
     "filter": filter,
   }
 
-  const approved_url = "https://farm-aid-backend.herokuapp.com/api/approve/" + msg._id;
+  const approved_url = "https://farm-aid-backend.herokuapp.com/api/masms/approve/" + msg._id;
   const my_token = localStorage.getItem('access_token');
   cancelInternalMessage();
   console.log("The approved message: ", approved_msg);
