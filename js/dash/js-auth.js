@@ -573,7 +573,7 @@ function send_approved_sms(msg) {
         console.log("Network response from Approved: ", res);
       }
     }).catch((e)=> {
-      debugger
+      //debugger
       console.log(e)
       console.log("I was here");
       swal.close();
