@@ -526,11 +526,14 @@ function send_approved_sms(msg) {
   const approved_msg = {
     "msg": approved_message_content,
     "filter": filter,
+    "id": msg._id,
   }
 
-  const approved_url = "https://farm-aid-backend.herokuapp.com/api/masms/approve/" + msg._id;
+  const approved_url = "https://farm-aid-backend.herokuapp.com/api/masms/approve/";
   const my_token = localStorage.getItem('access_token');
+
   cancelInternalMessage();
+  
   console.log("The approved message: ", approved_msg);
   swal.fire({
     title: 'Sending Approved Message',
