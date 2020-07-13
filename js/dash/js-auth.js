@@ -519,27 +519,21 @@ function send_approved_sms(msg) {
   var gender = msg.gender.split(','); //string to array
   var crops = msg.crop.split(','); //string to array
 
-  // gender.forEach(gn => {
-      
-  // });
   filter.push(gender);
   filter.push(crops);
   filter.push(state);
-
-
-
   //const internal_msg = {
   const approved_msg = {
     "msg": approved_message_content,
     "filter": filter,
   }
 
-  const approved_url = "https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter";
+  const approved_url = "https://farm-aid-backend.herokuapp.com/api/approve/" + msg._id;
   const my_token = localStorage.getItem('access_token');
   cancelInternalMessage();
-  console.log("New message: ", approved_msg);
+  console.log("The approved message: ", approved_msg);
   swal.fire({
-    title: 'Sending Message',
+    title: 'Sending Approved Message',
     text: 'Please wait...',
     icon: 'info',
     allowOutsideClick: false,
@@ -548,7 +542,7 @@ function send_approved_sms(msg) {
 
   // create request object
   var approved_request = new Request(approved_url, {
-    method: 'POST',
+    method: 'PATCH',
     body: JSON.stringify(approved_msg),
     headers: new Headers({
       'Content-Type': 'application/json',
@@ -679,7 +673,7 @@ function ma_approve(e) {
         console.log("Message: ", message);
         swal.close();
         console.log("done here...");
-        //send_approved_sms(message);
+        send_approved_sms(message);
       });
     //swal.close();
     //Send confirmation to market actor 
