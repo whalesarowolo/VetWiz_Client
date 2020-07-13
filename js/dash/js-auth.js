@@ -534,7 +534,7 @@ function send_approved_sms(msg) {
     "filter": filter,
   }
 
-  const approved_url = 'https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter'
+  const approved_url = 'https://farm-aid-backend.herokuapp.com/api/send_internal_with_filter';
   const my_token = localStorage.getItem('access_token');
   cancelInternalMessage();
   console.log("New message: ", approved_msg);
@@ -552,7 +552,7 @@ function send_approved_sms(msg) {
     body: JSON.stringify(approved_msg),
     headers: new Headers({
       'Content-Type': 'application/json',
-      'Authorization': my_token  
+      'authorization': my_token  
     })
   });
 
