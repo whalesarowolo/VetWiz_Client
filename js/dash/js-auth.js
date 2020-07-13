@@ -529,11 +529,11 @@ function send_approved_sms(msg) {
     "id": msg._id,
   }
 
-  const approved_url = "https://farm-aid-backend.herokuapp.com/api/masms/approve/";
+  const approved_url = "https://farm-aid-backend.herokuapp.com/api/masms/approve";
   const my_token = localStorage.getItem('access_token');
 
   cancelInternalMessage();
-  
+
   console.log("The approved message: ", approved_msg);
   swal.fire({
     title: 'Sending Approved Message',
@@ -557,7 +557,6 @@ function send_approved_sms(msg) {
   // pass request object to `fetch()`
   fetch(approved_request)
     .then(async (res) => {
-      //$('.modal').css({ 'display': 'none' });
       //var resp = await res.json();
       if(res !== null){
         swal.close();
