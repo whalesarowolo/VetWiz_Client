@@ -1222,23 +1222,31 @@
 
           //Call api for metrics
           function get_metrics(criterias) {
+             var inner_criteria = {};
+             const {states, crops} = criterias;
              const my_token = localStorage.getItem('access_token');
+             var userObj = parseJwt(localStorage.getItem("access_token"));
+            let criteria_info = {
+               user: userObj.user,
+               states: states,
+               crops: crops
+            };
             var metric_request = new Request(
               "https://farm-aid-backend.herokuapp.com/api/farmer/get-metrics",
               {
                 method: "POST",
-                body: JSON.stringify(criterias),
+                body: JSON.stringify(criteria_info),
                 headers: new Headers({
                   "Content-Type": "application/json",
                   "authorization": my_token,
                 }),
               }
             );
-            return fetch(metric_request)
+            fetch(metric_request)
               .then(async (response) => {
-                var resp = await response.json();
-                if (resp.message) {
-                  console.log("Network response from metric server: ", resp);
+                //var resp = await response.json();
+                if (response) {
+                  console.log("Network response from metric server: ", response);
                 }
               })
               .catch((err) => {
