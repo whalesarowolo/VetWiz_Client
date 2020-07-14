@@ -1,10 +1,10 @@
 <div class="dashboard-inner">
-
   <!-- Dashboard Wrapper -->
   <div class="dashboard-wrapper">
-    <div class="columns" style="margin-bottom:10px; margin-left:4px">
+    <div class="columns" style="margin-bottom: 10px; margin-left: 4px;">
       <div class="column is-7">
-        <a href="#">Dashboard</a> &nbsp;|&nbsp; <a href="#">SMS History</a> &nbsp;|&nbsp; Send New SMS
+        <a href="#">Dashboard</a> &nbsp;|&nbsp;
+        <a href="#">SMS History</a> &nbsp;|&nbsp; Send New SMS
         <!--<a href="#" class="button subs_info_section_button no-block">SMS History</a>-->
       </div>
     </div>
@@ -12,19 +12,31 @@
     <div class="columns contact-profile">
       <div class="column is-8">
         <!-- Contact informations -->
-        <div class="flex-card is-contact-info light-bordered send-message-wrapper">
+        <div
+          class="flex-card is-contact-info light-bordered send-message-wrapper"
+        >
           <div class="message-filter-box">
             <h1>Please use the options below to target specific farmers:</h1>
-            <hr>
+            <hr />
             <div class="columns">
               <div class="column is-3">
                 <h2>Farmer Location:</h2>
               </div>
               <div class="column">
                 <div class="columns">
-                  <input class="column is-checkradio is-success has-background-color select_state" value="adamawa" id="adamawa" type="checkbox">
+                  <input
+                    class="column is-checkradio is-success has-background-color select_state"
+                    value="adamawa"
+                    id="adamawa"
+                    type="checkbox"
+                  />
                   <label for="adamawa">Adamawa</label>
-                  <input class="column is-checkradio is-success has-background-color select_state" value="gombe" id="gombe" type="checkbox">
+                  <input
+                    class="column is-checkradio is-success has-background-color select_state"
+                    value="gombe"
+                    id="gombe"
+                    type="checkbox"
+                  />
                   <label for="gombe">Gombe</label>
                 </div>
               </div>
@@ -35,13 +47,33 @@
               </div>
               <div class="column">
                 <div class="columns">
-                  <input class="column is-4 is-checkradio is-success has-background-color select_crops" value="rice" id="rice_crop" type="checkbox">
+                  <input
+                    class="column is-4 is-checkradio is-success has-background-color select_crops"
+                    value="rice"
+                    id="rice_crop"
+                    type="checkbox"
+                  />
                   <label for="rice_crop">Rice</label>
-                  <input class="column is-4 is-checkradio is-success has-background-color select_crops" value="groundnut" id="groundnut_crop" type="checkbox">
+                  <input
+                    class="column is-4 is-checkradio is-success has-background-color select_crops"
+                    value="groundnut"
+                    id="groundnut_crop"
+                    type="checkbox"
+                  />
                   <label for="groundnut_crop">Groundnut</label>
-                  <input class="column is-4 is-checkradio is-success has-background-color select_crops" value="tomatoes" id="tomatoes_crop" type="checkbox">
+                  <input
+                    class="column is-4 is-checkradio is-success has-background-color select_crops"
+                    value="tomatoes"
+                    id="tomatoes_crop"
+                    type="checkbox"
+                  />
                   <label for="tomatoes_crop">Tomatoes</label>
-                  <input class="column is-4 is-checkradio is-success has-background-color select_crops" value="sorghum" id="sorghum_crop" type="checkbox">
+                  <input
+                    class="column is-4 is-checkradio is-success has-background-color select_crops"
+                    value="sorghum"
+                    id="sorghum_crop"
+                    type="checkbox"
+                  />
                   <label for="sorghum_crop">Soghurm</label>
                 </div>
               </div>
@@ -49,15 +81,29 @@
           </div>
           <div class="message-compose-container">
             <h1>Your Message:</h1>
-            <textarea name="message" id="message" placeholder="Type message here" autofocus></textarea>
-            <div id="the-count" class="message-count"
-              style="margin-top:-30px; position:absolute; right:0; margin-right:46px; color:#aaa;">
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Type message here"
+              autofocus
+            ></textarea>
+            <div
+              id="the-count"
+              class="message-count"
+              style="
+                margin-top: -30px;
+                position: absolute;
+                right: 0;
+                margin-right: 46px;
+                color: #aaa;
+              "
+            >
               <span>Page:&nbsp;</span><span id="messages">1</span> |
               <span id="remaining">160</span>
             </div>
-            <div style="margin-top:10px">
+            <div style="margin-top: 10px;">
               <label for="smslang">Translate Message ? &nbsp;</label>
-              <select id="smslang" class="custom-select" style="width:200px;">
+              <select id="smslang" class="custom-select" style="width: 200px;">
                 <option label="Select Language"></option>
                 <option label="Hausa"></option>
                 <option label="Igbo"></option>
@@ -65,32 +111,50 @@
               </select>
             </div>
             <div class="translated-sms is-hidden">
-              <textarea name="message" id="message" placeholder="Type message here" autofocus></textarea>
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Type message here"
+                autofocus
+              ></textarea>
               <div class="update-button">
-                <a href="#" class="button subs_info_section_button no-block">Use this </a>
+                <a href="#" class="button subs_info_section_button no-block"
+                  >Use this
+                </a>
               </div>
             </div>
           </div>
-          <br><br>
+          <br /><br />
         </div>
       </div>
       <div class="column is-4">
-        <div class="flex-card is-avatar light-bordered card-overflow message-summary-card">
+        <div
+          class="flex-card is-avatar light-bordered card-overflow message-summary-card"
+        >
           <h1>Summary</h1>
-          <hr>
+          <hr />
           <div class="farmer-count-wrapper">
             <div class="columns is-vcentered">
               <div class="column is-5">
                 <div class="field">
                   <label>Farmer Reach:</label>
-                  <input class="input is-primary farmer-count-text farmer-count-text-noedit" readonly type="text"
-                    placeholder="" value="13508">
+                  <input
+                    class="input is-primary farmer-count-text farmer-count-text-noedit"
+                    readonly
+                    type="text"
+                    placeholder=""
+                    value="13508"
+                  />
                 </div>
-                <br>
+                <br />
               </div>
               <div class="column is-6 modify-count-button">
-                <a href="#" class="white-text-link is-vcentered" style="margin-top:20px">Modify Count <i
-                    class="fa fa-pencil"></i></a>
+                <a
+                  href="#"
+                  class="white-text-link is-vcentered"
+                  style="margin-top: 20px;"
+                  >Modify Count <i class="fa fa-pencil"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -120,9 +184,12 @@
           </div>
           <div class="inner">
             <div class="is-centered">
-              <br><br>
-              <div onclick="newMessage(event)"
-                class="white-button-disabled button subs_info_section_button white-button no-block">Preview Message
+              <br /><br />
+              <div
+                onclick="newMessage(event)"
+                class="white-button-disabled button subs_info_section_button white-button no-block"
+              >
+                Preview Message
               </div>
             </div>
           </div>
@@ -131,11 +198,9 @@
     </div>
     <!-- <button  class="side-icon">check</button> -->
     <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-      <div class="market_actor_info_container">
-      </div>
+      <div class="market_actor_info_container"></div>
     </div>
     <!-- Widgets -->
-    <div>
-    </div>
+    <div></div>
   </div>
 </div>

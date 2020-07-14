@@ -190,4 +190,3 @@ function do_calculation() {
       console.log("There was a problem: ", err);
     });
 })();
-
