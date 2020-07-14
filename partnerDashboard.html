@@ -958,6 +958,7 @@
                if ($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
                   $(".button.subs_info_section_button.white-button").removeClass('white-button-disabled');
                }
+
             } else {
                $(".button.subs_info_section_button.white-button").addClass('white-button-disabled');
             }
@@ -973,6 +974,7 @@
          // state tracking
          var chosen_states = [];
          var chosen_crops = [];
+         var filterable_criterias = {};
 
          const state_els = $(".select_state");
          const select_crops = $(".select_crops");
@@ -999,8 +1001,16 @@
             if (crop.checked) {add_crop(crop.value)}   
          }
 
-         if (chosen_states.length > 0){console.log("Selected states are: 👉🏻", chosen_states)}
-         if (chosen_crops.length > 0) {console.log("Selected crops are: 👉🏻", chosen_crops)}
+         if (chosen_states.length > 0){
+            //Update filterable criteria for states
+            filterable_criterias.states = chosen_states;
+            console.log("Selected states are: 👉🏻", chosen_states, filterable_criterias);
+         }
+         if (chosen_crops.length > 0) {
+            //Update filterable criteria for crops
+            filterable_criterias.crops = chosen_crops;
+            console.log("Selected crops are: 👉🏻", chosen_crops, filterable_criterias);
+         }
 
          // end state tracking
 
