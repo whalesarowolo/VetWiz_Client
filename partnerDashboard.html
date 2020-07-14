@@ -1208,6 +1208,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/rxjs@6.6.0/bundles/rxjs.umd.min.js"></script>
 
     <!--Char Count for SMS Composition-->
 
@@ -1236,6 +1237,11 @@
                 "white-button-disabled"
               );
             }
+            //Call api for metrics
+            const interval = Rx.Observable.interval(1000);
+            const debouncedInterval = interval.debounce(val => Rx.Observable.timer(val * 200))
+            const subscribe = debouncedInterval.subscribe(val => console.log(`Example Two: ${val}`));
+            //End call for metrics
           } else {
             $(".button.subs_info_section_button.white-button").addClass(
               "white-button-disabled"
@@ -1299,15 +1305,6 @@
               chosen_crops,
               filterable_criterias
             );
-            //Call server for metrics
-            setInterval(() => {
-              swal.fire({
-                title: "Please wait",
-                text: "Getting cost metrics from server",
-                timer: 3000,
-                icon: "info",
-              });
-            }, 6000);
           }
 
           // end state tracking
