@@ -1217,12 +1217,37 @@
         if ($("#message").length) {
           console.log("Inside checker");
           $('input[type="checkbox"]').attr("checked", "checked");
-          // $(".select_state").each((ele) => {
-          //    $(ele).attr("checked", true);
-          // });
-          // $(".select_crops").each((crp) => {
-          //    $(crp).attr("checked", true);
-          // });
+
+          //Call api for metrics
+          function get_metrics(criterias) {
+            var metric_request = new Request(
+              "https://farm-aid-backend.herokuapp.com/api/farmer/get-metics",
+              {
+                method: "POST",
+                body: JSON.stringify(criterias),
+                headers: new Headers({
+                  "Content-Type": "application/json",
+                  authorization: my_token,
+                }),
+              }
+            );
+            return fetch(metric_request)
+              .then(async (response) => {
+                var resp = await response.json();
+                if (resp.message) {
+                  console.log("Network response from metric server: ", resp);
+                }
+              })
+              .catch((err) => {
+                swal.fire({
+                  title: "There was an error getting the cost",
+                  text: "Error computing cost",
+                  timer: 3000,
+                  icon: "info",
+                });
+              });
+          }
+          //End call for metrics
         }
 
         $("#message").on("change input keyup paste", function () {
@@ -1237,11 +1262,6 @@
                 "white-button-disabled"
               );
             }
-            //Call api for metrics
-            const interval = Rx.Observable.interval(1000);
-            const debouncedInterval = interval.debounce(val => Rx.Observable.timer(val * 200))
-            const subscribe = debouncedInterval.subscribe(val => console.log(`Example Two: ${val}`));
-            //End call for metrics
           } else {
             $(".button.subs_info_section_button.white-button").addClass(
               "white-button-disabled"
@@ -1305,6 +1325,10 @@
               chosen_crops,
               filterable_criterias
             );
+          }
+
+          if (filterable_criterias.length > 0) {
+             get_metrics(filterable_criterias);
           }
 
           // end state tracking
