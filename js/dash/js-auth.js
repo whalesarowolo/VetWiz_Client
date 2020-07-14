@@ -566,7 +566,7 @@ function send_approved_sms(msg) {
             timer: 3000,
             icon: 'success',
         })
-        console.log("Network response from Approved: ", res);
+        window.location.reload();
       }
     }).catch((e)=> {
       //debugger
