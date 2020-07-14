@@ -1010,6 +1010,13 @@
             //Update filterable criteria for crops
             filterable_criterias.crops = chosen_crops;
             console.log("Selected crops are: 👉🏻", chosen_crops, filterable_criterias);
+            //Call server for metrics
+            swal.fire({
+               title: 'Please wait',
+               text: 'Getting cost metrics from server',
+               timer: 3000,
+               icon: 'info'
+            })
          }
 
          // end state tracking
