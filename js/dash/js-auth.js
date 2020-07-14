@@ -561,7 +561,7 @@ function send_approved_sms(msg) {
       if(res !== null){
         swal.close();
         swal.fire({
-            title: "Message Approved with success",
+            title: "Message Approved successfully",
             text: "Message has been sent",
             timer: 3000,
             icon: 'success',
@@ -658,7 +658,7 @@ function ma_approve(e) {
    }).then((_) => {
     console.log("Content: " + approved_msg);
     swal.fire({
-      title: "Approved Message is beeing sent",
+      title: "Approved Message is being sent",
       text: "Please wait ....",
       icon: "info",
       allowOutsideClick: false,
