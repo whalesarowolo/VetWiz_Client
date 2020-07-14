@@ -1224,7 +1224,7 @@
           function get_metrics(criterias) {
              const my_token = localStorage.getItem('access_token');
             var metric_request = new Request(
-              "https://farm-aid-backend.herokuapp.com/api/farmer/get-metics",
+              "https://farm-aid-backend.herokuapp.com/api/farmer/get-metrics",
               {
                 method: "POST",
                 body: JSON.stringify(criterias),
