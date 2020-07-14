@@ -1,1089 +1,1370 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-   <!-- Required meta tags always come first -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title> FarmAid :: Dashboard</title>
-   <link rel="icon" type="image/png" href="favicons/images-favicon.png">
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
-   <script>
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>FarmAid :: Dashboard</title>
+    <link rel="icon" type="image/png" href="favicons/images-favicon.png" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"
+    ></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-170897809-1');
-   </script>
+      gtag("config", "UA-170897809-1");
+    </script>
 
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   <!--Core CSS -->
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <link rel="stylesheet" href="css/css-bulma.css">
-   <link rel="stylesheet" href="css/css-app.css">
-   <link rel="stylesheet" href="css/css-dashboard.css">
-   <link rel="stylesheet" href="css/css-icons.min.css">
-   <link rel="stylesheet" href="css/gap.css">
-   <link rel="stylesheet" href="css/custom.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!--Core CSS -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/css-bulma.css" />
+    <link rel="stylesheet" href="css/css-app.css" />
+    <link rel="stylesheet" href="css/css-dashboard.css" />
+    <link rel="stylesheet" href="css/css-icons.min.css" />
+    <link rel="stylesheet" href="css/gap.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
-
-   <div class="pageloader"></div>
-   <div class="infraloader is-active"></div> <!-- Main sidebar menu -->
-   <nav class="main-menu">
+  <body>
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+    <!-- Main sidebar menu -->
+    <nav class="main-menu">
       <div class="main-menu-inner">
-         <!-- Side icon menu -->
-         <ul>
-            <li class="main-logo">
-               <a href="javascript:" onclick="goHomePartner();">
-                  <img src="img/farm_aid_footer.png" alt="">
-               </a>
-            </li>
-            <li class="side-icon" data-child-menu="dashboard-menu">
-               <i class="sl sl-icon-grid"></i>&nbsp;<span
-                  style="background-color: #26d0a8; font-style: bold; color: white; padding-right: 5px; padding-left: 5px; border-radius: 5px;">Menu</span>
-            </li>
-         </ul>
-         <!-- /Side icon menu -->
-         <!-- Profile wrapper -->
-         <ul class="profile" style="display: none;">
-            <li>
-               <!-- Profile avatar -->
-               <a class="profile-trigger" href="javascript:void(0);">
-                  <img class="main-menu-avatar" src="https://www.gravatar.com/avatar/?d=identicon" alt=""
-                     data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><span class="dot"></span>
-               </a>
-               <!-- /Profile avatar -->
-               <!-- Profile avatar -->
-               <div class="fab js-hamburger">
-                  <!-- Profile page wrapper -->
-                  <div class="profile-container">
-                     <div class="inner">
-                        <!-- Profile with cover -->
-                        <div id="profile-cover" class="profile-cover has-background-image"
-                           data-background="/img/agritech-1.jpg">
-                           <div class="cover-overlay"></div>
-                           <div class="heading-wrapper">
-                              <div class="profile-heading">
-                                 <div class="left-side">
-                                    <div class="image is-128x128 avatar">
-                                       <div class="avatar-overlay">
-                                          <i class="fa fa-camera fa-2x"></i>
-                                       </div>
-                                       <img src="images/250x250" alt=""
-                                          data-demo-src="/https://www.gravatar.com/avatar/?d=identicon">
-                                    </div>
-                                    <div class="name">
-                                       <h3 id="profile_name_h3">Marvin Ambrose</h3>
-                                       <p id="profile_biz_header"></p>
-                                       <button class="button dash-btn ripple primary-btn btn-outlined follow rounded">
-                                          <i class="fa fa-check"></i>Follow
-                                       </button>
-                                    </div>
-                                 </div>
-                                 <div class="right-side">
-                                 </div>
-                              </div>
-                           </div>
-                           <!-- Profile menu FAB -->
-                           <div class="profile-fab">
-                              <div class="fab-wrapper">
-                                 <button id="show-notifications" class="notifications fab-btn mini ripple"
-                                    data-toggle="tooltip" data-placement="left" data-title="Notifications">
-                                    <i class="material-icons">notifications</i>
-                                 </button>
-                                 <button id="show-team" class="team fab-btn mini ripple" data-toggle="tooltip"
-                                    data-placement="top" data-title="Team">
-                                    <i class="material-icons">work_outline</i>
-                                 </button>
-                                 <button id="show-details" class="details fab-btn mini ripple" data-toggle="tooltip"
-                                    data-placement="top" data-title="Profile">
-                                    <i class="material-icons">verified_user</i>
-                                 </button>
-                                 <button id="profile-fab-trigger" class="fab-btn pop-fab">
-                                    <span class="profile-menu-wrapper">
-                                       <span class="icon-box-toggle">
-                                          <span class="rotate">
-                                             <i class="icon-line-top"></i>
-                                             <i class="icon-line-center"></i>
-                                             <i class="icon-line-bottom"></i>
-                                          </span>
-                                       </span>
-                                    </span>
-                                 </button>
-                              </div>
-                           </div>
+        <!-- Side icon menu -->
+        <ul>
+          <li class="main-logo">
+            <a href="javascript:" onclick="goHomePartner();">
+              <img src="img/farm_aid_footer.png" alt="" />
+            </a>
+          </li>
+          <li class="side-icon" data-child-menu="dashboard-menu">
+            <i class="sl sl-icon-grid"></i>&nbsp;<span
+              style="
+                background-color: #26d0a8;
+                font-style: bold;
+                color: white;
+                padding-right: 5px;
+                padding-left: 5px;
+                border-radius: 5px;
+              "
+              >Menu</span
+            >
+          </li>
+        </ul>
+        <!-- /Side icon menu -->
+        <!-- Profile wrapper -->
+        <ul class="profile" style="display: none;">
+          <li>
+            <!-- Profile avatar -->
+            <a class="profile-trigger" href="javascript:void(0);">
+              <img
+                class="main-menu-avatar"
+                src="https://www.gravatar.com/avatar/?d=identicon"
+                alt=""
+                data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+              /><span class="dot"></span>
+            </a>
+            <!-- /Profile avatar -->
+            <!-- Profile avatar -->
+            <div class="fab js-hamburger">
+              <!-- Profile page wrapper -->
+              <div class="profile-container">
+                <div class="inner">
+                  <!-- Profile with cover -->
+                  <div
+                    id="profile-cover"
+                    class="profile-cover has-background-image"
+                    data-background="/img/agritech-1.jpg"
+                  >
+                    <div class="cover-overlay"></div>
+                    <div class="heading-wrapper">
+                      <div class="profile-heading">
+                        <div class="left-side">
+                          <div class="image is-128x128 avatar">
+                            <div class="avatar-overlay">
+                              <i class="fa fa-camera fa-2x"></i>
+                            </div>
+                            <img
+                              src="images/250x250"
+                              alt=""
+                              data-demo-src="/https://www.gravatar.com/avatar/?d=identicon"
+                            />
+                          </div>
+                          <div class="name">
+                            <h3 id="profile_name_h3">Marvin Ambrose</h3>
+                            <p id="profile_biz_header"></p>
+                            <button
+                              class="button dash-btn ripple primary-btn btn-outlined follow rounded"
+                            >
+                              <i class="fa fa-check"></i>Follow
+                            </button>
+                          </div>
                         </div>
-                        <!-- Profile Sections -->
-                        <div class="profile-sections-outer">
-                           <div class="profile-sections-wrapper">
-                              <!-- Profile details -->
-                              <div id="profile-details" class="profile-details animated preFadeInUp fadeInUp">
-                                 <!-- Details sub view -->
-                                 <div id="profile-view" class="profile-view">
-                                    <div class="columns is-multiline">
-                                       <div class="column is-6">
-                                          <div class="info-card">
-                                             <div class="info-header">
-                                                <h3>Personal Info</h3>
-                                                <i class="im im-icon-Professor"></i>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Hipster-Men"></i>
-                                                <div class="meta">
-                                                   <label>Full name</label>
-                                                   <p id="profile_name"></p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Map2"></i>
-                                                <div class="meta">
-                                                   <label>Location</label>
-                                                   <p>Nigeria</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="column is-6">
-                                          <div class="info-card">
-                                             <div class="info-header">
-                                                <h3>Job Info</h3>
-                                                <i class="im im-icon-Tower-2"></i>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Colosseum"></i>
-                                                <div class="meta">
-                                                   <label>Company</label>
-                                                   <p id="profile_company">Farm Innovation.</p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Management"></i>
-                                                <div class="meta">
-                                                   <label>Business Category</label>
-                                                   <p id="biz_category">Product Manager</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="column is-6">
-                                          <div class="info-card">
-                                             <div class="info-header">
-                                                <h3>Contact Info</h3>
-                                                <i class="im im-icon-Post-Mail2"></i>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Envelope"></i>
-                                                <div class="meta">
-                                                   <label>Email</label>
-                                                   <p id="profile_email">moche@farmnovation.com</p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Smartphone-4"></i>
-                                                <div class="meta">
-                                                   <label>Mobile</label>
-                                                   <p id="phon_num">(+234) 813 604-6515</p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Phone-3"></i>
-                                                <div class="meta">
-                                                   <label>Office</label>
-                                                   <p id="phon_num2">(+234) 813 604-6515</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="column is-6">
-                                          <div class="info-card">
-                                             <div class="info-header">
-                                                <h3>Social Media</h3>
-                                                <i class="im im-icon-Note"></i>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Facebook-2"></i>
-                                                <div class="meta">
-                                                   <label>Facebook</label>
-                                                   <p></p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Twitter"></i>
-                                                <div class="meta">
-                                                   <label>Twitter</label>
-                                                   <p></p>
-                                                </div>
-                                             </div>
-                                             <div class="info-block">
-                                                <i class="im im-icon-Linkedin"></i>
-                                                <div class="meta">
-                                                   <label>Linkedin</label>
-                                                   <p></p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- /Details sub view -->
-                              </div>
-                              <!-- Profile team -->
-                              <div id="profile-team" class="profile-team is-hidden">
-                                 <!-- Team header -->
-                                 <div class="columns">
-                                    <div class="column is-10 is-offset-1">
-                                       <div
-                                          class="flex-card is-top light-bordered raised animated preFadeInUp fadeInUp">
-                                          <div class="card-body">
-                                             <div class="columns is-vcentered">
-                                                <div class="column is-6">
-                                                   <div class="team-logo">
-                                                      <img src="img/farm_aid_footer.png" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="column is-6">
-                                                   <div class="team-info">
-                                                      <div class="team-number">
-                                                         <span>15</span> Team members
-                                                      </div>
-                                                      <div class="team-avatars">
-                                                         <img src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><img
-                                                            src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><img
-                                                            src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><img
-                                                            src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><img
-                                                            src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon"><img
-                                                            src="images/250x250" alt=""
-                                                            data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                                         <span>+9</span>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- /Team header -->
-                                 <!-- Team List -->
-                                 <div class="columns is-vcentered is-multiline animated preFadeInUp fadeInUp">
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag is-success">Active</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">James Majemite</div>
-                                                <div class="position">BackEnd Developer</div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                James is a specialist on backend development and
-                                                abandoned
-                                                our art recovery process
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag">Offline</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">Moses Alton</div>
-                                                <div class="position">Senior Agronomist </div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                Moses is the big boss of Abuja at FarmAid and an
-                                                Online specialist
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag is-success">Online</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">Don Omuobun</div>
-                                                <div class="position">Full Stack Developer</div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                Don handles the tech stack setup of while he sends out
-                                                subscribers features
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag is-success">Active</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">James Majemite</div>
-                                                <div class="position">BackEnd Developer</div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                James is a specialist on backend development and
-                                                abandoned
-                                                our art recovery process
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag is-success">Active</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">James Majemite</div>
-                                                <div class="position">BackEnd Developer</div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                James is a specialist on backend development and
-                                                abandoned
-                                                our art recovery process
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- Team member -->
-                                    <div class="column is-4">
-                                       <div class="flex-card team-card light-bordered light-raised">
-                                          <div class="card-heading padding-10">
-                                             <span class="tag is-success">Active</span>
-                                          </div>
-                                          <div class="card-body">
-                                             <div class="avatar">
-                                                <img src="images/250x250" alt=""
-                                                   data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                             </div>
-                                             <div class="user-id">
-                                                <div class="name">James Majemite</div>
-                                                <div class="position">BackEnd Developer</div>
-                                                <div class="location"><i class="sl sl-icon-globe"></i>
-                                                   Abuja
-                                                </div>
-                                             </div>
-                                             <div class="user-description">
-                                                James is a specialist on backend development and
-                                                abandoned
-                                                our art recovery process
-                                             </div>
-                                             <div class="card-action has-text-centered">
-                                                <button
-                                                   class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh">Profile</button>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- /Team List -->
-                              </div>
-                              <!-- /Profile team -->
-                              <!-- Profile notifications -->
-                              <div id="profile-notifications" class="profile-notifications is-hidden">
-                                 <div class="profile-notifications-inner animated preFadeInUp fadeInUp">
-                                    <div class="profile-notifications-title">
-                                       <h3>Notifications</h3>
-                                       <span class="tag is-medium">5 New</span>
-                                    </div>
-                                    <div class="card-body">
-                                       <div class="notifications-center">
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <i class="im im-icon-Heart-2"></i>
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">30 minutes ago</div>
-                                                   <span><b>5 users</b> liked your <b>publication</b>
-                                                      on the company's public blog</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="assets/images/avatars/marc.jpg">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">2 hours ago</div>
-                                                   <span><b>Marc Walters</b> commented on a
-                                                      <b>task</b>.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="assets/images/avatars/alex.jpg">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">5 hours ago</div>
-                                                   <span><b>3 new bugs</b> were reported by <b>Alex
-                                                         Walsh</b>, in the <b>Analytics App</b>
-                                                      project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <i class="im im-icon-Add"></i>
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">5 hours ago</div>
-                                                   <span><b>8 new tasks</b> were added in the <b>Social
-                                                         marketing</b> project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">Yesterday, 09:31am</div>
-                                                   <span><b>Marvin Ambrose</b> joined the <b>Analytics
-                                                         App</b> project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <i class="im im-icon-Yes"></i>
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">Yesterday, 08:42am</div>
-                                                   <span><b>3 tasks</b> were approved in the <b>Social
-                                                         marketing</b> project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification is-old">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="assets/images/avatars/anthony.jpg">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">Monday, 07:57pm</div>
-                                                   <span><b>Anthony Briggs</b> joined the <b>Analytics
-                                                         App</b> project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification is-old">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="assets/images/avatars/marc.jpg">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">oct 23, 11:02am</div>
-                                                   <span><b>Marc Walters</b> commented on a <b>task</b>
-                                                      assigned to you in the <b>Social marketing</b>
-                                                      project.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <!-- Notification item -->
-                                          <div class="profile-notification is-old">
-                                             <div class="notification-inner">
-                                                <div class="icon is-hidden-mobile">
-                                                   <img src="images/250x250" alt=""
-                                                      data-demo-src="assets/images/avatars/barry.jpg">
-                                                </div>
-                                                <div class="description">
-                                                   <div class="timestamp">oct 22, 2:12pm</div>
-                                                   <span><b>Dan Baxter</b> sent you an <b>email</b>
-                                                      with <b>3 attachments</b>.</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                        <div class="right-side"></div>
+                      </div>
+                    </div>
+                    <!-- Profile menu FAB -->
+                    <div class="profile-fab">
+                      <div class="fab-wrapper">
+                        <button
+                          id="show-notifications"
+                          class="notifications fab-btn mini ripple"
+                          data-toggle="tooltip"
+                          data-placement="left"
+                          data-title="Notifications"
+                        >
+                          <i class="material-icons">notifications</i>
+                        </button>
+                        <button
+                          id="show-team"
+                          class="team fab-btn mini ripple"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-title="Team"
+                        >
+                          <i class="material-icons">work_outline</i>
+                        </button>
+                        <button
+                          id="show-details"
+                          class="details fab-btn mini ripple"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          data-title="Profile"
+                        >
+                          <i class="material-icons">verified_user</i>
+                        </button>
+                        <button
+                          id="profile-fab-trigger"
+                          class="fab-btn pop-fab"
+                        >
+                          <span class="profile-menu-wrapper">
+                            <span class="icon-box-toggle">
+                              <span class="rotate">
+                                <i class="icon-line-top"></i>
+                                <i class="icon-line-center"></i>
+                                <i class="icon-line-bottom"></i>
+                              </span>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <!-- Profile page wrapper -->
-                  <div class="fab__ripple"></div>
-                  <div class="hamburger"></div>
-               </div>
-               <!-- Profile avatar -->
-            </li>
-         </ul>
-         <!-- /Profile wrapper -->
+                  <!-- Profile Sections -->
+                  <div class="profile-sections-outer">
+                    <div class="profile-sections-wrapper">
+                      <!-- Profile details -->
+                      <div
+                        id="profile-details"
+                        class="profile-details animated preFadeInUp fadeInUp"
+                      >
+                        <!-- Details sub view -->
+                        <div id="profile-view" class="profile-view">
+                          <div class="columns is-multiline">
+                            <div class="column is-6">
+                              <div class="info-card">
+                                <div class="info-header">
+                                  <h3>Personal Info</h3>
+                                  <i class="im im-icon-Professor"></i>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Hipster-Men"></i>
+                                  <div class="meta">
+                                    <label>Full name</label>
+                                    <p id="profile_name"></p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Map2"></i>
+                                  <div class="meta">
+                                    <label>Location</label>
+                                    <p>Nigeria</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="column is-6">
+                              <div class="info-card">
+                                <div class="info-header">
+                                  <h3>Job Info</h3>
+                                  <i class="im im-icon-Tower-2"></i>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Colosseum"></i>
+                                  <div class="meta">
+                                    <label>Company</label>
+                                    <p id="profile_company">Farm Innovation.</p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Management"></i>
+                                  <div class="meta">
+                                    <label>Business Category</label>
+                                    <p id="biz_category">Product Manager</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="column is-6">
+                              <div class="info-card">
+                                <div class="info-header">
+                                  <h3>Contact Info</h3>
+                                  <i class="im im-icon-Post-Mail2"></i>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Envelope"></i>
+                                  <div class="meta">
+                                    <label>Email</label>
+                                    <p id="profile_email">
+                                      moche@farmnovation.com
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Smartphone-4"></i>
+                                  <div class="meta">
+                                    <label>Mobile</label>
+                                    <p id="phon_num">(+234) 813 604-6515</p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Phone-3"></i>
+                                  <div class="meta">
+                                    <label>Office</label>
+                                    <p id="phon_num2">(+234) 813 604-6515</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="column is-6">
+                              <div class="info-card">
+                                <div class="info-header">
+                                  <h3>Social Media</h3>
+                                  <i class="im im-icon-Note"></i>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Facebook-2"></i>
+                                  <div class="meta">
+                                    <label>Facebook</label>
+                                    <p></p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Twitter"></i>
+                                  <div class="meta">
+                                    <label>Twitter</label>
+                                    <p></p>
+                                  </div>
+                                </div>
+                                <div class="info-block">
+                                  <i class="im im-icon-Linkedin"></i>
+                                  <div class="meta">
+                                    <label>Linkedin</label>
+                                    <p></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Details sub view -->
+                      </div>
+                      <!-- Profile team -->
+                      <div id="profile-team" class="profile-team is-hidden">
+                        <!-- Team header -->
+                        <div class="columns">
+                          <div class="column is-10 is-offset-1">
+                            <div
+                              class="flex-card is-top light-bordered raised animated preFadeInUp fadeInUp"
+                            >
+                              <div class="card-body">
+                                <div class="columns is-vcentered">
+                                  <div class="column is-6">
+                                    <div class="team-logo">
+                                      <img
+                                        src="img/farm_aid_footer.png"
+                                        alt=""
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="column is-6">
+                                    <div class="team-info">
+                                      <div class="team-number">
+                                        <span>15</span> Team members
+                                      </div>
+                                      <div class="team-avatars">
+                                        <img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        /><img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        /><img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        /><img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        /><img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        /><img
+                                          src="images/250x250"
+                                          alt=""
+                                          data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                        />
+                                        <span>+9</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Team header -->
+                        <!-- Team List -->
+                        <div
+                          class="columns is-vcentered is-multiline animated preFadeInUp fadeInUp"
+                        >
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag is-success">Active</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">James Majemite</div>
+                                  <div class="position">BackEnd Developer</div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  James is a specialist on backend development
+                                  and abandoned our art recovery process
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag">Offline</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">Moses Alton</div>
+                                  <div class="position">Senior Agronomist</div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  Moses is the big boss of Abuja at FarmAid and
+                                  an Online specialist
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag is-success">Online</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">Don Omuobun</div>
+                                  <div class="position">
+                                    Full Stack Developer
+                                  </div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  Don handles the tech stack setup of while he
+                                  sends out subscribers features
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag is-success">Active</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">James Majemite</div>
+                                  <div class="position">BackEnd Developer</div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  James is a specialist on backend development
+                                  and abandoned our art recovery process
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag is-success">Active</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">James Majemite</div>
+                                  <div class="position">BackEnd Developer</div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  James is a specialist on backend development
+                                  and abandoned our art recovery process
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Team member -->
+                          <div class="column is-4">
+                            <div
+                              class="flex-card team-card light-bordered light-raised"
+                            >
+                              <div class="card-heading padding-10">
+                                <span class="tag is-success">Active</span>
+                              </div>
+                              <div class="card-body">
+                                <div class="avatar">
+                                  <img
+                                    src="images/250x250"
+                                    alt=""
+                                    data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                  />
+                                </div>
+                                <div class="user-id">
+                                  <div class="name">James Majemite</div>
+                                  <div class="position">BackEnd Developer</div>
+                                  <div class="location">
+                                    <i class="sl sl-icon-globe"></i>
+                                    Abuja
+                                  </div>
+                                </div>
+                                <div class="user-description">
+                                  James is a specialist on backend development
+                                  and abandoned our art recovery process
+                                </div>
+                                <div class="card-action has-text-centered">
+                                  <button
+                                    class="button btn-dash rounded secondary-btn is-fullwidth ripple no-lh"
+                                  >
+                                    Profile
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Team List -->
+                      </div>
+                      <!-- /Profile team -->
+                      <!-- Profile notifications -->
+                      <div
+                        id="profile-notifications"
+                        class="profile-notifications is-hidden"
+                      >
+                        <div
+                          class="profile-notifications-inner animated preFadeInUp fadeInUp"
+                        >
+                          <div class="profile-notifications-title">
+                            <h3>Notifications</h3>
+                            <span class="tag is-medium">5 New</span>
+                          </div>
+                          <div class="card-body">
+                            <div class="notifications-center">
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <i class="im im-icon-Heart-2"></i>
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">30 minutes ago</div>
+                                    <span
+                                      ><b>5 users</b> liked your
+                                      <b>publication</b> on the company's public
+                                      blog</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="assets/images/avatars/marc.jpg"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">2 hours ago</div>
+                                    <span
+                                      ><b>Marc Walters</b> commented on a
+                                      <b>task</b>.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="assets/images/avatars/alex.jpg"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">5 hours ago</div>
+                                    <span
+                                      ><b>3 new bugs</b> were reported by
+                                      <b>Alex Walsh</b>, in the
+                                      <b>Analytics App</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <i class="im im-icon-Add"></i>
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">5 hours ago</div>
+                                    <span
+                                      ><b>8 new tasks</b> were added in the
+                                      <b>Social marketing</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">
+                                      Yesterday, 09:31am
+                                    </div>
+                                    <span
+                                      ><b>Marvin Ambrose</b> joined the
+                                      <b>Analytics App</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <i class="im im-icon-Yes"></i>
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">
+                                      Yesterday, 08:42am
+                                    </div>
+                                    <span
+                                      ><b>3 tasks</b> were approved in the
+                                      <b>Social marketing</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification is-old">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="assets/images/avatars/anthony.jpg"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">Monday, 07:57pm</div>
+                                    <span
+                                      ><b>Anthony Briggs</b> joined the
+                                      <b>Analytics App</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification is-old">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="assets/images/avatars/marc.jpg"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">oct 23, 11:02am</div>
+                                    <span
+                                      ><b>Marc Walters</b> commented on a
+                                      <b>task</b> assigned to you in the
+                                      <b>Social marketing</b> project.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Notification item -->
+                              <div class="profile-notification is-old">
+                                <div class="notification-inner">
+                                  <div class="icon is-hidden-mobile">
+                                    <img
+                                      src="images/250x250"
+                                      alt=""
+                                      data-demo-src="assets/images/avatars/barry.jpg"
+                                    />
+                                  </div>
+                                  <div class="description">
+                                    <div class="timestamp">oct 22, 2:12pm</div>
+                                    <span
+                                      ><b>Dan Baxter</b> sent you an
+                                      <b>email</b> with
+                                      <b>3 attachments</b>.</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Profile page wrapper -->
+              <div class="fab__ripple"></div>
+              <div class="hamburger"></div>
+            </div>
+            <!-- Profile avatar -->
+          </li>
+        </ul>
+        <!-- /Profile wrapper -->
       </div>
-   </nav>
-   <!-- /Main sidebar menu -->
-   <!-- Child push sidebar menu -->
-   <nav class="child-menu">
+    </nav>
+    <!-- /Main sidebar menu -->
+    <!-- Child push sidebar menu -->
+    <nav class="child-menu">
       <div class="child-menu-inner">
-         <!-- Child menu header -->
-         <ul>
-            <li class="child-header">
-               <div class="sidebar-title">Navigation</div>
-               <a id="close-child-menu" href="#" class="menu-wrapper">
-                  <span class="icon-box-toggle ef-4">
-                     <span class="rotate">
-                        <i class="icon-line-top"> </i>
-                        <i class="icon-line-center"> </i>
-                        <i class="icon-line-bottom"> </i>
-                     </span>
-                  </span>
-               </a>
-            </li>
-         </ul>
-         <!-- /Child menu header -->
-         <!-- Sidebar menu 1 -->
-         <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
-            <li class=""><a class="parent-link" href="/partnerDashboard.html"><span
-                     class="material-icons">home</span>Dashboard</a>
-            </li>
-            <li class=""><a class="parent-link" href="#sms"><span class="material-icons">message</span>SMS</a>
-            </li>
-            <li class=""><a class="parent-link" href="#topup"><span
-                     class="material-icons">account_balance_wallet</span>Account Top up</a>
-            </li>
-         </ul>
-         <!-- /Sidebar menu 1 -->
+        <!-- Child menu header -->
+        <ul>
+          <li class="child-header">
+            <div class="sidebar-title">Navigation</div>
+            <a id="close-child-menu" href="#" class="menu-wrapper">
+              <span class="icon-box-toggle ef-4">
+                <span class="rotate">
+                  <i class="icon-line-top"> </i>
+                  <i class="icon-line-center"> </i>
+                  <i class="icon-line-bottom"> </i>
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <!-- /Child menu header -->
+        <!-- Sidebar menu 1 -->
+        <ul
+          id="dashboard-menu"
+          class="sidebar-menu is-active animated preFadeInRIght fadeInRight"
+        >
+          <li class="">
+            <a class="parent-link" href="/partnerDashboard.html"
+              ><span class="material-icons">home</span>Dashboard</a
+            >
+          </li>
+          <li class="">
+            <a class="parent-link" href="#sms"
+              ><span class="material-icons">message</span>SMS</a
+            >
+          </li>
+          <li class="">
+            <a class="parent-link" href="#topup"
+              ><span class="material-icons">account_balance_wallet</span>Account
+              Top up</a
+            >
+          </li>
+        </ul>
+        <!-- /Sidebar menu 1 -->
       </div>
-   </nav>
-   <!-- /Child push sidebar menu -->
-   <!-- Top Navbar -->
-   <nav class="navbar dashboard-nav">
+    </nav>
+    <!-- /Child push sidebar menu -->
+    <!-- Top Navbar -->
+    <nav class="navbar dashboard-nav">
       <!-- Nav left -->
       <div class="navbar-brand">
-         <!-- Reader mode switch -->
-         <div class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet">
-            <div class="field">
-               <input id="reader-mode-switch" type="checkbox" name="reader-mode-switch"
-                  class="switch is-outlined is-primary is-small"><label id="reader-mode-toggle"
-                  for="reader-mode-switch"></label>
-            </div>
-         </div>
-         <!-- /Right sidebar trigger -->
-         <a id="mobile-dashboard-trigger" class="navbar-item hamburger-btn is-hidden-desktop"
-            href="javascript:void(0);">
-            <span class="menu-toggle is-hidden-mobile">
-               <span class="icon-box-toggle">
-                  <span class="rotate">
-                     <i class="icon-line-top"></i>
-                     <i class="icon-line-center"></i>
-                     <i class="icon-line-bottom"></i>
-                  </span>
-               </span>
+        <!-- Reader mode switch -->
+        <div
+          class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet"
+        >
+          <div class="field">
+            <input
+              id="reader-mode-switch"
+              type="checkbox"
+              name="reader-mode-switch"
+              class="switch is-outlined is-primary is-small"
+            /><label id="reader-mode-toggle" for="reader-mode-switch"></label>
+          </div>
+        </div>
+        <!-- /Right sidebar trigger -->
+        <a
+          id="mobile-dashboard-trigger"
+          class="navbar-item hamburger-btn is-hidden-desktop"
+          href="javascript:void(0);"
+        >
+          <span class="menu-toggle is-hidden-mobile">
+            <span class="icon-box-toggle">
+              <span class="rotate">
+                <i class="icon-line-top"></i>
+                <i class="icon-line-center"></i>
+                <i class="icon-line-bottom"></i>
+              </span>
             </span>
-         </a>
+          </span>
+        </a>
       </div>
       <!-- Nav right -->
       <div class="navbar-menu">
-         <div class="navbar-end">
-            <!-- Account dropdown -->
-            <div class="drop-pop">
-               <div id="profile-me" class="icon-button accounts-button">
-               </div>
-               <div class="drop-wrapper accounts-drop">
-                  <div class="drop-inner has-arrow">
-                     <div id="profile-head" class="head-block">
-                     </div>
-                     <div class="accounts-block is-hidden">
-                        <a class="account" href="javascript:">
-                           <img src="https://www.gravatar.com/avatar/?d=identicon" alt=""
-                              data-demo-src="https://www.gravatar.com/avatar/?d=identicon">
-                           <div class="meta">
-                              <span>Don Onubuon</span>
-                              <span>onubuon@farmnovation.com</span>
-                           </div>
-                        </a>
-                     </div>
-                     <div class="logout-block">
-                        <a id="logout" class="button" href="javascript:">Logout from all accounts</a>
-                     </div>
-                  </div>
-               </div>
+        <div class="navbar-end">
+          <!-- Account dropdown -->
+          <div class="drop-pop">
+            <div id="profile-me" class="icon-button accounts-button"></div>
+            <div class="drop-wrapper accounts-drop">
+              <div class="drop-inner has-arrow">
+                <div id="profile-head" class="head-block"></div>
+                <div class="accounts-block is-hidden">
+                  <a class="account" href="javascript:">
+                    <img
+                      src="https://www.gravatar.com/avatar/?d=identicon"
+                      alt=""
+                      data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+                    />
+                    <div class="meta">
+                      <span>Don Onubuon</span>
+                      <span>onubuon@farmnovation.com</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="logout-block">
+                  <a id="logout" class="button" href="javascript:"
+                    >Logout from all accounts</a
+                  >
+                </div>
+              </div>
             </div>
-            <!-- Messages dropdown -->
-         </div>
+          </div>
+          <!-- Messages dropdown -->
+        </div>
       </div>
-   </nav>
-   <div class="mobile-nav is-hidden-desktop is-hidden-mobile">
+    </nav>
+    <div class="mobile-nav is-hidden-desktop is-hidden-mobile">
       <div class="container is-fluid">
-         <div class="mobile-nav-inner">
-            <a class="mobile-item" href="javascript:">
-               <i data-feather="bell"></i>
-               <span class="new-circle gelatine"></span>
-            </a>
-            <a class="mobile-item" href="javascript:">
-               <i data-feather="mail"></i>
-               <span class="new-circle gelatine"></span>
-            </a>
-            <a class="mobile-item quickview-trigger" data-quickview="main-quickview" href="javascript:">
-               <i data-feather="message-square"></i>
-            </a>
-            <a class="mobile-item" href="javascript:">
-               <img src="https://www.gravatar.com/avatar/?d=identicon" alt=""
-                  data-demo-src="https://www.gravatar.com/avatar/?d=identicon"></a>
-         </div>
+        <div class="mobile-nav-inner">
+          <a class="mobile-item" href="javascript:">
+            <i data-feather="bell"></i>
+            <span class="new-circle gelatine"></span>
+          </a>
+          <a class="mobile-item" href="javascript:">
+            <i data-feather="mail"></i>
+            <span class="new-circle gelatine"></span>
+          </a>
+          <a
+            class="mobile-item quickview-trigger"
+            data-quickview="main-quickview"
+            href="javascript:"
+          >
+            <i data-feather="message-square"></i>
+          </a>
+          <a class="mobile-item" href="javascript:">
+            <img
+              src="https://www.gravatar.com/avatar/?d=identicon"
+              alt=""
+              data-demo-src="https://www.gravatar.com/avatar/?d=identicon"
+          /></a>
+        </div>
       </div>
-   </div>
-   <!-- Main dashboard container -->
-   <div id="dashboard-wrapper" class="dashboard-outer">
+    </div>
+    <!-- Main dashboard container -->
+    <div id="dashboard-wrapper" class="dashboard-outer">
       <div class="dashboard-inner">
-         <!-- Dashboard Wrapper -->
-         <div class="dashboard-wrapper">
-            <div class="row" style="margin-bottom:10px">
-               <div class="col-md-5">
-                  Welcome <a class=" is-hidden" href="#">jebinum@farmnovation.com</a>
-               </div>
-               <div class="col-md-7" style="text-align: right">
-                  <strong><span class="trial-text color-red low_sms ">Top up your account to get more SMS units</span></strong>
-               </div>
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-5">
+              Welcome <a class="is-hidden" href="#">jebinum@farmnovation.com</a>
             </div>
-            <!-- Main content -->
-            <div id="main-dashboard" class="section-wrapper margin-button">
-               <!-- Stat tiles -->
-               <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
-                  <div class="column is-4">
-                     <div class="peity-widget green-peity-widget" style="background-color:#26D0A9">
-                        <span class=""><img style="height:74px" src="images/dash-icon-available-sms.svg"></span>
-                        <div class="meta">
-                           <span style="color: #fff;">SMS UNITS AVAILABLE</span>
-                           <span class="dash-stat sms_units_available">100</span>
-                           <a class="button subs_info_section_button" href="#sms"
-                              style="background-color: #fff; color: #26D0A9;">Send SMS</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="column is-4">
-                     <div class="peity-widget">
-                        <span class=""><img style="height:74px" src="images/dash-icon-sent-sms.svg"></span>
-                        <div class="meta">
-                           <span>SMS SENT</span>
-                           <span class="dash-stat">0</span>
-                           <a class="button subs_info_section_button" href="#sms_history">View Message History</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="column is-4">
-                     <div class="peity-widget">
-                        <span class=""><img style="height:74px" src="images/dash-icon-wallet.svg"></span>
-                        <div class="meta">
-                           <span>YOUR WALLET</span>
-                           <span class="dash-stat color-red wallet_balance">₦0.00</span>
-                           <a onclick="get_wallet_balance()" href="#topup" class="button subs_info_section_button">Top Up Account</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="columns">
-                  <div class="column is-12">
-                     <div class="widget-card has-margin">
-                        <div class="card-heading has-icon is-bordered no-margin">
-                           <span>Farmer Value Chain - Data Analysis</span>
-                           <div class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                           </div>
-                        </div>
-                        <div class="card-body no-padding is-responsive">
-                           <div style="padding-top:20px; padding-bottom:30px">
-                              <div id="chartContainer"></div>
-                              <div class="state_container_section">
-                                 <div class="state_container">
-                                    <h1>Available States: </h1>
-                                    <div class="state_naming">
-                                       <div class="state_name_section" style="margin-bottom: 10px;">
-                                          <span class="state_border"></span>
-                                          <h2 style="margin-top: -4px; margin-left: 10px;">Adamawa</h2>
-                                       </div>
-                                       <div class="state_name_section">
-                                          <span class="state_border"></span>
-                                          <h2 style="margin-top: -4px; margin-left: 10px;">Gombe</h2>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-               <!-- Widgets -->
-               <div>
-               </div>
-
+            <div class="col-md-7" style="text-align: right;">
+              <strong
+                ><span class="trial-text color-red low_sms"
+                  >Top up your account to get more SMS units</span
+                ></strong
+              >
             </div>
-         </div>
+          </div>
+          <!-- Main content -->
+          <div id="main-dashboard" class="section-wrapper margin-button">
+            <!-- Stat tiles -->
+            <div
+              id="basic-layout"
+              class="columns dashboard-columns dashboard-tiles"
+            >
+              <div class="column is-4">
+                <div
+                  class="peity-widget green-peity-widget"
+                  style="background-color: #26d0a9;"
+                >
+                  <span class=""
+                    ><img
+                      style="height: 74px;"
+                      src="images/dash-icon-available-sms.svg"
+                  /></span>
+                  <div class="meta">
+                    <span style="color: #fff;">SMS UNITS AVAILABLE</span>
+                    <span class="dash-stat sms_units_available">100</span>
+                    <a
+                      class="button subs_info_section_button"
+                      href="#sms"
+                      style="background-color: #fff; color: #26d0a9;"
+                      >Send SMS</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="peity-widget">
+                  <span class=""
+                    ><img
+                      style="height: 74px;"
+                      src="images/dash-icon-sent-sms.svg"
+                  /></span>
+                  <div class="meta">
+                    <span>SMS SENT</span>
+                    <span class="dash-stat">0</span>
+                    <a
+                      class="button subs_info_section_button"
+                      href="#sms_history"
+                      >View Message History</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="peity-widget">
+                  <span class=""
+                    ><img
+                      style="height: 74px;"
+                      src="images/dash-icon-wallet.svg"
+                  /></span>
+                  <div class="meta">
+                    <span>YOUR WALLET</span>
+                    <span class="dash-stat color-red wallet_balance"
+                      >₦0.00</span
+                    >
+                    <a
+                      onclick="get_wallet_balance()"
+                      href="#topup"
+                      class="button subs_info_section_button"
+                      >Top Up Account</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-12">
+                <div class="widget-card has-margin">
+                  <div class="card-heading has-icon is-bordered no-margin">
+                    <span>Farmer Value Chain - Data Analysis</span>
+                    <div
+                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                    ></div>
+                  </div>
+                  <div class="card-body no-padding is-responsive">
+                    <div style="padding-top: 20px; padding-bottom: 30px;">
+                      <div id="chartContainer"></div>
+                      <div class="state_container_section">
+                        <div class="state_container">
+                          <h1>Available States:</h1>
+                          <div class="state_naming">
+                            <div
+                              class="state_name_section"
+                              style="margin-bottom: 10px;"
+                            >
+                              <span class="state_border"></span>
+                              <h2 style="margin-top: -4px; margin-left: 10px;">
+                                Adamawa
+                              </h2>
+                            </div>
+                            <div class="state_name_section">
+                              <span class="state_border"></span>
+                              <h2 style="margin-top: -4px; margin-left: 10px;">
+                                Gombe
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widgets -->
+            <div></div>
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
 
-   <!-- Message Preview Modal -->
-   <div id="create-note-modal" class="modal modal-md icon-action-modal modal-hero">
+    <!-- Message Preview Modal -->
+    <div
+      id="create-note-modal"
+      class="modal modal-md icon-action-modal modal-hero"
+    >
       <div class="modal-background scaleInCircle"></div>
       <div class="modal-content scaleIn">
-         <div class="flex-card simple-shadow sms-modal">
-            <h2 class="light-text dark-modal-header">Message Preview</h2>
-            <div class="card-body">
-               <div class="has-text-centered">
-                  <div class="columns is-multiline message-preview-wrapper">
-                     <div class="column is-7">
-                        <h1>Your Message:</h1>
-                        <div class="message-content-preview">
-                           <div class="columns is-vcentered">
-                              <div class="column is-2 is-hidden-mobile">
-                                 <img src="img/flat-color-icons_sms.svg">
-                              </div>
-                              <div class="column is-10">
-                                 <p>
-                                    lorem ipsum dolor seit amet is a text but will lorem ipsum dolor be a text all the
-                                    time. this
-                                    is the question seit amet has tried so hard to understand all these years. Lorem
-                                    must ipsum and dolor
-                                    in years to come
-                                 </p>
-                                 <div class="float-right page-count">
-                                    <span>2</span> Pages
-                                 </div>
-                              </div>
-                           </div>
+        <div class="flex-card simple-shadow sms-modal">
+          <h2 class="light-text dark-modal-header">Message Preview</h2>
+          <div class="card-body">
+            <div class="has-text-centered">
+              <div class="columns is-multiline message-preview-wrapper">
+                <div class="column is-7">
+                  <h1>Your Message:</h1>
+                  <div class="message-content-preview">
+                    <div class="columns is-vcentered">
+                      <div class="column is-2 is-hidden-mobile">
+                        <img src="img/flat-color-icons_sms.svg" />
+                      </div>
+                      <div class="column is-10">
+                        <p>
+                          lorem ipsum dolor seit amet is a text but will lorem
+                          ipsum dolor be a text all the time. this is the
+                          question seit amet has tried so hard to understand all
+                          these years. Lorem must ipsum and dolor in years to
+                          come
+                        </p>
+                        <div class="float-right page-count">
+                          <span>2</span> Pages
                         </div>
-                     </div>
-                     <div class="column is-5">
-                        <h1>Message Reach:</h1>
-                        <div class="message-reach-preview">
-                           <div class="stats">
-                              <!--Location Row-->
-                              <div class="columns is-vcentered">
-                                 <div class="column is-2 is-hidden-mobile">
-                                    <img src="img/gridicons_location.svg">
-                                 </div>
-                                 <div class="column is-10">
-                                    <p>Farmers in Adamawa: <span>5,689</span></p>
-                                    <p>Farmers in Gombe: <span>1,989</span></p>
-                                 </div>
-                              </div>
-                              <!--Gender Row-->
-                              <div class="columns is-vcentered">
-                                 <div class="column is-2 is-hidden-mobile">
-                                    <img src="img/icon_gender.svg">
-                                 </div>
-                                 <div class="column is-10">
-                                    <p>Male Farmers: <span>6,045</span></p>
-                                    <p>Female Farmers: <span>1,280</span></p>
-                                 </div>
-                              </div>
-                              <!--Value Chain Row-->
-                              <div class="columns is-vcentered">
-                                 <div class="column is-2 is-hidden-mobile">
-                                    &nbsp;
-                                 </div>
-                                 <div class="column is-10 crops-selected">
-                                    <span>Groundnut <i class="fa fa-check"></i></span>
-                                    <span>Soghurm <i class="fa fa-check"></i></span>
-                                    <span>Rice <i class="fa fa-check"></i></span>
-                                    <span>Tomatoes <i class="fa fa-check"></i></span>
-                                 </div>
-                              </div>
-                           </div>
-                           <!--Total Farmer Count-->
-                           <div class="total-farmers-preview">
-                              Total Farmers: <span id="total_target_farmers">7,310</span>
-                           </div>
-                        </div>
-                     </div>
-                     <!--SMS Count and Cost -->
-                     <div class="column is-12">
-                        <div class="count-and-cost">
-                           SMS Count: <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost: <span
-                              id="total_sms_cost">₦185,506</span>
-                        </div>
-                     </div>
+                      </div>
+                    </div>
                   </div>
-               </div>
+                </div>
+                <div class="column is-5">
+                  <h1>Message Reach:</h1>
+                  <div class="message-reach-preview">
+                    <div class="stats">
+                      <!--Location Row-->
+                      <div class="columns is-vcentered">
+                        <div class="column is-2 is-hidden-mobile">
+                          <img src="img/gridicons_location.svg" />
+                        </div>
+                        <div class="column is-10">
+                          <p>Farmers in Adamawa: <span>5,689</span></p>
+                          <p>Farmers in Gombe: <span>1,989</span></p>
+                        </div>
+                      </div>
+                      <!--Gender Row-->
+                      <div class="columns is-vcentered">
+                        <div class="column is-2 is-hidden-mobile">
+                          <img src="img/icon_gender.svg" />
+                        </div>
+                        <div class="column is-10">
+                          <p>Male Farmers: <span>6,045</span></p>
+                          <p>Female Farmers: <span>1,280</span></p>
+                        </div>
+                      </div>
+                      <!--Value Chain Row-->
+                      <div class="columns is-vcentered">
+                        <div class="column is-2 is-hidden-mobile">
+                          &nbsp;
+                        </div>
+                        <div class="column is-10 crops-selected">
+                          <span>Groundnut <i class="fa fa-check"></i></span>
+                          <span>Soghurm <i class="fa fa-check"></i></span>
+                          <span>Rice <i class="fa fa-check"></i></span>
+                          <span>Tomatoes <i class="fa fa-check"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Total Farmer Count-->
+                    <div class="total-farmers-preview">
+                      Total Farmers:
+                      <span id="total_target_farmers">7,310</span>
+                    </div>
+                  </div>
+                </div>
+                <!--SMS Count and Cost -->
+                <div class="column is-12">
+                  <div class="count-and-cost">
+                    SMS Count:
+                    <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost:
+                    <span id="total_sms_cost">₦185,506</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-footer">
-               <button onclick="cancelMessage();" class="button modal-dismiss">Back</button>
-               <button type="submit" id="send_messages" class="button is-modal">Send Message</button>
-            </div>
-         </div>
+          </div>
+          <div class="modal-footer">
+            <button onclick="cancelMessage();" class="button modal-dismiss">
+              Back
+            </button>
+            <button type="submit" id="send_messages" class="button is-modal">
+              Send Message
+            </button>
+          </div>
+        </div>
       </div>
-      <button onclick="cancelMessage();" class="modal-close is-large is-hidden" aria-label="close"></button>
-   </div>
-   <!-- /Message Preview Modal -->
+      <button
+        onclick="cancelMessage();"
+        class="modal-close is-large is-hidden"
+        aria-label="close"
+      ></button>
+    </div>
+    <!-- /Message Preview Modal -->
 
-   <!-- /Invite User Modal -->
-   <!-- Concatenated jQuery and plugins -->
-   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <!--Start of Tawk.to Script-->
-   <script type="text/javascript">
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    <!-- /Invite User Modal -->
+    <!-- Concatenated jQuery and plugins -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
       (function () {
-         var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-         s1.async = true;
-         s1.src = 'https://embed.tawk.to/5e9985c335bcbb0c9ab212f0/default';
-         s1.charset = 'UTF-8';
-         s1.setAttribute('crossorigin', '*');
-         s0.parentNode.insertBefore(s1, s0);
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/5e9985c335bcbb0c9ab212f0/default";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
       })();
-   </script>
-   <!--End of Tawk.to Script-->
-   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    </script>
+    <!--End of Tawk.to Script-->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
 
-   <!--Char Count for SMS Composition-->
+    <!--Char Count for SMS Composition-->
 
-   <script>
+    <script>
       $(document).ready(function () {
+        if ($("#message").length) {
+          console.log("Inside checker");
+          $('input[type="checkbox"]').attr("checked", "checked");
+          // $(".select_state").each((ele) => {
+          //    $(ele).attr("checked", true);
+          // });
+          // $(".select_crops").each((crp) => {
+          //    $(crp).attr("checked", true);
+          // });
+        }
 
-         if ($("#message").length) {
-            console.log("Inside checker");
-            $('input[type="checkbox"]').attr("checked", "checked");
-            // $(".select_state").each((ele) => {
-            //    $(ele).attr("checked", true);
-            // });
-            // $(".select_crops").each((crp) => {
-            //    $(crp).attr("checked", true);
-            // });
-         } 
-
-         $("#message").on('change input keyup paste', function () {
-            let regx = /^(\s+)$/;
-            if (this.value.length > 5 && !(this.value).toString().match(regx)) {
-               if ($(".button.subs_info_section_button.white-button").hasClass('white-button-disabled')) {
-                  $(".button.subs_info_section_button.white-button").removeClass('white-button-disabled');
-               }
-
-            } else {
-               $(".button.subs_info_section_button.white-button").addClass('white-button-disabled');
+        $("#message").on("change input keyup paste", function () {
+          let regx = /^(\s+)$/;
+          if (this.value.length > 5 && !this.value.toString().match(regx)) {
+            if (
+              $(".button.subs_info_section_button.white-button").hasClass(
+                "white-button-disabled"
+              )
+            ) {
+              $(".button.subs_info_section_button.white-button").removeClass(
+                "white-button-disabled"
+              );
             }
-         });
+          } else {
+            $(".button.subs_info_section_button.white-button").addClass(
+              "white-button-disabled"
+            );
+          }
+        });
 
-         part1Count = 160;
-         part2Count = 158;
-         part3Count = 158;
+        part1Count = 160;
+        part2Count = 158;
+        part3Count = 158;
 
+        $("#message").keyup(function () {
+          // state tracking
+          var chosen_states = [];
+          var chosen_crops = [];
+          var filterable_criterias = {};
 
-         $('#message').keyup(function () {
+          const state_els = $(".select_state");
+          const select_crops = $(".select_crops");
 
-         // state tracking
-         var chosen_states = [];
-         var chosen_crops = [];
-         var filterable_criterias = {};
-
-         const state_els = $(".select_state");
-         const select_crops = $(".select_crops");
-         
-         //add_state function
-         function add_state(new_state) {
+          //add_state function
+          function add_state(new_state) {
             if (chosen_states.indexOf(new_state) == -1) {
-               chosen_states.push(new_state);
+              chosen_states.push(new_state);
             }
-         }
+          }
 
-         //add_crop function
-         function add_crop(new_crop) {
+          //add_crop function
+          function add_crop(new_crop) {
             if (chosen_crops.indexOf(new_crop) == -1) {
-               chosen_crops.push(new_crop);
+              chosen_crops.push(new_crop);
             }
-         }
+          }
 
-         for (const state of state_els) {
-            if (state.checked) {add_state(state.value)}  
-         }
+          for (const state of state_els) {
+            if (state.checked) {
+              add_state(state.value);
+            }
+          }
 
-         for (const crop of select_crops) {
-            if (crop.checked) {add_crop(crop.value)}   
-         }
+          for (const crop of select_crops) {
+            if (crop.checked) {
+              add_crop(crop.value);
+            }
+          }
 
-         if (chosen_states.length > 0){
+          if (chosen_states.length > 0) {
             //Update filterable criteria for states
             filterable_criterias.states = chosen_states;
-            console.log("Selected states are: 👉🏻", chosen_states, filterable_criterias);
-         }
-         if (chosen_crops.length > 0) {
+            console.log(
+              "Selected states are: 👉🏻",
+              chosen_states,
+              filterable_criterias
+            );
+          }
+          if (chosen_crops.length > 0) {
             //Update filterable criteria for crops
             filterable_criterias.crops = chosen_crops;
-            console.log("Selected crops are: 👉🏻", chosen_crops, filterable_criterias);
+            console.log(
+              "Selected crops are: 👉🏻",
+              chosen_crops,
+              filterable_criterias
+            );
             //Call server for metrics
-            swal.fire({
-               title: 'Please wait',
-               text: 'Getting cost metrics from server',
-               timer: 3000,
-               icon: 'info'
-            })
-         }
+            setInterval(() => {
+              swal.fire({
+                title: "Please wait",
+                text: "Getting cost metrics from server",
+                timer: 3000,
+                icon: "info",
+              });
+            }, 6000);
+          }
 
-         // end state tracking
+          // end state tracking
 
-            var chars = $(this).val().length;
+          var chars = $(this).val().length;
 
-            messages = 0;
+          messages = 0;
 
-            remaining = 0;
+          remaining = 0;
 
-            total = 0;
+          total = 0;
 
-            if (chars <= part1Count) {
+          if (chars <= part1Count) {
+            messages = 1;
 
-               messages = 1;
+            remaining = part1Count - chars;
+          } else if (chars <= part1Count + part2Count) {
+            messages = 2;
 
-               remaining = part1Count - chars;
+            remaining = part1Count + part2Count - chars;
+          } else if (chars > part1Count + part2Count) {
+            moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
+            remaining = part1Count + part2Count + moreM * part3Count - chars;
+            messages = 2 + moreM;
+          }
 
-            } else if (chars <= (part1Count + part2Count)) {
+          $("#remaining").text(remaining);
+          $("#messages").text(messages);
+          $("#total").text(chars);
+          if (remaining > 1) $(".cplural").show();
+          else $(".cplural").hide();
+          if (messages > 1) $(".mplural").show();
+          else $(".mplural").hide();
+          if (chars > 1) $(".tplural").show();
+          else $(".tplural").hide();
+        });
 
-               messages = 2;
-
-               remaining = part1Count + part2Count - chars;
-
-            } else if (chars > (part1Count + part2Count)) {
-
-               moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
-               remaining = part1Count + part2Count + (moreM * part3Count) - chars;
-               messages = 2 + moreM;
-
-            }
-
-            $('#remaining').text(remaining);
-            $('#messages').text(messages);
-            $('#total').text(chars);
-            if (remaining > 1) $('.cplural').show();
-            else $('.cplural').hide();
-            if (messages > 1) $('.mplural').show();
-            else $('.mplural').hide();
-            if (chars > 1) $('.tplural').show();
-            else $('.tplural').hide();
-
-         });
-
-         $('#message').keyup();
-
+        $("#message").keyup();
       });
+    </script>
 
-   </script>
-
-   <!-- Routing start -->
-   <script src="js/farmaid_route.js"></script>
-   <script src="js/farmaid_router.js"></script>
-   <script src="js/option.js"></script>
-   <script src="js/launcher.js"></script>
-   <!-- Routing End -->
-   <script src="js/swal.js"></script>
-   <script src="js/dash/js-app.js"></script>
-   <script src="js/dash/js-core.js"></script>
-   <script src="js/dash/js-components-modals.js"></script>
-   <script src="js/dash/js-common.js"></script>
-   <script src="js/dash/js-dashboard.js"></script>
-   <script src="js/dash/js-datatable.js"></script>
-   <script src="js/dash/js-charts.js"></script>
-   <script src="js/dash/js-auth.js"></script>
-   <script src="./js/dash/chart.js"></script>
-   <script src="./js/dash/market_actor.js"></script>
-</body>
-
+    <!-- Routing start -->
+    <script src="js/farmaid_route.js"></script>
+    <script src="js/farmaid_router.js"></script>
+    <script src="js/option.js"></script>
+    <script src="js/launcher.js"></script>
+    <!-- Routing End -->
+    <script src="js/swal.js"></script>
+    <script src="js/dash/js-app.js"></script>
+    <script src="js/dash/js-core.js"></script>
+    <script src="js/dash/js-components-modals.js"></script>
+    <script src="js/dash/js-common.js"></script>
+    <script src="js/dash/js-dashboard.js"></script>
+    <script src="js/dash/js-datatable.js"></script>
+    <script src="js/dash/js-charts.js"></script>
+    <script src="js/dash/js-auth.js"></script>
+    <script src="./js/dash/chart.js"></script>
+    <script src="./js/dash/market_actor.js"></script>
+  </body>
 </html>
