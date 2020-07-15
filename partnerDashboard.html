@@ -1244,7 +1244,7 @@
             );
             fetch(metric_request)
               .then(async (response) => {
-                //var resp = await response.json();
+                var resp = await response.json();
                 if (response) {
                   console.log("Network response from metric server: ", response);
                 }
