@@ -1111,8 +1111,8 @@
                           <img src="img/gridicons_location.svg" />
                         </div>
                         <div class="column is-10">
-                          <p>Farmers in Adamawa: <span>5,689</span></p>
-                          <p>Farmers in Gombe: <span>1,989</span></p>
+                          <p>Farmers in Adamawa: <span id="adamawa_farmers">5,689</span></p>
+                          <p>Farmers in Gombe: <span id="gombe_farmers">1,989</span></p>
                         </div>
                       </div>
                       <!--Gender Row-->
@@ -1121,8 +1121,8 @@
                           <img src="img/icon_gender.svg" />
                         </div>
                         <div class="column is-10">
-                          <p>Male Farmers: <span>6,045</span></p>
-                          <p>Female Farmers: <span>1,280</span></p>
+                          <p>Male Farmers: <span id="m_farmers">6,045</span></p>
+                          <p>Female Farmers: <span id="f_farmers">1,280</span></p>
                         </div>
                       </div>
                       <!--Value Chain Row-->
@@ -1247,6 +1247,11 @@
                 var resp = await response.json();
                 if (resp) {
                   console.log("Network response from metric server: ", resp);
+                  //update the previews with the insights
+                  $(".message-reach-preview #adamawa_farmers").html(resp.adamawa_farmers);
+                  $(".message-reach-preview #gombe_farmers").html(resp.gombe_farmers);
+                  $(".message-reach-preview #m_farmers").html(resp.adamawa_farmers);
+                  $(".message-reach-preview #f_farmers").html(resp.adamawa_farmers);
                 }
               })
               .catch((err) => {
