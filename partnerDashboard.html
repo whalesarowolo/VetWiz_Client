@@ -1280,6 +1280,17 @@
           //End call for metrics
         }
 
+        $('#modify_farmer_count').on('click', function(){
+            $(this)
+            .html(function(i,v){
+                return v.trim() == 'Edit' ? function() { $('#modify_farmer_count').removeClass('fa-pencil').addClass('fa-save'); return ' Save';} : function() { $('#modify_farmer_count').removeClass('fa-save').addClass('fa-pencil'); return ' Edit';} ;
+            })
+            .prev('input[required]')
+            .prop('readonly',function(i,r){
+                return !r;
+            });
+        });
+
         $("#message").on("change input keyup paste", function () {
           let regx = /^(\s+)$/;
           if (this.value.length > 5 && !this.value.toString().match(regx)) {
