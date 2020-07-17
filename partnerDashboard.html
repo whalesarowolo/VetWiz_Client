@@ -1218,6 +1218,11 @@
          var make_call = false;
         if ($("#message").length) {
           console.log("Inside checker");
+          if ($(".white-button-disabled").length) {
+            $(".white-button-disabled #prev_it").prop('disabled', true);
+          } else {
+            $(".white-button-disabled #prev_it").prop('disabled', false);
+          }
           $('input[type="checkbox"]').attr("checked", "checked");
 
           //Call api for metrics
