@@ -1087,7 +1087,7 @@
                         <img src="img/flat-color-icons_sms.svg" />
                       </div>
                       <div class="column is-10">
-                        <p>
+                        <p id="final_sms_message">
                           lorem ipsum dolor seit amet is a text but will lorem
                           ipsum dolor be a text all the time. this is the
                           question seit amet has tried so hard to understand all
@@ -1095,7 +1095,7 @@
                           come
                         </p>
                         <div class="float-right page-count">
-                          <span>2</span> Pages
+                          <span id="final_sms_pages">2</span> Pages
                         </div>
                       </div>
                     </div>
@@ -1149,7 +1149,7 @@
                 <div class="column is-12">
                   <div class="count-and-cost">
                     SMS Count:
-                    <span id="total_sms_count">14,620</span> &nbsp;|&nbsp; Cost:
+                    <span id="total_sms_counts">14,620</span> &nbsp;|&nbsp; Cost:
                     <span id="total_sms_cost">₦185,506</span>
                   </div>
                 </div>
@@ -1253,6 +1253,18 @@
                   $(".message-reach-preview #m_farmers").html(numberWithComma(resp.male_farmers));
                   $(".message-reach-preview #f_farmers").html(numberWithComma(resp.female_farmers));
                   $(".total-farmers-preview #total_target_farmers").html(numberWithComma(resp.adamawa_farmers + resp.gombe_farmers));
+                  $(".message-reach-preview #total_sms_count").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".message-reach-preview #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
+                  $(".count-and-cost #total_sms_counts").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".count-and-cost #total_sms_cost").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".message-reach-preview #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".farmer-count-text #farmer_counter_total").html(numberWithComma(resp.adamawa_farmers + resp.gombe_farmers));
+                  $(".sms-summary-row #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
+                  $(".sms-summary-row #total_sms_counted").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".sms-summary-row #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+                  $(".farmer-count-wrapper #farmer_counter_total").val(numberWithComma(resp.adamawa_farmers + resp.gombe_farmers)).attr('readonly', 'true');
+                  $(".message-content-preview #final_sms_message").html($(".message-compose-container #message").val());
+                  $(".message-content-preview #final_sms_pages").html(Number.parseInt($(".message-count #messages").html()));
                 }
               })
               .catch((err) => {
