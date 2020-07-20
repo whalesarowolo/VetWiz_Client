@@ -1274,12 +1274,6 @@
                 }
               })
               .catch((err) => {
-                swal.fire({
-                  title: "There was an error getting the cost",
-                  text: "Error computing cost",
-                  timer: 3000,
-                  icon: "info",
-                });
                 console.log("Error from metrics api: ", err.message)
               });
           }
