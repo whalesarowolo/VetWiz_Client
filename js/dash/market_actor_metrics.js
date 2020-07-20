@@ -204,11 +204,3 @@ $(document).ready(function () {
    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
  }
 
- $("#send_messages").on('click', function() {
-    swal.fire({
-        title: 'Me coming for you...',
-        text: 'I am coming to get you...',
-        timer: 3000,
-    });
- });
-
