@@ -196,7 +196,7 @@ function do_calculation() {
 
 $("#send_messages").on('click', function(e) {
   
-  var msg_content = $("#final_sms_message").val();
+  var msg_content = $(".message-compose-container #message").html();
   var msg_state = (localStorage.getItem('chosen_states')).split(',');
   //var male_gender = $("#male").is(":checked");
   //var female_gender = $("#female").is(":checked");
