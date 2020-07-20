@@ -53,7 +53,7 @@ $(document).ready(function () {
              $(".sms-summary-row #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
              $(".sms-summary-row #total_sms_counted").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
              $(".sms-summary-row #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".farmer-count-wrapper #farmer_counter_total").val((resp.adamawa_farmers + resp.gombe_farmers)).attr('readonly', 'true');
+             $(".farmer-count-wrapper #farmer_counter_total").val((resp.adamawa_farmers + resp.gombe_farmers));//.attr('readonly', 'true');
              $(".message-content-preview #final_sms_message").html($(".message-compose-container #message").val());
              $(".message-content-preview #final_sms_pages").html(Number.parseInt($(".message-count #messages").html()));
            }
@@ -68,7 +68,7 @@ $(document).ready(function () {
    $('#modify_farmer_count').on('click', function(){
        $(this)
        .html(function(i,v){
-           return v.trim() == 'Edit' ? function() { $('#modify_farmer_count').removeClass('fa-pencil').addClass('fa-save'); return ' Save'; $("#farmer_counter_total").removeClass('farmer-count-text-noedi');} : function() { $('#modify_farmer_count').removeClass('fa-save').addClass('fa-pencil'); return ' Edit'; $("#farmer_counter_total").addClass('farmer-count-text-noedi');} ;
+           return v.trim() == 'Edit' ? function() { $('#modify_farmer_count').removeClass('fa-pencil').addClass('fa-save'); $("#farmer_counter_total").removeClass('farmer-count-text-noedit'); return 'Save'; } : function() { $('#modify_farmer_count').removeClass('fa-save').addClass('fa-pencil'); $("#farmer_counter_total").addClass('farmer-count-text-noedit'); return 'Edit'; } ;
        })
        .prev('input[required]')
        .prop('readonly',function(i,r){
@@ -203,4 +203,12 @@ $(document).ready(function () {
    //Clean implementation for brevity
    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
  }
+
+ $("#send_messages").on('click', function() {
+    swal.fire({
+        title: 'Me coming for you...',
+        text: 'I am coming to get you...',
+        timer: 3000,
+    });
+ });
 

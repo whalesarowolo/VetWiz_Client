@@ -190,3 +190,112 @@ function do_calculation() {
       console.log("There was a problem: ", err);
     });
 })();
+
+// new home for sending market actor messages
+
+
+$("#send_messages").on('click', function(e) {
+  
+  var msg_content = $("#message_content").val();
+  var msg_state = $("#slct1").val();
+  var male_gender = $("#male").is(":checked");
+  var female_gender = $("#female").is(":checked");
+  var msg_gender = (male_gender)? "male": "";
+  msg_gender += + (female_gender)? ",female": "";
+
+  var rice_crop = $("#rice_crop").is(":checked");//$('.messageCheckbox:checked').val();
+  var tomatoes_crop = $("#tomatoes_crop").is(":checked");
+  var sorghum_crop = $("#sorghum_crop").is(":checked");
+  var groundnuts_crop = $("#groundnuts_crop").is(":checked");
+  var target_crops = "" + (rice_crop)? "rice": "";// + (tomatoes_crop)? "tomatoes": "" + (sorghum_crop)? "sorghum": "" + (groundnuts_crop)? "groundnuts": "";
+  target_crops += (tomatoes_crop)? ", tomatoes": "";
+  target_crops += (sorghum_crop)? ", sorghum": "";
+  target_crops += (groundnuts_crop)? ", groundnuts": "";
+
+  console.log("Crops " + target_crops);
+  var msg_crop = "" + (target_crops != "")? target_crops: "No Crops selected";
+  console.log("Crops " + msg_crop);
+  console.log("Genders " + msg_gender);
+  if (msg_crop != "No Crops selected") {
+    $("#create-note-modal").css({'z-index': '-4000'});
+    swal.fire({
+      title: 'Sending Message Details',
+      text: 'Please wait...',
+      timer: 4000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: 'info'
+    }).then(function() {
+  
+      const url = 'https://farm-aid-backend.herokuapp.com/api/masms'
+    
+      const token = localStorage.getItem('access_token');
+      var userObj = parseJwt(localStorage.getItem('access_token'));
+      maCompany = userObj.user.company
+      maEmail = userObj.user.email
+      
+    swal.fire({
+      title: 'Sending Message',
+      text: 'You will get an Email notificaton if your Message is approved or not',
+      icon: 'info',
+      allowOutsideClick: false,
+      showConfirmButton: false
+    });
+    
+    const newMessage = {
+      state: msg_state,
+      gender: msg_gender,
+      crop: msg_crop,
+      msg: msg_content,
+      company: maCompany,
+      email: maEmail,
+    };
+    // create request object
+      var request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(newMessage),
+        headers: new Headers({
+          'Content-Type': 'application/json'        
+        })
+      });
+      // pass request object to `fetch()`
+      fetch(request)
+        .then(async (res) => {
+           //$('.modal').css({ 'display': 'none' });
+        var resp = await res.json();
+        if(resp != null || resp != undefined){
+          swal.close();
+          if (resp.errors) {
+            swal.fire({
+              title: 'Error Condition',
+              text: 'Your message has not been dispatched',
+              icon: 'warning',
+              timer: 3000,
+              allowOutsideClick: false,
+              showConfirmButton: true
+            }).then(() => {
+              console.log("Bad request...", resp);
+            });
+          } else {
+            swal.fire({
+              title: 'Message',
+              text: 'Your message has been dispatched',
+              icon: 'info',
+              timer: 3000,
+              allowOutsideClick: false,
+              showConfirmButton: false
+            }).then(() => {
+              //window.location.reload();
+              console.log("Done sending request...");
+            });
+          }
+          
+        }
+        }).catch((e)=> {
+          swal.close();
+          console.log("Error condition is bad...");
+        });
+    })
+  }
+
+ });
