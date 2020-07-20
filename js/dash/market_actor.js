@@ -196,32 +196,32 @@ function do_calculation() {
 
 $("#send_messages").on('click', function(e) {
   
-  var msg_content = $("#message_content").val();
-  var msg_state = $("#slct1").val();
-  var male_gender = $("#male").is(":checked");
-  var female_gender = $("#female").is(":checked");
-  var msg_gender = (male_gender)? "male": "";
-  msg_gender += + (female_gender)? ",female": "";
+  var msg_content = $("#final_sms_message").val();
+  var msg_state = (localStorage.getItem('chosen_states')).split(',');
+  //var male_gender = $("#male").is(":checked");
+  //var female_gender = $("#female").is(":checked");
+  // var msg_gender = (male_gender)? "male": "";
+  // msg_gender += + (female_gender)? ",female": "";
 
-  var rice_crop = $("#rice_crop").is(":checked");//$('.messageCheckbox:checked').val();
-  var tomatoes_crop = $("#tomatoes_crop").is(":checked");
+  var rice_crop = $("#rice_crop").is(":checked");
+  var tomato_crop = $("#tomatoes_crop").is(":checked");
   var sorghum_crop = $("#sorghum_crop").is(":checked");
-  var groundnuts_crop = $("#groundnuts_crop").is(":checked");
+  var groundnut_crop = $("#groundnuts_crop").is(":checked");
   var target_crops = "" + (rice_crop)? "rice": "";// + (tomatoes_crop)? "tomatoes": "" + (sorghum_crop)? "sorghum": "" + (groundnuts_crop)? "groundnuts": "";
-  target_crops += (tomatoes_crop)? ", tomatoes": "";
+  target_crops += (tomato_crop)? ", tomato": "";
   target_crops += (sorghum_crop)? ", sorghum": "";
-  target_crops += (groundnuts_crop)? ", groundnuts": "";
+  target_crops += (groundnut_crop)? ", groundnut": "";
 
   console.log("Crops " + target_crops);
   var msg_crop = "" + (target_crops != "")? target_crops: "No Crops selected";
   console.log("Crops " + msg_crop);
-  console.log("Genders " + msg_gender);
+  //console.log("Genders " + msg_gender);
   if (msg_crop != "No Crops selected") {
     $("#create-note-modal").css({'z-index': '-4000'});
     swal.fire({
-      title: 'Sending Message Details',
+      title: 'Preparing Message Details',
       text: 'Please wait...',
-      timer: 4000,
+      timer: 2000,
       allowOutsideClick: false,
       showConfirmButton: false,
       icon: 'info'
@@ -244,7 +244,6 @@ $("#send_messages").on('click', function(e) {
     
     const newMessage = {
       state: msg_state,
-      gender: msg_gender,
       crop: msg_crop,
       msg: msg_content,
       company: maCompany,
@@ -286,7 +285,7 @@ $("#send_messages").on('click', function(e) {
               showConfirmButton: false
             }).then(() => {
               //window.location.reload();
-              console.log("Done sending request...");
+              console.log("Done sending request...", newMessage);
             });
           }
           

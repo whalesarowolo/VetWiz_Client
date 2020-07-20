@@ -158,6 +158,7 @@ $(document).ready(function () {
 
      if (make_call) {
         get_metrics(filterable_criterias);
+        localStorage.setItem('chosen_states', filterable_criterias.states);
      }
 
      // end state tracking
