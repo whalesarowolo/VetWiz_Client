@@ -196,7 +196,7 @@ function do_calculation() {
 
 $("#send_messages").on('click', function(e) {
   
-  var msg_content = $(".message-compose-container #message").html();
+  var msg_content = $("#final_sms_message").html();
   var msg_state = (localStorage.getItem('chosen_states')).split(',');
   //var male_gender = $("#male").is(":checked");
   //var female_gender = $("#female").is(":checked");
@@ -215,6 +215,7 @@ $("#send_messages").on('click', function(e) {
   console.log("Crops " + target_crops);
   var msg_crop = "" + (target_crops != "")? target_crops: "No Crops selected";
   console.log("Crops " + msg_crop);
+  console.log("Message", msg_content);
   //console.log("Genders " + msg_gender);
   if (msg_crop != "No Crops selected") {
     $("#create-note-modal").css({'z-index': '-4000'});
