@@ -60,7 +60,7 @@ $(document).ready(function () {
            }
          })
          .catch((err) => {
-           console.log("Error from metrics api: ", err.message)
+           console.log("Error from metrics api: ", err)
          });
      }
      //End call for metrics
