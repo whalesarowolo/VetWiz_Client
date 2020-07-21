@@ -242,11 +242,13 @@ $("#send_messages").on('click', function(e) {
       allowOutsideClick: false,
       showConfirmButton: false
     });
+    let query_string = $(".message-content-preview #final_sms_message").attr('data-query') //data-query
     
     const newMessage = {
       state: msg_state,
       crop: msg_crop,
       msg: msg_content,
+      query: query_string,
       company: maCompany,
       email: maEmail,
     };
