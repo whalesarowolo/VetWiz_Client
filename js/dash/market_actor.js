@@ -255,7 +255,8 @@ $("#send_messages").on('click', function(e) {
         method: 'POST',
         body: JSON.stringify(newMessage),
         headers: new Headers({
-          'Content-Type': 'application/json'        
+          'Content-Type': 'application/json',
+          'authorization': token       
         })
       });
       // pass request object to `fetch()`
