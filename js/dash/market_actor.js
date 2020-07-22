@@ -198,7 +198,7 @@ $("#send_messages").on('click', function(e) {
   
   var msg_content = $("#final_sms_message").html();
   var msg_state = (localStorage.getItem('chosen_states')).split(',');
-  //var male_gender = $("#male").is(":checked");
+  var message_recipients_query_id = $(".message-content-preview #final_sms_message").attr('data-query');
   //var female_gender = $("#female").is(":checked");
   // var msg_gender = (male_gender)? "male": "";
   // msg_gender += + (female_gender)? ",female": "";
@@ -249,6 +249,7 @@ $("#send_messages").on('click', function(e) {
       crop: msg_crop,
       msg: msg_content,
       query: query_string,
+      query_id: message_recipients_query_id,
       company: maCompany,
       email: maEmail,
     };
