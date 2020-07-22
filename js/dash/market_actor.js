@@ -256,7 +256,7 @@ $("#send_messages").on('click', function(e) {
     // create request object
       var request = new Request(url, {
         method: 'POST',
-        body: JSON.stringify(newMessage),
+        body: newMessage,
         headers: new Headers({
           'Content-Type': 'application/json',
           'authorization': token       
