@@ -290,7 +290,7 @@ $("#send_messages").on('click', function(e) {
               showConfirmButton: false
             }).then(() => {
               //window.location.reload();
-              console.log("Done sending request...", newMessage);
+              console.log("Done sending request...", resp);
             });
           }
           
