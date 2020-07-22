@@ -59,8 +59,8 @@ $(document).ready(function () {
             $(".farmer-count-wrapper #farmer_counter_total").val((resp.adamawa_farmers + resp.gombe_farmers));//.attr('readonly', 'true');
             $(".message-content-preview #final_sms_message").html($(".message-compose-container #message").val());
             $(".message-content-preview #final_sms_pages").html(Number.parseInt($(".message-count #messages").html()));
-            $(".message-content-preview #final_sms_message").attr('data-query', JSON.stringify(resp.query));
-            $(".message-content-preview #final_sms_message").attr('data-id', JSON.stringify(resp.query_id));
+            $(".message-content-preview #final_sms_message").attr('data-query', resp.query);
+            $(".message-content-preview #final_sms_message").attr('data-id', resp.query_id);
            }
          })
          .catch((err) => {
