@@ -35,32 +35,34 @@ $(document).ready(function () {
        fetch(metric_request)
          .then(async (response) => {
            var resp = await response.json();
-           if (resp) {
+           if (resp.message) {
              console.log("Network response from metric server: ", resp);
              //update the previews with the insights
-             $(".message-reach-preview #adamawa_farmers").html(numberWithComma(resp.adamawa_farmers));
-             $(".message-reach-preview #gombe_farmers").html(numberWithComma(resp.gombe_farmers));
-             $(".message-reach-preview #m_farmers").html(numberWithComma(resp.male_farmers));
-             $(".message-reach-preview #f_farmers").html(numberWithComma(resp.female_farmers));
-             $(".total-farmers-preview #total_target_farmers").html(numberWithComma(resp.adamawa_farmers + resp.gombe_farmers));
-             $(".message-reach-preview #total_sms_count").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".message-reach-preview #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
-             $(".count-and-cost #total_sms_counts").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".count-and-cost #total_sms_cost").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".message-reach-preview #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".farmer-count-text #farmer_counter_total").attr('readonly', 'false');
-             //$(".farmer-count-text #farmer_counter_total").html(resp.adamawa_farmers + resp.gombe_farmers);
-             $(".sms-summary-row #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
-             $(".sms-summary-row #total_sms_counted").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".sms-summary-row #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
-             $(".farmer-count-wrapper #farmer_counter_total").val((resp.adamawa_farmers + resp.gombe_farmers));//.attr('readonly', 'true');
-             $(".message-content-preview #final_sms_message").html($(".message-compose-container #message").val());
-             $(".message-content-preview #final_sms_pages").html(Number.parseInt($(".message-count #messages").html()));
-             $(".message-content-preview #final_sms_message").attr('data-query', JSON.stringify(resp.query));
+             
+           } else {
+            $(".message-reach-preview #adamawa_farmers").html(numberWithComma(resp.adamawa_farmers));
+            $(".message-reach-preview #gombe_farmers").html(numberWithComma(resp.gombe_farmers));
+            $(".message-reach-preview #m_farmers").html(numberWithComma(resp.male_farmers));
+            $(".message-reach-preview #f_farmers").html(numberWithComma(resp.female_farmers));
+            $(".total-farmers-preview #total_target_farmers").html(numberWithComma(resp.adamawa_farmers + resp.gombe_farmers));
+            $(".message-reach-preview #total_sms_count").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".message-reach-preview #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
+            $(".count-and-cost #total_sms_counts").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".count-and-cost #total_sms_cost").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".message-reach-preview #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".farmer-count-text #farmer_counter_total").attr('readonly', 'false');
+            //$(".farmer-count-text #farmer_counter_total").html(resp.adamawa_farmers + resp.gombe_farmers);
+            $(".sms-summary-row #number_of_message_pages").html(Number.parseInt($(".message-count #messages").html()));
+            $(".sms-summary-row #total_sms_counted").html(numberWithComma((resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".sms-summary-row #total_sms_cost_amount").html("₦" + numberWithComma(5 * (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html())));
+            $(".farmer-count-wrapper #farmer_counter_total").val((resp.adamawa_farmers + resp.gombe_farmers));//.attr('readonly', 'true');
+            $(".message-content-preview #final_sms_message").html($(".message-compose-container #message").val());
+            $(".message-content-preview #final_sms_pages").html(Number.parseInt($(".message-count #messages").html()));
+            $(".message-content-preview #final_sms_message").attr('data-query', JSON.stringify(resp.query));
            }
          })
          .catch((err) => {
-           console.log("Error from metrics api: ", err)
+           console.log("Error from metrics api: ", err.message)
          });
      }
      //End call for metrics

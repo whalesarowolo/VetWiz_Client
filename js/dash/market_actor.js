@@ -204,9 +204,9 @@ $("#send_messages").on('click', function(e) {
   // msg_gender += + (female_gender)? ",female": "";
 
   var rice_crop = $("#rice_crop").is(":checked");
-  var tomato_crop = $("#tomatoes_crop").is(":checked");
+  var tomato_crop = $("#tomato_crop").is(":checked");
   var sorghum_crop = $("#sorghum_crop").is(":checked");
-  var groundnut_crop = $("#groundnuts_crop").is(":checked");
+  var groundnut_crop = $("#groundnut_crop").is(":checked");
   var target_crops = "" + (rice_crop)? "rice": "";// + (tomatoes_crop)? "tomatoes": "" + (sorghum_crop)? "sorghum": "" + (groundnuts_crop)? "groundnuts": "";
   target_crops += (tomato_crop)? ", tomato": "";
   target_crops += (sorghum_crop)? ", sorghum": "";
