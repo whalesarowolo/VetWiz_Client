@@ -36,10 +36,11 @@ $(document).ready(function () {
          .then(async (response) => {
            var resp = await response.json();
            if (resp.message) {
-             console.log("Network response from metric server: ", resp);
+             console.log("Problem with response from metric server: ", resp.message);
              //update the previews with the insights
              
            } else {
+            console.log("Response from metric server: ", resp);
             $(".message-reach-preview #adamawa_farmers").html(numberWithComma(resp.adamawa_farmers));
             $(".message-reach-preview #gombe_farmers").html(numberWithComma(resp.gombe_farmers));
             $(".message-reach-preview #m_farmers").html(numberWithComma(resp.male_farmers));
