@@ -195,10 +195,6 @@ function do_calculation() {
 
 
 $("#send_messages").on('click', function(e) {
-
-  if ($("#message").val().length > 6) {
-    $("#create-note-modal").css('z-index', '4000');
-  }
   
   var msg_content = $("#final_sms_message").html();
   var msg_state = (localStorage.getItem('chosen_states')).split(',');

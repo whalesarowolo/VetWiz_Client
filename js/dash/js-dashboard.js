@@ -90,11 +90,16 @@ function newUser() {
 
 function newMessage(params) {
     if ($('#create-note-modal').length) {
-        console.log('Creating new message...');
-        $('#create-note-modal').removeClass('is-hidden').addClass('is-active');
-        $('#create-note-modal > .modal-background').addClass('scaleInCircle');
-        $('#create-note-modal > .modal-content').addClass('scaleIn');
-        $('#create-note-modal > .modal-close').removeClass('is-hidden');
+        if ($("#message").val().length > 6) {
+            $("#create-note-modal").css('z-index', '4000');
+            console.log($("textarea #message").html());
+            console.log('Creating new message...');
+            $('#create-note-modal').removeClass('is-hidden').addClass('is-active');
+            $('#create-note-modal > .modal-background').addClass('scaleInCircle');
+            $('#create-note-modal > .modal-content').addClass('scaleIn');
+            $('#create-note-modal > .modal-close').removeClass('is-hidden');
+        }
+        
     } 
 }
 
