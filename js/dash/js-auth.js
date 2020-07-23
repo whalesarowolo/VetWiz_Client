@@ -557,16 +557,17 @@ function send_approved_sms(msg) {
   // pass request object to `fetch()`
   fetch(approved_request)
     .then(async (res) => {
-      //var resp = await res.json();
-      if(res !== null){
+      const resp = await res.json();
+      if(resp !== null){
         swal.close();
         swal.fire({
             title: "Message Approved successfully",
             text: "Message has been sent",
             timer: 3000,
             icon: 'success',
-        })
-        window.location.reload();
+        });
+        console.log("Result of sending ", resp);
+        //window.location.reload();
       }
     }).catch((e)=> {
       //debugger
