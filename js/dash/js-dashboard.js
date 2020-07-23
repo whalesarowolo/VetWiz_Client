@@ -619,7 +619,6 @@ function updateFromSMAP() {
         .then((data) => {
             //console.log(data)
             data.forEach(ele => {
-                console.log("Data: ", ele);
                 document.getElementById('farm_table').innerHTML += `<tr data-id="4">
                 <td><img class="datatable-avatar" src="assets/images/avatars/terry.jpg" data-demo-src="assets/images/avatars/terry.jpg"></td>
                 <td>Terry</td>

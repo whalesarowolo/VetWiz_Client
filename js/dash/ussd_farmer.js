@@ -144,7 +144,6 @@ function ussdFarmer(page=1) {
         const itd = JSON.parse(data);
         for (let index = 0; index < itd.length; index++) {
           var td = itd[index];
-          console.log("Data: ", td);
           var donb = "";
             if (td.hasOwnProperty('date_onb')) {
               donb = td.date_onb; 
