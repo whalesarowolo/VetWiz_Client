@@ -568,7 +568,7 @@ function send_approved_sms(msg) {
         });
         console.log("Result of sending ", res);
         const the_id = `#${msg._id}`;
-        $(the_id).hide();
+        $(the_id).parent().hide();
         //window.location.reload();
       }
     }).catch((e)=> {
