@@ -140,7 +140,6 @@ function ussdFarmer(page=1) {
 
       const url = 'https://farmed-php.herokuapp.com/ussd_farmers.php?page=' + page;
       $.ajax({url: url, success: function(data){
-        console.table(data);
         const itd = JSON.parse(data);
         for (let index = 0; index < itd.length; index++) {
           var td = itd[index];
