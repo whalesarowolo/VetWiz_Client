@@ -566,7 +566,9 @@ function send_approved_sms(msg) {
             timer: 3000,
             icon: 'success',
         });
-        console.log("Result of sending ", res)
+        console.log("Result of sending ", res);
+        const the_id = `#${msg._id}`;
+        $(the_id).hide();
         //window.location.reload();
       }
     }).catch((e)=> {
