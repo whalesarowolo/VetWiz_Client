@@ -561,7 +561,7 @@ function send_approved_sms(msg) {
       if(resp !== null){
         swal.close();
         console.log("response from trying to approve: ", resp);
-        (resp.fund_error !== null || resp.fund_error != undefined)? swal.fire({
+        (resp.fund_error)? swal.fire({
           title: 'Inadequate Balance',
           text: "The sender doesn't have enough funds in the wallet",
           icon: 'info',
@@ -573,10 +573,11 @@ function send_approved_sms(msg) {
             text: "Message has been sent",
             timer: 3000,
             icon: 'success',
-        });
+        }).then(() => {
           console.log("Result of sending ", resp);
           const the_id = `#${msg._id}`;
           $(the_id).parent().hide();
+        })
         };
         //window.location.reload();
       }
