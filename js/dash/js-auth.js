@@ -557,18 +557,28 @@ function send_approved_sms(msg) {
   // pass request object to `fetch()`
   fetch(approved_request)
     .then(async (res) => {
-      //var resp = await res.json();
-      if(res !== null){
+      var resp = await res.json();
+      if(resp !== null){
         swal.close();
-        swal.fire({
+        (resp.fund_error)? function() {
+          swal.fire({
+            title: 'Inadequate Balance',
+            text: 'You do not have enough funds in your wallet',
+            icon: 'info',
+            allowOutsideClick: false,
+            showConfirmButton: true
+          });
+        } : function () {
+          swal.fire({
             title: "Message Approved successfully",
             text: "Message has been sent",
             timer: 3000,
             icon: 'success',
         });
-        console.log("Result of sending ", res);
-        const the_id = `#${msg._id}`;
-        $(the_id).parent().hide();
+          console.log("Result of sending ", resp);
+          const the_id = `#${msg._id}`;
+          $(the_id).parent().hide();
+        };
         //window.location.reload();
       }
     }).catch((e)=> {
