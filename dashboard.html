@@ -4392,7 +4392,17 @@
     <script src="js/dash/js-projects.js"></script>
     <script src="js/dash/js-datatable.js"></script>
     <script src="js/dash/js-charts.js"></script>
-    <script src="js/dash/js-auth.js?v=" + versionUpdate;></script>
+    <script type="text/javascript" language="javascript"> 
+        var versionUpdate = (new Date()).getTime();
+        var url  = "js/dash/js-auth.js?v=" + versionUpdate; 
+        $.getScript(url)
+            .done(function( script, textStatus ) {
+            console.log( textStatus );
+            })
+            .fail(function( jqxhr, settings, exception ) {
+            console.log("There was a problem loading the latest js-auth.js");
+        });
+    </script> 
     <script src="js/gap.js"></script>
     <script src="js/complete_gap.js"></script>
     <script src="js/admin.js"></script>

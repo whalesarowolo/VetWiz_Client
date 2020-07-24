@@ -1220,9 +1220,6 @@
     <script src="js/launcher.js"></script>
     <!-- Routing End -->
     <script src="js/swal.js"></script>
-    <script type="text/javascript" language="javascript">
-      var versionUpdate = (new Date()).getTime();
-    </script>
     <script src="js/dash/js-app.js"></script>
     <script src="js/dash/js-core.js"></script>
     <script src="js/dash/js-components-modals.js"></script>
@@ -1230,7 +1227,17 @@
     <script src="js/dash/js-dashboard.js"></script>
     <script src="js/dash/js-datatable.js"></script>
     <script src="js/dash/js-charts.js"></script>
-    <script src="js/dash/js-auth.js?v=" + versionUpdate;></script>
+    <script type="text/javascript" language="javascript"> 
+      var versionUpdate = (new Date()).getTime();
+      var url  = "js/dash/js-auth.js?v=" + versionUpdate; 
+      $.getScript(url)
+        .done(function( script, textStatus ) {
+          console.log( textStatus );
+        })
+        .fail(function( jqxhr, settings, exception ) {
+          console.log("There was a problem loading the latest js-auth.js");
+      });
+    </script> 
     <script src="./js/dash/chart.js"></script>
     <script src="./js/dash/market_actor.js"></script>
   </body>
