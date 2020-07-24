@@ -561,15 +561,13 @@ function send_approved_sms(msg) {
       if(resp !== null){
         swal.close();
         console.log("response from trying to approve: ", resp);
-        (resp.fund_error)? function() {
-          swal.fire({
-            title: 'Inadequate Balance',
-            text: 'You do not have enough funds in your wallet',
-            icon: 'info',
-            allowOutsideClick: false,
-            showConfirmButton: true
-          });
-        } : function () {
+        (resp.fund_error !== null || resp.fund_error != undefined)? swal.fire({
+          title: 'Inadequate Balance',
+          text: 'You do not have enough funds in your wallet',
+          icon: 'info',
+          allowOutsideClick: false,
+          showConfirmButton: true
+        }) : function () {
           swal.fire({
             title: "Message Approved successfully",
             text: "Message has been sent",
