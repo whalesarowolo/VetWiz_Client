@@ -560,6 +560,7 @@ function send_approved_sms(msg) {
       var resp = await res.json();
       if(resp !== null){
         swal.close();
+        console.log("response from trying to approve: ", resp);
         (resp.fund_error)? function() {
           swal.fire({
             title: 'Inadequate Balance',
