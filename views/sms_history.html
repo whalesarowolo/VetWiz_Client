@@ -1,0 +1,95 @@
+<div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div class="columns" style="margin-bottom: 10px; margin-left: 4px;">
+        <div class="column is-7">
+          <a href="javascript:">Dashboard</a> &nbsp;|&nbsp;
+          SMS History &nbsp;|&nbsp; <a href="#sms">Send New SMS</a>
+          <!--<a href="#" class="button subs_info_section_button no-block">SMS History</a>-->
+        </div>
+      </div>
+      <!-- Main content -->
+      <div class="columns contact-profile">
+        <div class="column is-8">
+          <!-- Contact informations -->
+          <div
+            class="flex-card is-contact-info light-bordered send-message-wrapper"
+          >
+          </div>
+        </div>
+        <div class="column is-4">
+          <div
+            class="flex-card is-avatar light-bordered card-overflow message-summary-card"
+          >
+            <h1>Summary</h1>
+            <hr />
+            <div class="farmer-count-wrapper">
+              <div class="columns is-vcentered">
+                <div class="column is-6">
+                  <div class="field">
+                    <label>Farmer Reach:</label>
+                  </div>
+                </div>
+                <div class="column is-6 ">
+                  <div class="columns is-vcentered">
+                    <input id="farmer_counter_total"
+                      class="column input is-primary farmer-count-text farmer-count-text-noedit"
+                      type="text"
+                      required
+                      readonly
+                      placeholder="13508" style="padding-right: 5px; padding-left: 4px;"
+                    />                  
+                    <i style="font-weight: bold; font-size: 16px; border-radius: 4px; background-color: 3fa790;" id="modify_farmer_count" class="fa fa-pencil column modify-count-button is-vcentered pull-right">Edit</i>
+                  
+                  </div>
+                </div>
+              </div>
+            </div><br>
+            <div class="columns sms-summary-row is-vcentered is-mobile">
+              <div class="column is-5 is-mobile">
+                SMS Pages:
+              </div>
+              <div class="column is-7 text-right">
+                <span id="number_of_message_pages">1</span>
+              </div>
+            </div>
+            <div class="columns sms-summary-row is-vcentered is-mobile">
+              <div class="column is-5">
+                Total SMS Count:
+              </div>
+              <div class="column is-7 text-right">
+                <span id="total_sms_counted">X,---</span><span>&nbsp;Units</span>
+              </div>
+            </div>
+            <div class="columns sms-summary-row is-vcentered is-mobile">
+              <div class="column is-5">
+                Cost:
+              </div>
+              <div class="column is-7 text-right">
+                <span id="total_sms_cost_amount">₦--,---</span>
+              </div>
+            </div>
+            <div class="inner">
+              <div class="is-centered">
+                <br /><br />
+                <div
+                  onclick="newMessage(event)"
+                  id="prev_it"
+                  class="white-button-disabled button subs_info_section_button white-button no-block"
+                >
+                  Preview Message
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <button  class="side-icon">check</button> -->
+      <div id="basic-layout" class="columns dashboard-columns dashboard-tiles">
+        <div class="market_actor_info_container"></div>
+      </div>
+      <!-- Widgets -->
+      <div></div>
+    </div>
+  </div>
+  
