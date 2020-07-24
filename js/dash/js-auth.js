@@ -9,35 +9,6 @@
 $(document).ready(function ($) {
   "use strict";
 
-  let html = "";
-  const token = localStorage.getItem("access_token");
-  var userObj = parseJwt(localStorage.getItem("access_token"));
-  var img = document.createElement("img");
-  img.src = userObj.user.avatar;
-  maCompany = userObj.user.company;
-  maEmail = userObj.user.email;
-  html += "<h3>" + maCompany + "</h3>";
-  html += "<p>" + maEmail + "</p>";
-  $("#profile-head").html(html);
-  $("#profile-head").append(img);
-  $("#profile-me").append(img);
-  $("#profile_name").html(userObj.user.lastname + " " + userObj.user.firtsname);
-  $("#profile_name_h3").html(
-    userObj.user.lastname + " " + userObj.user.firtsname
-  );
-  $("#profile_company").html(userObj.user.company);
-  $("#profile_email").html(userObj.user.email);
-  $("#phon_num").html(userObj.user.phoneNumber);
-  $("#phon_num2").html(userObj.user.phoneNumber);
-  $("#biz_category").html(userObj.user.bizCategory);
-  $("#profile_biz_header").html(userObj.user.bizCategory);
-  $("#profile-trigger").append(img);
-  if ($("#logged_person").length) {
-    $("#logged_person").html(
-      "<p>Welcome " + userObj.user.email + "&nbsp;&nbsp;</p>"
-    );
-  }
-
   //Login and Signup V1 (startup kit & landing kit 4)
   $("#contacted").on("click", function () {
     $(this).addClass("is-hidden");
@@ -369,6 +340,7 @@ function goHomePartner() {
   document.location.replace("/partnerDashboard.html");
 }
 
+
 // function to validate email
 function IsEmail(email) {
   var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -469,6 +441,37 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+$(document).ready(function () {
+  let html = "";
+  const token = localStorage.getItem("access_token");
+  var userObj = parseJwt(localStorage.getItem("access_token"));
+  var img = document.createElement("img");
+  img.src = userObj.user.avatar;
+  maCompany = userObj.user.company;
+  maEmail = userObj.user.email;
+  html += "<h3>" + maCompany + "</h3>";
+  html += "<p>" + maEmail + "</p>";
+  $("#profile-head").html(html);
+  $("#profile-head").append(img);
+  $("#profile-me").append(img);
+  $("#profile_name").html(userObj.user.lastname + " " + userObj.user.firtsname);
+  $("#profile_name_h3").html(
+    userObj.user.lastname + " " + userObj.user.firtsname
+  );
+  $("#profile_company").html(userObj.user.company);
+  $("#profile_email").html(userObj.user.email);
+  $("#phon_num").html(userObj.user.phoneNumber);
+  $("#phon_num2").html(userObj.user.phoneNumber);
+  $("#biz_category").html(userObj.user.bizCategory);
+  $("#profile_biz_header").html(userObj.user.bizCategory);
+  $("#profile-trigger").append(img);
+  if ($("#logged_person").length) {
+    $("#logged_person").html(
+      "<p>Welcome " + userObj.user.email + "&nbsp;&nbsp;</p>"
+    );
+  }
+});
+
 function addScript(filename) {
   var head = document.getElementsByTagName("head")[0];
 
@@ -539,3 +542,5 @@ function isNumberKey(evt) {
 
   return true;
 }
+
+
