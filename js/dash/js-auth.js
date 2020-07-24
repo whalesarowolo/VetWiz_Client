@@ -753,7 +753,7 @@ $(document).ready(function () {
     var userObj = parseJwt(localStorage.getItem('access_token'));
     var img = document.createElement("img");
     img.src = userObj.user.avatar;
-    $("#profile-trigger").appendChild(img);
+    $("#profile-trigger").append(img);
 });
 
 
