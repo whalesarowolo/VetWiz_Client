@@ -534,7 +534,7 @@ function send_approved_sms(msg) {
 
   cancelInternalMessage();
 
-  console.log("The approved message: ", approved_msg);
+  console.log("The message to be approved: ", approved_msg);
   swal.fire({
     title: 'Sending Approved Message',
     text: 'Please wait...',
