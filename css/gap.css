@@ -110,7 +110,7 @@ table tr {
 }
 
 table tr td:first-child::before {
-  content: counter(rowNumber - 1);
+  content: calc(rowNumber - 1);
   min-width: 1em;
   margin-right: 0.5em;
 }
