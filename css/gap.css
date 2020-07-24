@@ -90,7 +90,7 @@
 	border: 3px solid #cccccc;
 	padding: 8px;
 	font-family: Tahoma, sans-serif;
-	/* background-image: url(bg.gif); */
+	background-image: url(bg.gif);
 	background-position: bottom right;
     background-repeat: no-repeat;
     margin-left: -10px;
@@ -110,7 +110,7 @@ table tr {
 }
 
 table tr td:first-child::before {
-  
+  content: counter(rowNumber - 1);
   min-width: 1em;
   margin-right: 0.5em;
 }
