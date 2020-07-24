@@ -567,8 +567,7 @@ function send_approved_sms(msg) {
           icon: 'info',
           allowOutsideClick: false,
           showConfirmButton: true
-        }) : function () {
-          swal.fire({
+        }) : swal.fire({
             title: "Message Approved successfully",
             text: "Message has been sent",
             timer: 3000,
@@ -577,8 +576,7 @@ function send_approved_sms(msg) {
           console.log("Result of sending ", resp);
           const the_id = `#${msg._id}`;
           $(the_id).parent().hide();
-        })
-        };
+        });
         //window.location.reload();
       }
     }).catch((e)=> {
