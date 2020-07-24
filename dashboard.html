@@ -4380,10 +4380,6 @@
     <script src = "https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 
     <script src="js/swal.js"></script>
-    <script type="text/javascript" language="javascript">
-        var versionUpdate = (new Date()).getTime();
-    </script>
-    
     <script src="js/dash/js-core.js"></script><!-- Bulkit js -->
     <script src="js/dash/js-components-modals.js"></script>
     <script src="js/dash/js-common.js"></script>
@@ -4392,17 +4388,7 @@
     <script src="js/dash/js-projects.js"></script>
     <script src="js/dash/js-datatable.js"></script>
     <script src="js/dash/js-charts.js"></script>
-    <script type="text/javascript" language="javascript"> 
-        var versionUpdate = (new Date()).getTime();
-        var url  = "js/dash/js-auth.js?v=" + versionUpdate; 
-        $.getScript(url)
-            .done(function( script, textStatus ) {
-            console.log( textStatus );
-            })
-            .fail(function( jqxhr, settings, exception ) {
-            console.log("There was a problem loading the latest js-auth.js");
-        });
-    </script> 
+    <script type="text/javascript" language="javascript" src="js/dash/js-auth.js?v=22"></script>
     <script src="js/gap.js"></script>
     <script src="js/complete_gap.js"></script>
     <script src="js/admin.js"></script>
