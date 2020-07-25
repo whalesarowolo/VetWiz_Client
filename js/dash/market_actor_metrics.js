@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  maSMS_history();
   var make_call = false;
   if ($("#message").length) {
     console.log("Inside checker");
