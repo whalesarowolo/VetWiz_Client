@@ -101,19 +101,24 @@
               <span>Page:&nbsp;</span><span id="messages">1</span> |
               <span id="remaining">160</span>
             </div>
-            <div style="margin-top: 10px;">
-              <label for="smslang">Translate Message ? &nbsp;</label>
-              <select id="smslang" class="custom-select" style="width: 200px;">
-                <option label="Select Language"></option>
-                <option label="Hausa"></option>
-                <option label="Igbo"></option>
-                <option label="Yoruba"></option>
-              </select>
+            <div class="columns" style="margin-top: 10px;">
+              <div class="column">
+                <label for="smslang">Translate Message ? &nbsp;</label>
+                <select id="smslang" class="custom-select" style="width: 200px;">
+                  <option label="Select Language"></option>
+                  <option label="Hausa"></option>
+                  <option label="Igbo"></option>
+                  <option label="Yoruba"></option>
+                </select>
+              </div>
+              <div class="column">
+                <button id="continue_metrics">Continue</button>
+              </div>
             </div>
             <div class="translated-sms is-hidden">
               <textarea
-                name="message"
-                id="message"
+                name="trans_message"
+                id="trans_message"
                 placeholder="Type message here"
                 autofocus
               ></textarea>

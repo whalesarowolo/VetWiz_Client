@@ -56,6 +56,15 @@ $(document).ready(function () {
     }
   });
 
+  $("#continue_metrics").on('click', function(ev) {
+    ev.preventDefault();
+    if ($("#prev_it").hasClass('white-button-disabled')) {
+      return false;
+    } else {
+      get_metrics(JSON.parse(localStorage.getItem('chosen_criteria')));
+    }
+  });
+
   part1Count = 160;
   part2Count = 158;
   part3Count = 158;
@@ -116,8 +125,8 @@ $(document).ready(function () {
     }
 
     if (make_call) {
-      get_metrics(filterable_criterias);
-      localStorage.setItem("chosen_states", filterable_criterias.states);
+      //get_metrics(filterable_criterias);
+      localStorage.setItem("chosen_criteria", JSON.stringify(filterable_criterias));
     }
 
     // end state tracking
