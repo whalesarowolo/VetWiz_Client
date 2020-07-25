@@ -197,7 +197,8 @@ function do_calculation() {
 $("#send_messages").on('click', function(e) {
   
   var msg_content = $("#final_sms_message").html();
-  var msg_state = (localStorage.getItem('chosen_states')).split(',');
+  var state_criteria = JSON.parse(localStorage.getItem('chosen_criteria'));
+  var msg_state = state_criteria.state.split(',');
   var message_recipients_query_id = $(".message-content-preview #final_sms_message").attr('data-id');
   //var female_gender = $("#female").is(":checked");
   // var msg_gender = (male_gender)? "male": "";
