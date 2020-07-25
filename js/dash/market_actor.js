@@ -207,7 +207,7 @@ $("#send_messages").on('click', function(e) {
   var tomato_crop = $("#tomato_crop").is(":checked");
   var sorghum_crop = $("#sorghum_crop").is(":checked");
   var groundnut_crop = $("#groundnut_crop").is(":checked");
-  var target_crops = "" + (rice_crop)? "rice": "";// + (tomatoes_crop)? "tomatoes": "" + (sorghum_crop)? "sorghum": "" + (groundnuts_crop)? "groundnuts": "";
+  var target_crops = "" + (rice_crop)? "rice": "";
   target_crops += (tomato_crop)? ", tomato": "";
   target_crops += (sorghum_crop)? ", sorghum": "";
   target_crops += (groundnut_crop)? ", groundnut": "";
@@ -218,7 +218,7 @@ $("#send_messages").on('click', function(e) {
   console.log("Message", msg_content);
   //console.log("Genders " + msg_gender);
   if (msg_crop != "No Crops selected") {
-    $("#create-note-modal").css({'z-index': '-4000'});
+    $("#create-note-modal").css({'z-index': '4000'});
     swal.fire({
       title: 'Preparing Message Details',
       text: 'Please wait...',
