@@ -360,7 +360,7 @@ function maSMS_history() {
             let message = datas.msg;
             let dataId = datas._id;
             let date = new Date(datas.date);
-            let ma_cost = (datas.cost)? datas.cost : "N/A";
+            let ma_cost = (datas.cost)? "&#x20A6;" + datas.cost : "N/A";
             newDate =
               date.getMonth() +
               1 +
@@ -393,7 +393,7 @@ function maSMS_history() {
             html += "<td>" + gender + "</td>";
             html += "<td>" + state + "</td>";
             html += "<td>" + "N/A" + "</td>";
-            html += "<td>&#x20A6;" + ma_cost + "</td>";
+            html += "<td>" + ma_cost + "</td>";
             html += "<td>" + datas.status + "</td>";
             
             html += status_button + "</tr>";              
