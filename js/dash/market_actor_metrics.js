@@ -361,7 +361,9 @@ function maSMS_history(ma_id) {
             var status_button = "";
             switch (datas.status) {
               case "Approved":
-                status_button = '<button class="button" style="background-color: green;">Resend</button>';
+                status_button = '<span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
+                `${dataId}` +
+                ">Approved</span></td>";
                 break;
               case "Pending":
                 status_button = '';
@@ -384,13 +386,7 @@ function maSMS_history(ma_id) {
             html += "<td>&#x20A6;" + "4,000" + "</td>";
             html += "<td>" + datas.status + "</td>";
             
-            html +=
-              '<span style="color:#fff; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
-              `${dataId}` +
-              ">" +
-              status_button +
-              "</span></td>";
-            html += "</tr>";
+            html += status_button + "</tr>";              
           });
 
           $("#ma_sms_history").ready(function () {
