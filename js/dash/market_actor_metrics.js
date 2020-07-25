@@ -338,7 +338,9 @@ function maSMS_history(ma_id) {
           var html = "";
           var how_many_sms = data.length;
           $("#how_many_sms").html(how_many_sms);
+          var counter = 0;
           data.forEach((datas) => {
+            counter += 1;
             let state = datas.state;
             let company = datas.company;
             let email = datas.email;
@@ -358,7 +360,7 @@ function maSMS_history(ma_id) {
             console.log(dataId);
 
             html += "<tr>";
-            html += "<td></td>";
+            html += "<td>" + counter + "</td>";
             html += "<td>" + newDate + "</td>";
             html += "<td id=" + `${dataId}` + " >" + message + "</td>";
             html += "<td class='crops'>" + crops + "</td>";
