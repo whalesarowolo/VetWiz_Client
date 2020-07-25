@@ -299,3 +299,88 @@ function get_metrics(criterias) {
     });
 }
 //End call for metrics
+
+// Market Actor sms log sent for approval
+function maSMS_history(ma_id) {
+  let html = "";
+  swal
+    .fire({
+      title: "Loading Messages",
+      text: "Please wait...",
+      timer: 3000,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: "info",
+    })
+    .then(function () {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading Your data ....",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+
+      $("#ma_sms_history").ready(function () {
+        const url = "https://farm-aid-backend.herokuapp.com/api/masms_history";
+        const token = localStorage.getItem("access_token");
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append("Authorization", token);
+        fetch(url, {
+          method: "GET",
+          headers,
+        })
+          .then(async (res) => res.json())
+          .then((data) => {
+            data.forEach((datas) => {
+              let state = datas.state;
+              let company = datas.company;
+              let email = datas.email;
+              let crops = datas.crop;
+              let message = datas.msg;
+              let dataId = datas._id;
+              let date = new Date(datas.date);
+              newDate =
+                date.getMonth() +
+                1 +
+                "/" +
+                date.getDate() +
+                "/" +
+                date.getFullYear() +
+                " ";
+              console.log(dataId);
+
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + company + "</td>";
+              html += "<td>" + email + "</td>";
+              html += "<td class='crops'>" + crops + "</td>";
+              html += "<td>" + state + "</td>";
+              html += "<td id=" + `${dataId}` + " >" + message + "</td>";
+              html += "<td>" + newDate + "</td>";
+              html +=
+                '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="resend_message(event);" data_id=' +
+                `${dataId}` +
+                "> Approve" +
+                "</span> <hr>";
+              html +=
+                '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
+                `${dataId}` +
+                ">" +
+                " Reject" +
+                "</span></td>";
+              html += "</tr>";
+
+              document.getElementById("ma_sms_history").innerHTML = html;
+              
+            });
+
+            Swal.close();
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    });
+}
