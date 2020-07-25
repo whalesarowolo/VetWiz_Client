@@ -358,6 +358,20 @@ function maSMS_history(ma_id) {
               date.getFullYear() +
               " ";
             console.log(dataId);
+            var status_button = "";
+            switch (datas.status) {
+              case "Approved":
+                status_button = '<button class="button" style="background-color: green;">Resend</button>';
+                break;
+              case "Pending":
+                status_button = '';
+                break;
+              case "Rejected":
+                status_button = '';
+              default:
+                status_button = '';
+                break;
+            }
 
             html += "<tr>";
             html += "<td>" + counter + "</td>";
@@ -367,22 +381,14 @@ function maSMS_history(ma_id) {
             html += "<td>" + gender + "</td>";
             html += "<td>" + state + "</td>";
             html += "<td>" + "500 SMS" + "</td>";
-            html += "<td>" + "N4,000" + "</td>";
+            html += "<td>&#x20A6;" + "4,000" + "</td>";
             html += "<td>" + datas.status + "</td>";
             
-            
-            
-            
             html +=
-              '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="resend_message(event);" data_id=' +
-              `${dataId}` +
-              "> Resend" +
-              "</span> <hr>";
-            html +=
-              '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
+              '<span style="color:#fff; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
               `${dataId}` +
               ">" +
-              " View" +
+              status_button +
               "</span></td>";
             html += "</tr>";
           });
