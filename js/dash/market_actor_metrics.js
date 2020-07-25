@@ -140,6 +140,7 @@ $(document).ready(function () {
 
     if (make_call) {
       //get_metrics(filterable_criterias);
+      localStorage.setItem('chosen_states', filterable_criterias.states);
       localStorage.setItem(
         "chosen_criteria",
         JSON.stringify(filterable_criterias)
@@ -181,7 +182,6 @@ $(document).ready(function () {
     else $(".tplural").hide();
   });
 
-  $("#message").keyup();
 });
 
 function numberWithComma(x) {
