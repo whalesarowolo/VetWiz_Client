@@ -360,7 +360,7 @@ function maSMS_history() {
             let message = datas.msg;
             let dataId = datas._id;
             let date = new Date(datas.date);
-            let ma_cost = (datas.cost)? "&#x20A6;" + datas.cost : "N/A";
+            let ma_cost = (datas.cost)? "&#x20A6;" + numberWithComma(datas.cost) : "N/A";
             newDate =
               date.getMonth() +
               1 +
