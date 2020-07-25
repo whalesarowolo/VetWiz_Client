@@ -380,8 +380,8 @@ function maSMS_history(ma_id) {
             html += "<td class='crops'>" + crops + "</td>";
             html += "<td>" + gender + "</td>";
             html += "<td>" + state + "</td>";
-            html += "<td>" + "500 SMS" + "</td>";
-            html += "<td>&#x20A6;" + "4,000" + "</td>";
+            html += "<td>" + "N/A" + "</td>";
+            html += "<td>&#x20A6;" + "---" + "</td>";
             html += "<td>" + datas.status + "</td>";
             
             html += status_button + "</tr>";              
