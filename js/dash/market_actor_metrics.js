@@ -57,20 +57,18 @@ $(document).ready(function () {
     }
   });
 
-  $("#continue_metrics").on('click', function(ev) {
-
-    if ($("#prev_it").hasClass('white-button-disabled')) {
+  $("#continue_metrics").on("click", function (ev) {
+    if ($("#prev_it").hasClass("white-button-disabled")) {
       swal.fire({
-        title: 'Message too short',
-        text: 'Your message must be at least 6 characters long',
-        icon: 'info',
+        title: "Message too short",
+        text: "Your message must be at least 6 characters long",
+        icon: "info",
         timer: 3000,
         allowOutsideClick: false,
         showConfirmButton: true,
       });
     } else {
-      get_metrics(JSON.parse(localStorage.getItem('chosen_criteria')));
-
+      get_metrics(JSON.parse(localStorage.getItem("chosen_criteria")));
     }
   });
 
@@ -135,7 +133,10 @@ $(document).ready(function () {
 
     if (make_call) {
       //get_metrics(filterable_criterias);
-      localStorage.setItem("chosen_criteria", JSON.stringify(filterable_criterias));
+      localStorage.setItem(
+        "chosen_criteria",
+        JSON.stringify(filterable_criterias)
+      );
     }
 
     // end state tracking
@@ -322,66 +323,66 @@ function maSMS_history(ma_id) {
         showConfirmButton: false,
       });
 
-      $("#ma_sms_history").ready(function () {
-        const url = "https://farm-aid-backend.herokuapp.com/api/masms_history";
-        const token = localStorage.getItem("access_token");
-        const headers = new Headers();
-        headers.append("Content-Type", "application/json");
-        headers.append("Authorization", token);
-        fetch(url, {
-          method: "GET",
-          headers,
-        })
-          .then(async (res) => res.json())
-          .then((data) => {
-            data.forEach((datas) => {
-              let state = datas.state;
-              let company = datas.company;
-              let email = datas.email;
-              let crops = datas.crop;
-              let message = datas.msg;
-              let dataId = datas._id;
-              let date = new Date(datas.date);
-              newDate =
-                date.getMonth() +
-                1 +
-                "/" +
-                date.getDate() +
-                "/" +
-                date.getFullYear() +
-                " ";
-              console.log(dataId);
+      const url = "https://farm-aid-backend.herokuapp.com/api/masms_history";
+      const token = localStorage.getItem("access_token");
+      const headers = new Headers();
+      headers.append("Content-Type", "application/json");
+      headers.append("Authorization", token);
+      fetch(url, {
+        method: "GET",
+        headers,
+      })
+        .then(async (res) => res.json())
+        .then((data) => {
+          Swal.close();
+          data.forEach((datas) => {
+            let state = datas.state;
+            let company = datas.company;
+            let email = datas.email;
+            let crops = datas.crop;
+            let message = datas.msg;
+            let dataId = datas._id;
+            let date = new Date(datas.date);
+            newDate =
+              date.getMonth() +
+              1 +
+              "/" +
+              date.getDate() +
+              "/" +
+              date.getFullYear() +
+              " ";
+            console.log(dataId);
 
-              html += "<tr>";
-              html += "<td></td>";
-              html += "<td>" + company + "</td>";
-              html += "<td>" + email + "</td>";
-              html += "<td class='crops'>" + crops + "</td>";
-              html += "<td>" + state + "</td>";
-              html += "<td id=" + `${dataId}` + " >" + message + "</td>";
-              html += "<td>" + newDate + "</td>";
-              html +=
-                '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="resend_message(event);" data_id=' +
-                `${dataId}` +
-                "> Approve" +
-                "</span> <hr>";
-              html +=
-                '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
-                `${dataId}` +
-                ">" +
-                " Reject" +
-                "</span></td>";
-              html += "</tr>";
-
+            html += "<tr>";
+            html += "<td></td>";
+            html += "<td>" + company + "</td>";
+            html += "<td>" + email + "</td>";
+            html += "<td class='crops'>" + crops + "</td>";
+            html += "<td>" + state + "</td>";
+            html += "<td id=" + `${dataId}` + " >" + message + "</td>";
+            html += "<td>" + newDate + "</td>";
+            html +=
+              '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="resend_message(event);" data_id=' +
+              `${dataId}` +
+              "> Approve" +
+              "</span> <hr>";
+            html +=
+              '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
+              `${dataId}` +
+              ">" +
+              " Reject" +
+              "</span></td>";
+            html += "</tr>";
+            $("#ma_sms_history").ready(function () {
               document.getElementById("ma_sms_history").innerHTML = html;
-              
             });
-
-            Swal.close();
-          })
-          .catch((error) => {
-            console.error("Error:", error);
+            
           });
-      });
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+
+      
     });
 }
