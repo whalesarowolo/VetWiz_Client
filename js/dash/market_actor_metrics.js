@@ -361,9 +361,7 @@ function maSMS_history(ma_id) {
             var status_button = "";
             switch (datas.status) {
               case "Approved":
-                status_button = '<span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
-                `${dataId}` +
-                ">Approved</span></td>";
+                status_button = `<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id="${dataId}">Approved</span></td>`;
                 break;
               case "Pending":
                 status_button = '';
