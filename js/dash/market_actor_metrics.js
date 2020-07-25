@@ -327,7 +327,7 @@ function maSMS_history() {
       icon: "info",
     })
     .then(function () {
-      Swal.fire({
+      swal.fire({
         title: "Please wait",
         text: "Loading Your data ....",
         icon: "info",
@@ -346,7 +346,7 @@ function maSMS_history() {
       })
         .then(async (res) => res.json())
         .then((data) => {
-          Swal.close();
+          swal.close();
           var how_many_sms = data.length;
           $("#how_many_sms").html(how_many_sms);
           var counter = 0;
