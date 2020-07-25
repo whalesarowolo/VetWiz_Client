@@ -335,11 +335,15 @@ function maSMS_history(ma_id) {
         .then(async (res) => res.json())
         .then((data) => {
           Swal.close();
+          var html = "";
+          var how_many_sms = data.length;
+          $("#how_many_sms").html(how_many_sms);
           data.forEach((datas) => {
             let state = datas.state;
             let company = datas.company;
             let email = datas.email;
             let crops = datas.crop;
+            let gender = datas.gender;
             let message = datas.msg;
             let dataId = datas._id;
             let date = new Date(datas.date);
@@ -355,28 +359,34 @@ function maSMS_history(ma_id) {
 
             html += "<tr>";
             html += "<td></td>";
-            html += "<td>" + company + "</td>";
-            html += "<td>" + email + "</td>";
-            html += "<td class='crops'>" + crops + "</td>";
-            html += "<td>" + state + "</td>";
-            html += "<td id=" + `${dataId}` + " >" + message + "</td>";
             html += "<td>" + newDate + "</td>";
+            html += "<td id=" + `${dataId}` + " >" + message + "</td>";
+            html += "<td class='crops'>" + crops + "</td>";
+            html += "<td>" + gender + "</td>";
+            html += "<td>" + state + "</td>";
+            html += "<td>" + "500 SMS" + "</td>";
+            html += "<td>" + "N4,000" + "</td>";
+            html += "<td>" + datas.status + "</td>";
+            
+            
+            
+            
             html +=
               '<td><span style="color:#fff; background-color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" onclick="resend_message(event);" data_id=' +
               `${dataId}` +
-              "> Approve" +
+              "> Resend" +
               "</span> <hr>";
             html +=
               '<span style="color:#fff; background-color: red; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="view_message(event);" data_id=' +
               `${dataId}` +
               ">" +
-              " Reject" +
+              " View" +
               "</span></td>";
             html += "</tr>";
-            $("#ma_sms_history").ready(function () {
-              document.getElementById("ma_sms_history").innerHTML = html;
-            });
-            
+          });
+
+          $("#ma_sms_history").ready(function () {
+            $("#ma_sms_history").html(html);
           });
         })
         .catch((error) => {
