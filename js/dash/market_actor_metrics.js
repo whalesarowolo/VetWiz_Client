@@ -303,7 +303,7 @@ function get_metrics(criterias) {
 //End call for metrics
 
 // Market Actor sms log sent for approval
-function maSMS_history(ma_id) {
+function maSMS_history() {
   let html = "";
   swal
     .fire({
@@ -335,7 +335,6 @@ function maSMS_history(ma_id) {
         .then(async (res) => res.json())
         .then((data) => {
           Swal.close();
-          var html = "";
           var how_many_sms = data.length;
           $("#how_many_sms").html(how_many_sms);
           var counter = 0;
