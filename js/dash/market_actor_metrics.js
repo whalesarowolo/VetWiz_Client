@@ -57,11 +57,19 @@ $(document).ready(function () {
   });
 
   $("#continue_metrics").on('click', function(ev) {
-    ev.preventDefault();
+
     if ($("#prev_it").hasClass('white-button-disabled')) {
-      return false;
+      swal.fire({
+        title: 'Message too short',
+        text: 'Your message must be at least 6 characters long',
+        icon: 'info',
+        timer: 3000,
+        allowOutsideClick: false,
+        showConfirmButton: true,
+      });
     } else {
       get_metrics(JSON.parse(localStorage.getItem('chosen_criteria')));
+
     }
   });
 
