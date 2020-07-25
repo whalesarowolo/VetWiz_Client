@@ -68,6 +68,13 @@ $(document).ready(function () {
         showConfirmButton: true,
       });
     } else {
+      swal.fire({
+        title: 'Getting Summary Metrics',
+        text: 'Please wait...',
+        icon: 'info',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
       get_metrics(JSON.parse(localStorage.getItem("chosen_criteria")));
     }
   });
@@ -208,9 +215,12 @@ function get_metrics(criterias) {
     .then(async (response) => {
       var resp = await response.json();
       if (resp.message) {
+        swal.close();
         console.log("Problem with response from metric server: ", resp.message);
         //update the previews with the insights
       } else {
+        swal.close();
+        $(".opaque-summary").css('opacity', '1.0');
         console.log("Response from metric server: ", resp);
         $(".message-reach-preview #adamawa_farmers").html(
           numberWithComma(resp.adamawa_farmers)
