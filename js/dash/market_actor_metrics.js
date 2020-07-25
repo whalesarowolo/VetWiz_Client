@@ -287,6 +287,8 @@ function get_metrics(criterias) {
                 Number.parseInt($(".message-count #messages").html())
             )
         );
+        localStorage.setItem('final_cost', 5 *
+        (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html()));
         $(".farmer-count-wrapper #farmer_counter_total").val(
           resp.adamawa_farmers + resp.gombe_farmers
         ); //.attr('readonly', 'true');
@@ -358,6 +360,7 @@ function maSMS_history() {
             let message = datas.msg;
             let dataId = datas._id;
             let date = new Date(datas.date);
+            let ma_cost = (datas.cost)? datas.cost : "N/A";
             newDate =
               date.getMonth() +
               1 +
@@ -390,7 +393,7 @@ function maSMS_history() {
             html += "<td>" + gender + "</td>";
             html += "<td>" + state + "</td>";
             html += "<td>" + "N/A" + "</td>";
-            html += "<td>&#x20A6;" + "---" + "</td>";
+            html += "<td>&#x20A6;" + ma_cost + "</td>";
             html += "<td>" + datas.status + "</td>";
             
             html += status_button + "</tr>";              

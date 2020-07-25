@@ -252,6 +252,7 @@ $("#send_messages").on('click', function(e) {
       query_id: message_recipients_query_id,
       company: maCompany,
       email: maEmail,
+      cost: Number.parseFloat(localStorage.getItem('final_cost')),
     };
     // create request object
       var request = new Request(url, {
