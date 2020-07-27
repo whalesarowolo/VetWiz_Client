@@ -284,7 +284,7 @@ $("#send_messages").on('click', function(e) {
           } else {
             swal.fire({
               title: 'Message',
-              text: 'Your message has been dispatched',
+              text: 'Your message has been queued for review',
               icon: 'info',
               timer: 3000,
               allowOutsideClick: false,
@@ -292,6 +292,7 @@ $("#send_messages").on('click', function(e) {
             }).then(() => {
               //window.location.reload();
               console.log("Done sending request...", resp);
+              $(".opaque-summary").css('opacity', '0.15');
             });
           }
           
