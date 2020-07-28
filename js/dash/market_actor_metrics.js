@@ -416,6 +416,9 @@ function maSMS_history() {
 function reset_criteria() {
   setTimeout(() => {
     if (location.hash === '#sms') {
+      if ($('.child-menu').hasClass('is-sidebar-translated')) {
+        $('.child-menu').removeClass('is-sidebar-translated');
+      }
       $(".select_state").ready( function () {
         $(".select_state").prop("checked", true);
         $(".select_crops").prop("checked", true);
