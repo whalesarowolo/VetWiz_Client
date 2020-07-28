@@ -30,42 +30,14 @@ $(document).ready(function () {
   make_call = false;
   // maSMS_history();
   reset_criteria();
-  
-  if ($("#message").length) {
 
+  if ($("#message").length) {
     if ($(".white-button-disabled").length) {
       $(".white-button-disabled #prev_it").prop("disabled", true);
     } else {
       $(".white-button-disabled #prev_it").prop("disabled", false);
     }
   }
-
-  $("#modify_farmer_count").on("click", function () {
-    $(this)
-      .html(function (i, v) {
-        return v.trim() == "Edit"
-          ? function () {
-              $("#modify_farmer_count")
-                .removeClass("fa-pencil")
-                .addClass("fa-save");
-              $("#farmer_counter_total").removeClass(
-                "farmer-count-text-noedit"
-              );
-              return "Save";
-            }
-          : function () {
-              $("#modify_farmer_count")
-                .removeClass("fa-save")
-                .addClass("fa-pencil");
-              $("#farmer_counter_total").addClass("farmer-count-text-noedit");
-              return "Edit";
-            };
-      })
-      .prev("input[required]")
-      .prop("readonly", function (i, r) {
-        return !r;
-      });
-  });
 
   $(document).on("click", "#continue_metrics", function (ev) {
     if ($("#prev_it").hasClass("white-button-disabled")) {
@@ -90,6 +62,66 @@ $(document).ready(function () {
   });
 });
 
+$(document).on("click", "#modify_farmer_count", function () {
+  $(this)
+    .html(function (i, v) {
+      return v.trim() == "Edit"
+        ? function () {
+            $("#modify_farmer_count")
+              .removeClass("fa-pencil")
+              .addClass("fa-save");
+            $("#farmer_counter_total").removeClass("farmer-count-text-noedit");
+            return "Save";
+          }
+        : function () {
+            $("#modify_farmer_count")
+              .removeClass("fa-save")
+              .addClass("fa-pencil");
+            $("#farmer_counter_total").addClass("farmer-count-text-noedit");
+            console.log("New farmer_reach: ", $("#farmer_counter_total").val());
+            //Compute and update new sms cost here
+            $("#total_target_farmers").html(numberWithComma(Number($("#farmer_counter_total").val())));
+
+            $("#total_sms_counted").html(
+              numberWithComma(
+                Number($("#farmer_counter_total").val()) *
+                  Number.parseInt($(".message-count #messages").html())
+              )
+            );
+
+            $("#total_sms_cost_amount").html(
+              "₦" +
+                numberWithComma(
+                  5 *
+                    Number($("#farmer_counter_total").val()) *
+                    Number.parseInt($(".message-count #messages").html())
+                )
+            );
+
+            $("#total_sms_counts").html(
+              numberWithComma(
+                Number($("#farmer_counter_total").val()) *
+                  Number.parseInt($(".message-count #messages").html())
+              )
+            );
+            
+            $("#total_sms_cost").html(
+              "₦" +
+                numberWithComma(
+                  5 *
+                    Number($("#farmer_counter_total").val()) *
+                    Number.parseInt($(".message-count #messages").html())
+                )
+            );
+            return "Edit";
+          };
+    })
+    .prev("input[required]")
+    .prop("readonly", function (i, r) {
+      return !r;
+    });
+});
+
 $(document).on("change input keyup paste", "#message", function () {
   let regx = /^(\s+)$/;
   if (this.value.length > 5 && !this.value.toString().match(regx)) {
@@ -110,7 +142,7 @@ $(document).on("change input keyup paste", "#message", function () {
 
   const state_els = $(".select_state");
   const select_crops = $(".select_crops");
-  
+
   chosen_crops.splice(0, chosen_crops.length);
   chosen_states.splice(0, chosen_states.length);
 
@@ -415,20 +447,19 @@ function maSMS_history() {
 
 function reset_criteria() {
   setTimeout(() => {
-    if (location.hash === '#sms') {
-      if ($('.child-menu').hasClass('is-sidebar-translated')) {
-        $('.dashboard-outer').removeClass('is-pushed');
-        $('.dashboard-inner').removeClass('is-pushed');
-        $('.dashboard-nav').removeClass('is-pushed');
-        $('.child-menu').removeClass('is-sidebar-translated');
+    if (location.hash === "#sms") {
+      if ($(".child-menu").hasClass("is-sidebar-translated")) {
+        $(".dashboard-outer").removeClass("is-pushed");
+        $(".dashboard-inner").removeClass("is-pushed");
+        $(".dashboard-nav").removeClass("is-pushed");
+        $(".child-menu").removeClass("is-sidebar-translated");
       }
-      $(".select_state").ready( function () {
+      $(".select_state").ready(function () {
         $(".select_state").prop("checked", true);
         $(".select_crops").prop("checked", true);
-      })
+      });
     }
   }, 2000);
-  
 }
 
-window.addEventListener('hashchange', reset_criteria, false);
+window.addEventListener("hashchange", reset_criteria, false);
