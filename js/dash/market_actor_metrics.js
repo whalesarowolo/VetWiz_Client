@@ -1,14 +1,42 @@
+part1Count = 160;
+part2Count = 158;
+part3Count = 158;
+
+// state tracking
+var chosen_states = [];
+var chosen_crops = [];
+var filterable_criterias = {};
+var make_call = false;
+
+//add_state function
+function add_state(new_state) {
+  if (chosen_states.indexOf(new_state) == -1) {
+    chosen_states.push(new_state);
+  }
+}
+
+//add_crop function
+function add_crop(new_crop) {
+  if (chosen_crops.indexOf(new_crop) == -1) {
+    chosen_crops.push(new_crop);
+  }
+}
+
 $(document).ready(function () {
+  // state tracking
+  chosen_states = [];
+  chosen_crops = [];
+  filterable_criterias = {};
+  make_call = false;
   maSMS_history();
-  var make_call = false;
+  
   if ($("#message").length) {
-    console.log("Inside checker");
+
     if ($(".white-button-disabled").length) {
       $(".white-button-disabled #prev_it").prop("disabled", true);
     } else {
       $(".white-button-disabled #prev_it").prop("disabled", false);
     }
-    $('input[type="checkbox"]').attr("checked", "checked");
   }
 
   $("#modify_farmer_count").on("click", function () {
@@ -38,26 +66,7 @@ $(document).ready(function () {
       });
   });
 
-  $("#message").on("change input keyup paste", function () {
-    let regx = /^(\s+)$/;
-    if (this.value.length > 5 && !this.value.toString().match(regx)) {
-      if (
-        $(".button.subs_info_section_button.white-button").hasClass(
-          "white-button-disabled"
-        )
-      ) {
-        $(".button.subs_info_section_button.white-button").removeClass(
-          "white-button-disabled"
-        );
-      }
-    } else {
-      $(".button.subs_info_section_button.white-button").addClass(
-        "white-button-disabled"
-      );
-    }
-  });
-
-  $("#continue_metrics").on("click", function (ev) {
+  $(document).on("click", "#continue_metrics", function (ev) {
     if ($("#prev_it").hasClass("white-button-disabled")) {
       swal.fire({
         title: "Message too short",
@@ -69,120 +78,107 @@ $(document).ready(function () {
       });
     } else {
       swal.fire({
-        title: 'Getting Summary Metrics',
-        text: 'Please wait...',
-        icon: 'info',
+        title: "Getting Summary Metrics",
+        text: "Please wait...",
+        icon: "info",
         allowOutsideClick: false,
         showConfirmButton: false,
       });
       get_metrics(JSON.parse(localStorage.getItem("chosen_criteria")));
     }
   });
+});
 
-  part1Count = 160;
-  part2Count = 158;
-  part3Count = 158;
+$(document).on("change input keyup paste", "#message", function () {
+  let regx = /^(\s+)$/;
+  if (this.value.length > 5 && !this.value.toString().match(regx)) {
+    if (
+      $(".button.subs_info_section_button.white-button").hasClass(
+        "white-button-disabled"
+      )
+    ) {
+      $(".button.subs_info_section_button.white-button").removeClass(
+        "white-button-disabled"
+      );
+    }
+  } else {
+    $(".button.subs_info_section_button.white-button").addClass(
+      "white-button-disabled"
+    );
+  }
 
-  // state tracking
-  var chosen_states = [];
-  var chosen_crops = [];
-  var filterable_criterias = {};
+  const state_els = $(".select_state");
+  const select_crops = $(".select_crops");
+  
+  chosen_crops.splice(0, chosen_crops.length);
+  chosen_states.splice(0, chosen_states.length);
 
-  //add_state function
-  function add_state(new_state) {
-    if (chosen_states.indexOf(new_state) == -1) {
-      chosen_states.push(new_state);
+  for (const state of state_els) {
+    if (state.checked) {
+      add_state(state.value);
     }
   }
 
-  //add_crop function
-  function add_crop(new_crop) {
-    if (chosen_crops.indexOf(new_crop) == -1) {
-      chosen_crops.push(new_crop);
+  for (const crop of select_crops) {
+    if (crop.checked) {
+      add_crop(crop.value);
     }
   }
 
-  $("#message").on('keyup', function () {
-    
-    const state_els = $(".select_state");
-    const select_crops = $(".select_crops");
+  if (chosen_states.length > 0) {
+    //Update filterable criteria for states
+    filterable_criterias.states = chosen_states;
+    console.log("Selected states are: 👉🏻", chosen_states, filterable_criterias);
+    make_call = true;
+  } else {
+    make_call = false;
+  }
+  if (chosen_crops.length > 0) {
+    //Update filterable criteria for crops
+    filterable_criterias.crops = chosen_crops;
+    console.log("Selected crops are: 👉🏻", chosen_crops, filterable_criterias);
+    make_call = true;
+    // get_metrics(filterable_criterias);
+  } else {
+    make_call = false;
+  }
+  if (make_call) {
+    //get_metrics(filterable_criterias);
+    localStorage.setItem("chosen_states", filterable_criterias.states);
+    localStorage.setItem(
+      "chosen_criteria",
+      JSON.stringify(filterable_criterias)
+    );
+  }
+  // end state tracking
+  var chars = $(this).val().length;
+  messages = 0;
+  remaining = 0;
+  total = 0;
 
-    for (const state of state_els) {
-      if (state.checked) {
-        add_state(state.value);
-      }
-    }
+  if (chars <= part1Count) {
+    messages = 1;
 
-    for (const crop of select_crops) {
-      if (crop.checked) {
-        add_crop(crop.value);
-      }
-    }
+    remaining = part1Count - chars;
+  } else if (chars <= part1Count + part2Count) {
+    messages = 2;
 
-    if (chosen_states.length > 0) {
-      //Update filterable criteria for states
-      filterable_criterias.states = chosen_states;
-      console.log(
-        "Selected states are: 👉🏻",
-        chosen_states,
-        filterable_criterias
-      );
-      make_call = true;
-    } else {
-      make_call = false;
-    }
-    if (chosen_crops.length > 0) {
-      //Update filterable criteria for crops
-      filterable_criterias.crops = chosen_crops;
-      console.log("Selected crops are: 👉🏻", chosen_crops, filterable_criterias);
-      make_call = true;
-      // get_metrics(filterable_criterias);
-    }
+    remaining = part1Count + part2Count - chars;
+  } else if (chars > part1Count + part2Count) {
+    moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
+    remaining = part1Count + part2Count + moreM * part3Count - chars;
+    messages = 2 + moreM;
+  }
 
-    if (make_call) {
-      //get_metrics(filterable_criterias);
-      localStorage.setItem('chosen_states', filterable_criterias.states);
-      localStorage.setItem(
-        "chosen_criteria",
-        JSON.stringify(filterable_criterias)
-      );
-    }
-
-    // end state tracking
-
-    var chars = $(this).val().length;
-
-    messages = 0;
-
-    remaining = 0;
-
-    total = 0;
-
-    if (chars <= part1Count) {
-      messages = 1;
-
-      remaining = part1Count - chars;
-    } else if (chars <= part1Count + part2Count) {
-      messages = 2;
-
-      remaining = part1Count + part2Count - chars;
-    } else if (chars > part1Count + part2Count) {
-      moreM = Math.ceil((chars - part1Count - part2Count) / part3Count);
-      remaining = part1Count + part2Count + moreM * part3Count - chars;
-      messages = 2 + moreM;
-    }
-
-    $("#remaining").text(remaining);
-    $("#messages").text(messages);
-    $("#total").text(chars);
-    if (remaining > 1) $(".cplural").show();
-    else $(".cplural").hide();
-    if (messages > 1) $(".mplural").show();
-    else $(".mplural").hide();
-    if (chars > 1) $(".tplural").show();
-    else $(".tplural").hide();
-  });
-
+  $("#remaining").text(remaining);
+  $("#messages").text(messages);
+  $("#total").text(chars);
+  if (remaining > 1) $(".cplural").show();
+  else $(".cplural").hide();
+  if (messages > 1) $(".mplural").show();
+  else $(".mplural").hide();
+  if (chars > 1) $(".tplural").show();
+  else $(".tplural").hide();
 });
 
 function numberWithComma(x) {
@@ -221,7 +217,7 @@ function get_metrics(criterias) {
         //update the previews with the insights
       } else {
         swal.close();
-        $(".opaque-summary").css('opacity', '1.0');
+        $(".opaque-summary").css("opacity", "1.0");
         console.log("Response from metric server: ", resp);
         $(".message-reach-preview #adamawa_farmers").html(
           numberWithComma(resp.adamawa_farmers)
@@ -288,8 +284,12 @@ function get_metrics(criterias) {
                 Number.parseInt($(".message-count #messages").html())
             )
         );
-        localStorage.setItem('final_cost', 5 *
-        (resp.adamawa_farmers + resp.gombe_farmers) * Number.parseInt($(".message-count #messages").html()));
+        localStorage.setItem(
+          "final_cost",
+          5 *
+            (resp.adamawa_farmers + resp.gombe_farmers) *
+            Number.parseInt($(".message-count #messages").html())
+        );
         $(".farmer-count-wrapper #farmer_counter_total").val(
           resp.adamawa_farmers + resp.gombe_farmers
         ); //.attr('readonly', 'true');
@@ -361,7 +361,9 @@ function maSMS_history() {
             let message = datas.msg;
             let dataId = datas._id;
             let date = new Date(datas.date);
-            let ma_cost = (datas.cost)? "&#x20A6;" + numberWithComma(datas.cost) : "N/A";
+            let ma_cost = datas.cost
+              ? "&#x20A6;" + numberWithComma(datas.cost)
+              : "N/A";
             newDate =
               date.getMonth() +
               1 +
@@ -377,12 +379,12 @@ function maSMS_history() {
                 status_button = `<td><span style="color: green; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888;" class="is-button" onclick="javascript:" data_id="${dataId}">Resend</span></td>`;
                 break;
               case "Pending":
-                status_button = '';
+                status_button = "";
                 break;
               case "Rejected":
-                status_button = '';
+                status_button = "";
               default:
-                status_button = '';
+                status_button = "";
                 break;
             }
 
@@ -396,8 +398,8 @@ function maSMS_history() {
             html += "<td>" + "N/A" + "</td>";
             html += "<td>" + ma_cost + "</td>";
             html += "<td>" + datas.status + "</td>";
-            
-            html += status_button + "</tr>";              
+
+            html += status_button + "</tr>";
           });
 
           $("#ma_sms_history").ready(function () {
@@ -407,7 +409,19 @@ function maSMS_history() {
         .catch((error) => {
           console.error("Error:", error);
         });
-
-      
     });
 }
+
+function reset_criteria() {
+  setTimeout(() => {
+    if (location.hash === '#sms') {
+      $(".select_state").ready( function () {
+        $(".select_state").prop("checked", true);
+        $(".select_crops").prop("checked", true);
+      })
+    }
+  }, 2000);
+  
+}
+
+window.addEventListener('hashchange', reset_criteria, false);

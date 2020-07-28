@@ -58,10 +58,11 @@ Router.prototype = {
             xhttp.send();
             //document.querySelector('.child-menu').classList.toggle('is-sidebar-translated');
             $('.child-menu').toggleClass('is-sidebar-translated');
-            document.querySelector('.dashboard-outer').classList.toggle('is-pushed');
-            document.querySelector('.dashboard-inner').classList.toggle('is-pushed');
-            document.querySelector('.dashboard-nav').classList.toggle('is-pushed');
+            $('.dashboard-outer').toggleClass('is-pushed');
+            $('.dashboard-inner').toggleClass('is-pushed');
+            $('.dashboard-nav').toggleClass('is-pushed');
         })(this);
+        
     }
 };
 
