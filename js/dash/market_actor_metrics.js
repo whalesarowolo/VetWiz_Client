@@ -28,7 +28,8 @@ $(document).ready(function () {
   chosen_crops = [];
   filterable_criterias = {};
   make_call = false;
-  maSMS_history();
+  // maSMS_history();
+  reset_criteria();
   
   if ($("#message").length) {
 
