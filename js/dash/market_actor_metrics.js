@@ -83,28 +83,29 @@ $(document).ready(function () {
   part2Count = 158;
   part3Count = 158;
 
-  $("#message").keyup(function () {
-    // state tracking
-    var chosen_states = [];
-    var chosen_crops = [];
-    var filterable_criterias = {};
+  // state tracking
+  var chosen_states = [];
+  var chosen_crops = [];
+  var filterable_criterias = {};
 
+  //add_state function
+  function add_state(new_state) {
+    if (chosen_states.indexOf(new_state) == -1) {
+      chosen_states.push(new_state);
+    }
+  }
+
+  //add_crop function
+  function add_crop(new_crop) {
+    if (chosen_crops.indexOf(new_crop) == -1) {
+      chosen_crops.push(new_crop);
+    }
+  }
+
+  $("#message").on('keyup', function () {
+    
     const state_els = $(".select_state");
     const select_crops = $(".select_crops");
-
-    //add_state function
-    function add_state(new_state) {
-      if (chosen_states.indexOf(new_state) == -1) {
-        chosen_states.push(new_state);
-      }
-    }
-
-    //add_crop function
-    function add_crop(new_crop) {
-      if (chosen_crops.indexOf(new_crop) == -1) {
-        chosen_crops.push(new_crop);
-      }
-    }
 
     for (const state of state_els) {
       if (state.checked) {

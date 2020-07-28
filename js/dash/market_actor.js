@@ -193,7 +193,6 @@ function do_calculation() {
 
 // new home for sending market actor messages
 
-
 $("#send_messages").on('click', function(e) {
   
   var msg_content = $("#final_sms_message").html();
