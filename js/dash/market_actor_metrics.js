@@ -417,9 +417,9 @@ function reset_criteria() {
   setTimeout(() => {
     if (location.hash === '#sms') {
       if ($('.child-menu').hasClass('is-sidebar-translated')) {
-        $('.dashboard-outer').toggleClass('is-pushed');
-        $('.dashboard-inner').toggleClass('is-pushed');
-        $('.dashboard-nav').toggleClass('is-pushed');
+        $('.dashboard-outer').removeClass('is-pushed');
+        $('.dashboard-inner').removeClass('is-pushed');
+        $('.dashboard-nav').removeClass('is-pushed');
         $('.child-menu').removeClass('is-sidebar-translated');
       }
       $(".select_state").ready( function () {
