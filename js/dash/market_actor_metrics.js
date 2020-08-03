@@ -78,7 +78,6 @@ $(document).on("click", "#modify_farmer_count", function () {
               .removeClass("fa-save")
               .addClass("fa-pencil");
             $("#farmer_counter_total").addClass("farmer-count-text-noedit");
-            console.log("New farmer_reach: ", $("#farmer_counter_total").val());
             //Compute and update new sms cost here
             $("#total_target_farmers").html(numberWithComma(Number($("#farmer_counter_total").val())));
 

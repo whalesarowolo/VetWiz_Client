@@ -252,6 +252,7 @@ $("#send_messages").on('click', function(e) {
       company: maCompany,
       email: maEmail,
       cost: localStorage.getItem('final_cost'),
+      limit: $("#farmer_counter_total").val()
     };
     // create request object
       var request = new Request(url, {
