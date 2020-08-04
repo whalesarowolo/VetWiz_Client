@@ -216,8 +216,7 @@ function persist_new_disease() {
    mode: 'cors',
    body: JSON.stringify(disease_object)
  }).then((res) => {
-   var disease_saved = res.json();
-       if (disease_saved) {
+       if (res) {
         swal.fire({
           title: 'Data saved',
           text: 'Disease has been saved',
