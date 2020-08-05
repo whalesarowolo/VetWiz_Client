@@ -133,6 +133,7 @@ function persist_new_disease() {
 
 
   var disease_name = $("#disease_name").val();
+  var disease_animal = $("#disease_animal").val();
   var disease_name_hausa = $("#disease_name_hausa").val();
   var disease_name_fulfude = $("#disease_name_fulfude").val();
 
@@ -195,6 +196,7 @@ function persist_new_disease() {
  //Do value validations
  const disease_object = {
    disease: disease_name,
+   disease_animal: disease_animal,
    diseaseHausa: disease_name_hausa,
    diseaseFulfude: disease_name_fulfude,
    animalAssocaited: associated_animals_array,
@@ -539,6 +541,7 @@ function cancelMessage(params) {
   $('#create-internal-modal > .modal-close').addClass('is-hidden');
 }
 
+//Update the handleEdit function to allow for editing both Disease name and Vaccine field
 function handleEdit() {
   document.getElementById('disease_view_input_hausa').disabled = false;
   document.getElementById('disease_view_input_fulfude').disabled = false;
