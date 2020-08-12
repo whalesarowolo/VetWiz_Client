@@ -17,6 +17,7 @@ function add_state(new_state) {
 
 function update_wallet_balance() {
   console.log("Getting wallet balance");
+  $("#how_many_sms").html(localStorage.getItem('how_many_sms'));
   setInterval(() => {
     if ($(".topup_balance").length) {
       var wallety = localStorage.getItem('topup_balance');
@@ -395,6 +396,7 @@ function maSMS_history() {
           swal.close();
           var how_many_sms = data.length;
           console.log("SMS sent: ", how_many_sms);
+          localStorage.setItem('how_many_sms', how_many_sms);
           $("#how_many_sms").html(how_many_sms);
           var counter = 0;
           data.forEach((datas) => {
