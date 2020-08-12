@@ -7,12 +7,12 @@ $(document).ready(function (e) {
     } 
 
     if ($("#select_agree").length) {
+      $("#signup_new").addClass('is-hidden');
       $("#select_agree").on('change', function() {
         console.log("Toggling agreement");
         if ($("#select_agree").is(':checked')) {
           $("#signup_new").removeClass('is-hidden');
-        } else {
-          
+        } else {      
           $("#signup_new").addClass('is-hidden');
         }
       });
