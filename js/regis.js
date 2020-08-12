@@ -6,6 +6,18 @@ $(document).ready(function (e) {
         }, 4000)
     } 
 
+    if ($("#select_agree").length) {
+      $("#select_agree").on('change', function() {
+        console.log("Toggling agreement");
+        if ($("#select_agree").is(':checked')) {
+          $("#signup_new").removeClass('is-hidden');
+        } else {
+          
+          $("#signup_new").addClass('is-hidden');
+        }
+      });
+      
+    }
 
     // onClick event for sign up button
     $("#signup_new").on('click', function(e) {

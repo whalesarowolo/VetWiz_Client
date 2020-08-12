@@ -17,6 +17,8 @@ $(document).ready(function ($) {
       "is-hidden"
     );
   });
+
+  
   //Back to signup form
   $("#back-to-signup").on("click", function () {
     $(this).addClass("is-hidden");
@@ -79,6 +81,18 @@ $(document).ready(function ($) {
     history.go();
   });
 
+  if ($("#select_agree").length) {
+    $("#select_agree").on('change', function() {
+      console.log("Toggling agreement");
+      if ($("#select_agree").is(':checked')) {
+        $("#signup_new").removeClass('is-hidden');
+      } else {
+        
+        $("#signup_new").addClass('is-hidden');
+      }
+    });
+    
+  }
   // Sign up JS logic starts here
 
   // onClick event for sign up button

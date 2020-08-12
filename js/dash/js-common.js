@@ -30,4 +30,11 @@ $(document).ready(function($){
         }, 700 );
         })
     }
+
+    $("#register-form").ready(function () {
+        console.log("About to");
+        
+       $(".select_agree").prop("checked", true);
+    });
+
 });
