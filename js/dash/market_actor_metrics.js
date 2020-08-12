@@ -15,6 +15,18 @@ function add_state(new_state) {
   }
 }
 
+function update_wallet_balance() {
+  console.log("Getting wallet balance");
+  setInterval(() => {
+    if ($(".topup_balance").length) {
+      var wallety = localStorage.getItem('topup_balance');
+      if (wallety) {
+        $(".topup_balance").html("₦" + numberWithCommas(Number(wallety)));
+      }
+    }
+  }, 6000)
+}
+
 //add_crop function
 function add_crop(new_crop) {
   if (chosen_crops.indexOf(new_crop) == -1) {
@@ -30,6 +42,7 @@ $(document).ready(function () {
   make_call = false;
   // maSMS_history();
   reset_criteria();
+  update_wallet_balance();
 
   if ($("#message").length) {
     if ($(".white-button-disabled").length) {
@@ -381,6 +394,7 @@ function maSMS_history() {
         .then((data) => {
           swal.close();
           var how_many_sms = data.length;
+          console.log("SMS sent: ", how_many_sms);
           $("#how_many_sms").html(how_many_sms);
           var counter = 0;
           data.forEach((datas) => {
