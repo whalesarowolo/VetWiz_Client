@@ -6,7 +6,7 @@ $(document).ready(function (e) {
         }, 4000)
     } 
 
-    if ($("#select_agree").length) {
+    $("#select_agree").ready(function () {
       $("#signup_new").addClass('is-hidden');
       $("#select_agree").on('change', function() {
         console.log("Toggling agreement");
@@ -16,8 +16,10 @@ $(document).ready(function (e) {
           $("#signup_new").addClass('is-hidden');
         }
       });
+    })
       
-    }
+      
+    
 
     // onClick event for sign up button
     $("#signup_new").on('click', function(e) {
