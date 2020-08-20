@@ -92,26 +92,3 @@ a:focus{color:#26d0a9!important}
     background: #2CCBB4 !important;
 }
 
-.hero-bg {
-	background-image: url("../img/agency2.jpg"); 
-	background-attachment: fixed;
-	background-position: 50% 0px;
-	margin-top:80px;
-	padding:30px;
-}
-
-ul {
-    list-style-type: none !important;
-}
-ul li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #26d0a9; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-}
-
-.color-fa-green {
-	color: #26d0a9 !important;
-}

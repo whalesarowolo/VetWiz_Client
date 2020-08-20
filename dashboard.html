@@ -647,8 +647,9 @@
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">insert_chart</span>Analytics</a>
                     <ul>
-                        <li><a href="#sms">SMS</a></li>
+                        <!-- <li><a href="#sms">SMS</a></li> -->
                         <li><a href="#admin">Administration</a></li>
+                        <li><a href="#vouchers">Vouchers</a></li>
                         <li><a onclick="usersPage()" href="#users">Registered Users</a></li>
                         <li><a href="#internalsms">Internal SMS</a></li>
                         <li><a onclick="maSMS()" href="#needs">Message Queue</a></li>
@@ -1192,6 +1193,51 @@
                         type="button" class="button is-rounded" value="Cancel" />
                     <button style="border-radius: 20px !important;" type="submit"
                         class="button is-rounded is-modal">Create user</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="cancelUser();" class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+
+    <!-- Create Voucher Modal -->
+    <div id="create-voucher-modal" class="modal modal-lg create-voucher-modal modal-hero">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="flex-card simple-shadow">
+                <h2 class="dark-text">Create new vouchers</h2>
+                <div class="card-body">
+                    <div class="has-text-centered">
+                        <div class="help-text has-text-centered">Create a new vouchers by entering size and value.</div>
+
+                        <div class="columns is-multiline">
+                            <div class="column is-6">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input class="input is-medium" type="text" placeholder="Voucher Value"><span
+                                            class="icon is-left">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input class="input is-medium" type="number" placeholder="e.g. 45"><span
+                                            class="icon is-left">
+                                            <i class="fa fa-map-counter"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                <div class="field modal-footer">
+                    <input onclick="cancelVoucher();"
+                        style="background-color: red; align-items: center; align-content: center; color: #fff; font-weight: bold;"
+                        type="button" class="button is-rounded" value="Cancel" />
+                    <button style="border-radius: 20px !important;" type="submit"
+                        class="button is-rounded is-modal">Create vouchers</button>
                 </div>
             </div>
         </div>
@@ -4389,7 +4435,7 @@
     <script src="js/dash/js-datatable.js"></script>
     <script src="js/dash/js-charts.js"></script>
     <script type="text/javascript" language="javascript" src="js/dash/js-auth.js?v=39"></script>
-    <script src="js/dash/admin.js?v=40"></script>
+    <script src="js/dash/admin.js?v=41"></script>
     <script src="js/gap.js?v=39"></script>
     <script src="js/complete_gap.js?v=39"></script>
     <script src="/js/dash/ussd_farmer.js?v=39"></script>

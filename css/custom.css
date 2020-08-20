@@ -1296,7 +1296,7 @@
     background-color:transparent
 }
  .message-filter-box {
-     padding:20px 30px;
+     padding:20px 10px;
      background: #F1FAF8;
      border: 1px solid #A9E7D8;
 }
@@ -1326,7 +1326,6 @@
 .message-compose-container .message-count {
 	
 }
-
 
 
 .message-compose-container h1 {
@@ -1373,7 +1372,7 @@
 
 
 .send-message-wrapper {
-	padding:30px 30px;
+	padding:10px 10px
 }
 
 

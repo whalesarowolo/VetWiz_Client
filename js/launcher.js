@@ -30,6 +30,7 @@
             new Route('ussd_onboarded_farmers', 'ussd_onboarded_farmers.html'),
             new Route('topup', 'topup.html'),
             new Route('sms_history', 'sms_history.html'),
+            new Route('vouchers', 'vouchers.html'),
         ]);
     }
     init();

@@ -88,6 +88,24 @@ function newUser() {
     } 
 }
 
+function newVoucher() {
+    console.log('Working...');
+    if ($('#create-voucher-modal').length) {
+        console.log('Creating voucher...');
+        $('.create-voucher-modal').removeClass('is-hidden').addClass('is-active');
+        $('.create-voucher-modal > .modal-background').addClass('scaleInCircle');
+        $('.create-voucher-modal > .modal-content').addClass('scaleIn');
+        $('.create-voucher-modal > .modal-close').removeClass('is-hidden');
+    } 
+}
+
+function cancelVoucher() {
+    $('.modal.modal-lg.create-voucher-modal.modal-hero').removeClass('is-active');  
+    $('.create-voucher-modal > .modal-background').removeClass('scaleInCircle');
+    $('.create-voucher-modal > .modal-content').removeClass('scaleIn');
+    $('.create-voucher-modal > .modal-close').addClass('is-hidden');
+}
+
 function newMessage(params) {
     if ($('#create-note-modal').length) {
         if ($("#message").val().length > 6) {
