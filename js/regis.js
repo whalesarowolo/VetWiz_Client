@@ -17,9 +17,6 @@ $(document).ready(function (e) {
         }
       });
     })
-      
-      
-    
 
     // onClick event for sign up button
     $("#signup_new").on('click', function(e) {
@@ -153,8 +150,4 @@ $(document).ready(function (e) {
           })
   
       })
-  
-      //  Sign Up logic ends here 
-
-
 });

@@ -1209,9 +1209,8 @@ function agroTable(params) {
 }
 
 function riceGapSwal(params) {
-  swal
-    .fire({
-      title: "Loading Tomatoes Data",
+  Swal.fire({
+      title: "Loading Rice Data",
       text: "Please wait...",
       timer: 3000,
       allowOutsideClick: false,
