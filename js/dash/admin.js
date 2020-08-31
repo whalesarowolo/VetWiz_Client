@@ -1677,7 +1677,7 @@ function toGapSwal(params) {
             // console.log(data.input[0])
             //--->create data table > start
             //Check length of production of returned data
-            if (data.production[0].length > 0) {
+            if (data.production[0]) {
               console.log("We have : " + data.production.length);
               let landSelection = data.production[0].landSelection;
               let landPreparation = data.production[0].landPreparation;
@@ -1746,7 +1746,7 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            if (data.weather_climate[0].length) {
+            if (data.weather_climate[0]) {
               let temperature = data.weather_climate[0].temperature;
               let rainfall = data.weather_climate[0].rainfall;
               let humility = data.weather_climate[0].humility;
@@ -1801,7 +1801,7 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            if (data.aggrgation[0].length) {
+            if (data.aggrgation[0]) {
               let labelling = data.aggrgation[0].labelling;
               let pricing = data.aggrgation[0].pricing;
               let market_linage = data.aggrgation[0].market_linage;
@@ -1862,7 +1862,7 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            if (data.cropManagement[0].length) {
+            if (data.cropManagement[0]) {
               let weedControl = data.cropManagement[0].weedControl;
               let fertilizerApplication =
                 data.cropManagement[0].fertilizerApplication;
@@ -1925,7 +1925,7 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            if (condition) {
+            if (data.postHarvest[0]) {
               let threshing = data.postHarvest[0].threshing;
               let drying = data.postHarvest[0].drying;
               let packaging = data.postHarvest[0].packaging;
@@ -1986,7 +1986,7 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            if (data.input[0].length) { 
+            if (data.input[0]) { 
               let seedSelection = data.input[0].seedSelection;
               let seedSource = data.input[0].seedSource;
               let fertilizer = data.input[0].fertilizer;
