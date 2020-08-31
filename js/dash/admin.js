@@ -1638,7 +1638,7 @@ function toGapSwal(params) {
     .fire({
       title: "Loading Tomatoes Data",
       text: "Please wait...",
-      timer: 3000,
+      timer: 1500,
       allowOutsideClick: false,
       showConfirmButton: false,
       icon: "info",
@@ -1677,7 +1677,7 @@ function toGapSwal(params) {
             // console.log(data.input[0])
             //--->create data table > start
             //Check length of production of returned data
-            if (data.production.length > 0) {
+            if (data.production[0].length > 0) {
               console.log("We have : " + data.production.length);
               let landSelection = data.production[0].landSelection;
               let landPreparation = data.production[0].landPreparation;
@@ -1717,7 +1717,7 @@ function toGapSwal(params) {
                 title: 'Data not available',
                 text: 'No production data available',
                 icon: 'warning',
-                timer: 3000,
+                timer: 1500,
                 allowOutsideClick: false
               })
             }
@@ -1746,27 +1746,37 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let temperature = data.weather_climate[0].temperature;
-            let rainfall = data.weather_climate[0].rainfall;
-            let humility = data.weather_climate[0].humility;
+            if (data.weather_climate[0].length) {
+              let temperature = data.weather_climate[0].temperature;
+              let rainfall = data.weather_climate[0].rainfall;
+              let humility = data.weather_climate[0].humility;
 
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "temperature" + "</td>";
-            html += "<td>" + temperature + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "rainfall" + "</td>";
-            html += "<td>" + rainfall + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "humility" + "</td>";
-            html += "<td>" + humility + "</td>";
-            html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "temperature" + "</td>";
+              html += "<td>" + temperature + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "rainfall" + "</td>";
+              html += "<td>" + rainfall + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "humility" + "</td>";
+              html += "<td>" + humility + "</td>";
+              html += "</tr>";
 
-            document.getElementById("to_we").innerHTML = html;
+              document.getElementById("to_we").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No weed control data available',
+                icon: 'warning',
+                timer: 1500,
+                allowOutsideClick: false
+              })
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -1791,33 +1801,43 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let labelling = data.aggrgation[0].labelling;
-            let pricing = data.aggrgation[0].pricing;
-            let market_linage = data.aggrgation[0].market_linage;
-            let off_taker = data.aggrgation[0].off_taker;
+            if (data.aggrgation[0].length) {
+              let labelling = data.aggrgation[0].labelling;
+              let pricing = data.aggrgation[0].pricing;
+              let market_linage = data.aggrgation[0].market_linage;
+              let off_taker = data.aggrgation[0].off_taker;
 
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "labelling" + "</td>";
-            html += "<td>" + labelling + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "pricing" + "</td>";
-            html += "<td>" + pricing + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "market_linage" + "</td>";
-            html += "<td>" + market_linage + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "off_taker" + "</td>";
-            html += "<td>" + off_taker + "</td>";
-            html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "labelling" + "</td>";
+              html += "<td>" + labelling + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "pricing" + "</td>";
+              html += "<td>" + pricing + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "market_linage" + "</td>";
+              html += "<td>" + market_linage + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "off_taker" + "</td>";
+              html += "<td>" + off_taker + "</td>";
+              html += "</tr>";
 
-            document.getElementById("to_aggr").innerHTML = html;
+              document.getElementById("to_aggr").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No weed control data available',
+                icon: 'warning',
+                timer: 1500,
+                allowOutsideClick: false
+              })
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -1842,35 +1862,45 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let weedControl = data.cropManagement[0].weedControl;
-            let fertilizerApplication =
-              data.cropManagement[0].fertilizerApplication;
-            let cpp = data.cropManagement[0].cpp;
-            let pest_disease_control =
-              data.cropManagement[0].pest_disease_control;
+            if (data.cropManagement[0].length) {
+              let weedControl = data.cropManagement[0].weedControl;
+              let fertilizerApplication =
+                data.cropManagement[0].fertilizerApplication;
+              let cpp = data.cropManagement[0].cpp;
+              let pest_disease_control =
+                data.cropManagement[0].pest_disease_control;
 
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "weedControl" + "</td>";
-            html += "<td>" + weedControl + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "fertilizer Application" + "</td>";
-            html += "<td>" + fertilizerApplication + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "CPP" + "</td>";
-            html += "<td>" + cpp + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "Pest-Disease Control" + "</td>";
-            html += "<td>" + pest_disease_control + "</td>";
-            html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "weedControl" + "</td>";
+              html += "<td>" + weedControl + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "fertilizer Application" + "</td>";
+              html += "<td>" + fertilizerApplication + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "CPP" + "</td>";
+              html += "<td>" + cpp + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "Pest-Disease Control" + "</td>";
+              html += "<td>" + pest_disease_control + "</td>";
+              html += "</tr>";
 
-            document.getElementById("to_mtg").innerHTML = html;
+              document.getElementById("to_mtg").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No weed control data available',
+                icon: 'warning',
+                timer: 1500,
+                allowOutsideClick: false
+              })
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -1895,33 +1925,43 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let threshing = data.postHarvest[0].threshing;
-            let drying = data.postHarvest[0].drying;
-            let packaging = data.postHarvest[0].packaging;
-            let storage = data.postHarvest[0].storage;
-
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "threshing" + "</td>";
-            html += "<td>" + threshing + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "drying" + "</td>";
-            html += "<td>" + drying + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "packaging" + "</td>";
-            html += "<td>" + packaging + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "storage" + "</td>";
-            html += "<td>" + storage + "</td>";
-            html += "</tr>";
-
-            document.getElementById("to_harv").innerHTML = html;
+            if (condition) {
+              let threshing = data.postHarvest[0].threshing;
+              let drying = data.postHarvest[0].drying;
+              let packaging = data.postHarvest[0].packaging;
+              let storage = data.postHarvest[0].storage;
+  
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "threshing" + "</td>";
+              html += "<td>" + threshing + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "drying" + "</td>";
+              html += "<td>" + drying + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "packaging" + "</td>";
+              html += "<td>" + packaging + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "storage" + "</td>";
+              html += "<td>" + storage + "</td>";
+              html += "</tr>";
+  
+              document.getElementById("to_harv").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No weed control data available',
+                icon: 'warning',
+                timer: 1500,
+                allowOutsideClick: false
+              })
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -1946,39 +1986,49 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let seedSelection = data.input[0].seedSelection;
-            let seedSource = data.input[0].seedSource;
-            let fertilizer = data.input[0].fertilizer;
-            let herbicides = data.input[0].herbicides;
-            let cropProtectionProduct = data.input[0].cropProtectionProduct;
+            if (data.input[0].length) { 
+              let seedSelection = data.input[0].seedSelection;
+              let seedSource = data.input[0].seedSource;
+              let fertilizer = data.input[0].fertilizer;
+              let herbicides = data.input[0].herbicides;
+              let cropProtectionProduct = data.input[0].cropProtectionProduct;
 
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "seed Selection" + "</td>";
-            html += "<td>" + seedSelection + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "seed Source" + "</td>";
-            html += "<td>" + seedSource + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "fertilizer" + "</td>";
-            html += "<td>" + fertilizer + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "herbicides" + "</td>";
-            html += "<td>" + herbicides + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "crop Protection Product" + "</td>";
-            html += "<td>" + cropProtectionProduct + "</td>";
-            html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "seed Selection" + "</td>";
+              html += "<td>" + seedSelection + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "seed Source" + "</td>";
+              html += "<td>" + seedSource + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "fertilizer" + "</td>";
+              html += "<td>" + fertilizer + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "herbicides" + "</td>";
+              html += "<td>" + herbicides + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "crop Protection Product" + "</td>";
+              html += "<td>" + cropProtectionProduct + "</td>";
+              html += "</tr>";
 
-            document.getElementById("to_input").innerHTML = html;
+              document.getElementById("to_input").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No weed control data available',
+                icon: 'warning',
+                timer: 1500,
+                allowOutsideClick: false
+              })
+            }
             Swal.close();
           })
           .catch((error) => {
