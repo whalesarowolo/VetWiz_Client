@@ -1233,8 +1233,7 @@ function riceGapSwal(params) {
       };
 
       $("#rice_pro_details").ready(function () {
-        const url =
-          "https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c";
+        const url = "https://farm-aid-backend.herokuapp.com/api/crops/5ef9bad1c50f0e0017df379c";
         const token = localStorage.getItem("access_token");
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
@@ -1677,39 +1676,52 @@ function toGapSwal(params) {
             var row_id = random_id();
             // console.log(data.input[0])
             //--->create data table > start
-            let landSelection = data.production[0].landSelection;
-            let landPreparation = data.production[0].landPreparation;
-            let plantingTechnique = data.production[0].plantingTechnique;
-            let harvesting = data.production[0].harvesting;
-            let mechanization = data.production[0].mechanization;
+            //Check length of production of returned data
+            if (data.production.length > 0) {
+              console.log("We have : " + data.production.length);
+              let landSelection = data.production[0].landSelection;
+              let landPreparation = data.production[0].landPreparation;
+              let plantingTechnique = data.production[0].plantingTechnique;
+              let harvesting = data.production[0].harvesting;
+              let mechanization = data.production[0].mechanization;
 
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "land Selection" + "</td>";
-            html += "<td>" + landSelection + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "land Preparation" + "</td>";
-            html += "<td>" + landPreparation + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "planting Technique" + "</td>";
-            html += "<td>" + plantingTechnique + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "harvesting" + "</td>";
-            html += "<td>" + harvesting + "</td>";
-            html += "</tr>";
-            html += "<tr>";
-            html += "<td></td>";
-            html += "<td>" + "mechanization" + "</td>";
-            html += "<td>" + mechanization + "</td>";
-            html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "land Selection" + "</td>";
+              html += "<td>" + landSelection + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "land Preparation" + "</td>";
+              html += "<td>" + landPreparation + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "planting Technique" + "</td>";
+              html += "<td>" + plantingTechnique + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "harvesting" + "</td>";
+              html += "<td>" + harvesting + "</td>";
+              html += "</tr>";
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + "mechanization" + "</td>";
+              html += "<td>" + mechanization + "</td>";
+              html += "</tr>";
 
-            document.getElementById("to_pro").innerHTML = html;
+              document.getElementById("to_pro").innerHTML = html;
+            } else {
+              swal.fire({
+                title: 'Data not available',
+                text: 'No production data available',
+                icon: 'warning',
+                timer: 3000,
+                allowOutsideClick: false
+              })
+            }
+            
           })
           .catch((error) => {
             console.error("Error:", error);
