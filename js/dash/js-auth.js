@@ -6,7 +6,6 @@
  ========================================================================== 
 */
 
-
 $(document).ready(function ($) {
   "use strict";
 
@@ -19,7 +18,6 @@ $(document).ready(function ($) {
     );
   });
 
-  
   //Back to signup form
   $("#back-to-signup").on("click", function () {
     $(this).addClass("is-hidden");
@@ -83,17 +81,15 @@ $(document).ready(function ($) {
   });
 
   if ($("#select_agree").length) {
-    $("#signup_new").addClass('is-hidden');
-    $("#select_agree").on('change', function() {
+    $("#signup_new").addClass("is-hidden");
+    $("#select_agree").on("change", function () {
       console.log("Toggling agreement");
-      if ($("#select_agree").is(':checked')) {
-        $("#signup_new").removeClass('is-hidden');
+      if ($("#select_agree").is(":checked")) {
+        $("#signup_new").removeClass("is-hidden");
       } else {
-        
-        $("#signup_new").addClass('is-hidden');
+        $("#signup_new").addClass("is-hidden");
       }
     });
-    
   }
   // Sign up JS logic starts here
 
@@ -246,18 +242,20 @@ $(document).ready(function ($) {
   //  Sign Up logic ends here
 
   function parseJwt(token) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
+    if (token) {
+      var base64Url = token.split(".")[1];
+      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
 
-    return JSON.parse(jsonPayload);
+      return JSON.parse(jsonPayload);
+    }
   }
 
   $("#enta").on("click", function (e) {
@@ -356,7 +354,6 @@ function goHomePartner() {
   document.location.replace("/partnerDashboard.html");
 }
 
-
 // function to validate email
 function IsEmail(email) {
   var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -443,18 +440,20 @@ $("#forgot_password_button").on("click", function (e) {
 });
 
 function parseJwt(token) {
-  var base64Url = token.split(".")[1];
-  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  var jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join("")
-  );
+  if (token) {
+    var base64Url = token.split(".")[1];
+    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    var jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
 
-  return JSON.parse(jsonPayload);
+    return JSON.parse(jsonPayload);
+  }
 }
 
 $(document).ready(function () {
@@ -558,5 +557,3 @@ function isNumberKey(evt) {
 
   return true;
 }
-
-
