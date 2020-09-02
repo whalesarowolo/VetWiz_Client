@@ -77,7 +77,7 @@ $(document).ready(function ($) {
     history.pushState(
       { data: window.location.href, time: Date.now() },
       "Dashboard",
-      window.location.href
+      window.location.origin
     );
     history.go();
   });
