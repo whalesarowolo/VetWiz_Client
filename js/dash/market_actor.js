@@ -131,7 +131,7 @@ function call_top_up() {
 
 function numberWithCommas(x) {
   //Clean implementation for brevity
-  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'); //x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function top_up_history(event) {
