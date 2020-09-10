@@ -229,7 +229,7 @@ $(document).on("change input keyup paste", "#message", function () {
 
 function numberWithComma(x) {
   //Clean implementation for brevity
-  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');//x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 //Call api for metrics
