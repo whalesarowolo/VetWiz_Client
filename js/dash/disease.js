@@ -477,6 +477,7 @@ function updateSingleDisease(view_det_update_id) {
 
 
     let disease_view_input_hausa = $('#disease_view_input_hausa').val().trim();
+      let disease_view_input = $('#disease_view_input').val().trim();
       let disease_view_input_fulfude = $('#disease_view_input_fulfude').val().trim();
       let disease_view_textarea_keyword = $('#disease_view_textarea_keyword').val();
       let disease_view_textarea_assocaitedAnimal = $('#disease_view_textarea_assocaitedAnimal').val().trim();
@@ -489,6 +490,7 @@ function updateSingleDisease(view_det_update_id) {
       const token = localStorage.getItem('access_token');
     
       const disease = {
+       "disease_input": disease_view_input,
        "diseaseHausa": disease_view_input_hausa,
        "diseaseFulfude": disease_view_input_fulfude,
        "animalAssocaited": disease_view_textarea_assocaitedAnimal,
@@ -543,6 +545,7 @@ function cancelMessage(params) {
 
 //Update the handleEdit function to allow for editing both Disease name and Vaccine field
 function handleEdit() {
+  document.getElementById('disease_view_input').disabled = false;
   document.getElementById('disease_view_input_hausa').disabled = false;
   document.getElementById('disease_view_input_fulfude').disabled = false;
   document.getElementById('disease_view_textarea_keyword').disabled = false;
@@ -550,12 +553,14 @@ function handleEdit() {
   document.getElementById('disease_view_textarea_treament').disabled = false;
   document.getElementById('disease_view_textarea_symptoms').disabled = false;
   document.getElementById('disease_view_textarea_prevention').disabled = false;
+  document.getElementById('disease_view_textarea_vaccine').disabled = false;
   document.getElementById('edit').hidden = true;
   document.getElementById('save').hidden = false;
   
   return false;
 }
 function handleunEdit() {
+  document.getElementById('disease_view_input').disabled = true;
   document.getElementById('disease_view_input_hausa').disabled = true;
   document.getElementById('disease_view_input_fulfude').disabled = true;
   document.getElementById('disease_view_textarea_keyword').disabled = true;
@@ -563,6 +568,7 @@ function handleunEdit() {
   document.getElementById('disease_view_textarea_treament').disabled = true;
   document.getElementById('disease_view_textarea_symptoms').disabled = true;
   document.getElementById('disease_view_textarea_prevention').disabled = true;
+  document.getElementById('disease_view_textarea_vaccine').disabled = true;
   document.getElementById('edit').hidden = false;
   document.getElementById('save').hidden = true;
   

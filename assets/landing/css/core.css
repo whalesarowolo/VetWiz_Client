@@ -92,3 +92,16 @@ a:focus{color:#26d0a9!important}
     background: #2CCBB4 !important;
 }
 
+.color-fa-green {
+	color: #26D0A9 !important;
+}
+
+.subscribe-to-pay-hero {
+	margin-top:100px;
+}
+@media (max-width: 764px) {
+.subscribe-to-pay-hero {
+	margin-top:-120px;
+	margin-bottom:-140px;
+}
+}
