@@ -459,7 +459,7 @@ function handleDel(params) {
     timer: 3000,
     icon: 'warning'
   }).then(() => {
-    let the_del_id = $("#save").attr('data_update_id').val()
+    let the_del_id = $("#save").attr('data_update_id')
     console.log("Deleting " + the_del_id)
   })
 }
