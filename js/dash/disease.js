@@ -460,14 +460,7 @@ function handleDel(params) {
     icon: 'warning'
   }).then(() => {
     let the_del_id = $("#save").attr('data_update_id').val()
-    swal.fire({
-      title: 'Deletion...',
-      text: 'Document with id: ' + the_del_id + ', is being deleted',
-      icon: 'info',
-      timer: 3000,
-      allowOutsideClick: false,
-      showConfirmButton: true
-    })
+    console.log("Deleting " + the_del_id)
   })
 }
 
