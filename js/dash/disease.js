@@ -436,6 +436,7 @@ function viewSingleDisease(view_det_id) {
       html += "<div class='single_disease_button_section'>"
       html += '<button  onclick="cancelMessage();" class="" style="border-radius:20px; background-color: #e7e7e7;">' +  'Cancel'+ '</button>'
       html += "<button type='edit' class='' id='edit' class='' onclick='return handleEdit()' style='background-color: #26d0a8; margin-left:5px; border-radius:20px'>" +  'Update'+ "</button>"
+      html += "<button type='edit' class='' id='del' class='' onclick='return handleDel()' style='background-color: #ff0000; margin-left:5px; border-radius:20px'>" +  'Delete'+ "</button>"
       html += '<button  type="submit" class="" id="save" class="" hidden style="background-color: #26d0a8; margin-left:5px; border-radius:20px";  onclick="updateID(event)" data_update_id=' + `${disease_dataId}` + '> Save' + '</button>'
       html += "</div>"
        
@@ -448,6 +449,16 @@ function viewSingleDisease(view_det_id) {
   })
 
   
+}
+
+
+function handleDel(params) {
+  swal.fire({
+    title: 'About to Delete',
+    text: 'You are about to delete this document',
+    timer: 3000,
+    icon: 'warning'
+  })
 }
 
 function updateID(event) {
