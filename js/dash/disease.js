@@ -461,6 +461,32 @@ function handleDel(params) {
   }).then(() => {
     let the_del_id = $("#save").attr('data_update_id')
     console.log("Deleting " + the_del_id)
+
+    //Handle deletion here
+    Swal.fire({
+      title: "Please wait",
+      text: "Deleting data ....",
+      icon: "info",
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
+    const url = `https://farm-aid-backend.herokuapp.com/api/disease/${the_del_id}`
+    const token = localStorage.getItem('access_token');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', token);
+    fetch(url, {
+      method: "DELETE",
+      headers
+    }).then(async (res) => res.json()).then(data => {
+      console.log("Data: ", data);
+    }).catch((error) => {
+      swal.fire({
+        title: 'Error occured',
+        text: 'There was an error ' + error.message,
+        icon: 'warning',
+      })
+    })
   })
 }
 
