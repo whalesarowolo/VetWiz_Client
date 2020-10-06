@@ -480,6 +480,16 @@ function handleDel(params) {
       headers
     }).then(async (res) => res.json()).then(data => {
       console.log("Data: ", data);
+      Swal.close()
+      Swal.fire({
+        title: "Data deleted",
+        text: "Data deleted successfully",
+        icon: "success",
+        allowOutsideClick: false,
+        showConfirmButton: true,
+        timer: 2000
+      });
+      window.location.reload;
     }).catch((error) => {
       swal.fire({
         title: 'Error occured',
