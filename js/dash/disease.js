@@ -489,7 +489,7 @@ function handleDel(params) {
         showConfirmButton: true,
         timer: 2000
       });
-      window.location.reload;
+      window.location.reload()
     }).catch((error) => {
       swal.fire({
         title: 'Error occured',
