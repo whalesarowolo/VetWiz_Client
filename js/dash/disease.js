@@ -195,6 +195,17 @@ function persist_new_disease() {
  alert(dis_img);
  var formdata = new FormData();
  formdata.append('diseaseImage', dis_img);
+ formdata.append('disease', disease_name);
+ formdata.append('disease_animal', disease_animal);
+ formdata.append('diseaseHausa', diseaseHausa);
+ formdata.append('diseaseFulfude', diseaseFulfude);
+ formdata.append('animalAssocaited', associated_animals_array);
+ formdata.append('symptoms', disease_symptoms_array);
+ formdata.append('treatment', disease_treatment);
+ formdata.append('vaccine', disease_vaccine);
+ formdata.append('prevention', disease_prevention_array);
+ formdata.append('keyWord', disease_keywords_array);
+console.log(formdata);
 
  // Populate disase Object
 
@@ -210,7 +221,7 @@ function persist_new_disease() {
    vaccine: disease_vaccine,
    prevention: disease_prevention_array,
    keyWord: disease_keywords_array,
-   diseaseImage: formdata.diseaseImage
+   diseaseImage: dis_img
  }
 
  let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
