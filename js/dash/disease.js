@@ -243,7 +243,7 @@ console.log(JSON.stringify(formdata));
    method: 'POST',
    headers,
    mode: 'cors',
-   body: JSON.stringify(formdata)
+   body: formdata
  }).then((res) => {
        if (res) {
         swal.fire({
