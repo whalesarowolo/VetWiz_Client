@@ -205,9 +205,9 @@ function persist_new_disease() {
  formdata.append('prevention', disease_prevention_array);
  formdata.append('keyWord', disease_keywords_array);
  // Display the values
-for (var value of formdata.values()) {
-  console.log(value); 
-}
+  for (var value of formdata.values()) {
+    console.log(value); 
+  }
 
  // Populate disase Object
 
@@ -223,19 +223,18 @@ for (var value of formdata.values()) {
    vaccine: disease_vaccine,
    prevention: disease_prevention_array,
    keyWord: disease_keywords_array,
-   diseaseImage: dis_img
  }
 
  let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
  const token = localStorage.getItem('access_token');
  var headers = new Headers();
- headers.append('Content-Type', 'application/json');
+ //headers.append('Content-Type', 'application/json');
  headers.append('authorization', token);
  fetch(disease_save_url, {
    method: 'POST',
    headers,
    mode: 'cors',
-   body: JSON.stringify(disease_object)
+   body: formdata
  }).then((res) => {
        if (res) {
         swal.fire({
