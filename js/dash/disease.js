@@ -190,6 +190,10 @@ function persist_new_disease() {
  console.log("Keywords: ", disease_keywords_array);
 
  var disease_vaccine = $("#disease_vaccine").val();
+ 
+ var dis_img = $("#image_a")[0].files[0];
+ var formdata = new FormData();
+ formdata.append('diseaseImage', dis_img);
 
  // Populate disase Object
 
@@ -205,6 +209,7 @@ function persist_new_disease() {
    vaccine: disease_vaccine,
    prevention: disease_prevention_array,
    keyWord: disease_keywords_array,
+   diseaseImage: formdata
  }
 
  let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
