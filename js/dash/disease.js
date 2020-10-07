@@ -197,8 +197,8 @@ function persist_new_disease() {
  formdata.append('diseaseImage', dis_img);
  formdata.append('disease', disease_name);
  formdata.append('disease_animal', disease_animal);
- formdata.append('diseaseHausa', diseaseHausa);
- formdata.append('diseaseFulfude', diseaseFulfude);
+ formdata.append('diseaseHausa', disease_name_hausa);
+ formdata.append('diseaseFulfude', disease_name_fulfude);
  formdata.append('animalAssocaited', associated_animals_array);
  formdata.append('symptoms', disease_symptoms_array);
  formdata.append('treatment', disease_treatment);
