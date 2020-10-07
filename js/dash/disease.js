@@ -210,7 +210,7 @@ function persist_new_disease() {
    vaccine: disease_vaccine,
    prevention: disease_prevention_array,
    keyWord: disease_keywords_array,
-   formdata
+   diseaseImage: formdata.diseaseImage
  }
 
  let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
