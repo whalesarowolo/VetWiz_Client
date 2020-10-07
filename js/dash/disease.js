@@ -192,7 +192,7 @@ function persist_new_disease() {
  var disease_vaccine = $("#disease_vaccine").val();
  
  const dis_img = document.getElementById('image_a').files[0];
- console.log(document.getElementById('image_a')[0].files[0]);
+ console.log(document.getElementById('image_a').files[0]);
  var formdata = new FormData();
  formdata.append('diseaseImage', dis_img);
  formdata.append('disease', disease_name);
