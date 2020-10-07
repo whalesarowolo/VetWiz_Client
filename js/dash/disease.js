@@ -191,7 +191,7 @@ function persist_new_disease() {
 
  var disease_vaccine = $("#disease_vaccine").val();
  
- var dis_img = $("#image_a")[0].files[0];
+ const dis_img = document.getElementById('image_a').files[0];;
  alert(dis_img);
  var formdata = new FormData();
  formdata.append('diseaseImage', dis_img);
@@ -236,7 +236,7 @@ function persist_new_disease() {
  let disease_save_url = 'https://farm-aid-backend.herokuapp.com/api/disease';
  const token = localStorage.getItem('access_token');
  var headers = new Headers();
- headers.append('Content-Type', 'application/json');
+ //headers.append('Content-Type', 'application/json');
  headers.append('authorization', token);
  fetch(disease_save_url, {
    method: 'POST',
