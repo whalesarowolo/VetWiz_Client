@@ -215,7 +215,6 @@ function persist_new_disease() {
 //       console.log(data);
 //   }
 // });
-console.log(JSON.stringify(formdata));
 
  // Populate disase Object
 
@@ -243,7 +242,7 @@ console.log(JSON.stringify(formdata));
    method: 'POST',
    headers,
    mode: 'cors',
-   body: formdata
+   body: JSON.stringify(disease_object)
  }).then((res) => {
        if (res) {
         swal.fire({
