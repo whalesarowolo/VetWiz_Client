@@ -205,19 +205,9 @@ function persist_new_disease() {
  formdata.append('prevention', disease_prevention_array);
  formdata.append('keyWord', disease_keywords_array);
  // Display the values
-for (var value of formData.values()) {
+for (var value of formdata.values()) {
   console.log(value); 
 }
-//  $.ajax({
-//   url: 'https://farm-aid-backend.herokuapp.com/api/disease',
-//   data: formdata,
-//   contentType: 'application/json',
-//   processData: true,
-//   type: 'POST',
-//   'success':function(data){
-//       console.log(data);
-//   }
-// });
 
  // Populate disase Object
 
