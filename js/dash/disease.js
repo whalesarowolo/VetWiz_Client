@@ -675,3 +675,43 @@ function showMyImage(fileInput) {
     reader.readAsDataURL(file);
   }
 }
+
+function showMyImageb(fileInput) {
+  var files = fileInput.files;
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageType = /image.*/;
+    if (!file.type.match(imageType)) {
+      continue;
+    }
+    var imgb = document.getElementById("thumbnailb");
+    imgb.file = file;
+    var reader = new FileReader();
+    reader.onload = (function (aImg) {
+      return function (e) {
+        aImg.src = e.target.result;
+      };
+    })(imgb);
+    reader.readAsDataURL(file);
+  }
+}
+
+function showMyImagec(fileInput) {
+  var files = fileInput.files;
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageType = /image.*/;
+    if (!file.type.match(imageType)) {
+      continue;
+    }
+    var imgc = document.getElementById("thumbnailc");
+    imimgcg.file = file;
+    var reader = new FileReader();
+    reader.onload = (function (aImg) {
+      return function (e) {
+        aImg.src = e.target.result;
+      };
+    })(imgc);
+    reader.readAsDataURL(file);
+  }
+}
