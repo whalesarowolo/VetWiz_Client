@@ -192,14 +192,14 @@ function persist_new_disease() {
   var disease_vaccine = $("#disease_vaccine").val();
 
   const dis_img = document.getElementById('image_a').files[0];
-  Swal.fire({
-    title: 'Sweet!',
-    text: 'Modal with a custom image.',
-    imageUrl: document.getElementById('image_a').files[0].src,
-    imageWidth: 400,
-    imageHeight: 200,
-    imageAlt: 'Custom image',
-  })
+  // Swal.fire({
+  //   title: 'Sweet!',
+  //   text: 'Modal with a custom image.',
+  //   imageUrl: document.getElementById('image_a').files[0].src,
+  //   imageWidth: 400,
+  //   imageHeight: 200,
+  //   imageAlt: 'Custom image',
+  // })
   console.log(document.getElementById('image_a').files[0]);
   var formdata = new FormData();
   formdata.append('diseaseImage', dis_img);
