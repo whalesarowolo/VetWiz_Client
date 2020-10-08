@@ -705,7 +705,7 @@ function showMyImagec(fileInput) {
       continue;
     }
     var imgc = document.getElementById("thumbnailc");
-    imimgcg.file = file;
+    imgc.file = file;
     var reader = new FileReader();
     reader.onload = (function (aImg) {
       return function (e) {
