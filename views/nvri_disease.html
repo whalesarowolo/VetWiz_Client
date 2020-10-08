@@ -137,7 +137,7 @@
                     margin-right: -200px;
                 }
 
-                #thumbnail {
+                #thumbnail #thumbnailb #thumbnailc {
                     width: 25%;
                     margin-top: 10px;
                     cursor: pointer;
@@ -145,18 +145,52 @@
                 }
             </style>
 
-            <p class="control uploader">
-                <a class="button button is-dark is-fullwidth is-medium">
-                    <span class="icon is-small">
-                        <i class="fas fa-upload"></i>
-                    </span>
-                    <span>Upload image</span>
-                    <input id="image_a" name="diseaseImage" type="file" accept="image/*" onchange="showMyImage(this)" value=""
-                        class="button button is-dark chooseFile" />
-                </a>
-            </p>
-            <div class="field">
-                <img id="thumbnail" src="" alt="image-preview-here" />
+            <div class="columns">
+                <div class="column">
+                    <p class="control uploader">
+                        <a class="button button is-dark is-fullwidth is-medium">
+                            <span class="icon is-small">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span>Upload main image</span>
+                            <input id="image_a" name="diseaseImage" type="file" accept="image/*" onchange="showMyImage(this)" value=""
+                                class="button button is-dark chooseFile" />
+                        </a>
+                    </p>
+                    <div class="field">
+                        <img id="thumbnail" src="" alt="image-preview-here" />
+                    </div>
+                </div>
+                <div class="column">
+                    <p class="control uploader">
+                        <a class="button button is-dark is-fullwidth is-medium">
+                            <span class="icon is-small">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span>Upload image II</span>
+                            <input id="image_b" name="diseaseImage1" type="file" accept="image/*" onchange="showMyImage(this)" value=""
+                                class="button button is-dark chooseFile" />
+                        </a>
+                    </p>
+                    <div class="field">
+                        <img id="thumbnailb" src="" alt="image-preview-here" />
+                    </div>
+                </div>
+                <div class="column">
+                    <p class="control uploader">
+                        <a class="button button is-dark is-fullwidth is-medium">
+                            <span class="icon is-small">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span>Upload image III</span>
+                            <input id="image_c" name="diseaseImage2" type="file" accept="image/*" onchange="showMyImage(this)" value=""
+                                class="button button is-dark chooseFile" />
+                        </a>
+                    </p>
+                    <div class="field">
+                        <img id="thumbnailc" src="" alt="image-preview-here" />
+                    </div>
+                </div>
             </div>
         </div>
 
