@@ -11,7 +11,7 @@ function parseJwt (token) {
 function check_auth() {
     if (localStorage.getItem('access_token') != null || localStorage.getItem('access_token') != undefined) {
         var userObj = parseJwt(localStorage.getItem('access_token'));
-        swal.fire({
+        Swal.fire({
             title: 'Please wait',
             text: 'Waiting for authorisation...',
             timer: 3000,
@@ -20,7 +20,7 @@ function check_auth() {
             if (userObj.user.role == "admin") {
                 $("#support-dashboard").fadeIn('fast');
             } else {
-                swal.fire({
+                Swal.fire({
                     title: 'You are not authorized',
                     text: 'You have to login to continue',
                     timer: '3000',
