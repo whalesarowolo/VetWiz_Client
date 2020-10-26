@@ -31,6 +31,7 @@
             new Route('topup', 'topup.html'),
             new Route('sms_history', 'sms_history.html'),
             new Route('vouchers', 'vouchers.html'),
+            new Route('add_subscriber', 'add_subscriber.html'),
         ]);
     }
     init();

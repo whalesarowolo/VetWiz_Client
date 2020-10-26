@@ -1821,3 +1821,78 @@ font-size: 12px;
 }
 
  }
+ 
+ 
+  @media only screen and (min-width: 768px) {
+     .padded-content-2 {
+         padding-left:60px;
+         padding-right:60px;
+         padding-bottom: 24px;
+		 padding-top:0px !important;
+    }
+}
+.form-inline-button {
+	margin-top: 20px !important;
+}
+
+.flex-card-green {
+	background-color: #F0FEF0;
+	margin-top:-10px !important;
+	padding-bottom: 50px !important;
+	
+}
+.is-transparent {
+	background-color: transparent !important;
+}
+.farmer-details {
+	padding:30px 50px;
+	border: 0px solid #C1E7C1;
+	border-right: 1px solid #C1E7C1;
+}
+ @media only screen and (max-width: 768px) {
+	 .farmer-details {
+	padding:10px 10px;
+	border: 1px solid #C1E7C1;
+}
+ .subscription-details {
+	 padding:0px 0px;
+	font-size: 1.3rem;
+ }
+ }
+ 
+ .subscription-details {
+	 padding:10px 50px;
+	font-size: 1.3rem;
+ }
+  .subscription-details p {
+	 margin-bottom:0px !important;
+	 font-weight:400;
+	 margin-top:14px;
+	 
+	
+ }
+ 
+   .subscription-details h1 {
+	   font-size: 3rem;
+	   font-weight: 900;
+	   margin-top: -10px;
+	   
+   }
+     .subscription-details h2 {
+	   font-size: 1.4rem;
+	   font-weight: 700;
+	   margin-top: -6px;
+	   
+   }
+   
+.sub-error {
+	color: #FF6363;
+font-size: 1.5rem;
+font-weight:600;	
+   }
+   
+   .sub-info {
+	color: #777777;
+font-size: 1.5rem;
+font-weight:600;	
+   }
