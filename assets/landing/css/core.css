@@ -112,11 +112,7 @@ a:focus{color:#26d0a9!important}
 	margin-bottom:20px;
 	
 }
-.condensed-plan:hover {
-	
-	border-top: 1px solid #26D0A9 !important;
-	border-right: 1px solid #26D0A9 !important;
-}
+
 @media (max-width: 764px) {
 	.condensed-plan {
 		
@@ -139,5 +135,5 @@ a:focus{color:#26d0a9!important}
 }
 
 .condensed-plan .cta-button:hover  {
-	box-shadow: 2px 2px 5px #aaaaaa;
+	box-shadow: 0px 2px 5px #aaaaaa;
 }
