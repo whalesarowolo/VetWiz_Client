@@ -97,11 +97,47 @@ a:focus{color:#26d0a9!important}
 }
 
 .subscribe-to-pay-hero {
-	margin-top:100px;
+	margin-top:80px;
+	margin-bottom: 30px;
 }
 @media (max-width: 764px) {
 .subscribe-to-pay-hero {
-	margin-top:-120px;
-	margin-bottom:-140px;
+	margin-top:-160px;
+	margin-bottom:-60px;
 }
+}
+.pay-info {
+	border: 1px solid #ddd;
+	padding:20px 30px;
+	margin-bottom:20px;
+	
+}
+.condensed-plan:hover {
+	
+	border-top: 1px solid #26D0A9 !important;
+	border-right: 1px solid #26D0A9 !important;
+}
+@media (max-width: 764px) {
+	.condensed-plan {
+		
+		border-top: 1px solid #ddd !important;
+		
+		
+	}
+	.pricing-wrapper {
+		margin-top:-150px;
+	}
+}
+.pricing-wrapper {
+	margin-top:-120px;
+}
+.plan-header {
+	margin-bottom:-20px;
+}
+.condensed-plan {
+	padding-top:40px;
+}
+
+.condensed-plan .cta-button:hover  {
+	box-shadow: 2px 2px 5px #aaaaaa;
 }
