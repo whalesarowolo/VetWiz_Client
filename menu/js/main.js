@@ -21,7 +21,21 @@ Array.from(document.getElementsByClassName('jb-aside-mobile-toggle')).forEach(fu
     dropdownIcon.classList.toggle('mdi-backburger');
   });
 });
+/* NavBar menu desktop toggle */
+
+
+Array.from(document.getElementsByClassName('jb-aside-desktop-toggle')).forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    var dropdownIcon = e.currentTarget.getElementsByClassName('icon')[0].getElementsByClassName('mdi')[0];
+    document.documentElement.classList.toggle('has-aside-expanded');
+    document.getElementById("asidetoggle").classList.toggle('aside-is-hidden');
+    dropdownIcon.classList.toggle('mdi-backburger');
+    dropdownIcon.classList.toggle('mdi-forwardburger');
+  });
+
+});
 /* NavBar menu mobile toggle */
+
 
 Array.from(document.getElementsByClassName('jb-navbar-menu-toggle')).forEach(function (el) {
   el.addEventListener('click', function (e) {
