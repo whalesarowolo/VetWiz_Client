@@ -1,4 +1,4 @@
-.onboarding_section img{
+/* .onboarding_section img{
     width: 100%;
     margin-top: 50px;
 }
@@ -53,3 +53,21 @@
         margin-left: 20%;
     }
 }
+*/
+
+.navbar {
+padding-bottom: 62px !important;
+margin-top:-10px !important;
+margin-left: -25px;
+margin-right:-25px;
+}
+
+.select_section_from .form-control {
+border: 1px solid #ddd !important;
+background-color: #fff !important;
+}
+
+.select_section_from .selectpicker {
+    border: 1px solid #ddd !important;
+    background-color: #fff !important;
+    }
