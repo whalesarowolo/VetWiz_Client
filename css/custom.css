@@ -1896,3 +1896,13 @@ font-weight:600;
 font-size: 1.5rem;
 font-weight:600;	
    }
+
+.select_section_from .form-control {
+border: 1px solid #ddd !important;
+background-color: #fff !important;
+}
+
+.select_section_from .selectpicker {
+    border: 1px solid #ddd !important;
+    background-color: #fff !important;
+    }
