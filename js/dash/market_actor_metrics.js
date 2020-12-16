@@ -263,7 +263,7 @@ function get_metrics(criterias) {
       var resp = await response.json();
       if (resp.message) {
         swal.close();
-        console.log("Problem with response from metric server: ", resp.message);
+        console.log("Problem with response from metric server: ", resp);
         //update the previews with the insights
       } else {
         swal.close();
