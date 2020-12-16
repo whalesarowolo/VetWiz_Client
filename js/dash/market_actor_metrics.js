@@ -153,16 +153,20 @@ $(document).on("change input keyup paste", "#message", function () {
     );
   }
 
-  const state_els = $(".select_state");
+  // Add states into mix here
+  const state_els = $("#selected_states").val();
+
+  // Add crops into mix here
   const select_crops = $(".select_crops");
 
   chosen_crops.splice(0, chosen_crops.length);
   chosen_states.splice(0, chosen_states.length);
-
+  chosen_states = [];
   for (const state of state_els) {
-    if (state.checked) {
-      add_state(state.value);
-    }
+    add_state(state);
+    // if (state.checked) {
+    //   add_state(state.value);
+    // }
   }
 
   for (const crop of select_crops) {
