@@ -272,6 +272,9 @@ function get_metrics(criterias) {
         $(".message-reach-preview #adamawa_farmers").html(
           numberWithComma(resp.adamawa_farmers)
         );
+        $(".message-reach-preview #borno_farmers").html(
+          numberWithComma(resp.borno_farmers)
+        );
         $(".message-reach-preview #gombe_farmers").html(
           numberWithComma(resp.gombe_farmers)
         );
