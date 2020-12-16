@@ -285,11 +285,11 @@ function get_metrics(criterias) {
           numberWithComma(resp.female_farmers)
         );
         $(".total-farmers-preview #total_target_farmers").html(
-          numberWithComma(resp.adamawa_farmers + resp.gombe_farmers)
+          numberWithComma(resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers)
         );
         $(".message-reach-preview #total_sms_count").html(
           numberWithComma(
-            (resp.adamawa_farmers + resp.gombe_farmers) *
+            (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
               Number.parseInt($(".message-count #messages").html())
           )
         );
@@ -298,7 +298,7 @@ function get_metrics(criterias) {
         );
         $(".count-and-cost #total_sms_counts").html(
           numberWithComma(
-            (resp.adamawa_farmers + resp.gombe_farmers) *
+            (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
               Number.parseInt($(".message-count #messages").html())
           )
         );
@@ -306,7 +306,7 @@ function get_metrics(criterias) {
           "₦" +
             numberWithComma(
               5 *
-                (resp.adamawa_farmers + resp.gombe_farmers) *
+                (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
                 Number.parseInt($(".message-count #messages").html())
             )
         );
@@ -314,7 +314,7 @@ function get_metrics(criterias) {
           "₦" +
             numberWithComma(
               5 *
-                (resp.adamawa_farmers + resp.gombe_farmers) *
+                (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
                 Number.parseInt($(".message-count #messages").html())
             )
         );
@@ -325,7 +325,7 @@ function get_metrics(criterias) {
         );
         $(".sms-summary-row #total_sms_counted").html(
           numberWithComma(
-            (resp.adamawa_farmers + resp.gombe_farmers) *
+            (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
               Number.parseInt($(".message-count #messages").html())
           )
         );
@@ -333,18 +333,18 @@ function get_metrics(criterias) {
           "₦" +
             numberWithComma(
               5 *
-                (resp.adamawa_farmers + resp.gombe_farmers) *
+                (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
                 Number.parseInt($(".message-count #messages").html())
             )
         );
         localStorage.setItem(
           "final_cost",
           5 *
-            (resp.adamawa_farmers + resp.gombe_farmers) *
+            (resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers) *
             Number.parseInt($(".message-count #messages").html())
         );
         $(".farmer-count-wrapper #farmer_counter_total").val(
-          resp.adamawa_farmers + resp.gombe_farmers
+          resp.adamawa_farmers + resp.gombe_farmers + resp.borno_farmers
         ); //.attr('readonly', 'true');
         $(".message-content-preview #final_sms_message").html(
           $(".message-compose-container #message").val()
