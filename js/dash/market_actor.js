@@ -1,7 +1,7 @@
 let subscription_status = document.getElementById("subscription_status");
 let sms_button = document.getElementById("sms_sending_button");
 
-$('select').selectpicker();
+$("select").selectpicker();
 
 function get_wallet_balance() {
   console.log("Getting wallet balance");
