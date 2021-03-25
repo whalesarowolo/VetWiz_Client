@@ -23,7 +23,7 @@
             new Route('rice', 'rice.html'),
             new Route('groundnut', 'groundnut.html'),
             new Route('sorghum', 'sorghum.html'),
-            //new Route('pricing', 'pricing.html'),
+            new Route('gaps', 'gaps.html'),
             new Route('msg_queue', 'msg_queue.html'),
             new Route('admin_nvri', 'admin_nvri.html'),
             new Route('ussdFarmer', 'ussdFarmer.html'),

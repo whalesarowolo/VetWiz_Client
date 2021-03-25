@@ -1632,6 +1632,28 @@ function riceGapSwal(params) {
   Swal.close();
 }
 
+function GapsSwal() {
+  swal
+    .fire({
+      title: "Starting New GAP Content",
+      text: "Please wait...",
+      timer: 1500,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      icon: "info",
+    })
+    .then(function() {
+      Swal.fire({
+        title: "Please wait",
+        text: "Loading data ....",
+        icon: "info",
+        timer:3000,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+      });
+    })
+}
+
 // tomatoes GAP content
 function toGapSwal(params) {
   swal
