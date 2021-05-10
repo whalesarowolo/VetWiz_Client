@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
 
 <head>
     <!-- Required meta tags always come first -->
@@ -21,16 +21,31 @@
     <link rel="stylesheet" href="./css/disease.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <!--New Navigation Menu Assets-->
+		<link rel="stylesheet" href="menu/css/vwbomain.css">
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+		<!--End New Navigation Menu Assets -->
+
 </head>
 
 <body>
 
     <div class="pageloader"></div>
-    <div class="infraloader is-active"></div> <!-- Main sidebar menu -->
+    <div class="infraloader is-active"></div> 
+    
+    
+    <!--OLD NAVIGATION BEGIN-->
+    <!--==COMMENTED OUT==-->
+    
+    <!-- Main sidebar menu -->
+
+    <!---
     <nav class="main-menu">
         <div class="main-menu-inner">
 
-            <!-- Side icon menu -->
+            <!-- Side icon menu --
             <ul>
                 <li class="main-logo">
                     <a href="javascript:" onclick="goHome();">
@@ -40,14 +55,17 @@
                 <li class="side-icon" data-child-menu="dashboard-menu">
                     <i class="sl sl-icon-grid"></i>&nbsp;<span style="background-color: #26d0a8; font-style: bold; color: white; padding-right: 5px; padding-left: 5px; border-radius: 5px;">Menu</span>
                 </li>
-            </ul><!-- /Side icon menu -->
+            </ul><!-- /Side icon menu --
             
         </div>
     </nav><!-- /Main sidebar menu -->
-    <!-- Child push sidebar menu -->
+
+
+
+    <!-- Child push sidebar menu --
     <nav class="child-menu">
         <div class="child-menu-inner">
-            <!-- Child menu header -->
+            <!-- Child menu header --
             <ul>
                 <li class="child-header">
                     <div class="sidebar-title">Navigation</div>
@@ -62,7 +80,7 @@
                     </a>
                 </li>
             </ul><!-- /Child menu header -->
-            <!-- Sidebar menu 1 -->
+            <!-- Sidebar menu 1 --
             <ul id="dashboard-menu" class="sidebar-menu is-active animated preFadeInRIght fadeInRight">
                 
                 <li class="have-children"><a class="parent-link" href="#"><span
@@ -80,7 +98,9 @@
                 </li>
             </ul><!-- /Sidebar menu 1 -->
             
-            <!-- Sidebar menu 5 -->
+
+            <!--====MAY BE USEFUL FOR SETTINGS-->
+            <!-- Sidebar menu 5 --
             <ul id="settings-menu" class="is-hidden sidebar-menu animated preFadeInRIght fadeInRight">
                 <li class="have-children"><a class="parent-link" href="#"><span
                             class="material-icons">settings</span>Global settings</a>
@@ -112,20 +132,30 @@
                     </ul>
                 </li>
             </ul><!-- /Sidebar menu 5 -->
+<!--====MAY BE USEFUL FOR SETTINGS---
+
+
         </div>
-    </nav><!-- /Child push sidebar menu -->
+    </nav>
+
+    
+    
+    <!-- /Child push sidebar menu --
     <nav class="navbar dashboard-nav">
-        <!-- Nav left -->
+        <!-- Nav left --
         <div class="navbar-brand">
 
             <!-- Reader mode switch -->
+            <!---
             <div class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet">
                 <div class="field">
                     <input id="reader-mode-switch" type="checkbox" name="reader-mode-switch" class="switch is-outlined is-primary is-small styled-checkbox"><label id="reader-mode-toggle" for="reader-mode-switch"></label>
                 </div>
             </div>
+        -->
 
             <!--Search-->
+            <!--
             <div class="control">
                 <a onclick="goHome()" href="/livestock.html" class="button btn-dash secondary-btn btn-dash raised has-icon">
                     Dashboard
@@ -143,8 +173,10 @@
                     Manage Users
                 </a>
             </div>
+        -->
 
             <!-- /Right sidebar trigger -->
+            <!--
             <a id="mobile-dashboard-trigger" class="navbar-item hamburger-btn is-hidden-desktop" href="javascript:void(0);">
                 <span class="menu-toggle">
                     <span class="icon-box-toggle">
@@ -156,15 +188,15 @@
                     </span>
                 </span>
             </a>
-        </div>
+        </div>--->
 
-        <!-- Nav right -->
+        <!-- Nav right --
         <div class="navbar-menu">
             <div class="navbar-end">
                 <div id="logged_person">
                     
                 </div>
-                <!-- Account dropdown -->
+                <!-- Account dropdown --
                 <div class="drop-pop">
                     <div id="profile-me" class="icon-button accounts-button">
                         
@@ -190,10 +222,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Messages dropdown -->
+                <!-- Messages dropdown --
             </div>
-        </div>
+        </div>--
     </nav>
+
+    <!--
     <div class="mobile-nav is-hidden-desktop">
         <div class="container is-fluid">
             <div class="mobile-nav-inner">
@@ -213,7 +247,193 @@
                         data-demo-src="https://www.gravatar.com/avatar/?d=identicon"></a>
             </div>
         </div>
-    </div>
+    </div>-->
+
+
+<!--End Old Navigation-->
+
+
+
+<!--New Navigation-->
+		<!--Top Nav-->
+		<nav id="navbar-main" class="navbar is-fixed-top">
+			<div class="navbar-brand">
+				<a class="navbar-item is-hidden-desktop jb-aside-mobile-toggle">
+				<span class="icon"><i class="mdi mdi-menu mdi-24px"></i></span>
+				</a>
+				<div class="navbar-item has-control">
+					<h1 class="top-nav-heading">Admin Desk</h1>
+				</div>
+			</div>
+			<div class="navbar-brand is-right">
+				<a class="navbar-item is-hidden-desktop jb-navbar-menu-toggle" data-target="navbar-menu">
+				<span class="icon"><i class="mdi mdi-dots-vertical"></i></span>
+				</a>
+			</div>
+			<div class="navbar-menu fadeIn animated faster" id="navbar-menu">
+				<div class="navbar-end">
+					<div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
+						<a class="navbar-link is-arrowless">
+							<div class="is-user-avatar">
+								<img src="img/avatar-default-orange.svg" alt="Farm Innovation">
+							</div>
+							<div class="is-user-name"><span id="profile_name_h3">Farm Innovation</span></div>
+							<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+						</a>
+						<div class="navbar-dropdown">
+							<a href="#profile" class="navbar-item">
+							<span class="icon"><i class="mdi mdi-account"></i></span>
+							<span>My Profile</span>
+							</a>
+                           
+							<a class="navbar-item" href="#">
+							<span class="icon"><i class="mdi mdi-settings"></i></span>
+							<span>Settings</span>
+							</a>
+							<hr class="navbar-divider">
+							<a id="logout" onclick="logout()" href="javascript:" class="navbar-item">
+							<span class="icon"><i class="mdi mdi-power-standby"></i></span>
+							<span>Log Out</span>
+							</a>
+						</div>
+					</div>
+					<a href="#" title="Help" class="navbar-item has-divider is-desktop-icon-only">
+					<span class="icon"><i class="mdi mdi-information-outline"></i></span>
+					<span>Help</span>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<!--/End Top Nav-->
+
+       
+
+		<!--Side Menu-->
+		<aside class="aside is-placed-left is-expanded">
+			<div class="aside-tools aside-bottom-border">
+				<div class="aside-tools-label">
+					<a onclick="goHome()" href="/livestock.html"><img class="nav-logo vetwiz-nav-logo" src="img/vetwiz-nav-logo.png"></a>
+				</div>
+			</div>
+			<div class="menu is-menu-main">
+				<!--<p class="menu-label">&nbsp;</p>-->
+                    <br>
+				<ul class="menu-list">
+					<li>
+						<a onclick="goHome()" href="/livestock.html" class="router-link-active has-icon">
+						<span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+						<span class="menu-item-label">Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a class="has-icon has-dropdown-icon">
+							<span class="icon"><i class="mdi mdi-message-processing"></i></span>
+							<span class="menu-item-label">Diseases</span>
+							<div class="dropdown-icon">
+								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+							</div>
+						</a>
+						<ul>
+							<li>
+								<a href="#nvri_disease">
+								<span>Add Disease</span>
+								</a>
+							</li>
+							<li>
+								<a onclick="viewDisease()" href="#view_disease">
+								<span>View All Diseases</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+                    <li>
+						<a class="has-icon has-dropdown-icon">
+							<span class="icon"><i class="mdi mdi-message-processing"></i></span>
+							<span class="menu-item-label">Community</span>
+							<div class="dropdown-icon">
+								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+							</div>
+						</a>
+						<ul>
+							<li>
+								<a href="#">
+								<span>Add New Topic</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+								<span>View All Topics</span>
+								</a>
+							</li>
+                            <li>
+								<a href="#">
+								<span>Violation Reports</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+                   
+                    <li>
+						<a href="#" class="has-icon">
+						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="menu-item-label">Feedback</span>
+						</a>
+					</li>
+
+                    <li>
+						<a href="#" class="has-icon">
+						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="menu-item-label">Vet Shops / Clinics</span>
+						</a>
+					</li>
+				
+					<li>
+						<a href="#diag_queries" class="has-icon">
+						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="menu-item-label">Diagnosis Queries</span>
+						</a>
+					</li>
+                    <li>
+						<a href="#activities" class="has-icon">
+						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="menu-item-label">Activity Log</span>
+						</a>
+					</li>
+                    <li>
+						<a class="has-icon has-dropdown-icon">
+							<span class="icon"><i class="mdi mdi-wallet-plus"></i></span>
+							<span class="menu-item-label">Users</span>
+							<div class="dropdown-icon">
+								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+							</div>
+						</a>
+						<ul>
+							<li>
+								<a href="#admin_nvri">
+								<span>Add New Admin</span>
+								</a>
+							</li>
+							<li>
+								<a onclick="getRegUsers()" href="#nvri_users">
+								<span>View All Users</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<!--/End Side Menu-->
+		<!--/End New Navigation-->
+
+
+
+
+
+
+
+
     <!-- Main dashboard container -->
     <div id="dashboard-wrapper" class="dashboard-outer">
         <div class="dashboard-inner">
@@ -271,6 +491,7 @@
                                 </a>
                             </div>
                         </div> -->
+
                     </div>
                     
                     <!-- Support dashboard -->
@@ -638,7 +859,13 @@
             </div>
         </div>
     
-    
+		<!--New Navigation Menu Assets-->
+		<script type="text/javascript" src="./menu/js/main.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+		<script type="text/javascript" src="./menu/js/chart.sample.min.js"></script>  
+		<!--End New Navigation Menu Assets-->
+
+
     <!-- Concatenated jQuery and plugins -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
