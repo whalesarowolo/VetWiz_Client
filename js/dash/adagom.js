@@ -132,7 +132,7 @@ function addScript(filename) {
   
         $("#mytable_ada").ready(function () {
           const url =
-            "https://farm-aid-backend.herokuapp.com/api/public/state/Adamawa";
+            "https://farm-aid-backend.herokuapp.com/api/farmer/state_public/Adamawa";
           const token = localStorage.getItem("access_token");
           const headers = new Headers();
           headers.append("Content-Type", "application/json");
