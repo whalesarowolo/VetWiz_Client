@@ -1,4 +1,4 @@
-$.ready((params) =>{
+$(document).ready((params) =>{
     console.log("Starting now...");
     gombefarmerSwal("noting");
 })
