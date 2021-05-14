@@ -55,7 +55,7 @@ function addScript(filename) {
   
         $("#mytable_gom").ready(function () {
           const url =
-            "https://farm-aid-backend.herokuapp.com/api/public/state/Gombe";
+            "https://farm-aid-backend.herokuapp.com/api/farmer/state_public/Gombe";
           const token = localStorage.getItem("access_token");
           const headers = new Headers();
           headers.append("Content-Type", "application/json");
