@@ -13099,10 +13099,15 @@ a {
 }
 .peity-widget {
     margin-bottom: -18px !important;
+   
 }
 
 .cards-below-stats {
     margin-top: -36px !important;
+}
+
+.negative-mt-40 {
+    margin-top: -40px !important;
 }
 
 @media (min-width:764px){
@@ -13117,4 +13122,8 @@ width:600px;
 text-align: center !important;
 margin-left: auto;
 margin-right: auto;
+}
+
+.vbo-dashboard-quicklinks {
+    background-color: #;
 }
