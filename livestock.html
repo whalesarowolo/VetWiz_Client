@@ -285,7 +285,10 @@
 							<span class="icon"><i class="mdi mdi-account"></i></span>
 							<span>My Profile</span>
 							</a>
-                           
+                            <a href="#activities" class="navbar-item" href="#">
+                                <span class="icon"><i class="mdi mdi-file-document-box"></i></span>
+                                <span>Activity Log</span>
+                                </a>
 							<a class="navbar-item" href="#">
 							<span class="icon"><i class="mdi mdi-settings"></i></span>
 							<span>Settings</span>
@@ -327,7 +330,7 @@
 					</li>
 					<li>
 						<a class="has-icon has-dropdown-icon">
-							<span class="icon"><i class="mdi mdi-message-processing"></i></span>
+							<span class="icon"><i class="mdi mdi-bug"></i></span>
 							<span class="menu-item-label">Diseases</span>
 							<div class="dropdown-icon">
 								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
@@ -348,7 +351,7 @@
 					</li>
                     <li>
 						<a class="has-icon has-dropdown-icon">
-							<span class="icon"><i class="mdi mdi-message-processing"></i></span>
+							<span class="icon"><i class="mdi mdi-human-male-female"></i></span>
 							<span class="menu-item-label">Community</span>
 							<div class="dropdown-icon">
 								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
@@ -383,26 +386,26 @@
 
                     <li>
 						<a href="#" class="has-icon">
-						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="icon"><i class="mdi mdi-store"></i></span>
 						<span class="menu-item-label">Vet Shops / Clinics</span>
 						</a>
 					</li>
 				
 					<li>
 						<a href="#diag_queries" class="has-icon">
-						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="icon"><i class="mdi mdi-clipboard-check"></i></span>
 						<span class="menu-item-label">Diagnosis Queries</span>
 						</a>
-					</li>
+					</li><!----
                     <li>
 						<a href="#activities" class="has-icon">
-						<span class="icon"><i class="mdi mdi-comment-multiple"></i></span>
+						<span class="icon"><i class="mdi mdi-file-document-box"></i></span>
 						<span class="menu-item-label">Activity Log</span>
 						</a>
-					</li>
+					</li>-->
                     <li>
 						<a class="has-icon has-dropdown-icon">
-							<span class="icon"><i class="mdi mdi-wallet-plus"></i></span>
+							<span class="icon"><i class="mdi mdi-account-multiple"></i></span>
 							<span class="menu-item-label">Users</span>
 							<div class="dropdown-icon">
 								<span class="icon"><i class="mdi mdi-chevron-down"></i></span>
@@ -444,7 +447,7 @@
                 <!-- Main content -->
                 <div id="support-dashboard" class="dashboard-columns">
     
-                    <!-- Page title -->
+                    <!-- Page title --
                     <div class="support-title-wrapper is-mobile">
                         <img class="support-image" src="images/150x150" alt="" data-demo-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLJbbHqPh6pUzla6bf2punOireIBvRAFRuGdJSj0523UFr38TjZw">
                         <div class="inner-wrap">
@@ -490,18 +493,127 @@
                                     Logout
                                 </a>
                             </div>
-                        </div> -->
+                        </div> --
 
-                    </div>
+                    </div>-->
+
+
+                
                     
                     <!-- Support dashboard -->
+
+                 
+
+
                     <div class="support-dashboard">
-                        <div class="column is-full">
-                            <div style="text-align: left; width: -webkit-fill-available;" class="pull-left button btn-dash is-primary">
-                            Welcome Musa
+
+                           <!--title and breadcrumb-->
+
+                    <div class="page-breadcrumb">
+                        <h1>Dashboard <p class="pull-right">Welcome, <a href="#">Admin</a></p></h1>
+                        
+                    </div>
+
+                    <!--/title and breadcrumb-->
+
+
+
+
+                    <div id="basic-layout" class="negative-mt-40 columns column is-full dashboard-columns dashboard-tiles">
+                    <div class="column is-4">
+                        <div class="peity-widget">
+                        
+                            <div class="vbo-dashboard-card">
+                            <span class="icon"><i class="mdi mdi-clipboard-check"></i></span>
                             </div>
+                            <div class="meta">
+                                <span>DIAGNOSIS QUERIES</span>
+                                <span class="dash-stat" id="how_many_sms">189</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="peity-widget">
+                            <div class="vbo-dashboard-card">
+                                <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+                                </div>
+                            <div class="meta">
+                                <span>REGISTERED USERS</span>
+                                <span class="dash-stat" id="how_many_sms">1,290</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="peity-widget">
+                            <div class="vbo-dashboard-card">
+                                <span class="icon"><i class="mdi mdi-store"></i></span>
+                                </div>
+                            <div class="meta">
+                                <span>VET SHOPS/CLINICS</span>
+                                <span class="dash-stat wallet_balance"
+                                    >636</span
+                                    >
+                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                   
+
+
+                    </div>
+
+                    <div class="columns column is-full cards-below-stats">
+
+
+                        <div class="column is-8">
+                            <div class="peity-widget">
+                            
+                                
+                                <div class="meta">
+                                    <span>TOP 5 USER ROLES</span>
+                                    
+                                    <img class="user-chart" src="img/user-chart.png">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="column is-4">
+                            <div class="peity-widget">
+                            
+                                <div class="meta">
+                                    <span>QUICK LINKS</span>
+                                   
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="column is-full">
+                            
                         </div><br>
-                        <div class="columns is-multiline"><br>
+                        <div class="columns is-multiline is-hidden"><br>
                             <div class="column is-1"></div>
                             <div class="column is-5">
                                 <h2 class="box-title" style="color: #13aa52;">Research &amp; Vaccines Update</h2><br>
