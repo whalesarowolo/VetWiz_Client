@@ -1,725 +1,649 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="Farm Aid " />
-		<link rel="icon" type="image/png" href="assets/landing/favicons/favicon.png" />
-		<title>Farm Aid</title>
-		<!--Core CSS -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<link rel="stylesheet" href="assets/landing/css/bulma.css">
-		<link rel="stylesheet" href="assets/landing/css/app.css">
-		<link rel="stylesheet" href="assets/landing/css/core_demo.css">
-		<link rel="stylesheet" href="assets/landing/css/core.css">
-		      <!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170897809-1"></script>
-		<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-		
-			  gtag('config', 'UA-170897809-1');
-		</script>
-		
-		<script src="js/modernizr.custom.js"></script>
-
-	</head>
-	<body>
-		<!--
-			<div class="pageloader"></div>
-			<div class="infraloader is-active"></div> 
-			-->
-		<nav class="navbar is-transparent is-fixed-top is-faded">
-			<div class="container">
-				<div class="navbar-brand">
-					<a class="navbar-item" href="index.html">
-					<img class="light-logo" src="assets/landing/img/logo/farmaid-color.svg" alt="">
-					<img class="dark-logo is-hidden" src="assets/landing/img/logo/farmaid-color.svg" alt="">
-					</a>
-					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					</a>
-				</div>
-				<div class="navbar-menu">
-					<div class="navbar-start">
-						<a href="#about" class="navbar-item has-hover">
-						About
-						</a>
-						<a href="#features" class="navbar-item has-hover">
-						Features
-						</a>
-						<a href="#pricing" class="navbar-item has-hover">
-						Pricing
-						</a>
-						<a href="#contact" class="navbar-item has-hover">
-						Contact Us
-						</a>
-					</div>
-					<div class="navbar-end has-hover">
-						<a class="navbar-item has-border-right btn modal-trigger info-trigger" data-modal="login-modal">
-						Login
-						</a>
-						<div class="separator"></div>
-						<div class="navbar-item">
-							<a class="button cta-button is-rounded primary-button modal-trigger success-trigger" data-modal="signup-modal">Sign Up</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-		<!-- Hero -->
-		<div class="hero is-relative">
-			<div class="hero-body">
-				<div class="container">
-					<div class="slider is-vcentered" style="margin-top:100px">
-						<div class="slide_viewer">
-							<div class="slide_group">
-								<div class="slide">
-									<div class="slider-text">
-										<b>Good Agricultural Practices</b>
-										<p style="font-size:16px">Provision of real-time and on-demand information on farming best Practices</p>
-									</div>
-									<!--<img src="assets/landing/img/slide1.png">-->
-								</div>
-								<div class="slide">
-									<div class="slider-text">
-										<b>Accurate Weather Information</b>
-										<p style="font-size:16px">Access to daily weather Information for pre-harvest and post-harvest farming activities to facilitate adequate planning</p>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="slider-text">
-										<b>Sourcing Genuine and Quality Inputs</b>
-										<p style="font-size:16px">We provide information to access quality and genuine inputs</p>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="slider-text">
-										<b>Commodity Pricing</b>
-										<p style="font-size:16px">Access to farm gate and premium markets prices for crop commodities as well as market linkage that attracts maximum profits on farm produce</p>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="slider-text">
-										<b>Business and Financial Literacy</b>
-										<p style="font-size:16px">Provision of business advisory and financial tips on crop budgeting and farm management</p>
-									</div>
-								</div>
-								<div class="slide">
-									<div class="slider-text">
-										<b>Animal Health and Livestock Production</b>
-										<p style="font-size:16px">Run health diagnosis to determine vaccines to administer to your animals</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End // .slider -->
-					<div class="slide_buttons"></div>
-					<div class="directional_nav">
-						<div class="previous_btn" title="Previous">
-							<i class="fa fa-angle-left" style="font-size:50px"></i>
-						</div>
-						<div class="next_btn" title="Next">
-							<i class="fa fa-angle-right" style="font-size:50px"></i>
-						</div>
-					</div>
-					<!-- End // .directional_nav -->
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-					<script>
-						$('.slider').each(function() {
-						var $this = $(this);
-						var $group = $this.find('.slide_group');
-						var $slides = $this.find('.slide');
-						var bulletArray = [];
-						var currentIndex = 0;
-						var timeout;
-						
-						function move(newIndex) {
-						 var animateLeft, slideLeft;
-						 
-						 advance();
-						 
-						 if ($group.is(':animated') || currentIndex === newIndex) {
-						   return;
-						 }
-						 
-						 bulletArray[currentIndex].removeClass('active');
-						 bulletArray[newIndex].addClass('active');
-						 
-						 if (newIndex > currentIndex) {
-						   slideLeft = '100%';
-						   animateLeft = '-100%';
-						 } else {
-						   slideLeft = '-100%';
-						   animateLeft = '100%';
-						 }
-						 
-						 $slides.eq(newIndex).css({
-						   display: 'block',
-						   left: slideLeft
-						 });
-						 $group.animate({
-						   left: animateLeft
-						 }, function() {
-						   $slides.eq(currentIndex).css({
-						     display: 'none'
-						   });
-						   $slides.eq(newIndex).css({
-						     left: 0
-						   });
-						   $group.css({
-						     left: 0
-						   });
-						   currentIndex = newIndex;
-						 });
-						}
-						
-						function advance() {
-						 clearTimeout(timeout);
-						 timeout = setTimeout(function() {
-						   if (currentIndex < ($slides.length - 1)) {
-						     move(currentIndex + 1);
-						   } else {
-						     move(0);
-						   }
-						 }, 8000);
-						}
-						
-						$('.next_btn').on('click', function() {
-						 if (currentIndex < ($slides.length - 1)) {
-						   move(currentIndex + 1);
-						 } else {
-						   move(0);
-						 }
-						});
-						
-						$('.previous_btn').on('click', function() {
-						 if (currentIndex !== 0) {
-						   move(currentIndex - 1);
-						 } else {
-						   move(3);
-						 }
-						});
-						
-						$.each($slides, function(index) {
-						 var $button = $('<a class="slide_btn">&bull;</a>');
-						 
-						 if (index === currentIndex) {
-						   $button.addClass('active');
-						 }
-						 $button.on('click', function() {
-						   move(index);
-						 }).appendTo('.slide_buttons');
-						 bulletArray.push($button);
-						});
-						
-						advance();
-						});
-						
-					</script>
-				</div>
-			</div>
-		</div>
-		<!--End Slider Hero Section-->
-		<div id="about" class="section is-medium is-skewed-sm" style="padding-top:20px" >
-			<div class="container is-reverse-skewed-sm">
-				<div class="content-wrapper">
-					<!-- Icon boxes -->
-					<div class="columns is-vcentered">
-						<div class="column is-5 is-offset-1 has-text-centered">
-							<div class="columns is-vcentered has-text-centered is-multiline">
-								<img src="assets/landing/img/farmaid-in-use.jpg" style="width:90%">
-							</div>
-						</div>
-						<!-- Feature text -->
-						<div class="column is-7">
-							<div class="side-title">
-								<h3 class="title is-2"><br>What is Farm Aid ?</h3>
-							</div>
-							<p class="side-paragraph has-margin">Farm Aid is a technology solution that adopts pull and push system using short message service (SMS), Interactive Voice Response (IVR), 
-								Web and farmer call center to engage and provide information on good agricultural practices(GAP) as it relates to crop production, 
-								market prices of crops, weather information, business advisory, market linkage, farm inputs sourcing, livestock production and animal 
-								health to smallholder farmers. As well as providing a channel which farmers can ask questions on the different aspects of their processes.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="features" class="section is-grey light-green-bg">
-			<div class="container">
-				<!--Wrapper-->
-				<div class="content-wrapper">
-					<div class="columns">
-						<!--Feature text-->
-						<div class="column is-3 slideLeft">
-							<div class="side-title">
-								<h3 class="title is-2">Services & Features</h3>
-							</div>
-							<p class="side-paragraph has-margin">
-								Farm Aid is an integrated Agriculture extension portal that has a call centre of agricultural experts 
-								where you can send in your questions via SMS or make a call to the farmer call center to speak to an 
-								expert for instant help on agri-related challenges. Once you sign up, you will also receive agri tips on 
-								crop and livestock, market prices and weather updates.<br><br>
-								<!--<a href="#contact" class="button cta-button primary-button is-raised is-rounded"><b>FIND OUT MORE</b></a>-->
-							</p>
-						</div>
-						<!--Stacked phones-->
-						<div class="column is-8 is-offset-1 service-columns">
-							<div class="columns is-vcentered is-multiline">
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/sms-1.png" alt="">
-											<h4 class="box-title">Good Agricultural Practices (GAP)</h4>
-											<p>Instant SMS on farming best practice. For market actors, deliver your message to Farm Aid’s large database of profiled farmers, to build your products’ brand awareness and increase sales..</p>
-										</div>
-									</div>
-								</div>
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/weather-icon.png" alt="">
-											<h4 class="box-title">Weather Advisory Services</h4>
-											<p>Accurate weather information sourced from proven and reliable weather service provider to help smallholder farmer plan their processes.</p>
-										</div>
-									</div>
-								</div>
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/animal-health.png" alt="">
-											<h4 class="box-title">Animal Health & Livestock Production</h4>
-											<p>Paravets and Community Animal health workers (CAHW) can subscribe to access information on the diagnosis, 
-												treatment and vaccines for animal diseases and sicknesses.
-											</p>
-										</div>
-									</div>
-								</div>
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/business-advisory.png" alt="">
-											<h4 class="box-title">Business Advisory & financial literacy</h4>
-											<p>Provision of business advisory and financial tips on crop budgeting and farm management in order 
-												to understand the economics of production before accessing loans and other input credit.
-											</p>
-										</div>
-									</div>
-								</div>
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/inputs.png" alt="">
-											<h4 class="box-title">Access to Quality Inputs </h4>
-											<p>Access to genuine/improved crop inputs from trusted input suppliers and seed companies</p>
-										</div>
-									</div>
-								</div>
-								<!-- Icon block -->
-								<div class="column is-6">
-									<div class="box-wrap is-box-reveal feature-box">
-										<div class="icon-box">
-											<img src="assets/landing/img/market.png" alt="">
-											<h4 class="box-title">Market Linkage & Commodity Pricing</h4>
-											<p>Get updated information on the prices of food crops to inform your decision on where to sell 
-												and when to sell, also get access to information on the demands of premium buyers.
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Slanted feature Section -->
-		<section id="pricing" class="section section-primary is-medium is-skewed-sm is-relative">
-			<div class="container slanted-container is-reverse-skewed-sm">
-				<!--Title-->
-				<div class="section-title pricing-title has-text-centered">
-					<h2 class="title is-spaced white-title" style="color:#fff">Pricing for Farmers</h2>
-					<h3 class="subtitle" style="color:#fff">Farmers can choose from the two options below</h3>
-				</div>
-				<div class="columns">
-					<div class="column is-5 is-offset-1">
-						<div class="pricing-card is-box-reveal">
-							<h3 class="pricing-title">Free <span class="pull-right colored" style="color:#26D0A9">₦0</h3>
-							<hr>
-							<div class="features">
-								<div class="feature">
-									<span>GAP tips on 1 Crop</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Information request via SMS(1 SMS/month)</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Weekly Weather updates</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Farm gate commodity pricing</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Occasional SMS from value chain actors</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-							</div>
-
-						
-							<a href="farmers_self_onbording_form.html" class="button cta-button primary-button is-fullwidth is-raised is-rounded pricing-bottom-button"	><b>SIGN UP</b></a>
-							<!--<a class="button cta-button primary-button is-fullwidth is-raised is-rounded pricing-bottom-button modal-trigger success-trigger" data-modal="signup-modal"><b>SIGN UP</b></a>-->
-						</div>
-					</div>
-					<div class="column is-5">
-						<div class="pricing-card is-box-reveal">
-							<h3 class="pricing-title">Premium <span class="pull-right colored" style="color:#26D0A9">₦2,000</h3>
-							<!--
-								<p>Start using our services without paying anything. Start for Free and pay only when you make transactions.</p>-->
-							<hr>
-							<div class="features">
-								<div class="feature">
-									<span>GAP tips on 4 Crops</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Information request via SMS(4 SMS/month)</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Daily, Weekly, monthly & seasonal weather updates</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Commodity prices from premium buyers</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Access to expert agronomists via a call center</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Alerts on new seed varieties</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Occasional SMS from value chain market actors</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-								<div class="feature">
-									<span>Monthly business tips on crop budgeting</span>
-									<span class="colored"><i class="fa fa-check-circle" style="font-size:20px"></i></span>
-								</div>
-							</div>
-							<a href="/pay" class="button cta-button primary-button is-fullwidth is-raised is-rounded"><b>SIGN UP</b></a>
-							<!--<a class="button cta-button primary-button is-fullwidth is-raised is-rounded modal-trigger success-trigger" data-modal="signup-modal"><b>SIGN UP</b></a>-->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- /Slanted feature Section -->
-		<div class="section is-medium parallax is-cover is-relative is-medium section-counter" data-background="assets/landing/img/counter.jpg" data-color="#7F00FF" data-color-opacity="0.8"
-			data-demo-background="assets/landing/img/counter.jpg">
-			<div class="container slanted-container">
-				<div class="content-wrapper">
-					<!-- Counters -->
-					<div class="columns is-vcentered has-text-centered">
-						<div class="column is-4">
-							<div class="parallax-counter">
-								<div class="counter-icon">
-									<i class="im im-icon-MaleFemale"></i>
-								</div>
-								<div class="counter counter-number text-bold">43,856</div>
-								<div class="counter-text">Farmers Onboarded</div>
-							</div>
-						</div>
-						<div class="column is-4">
-							<div class="parallax-counter">
-								<div class="counter-icon">
-									<i class="im im-icon-Phone-SMS"></i>
-								</div>
-								<div class="counter counter-number text-bold">1,712,079</div>
-								
-								<div class="counter-text">Informative SMS Sent</div>
-							</div>
-						</div>
-						<div class="column is-4">
-							<div class="parallax-counter">
-								<div class="counter-icon">
-									<i class="im im-icon-Phone-2"></i>
-								</div>
-								<div class="counter counter-number text-bold">15,5740</div>
-								<div class="counter-text">Call Engagement </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Feature Section 2-->
-		<div id="features-2" class="section" style="padding-top:40px">
-			<div class="container">
-				<!--Wrapper-->
-				<div class="content-wrapper has-margin-bottom">
-					<div class="columns is-vcentered">
-						<!--Laptop-->
-						<div class="column is-5 is-offset-1 is-centered-portrait">
-							<img src="assets/landing/img/value-chain-actors.jpg" class="desk-90" alt="">
-						</div>
-						<!--Content-->
-						<div class="column is-5">
-							<div class="side-title">
-								<h3 class="title is-2">Value Chain Actors</h3>
-							</div>
-							<p class="side-paragraph has-margin">
-								If you are a value chain actor, you can provide services to smallholder farmers via this platform<br><br>
-								<a href="../register.html" class="button cta-button primary-button is-raised is-rounded"><b>SIGN UP NOW</b></a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="section is-grey light-green-bg partner-sect">
-			<div class="container">
-				<div class="section-title contact-title has-text-centered">
-					<h2 class="title is-spaced is-2 color-green">Our Partners</h2>
-				</div>
-				<div class="columns is-vcentered">
-					<!--Partners-->
-					<div class="column">
-						<div class="partner-logos">
-							<img src="assets/landing/img/Propcom.png" alt="Propcom Mai-karfi" data-toggle="tooltip" data-placement="bottom" data-title="Propcom Mai-karfi">
-							<img src="assets/landing/img/nvri.png" alt="National Veterinary Research Institute (NVRI)" data-toggle="tooltip" data-placement="bottom" data-title="National Veterinary Research Institute (NVRI)">
-							<img src="assets/landing/img/openweather.png" alt="Open Weather Map" data-toggle="tooltip" data-placement="bottom" data-title="Open Weather Map">
-							<img src="assets/landing/img/naerls.png" alt="National Agricultural Extension and Research Liaison Services (NAERLS)" data-toggle="tooltip" data-placement="bottom" data-title="National Agricultural Extension and Research Liaison Services (NAERLS)">
-							<img class="is-hidden-mobile" src="assets/landing/img/tef_logo.png" alt="The Tony Elumelu Foundation" data-toggle="tooltip" data-placement="bottom" data-title="The Tony Elumelu Foundation">
-						</div>
-						<div class="partner-logos is-hidden-desktop is-centered">
-							<img class="is-hidden-desktop" src="assets/landing/img/tef_logo.png" alt="The Tony Elumelu Foundation" data-toggle="tooltip" data-placement="bottom" data-title="The Tony Elumelu Foundation">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Feature Section 3-->
-		<div id="contact" class="section">
-			<div class="container">
-				<!--Wrapper-->
-				<div class="content-wrapper">
-					<div class="columns ">
-						<!--Feature text-->
-						<div class="column is-5 is-offset-1">
-							<div class="side-title">
-								<h3 class="title is-2">Reach Us</h3>
-							</div>
-							<p class="side-paragraph has-margin">
-								You can reach us in any of the following ways. We look forward to hearing from you.
-							</p>
-							<br><br>
-							<div class="side-card contact-box">
-								<div class="round-icon is-primary">
-									<i data-feather="mail"></i>
-								</div>
-								<div class="meta">
-									<span>Send us an email</span>
-									<span style="font-size:16px">info@farmnovation.com</span>
-								</div>
-							</div>
-							<div class="side-card contact-box">
-								<div class="round-icon is-accent">
-									<i data-feather="phone-call"></i>
-								</div>
-								<div class="meta">
-									<span>Call Us</span>
-									<span style="font-size:16px">+234 (0) 906 239 0503</span>
-								</div>
-							</div>
-						</div>
-						<!--Cards-->
-						<div class="column is-5 is-relative is-centered-portrait">
-							<div class="">
-								<div class="contact-form">
-									<form action="https://formspree.io/mwknjykr" method="POST">
-										<div class="control-material is-primary">
-											<input class="material-input " type="text" required name="fullName">
-											<span class="material-highlight"></span>
-											<span class="bar"></span>
-											<label>Full Name</label>
-										</div>
-										<div class="control-material is-primary">
-											<input class="material-input " type="text" required name="_replyto">
-											<span class="material-highlight"></span>
-											<span class="bar"></span>
-											<label>Email</label>
-										</div>
-										<div class="control-material is-primary">
-											<input class="material-input " type="number" required name="phoneNumber">
-											<span class="material-highlight"></span>
-											<span class="bar"></span>
-											<label>Phone</label>
-										</div>
-										<div class="control-material is-primary">
-											<textarea rows="3" required name="message"></textarea>
-											<span class="material-highlight"></span>
-											<span class="bar"></span>
-											<label>Message</label>
-										</div>
-										<!--Success Message-->
-										<div class="success-message is-hidden">
-											<h1>Thank You!</h1>
-											<p>Your message has been sent successfully. 
-												We will get back to you within 24hours via the email or phone numnber you provided.
-											</p>
-										</div>
-										<!--/End Success Message-->
-										<!--Error Message-->
-										<div class="error-message is-hidden">
-											<h1>An Error Occured!</h1>
-											<p>Your message could not be sent. Please try again</p>
-										</div>
-										<!--/End Error Message-->
-										<div class="button-wrap">
-											<input class="button cta-button primary-button is-raised is-fullwidth is-rounded" type="submit" value="Send Message">
-										</div>
-									</form>
-								</div>
-								<br><br>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Section -->
-		<footer class="footer footer-dark-left">
-			<div class="container">
-				<div class="columns is-vcentered">
-					<div class="column is-6">
-						<div class="mb-20">
-							<img class="small-footer-logo" src="assets/landing/img/logo/farmaid-white.svg" alt="">
-						</div>
-						<div>
-							<span class="moto">Copyright© 2021 Farm Aid by <a class="footer-link" href="https://farmnovation.com" target="_blank">Farm Innovation Nigeria Limited</a> </span>
-							<nav class="level is-mobile mt-20">
-								<div class="level-left level-social">
-									<a href="https://www.facebook.com/FarmInnovationLtd/" target="_blank" class="level-item">
-									<span class="icon"><i class="fa fa-facebook"></i></span>
-									</a>
-									<a href="https://twitter.com/Farmnovation/" target="_blank" class="level-item">
-									<span class="icon"><i class="fa fa-twitter"></i></span>
-									</a>
-									<a href="https://www.linkedin.com/company/farm-innovation-nigeria-limited/" target="_blank" class="level-item">
-									<span class="icon"><i class="fa fa-linkedin"></i></span>
-									</a>
-									<a href="https://www.instagram.com/farmnovation/" class="level-item">
-									<span class="icon"><i class="fa fa-instagram"></i></span>
-									</a>
-								</div>
-							</nav>
-						</div>
-					</div>
-					<div class="column">
-						<div class="footer-nav-right footer-nav-center-mobile">
-							<a class="footer-nav-link" href="terms.html">Terms of Use</a>
-							<a class="footer-nav-link" href="livestock.html">Livestock Admin</a>
-							<a class="footer-nav-link" href="login.html">Login</a>
-							<a class="footer-nav-link modal-trigger success-trigger" data-modal="signup-modal">Sign up</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- Sign Up Modal-->
-		<div id="signup-modal" class="modal modal-lg modal-success">
-			<div class="modal-background"></div>
-			<div class="modal-content">
-				<div class="flex-card simple-shadow">
-					<div class="card-body">
-						<div class="content">
-							<h2 class="has-text-centered color-green" style="margin-top:10px">Sign Up to Farm Aid</h2>
-							<p class="has-text-centered">Please select from the categories below to continue:</p>
-						</div>
-						<div class="columns is-centered">
-							<div class="column is-5 has-text-centered" onclick="location.href='#'">
-								<div class="signup-category signup-category-disabled" data-toggle="tooltip" data-placement="bottom" data-title="Please check back later">
-									<img src="assets/landing/img/farmer-illustration.svg">
-									<h1>Farmer</h1>
-									<small>Smallholder and largescale farmers</small> 
-								</div>
-							</div>
-							<div class="column is-5 has-text-centered" onclick="location.href='register.html'">
-								<div class="signup-category">
-									<img src="assets/landing/img/market-actor-illustration.svg">
-									<h1>Market Actor</h1>
-									<small>Off-takers, agro-dealers, seed suppliers etc</small> 
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
-				</div>
-			</div>
-			<button class="modal-close is-large is-hidden" aria-label="close"></button>
-		</div>
-		<!-- Login Modal-->
-		<div id="login-modal" class="modal modal-lg modal-info">
-			<div class="modal-background"></div>
-			<div class="modal-content">
-				<div class="flex-card simple-shadow">
-					<div class="card-body">
-						<div class="content">
-							<h2 class="has-text-centered color-green" style="margin-top:10px">Login to Farm Aid</h2>
-							<p class="has-text-centered">Please select from the categories below to continue:</p>
-						</div>
-						<div class="columns is-centered">
-							<div class="column is-5 has-text-centered" onclick="location.href='login.html'">
-								<div class="signup-category">
-									<img src="assets/landing/img/logo/farmaid-min.png">
-									<h1>Farm Aid Portal</h1>
-									<small>Market Actors, Agronomists etc</small> 
-								</div>
-							</div>
-							<div class="column is-5 has-text-centered" onclick="location.href='nvri-login.html'">
-								<div class="signup-category">
-									<img src="assets/landing/img/nvri.png">
-									<h1>NVRI Admin</h1>
-									<small>Livestock Administrative Portal</small> 
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
-				</div>
-			</div>
-			<button class="modal-close is-large is-hidden" aria-label="close"></button>
-		</div>
-		<!-- Back To Top Button -->
-		<div id="backtotop"><a href="#"></a></div>
-		<!-- Concatenated js plugins -->
-		<script src="assets/landing/js/app.js"></script>
-		<!-- js -->
-		<script src="assets/landing/js/functions.js"></script>
-		<script src="assets/landing/js/main.js"></script>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="Official website of the Vet Wiz mobile application for livestock care">
+		<meta name="author" content="Farm Innovation Nigeria">
+		<meta property="og:site_name" content="VetWiz App" />
+		<!-- website name -->
+		<meta property="og:site" content="https://vetwiz.app" />
+		<!-- website link -->
+		<meta property="og:title" content="VetWiz livestock disease diagnostic application"/>
+		<!-- title shown in the actual shared post -->
+		<meta property="og:description" content="" />
+		<!-- description shown in the actual shared post -->
+		<meta property="og:image" content="" />
+		<!-- image link, make sure it's jpg -->
+		<meta property="og:url" content="https://vetwiz.app" />
+		<!-- where do you want your post to link to -->
+		<meta property="og:type" content="article" />
+		<title>VetWiz</title>
+		<!-- Styles -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/fontawesome-all.css" rel="stylesheet">
+		<link href="css/swiper.css" rel="stylesheet">
+		<link href="css/magnific-popup.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+		<!-- Favicon  -->
+		<link rel="icon" href="images/favicon.png">
+	</head>
+	<body data-spy="scroll" data-target=".fixed-top">
+		<!-- Preloader --
+		<div class="spinner-wrapper">
+			<div class="spinner">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+		</div>
+		<!-- end of preloader -->
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+			<!-- Image Logo -->
+			<a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="Vet Wiz Logo"></a> 
+			<!-- Mobile Menu Toggle Button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-awesome fas fa-bars"></span>
+			<span class="navbar-toggler-awesome fas fa-times"></span>
+			</button>
+			<!-- end of mobile menu toggle button -->
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link page-scroll" href="#features">FEATURES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link page-scroll" href="#download">DOWNLOAD</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link page-scroll" href="#faq">FAQ</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link page-scroll" href="#contact">CONTACT</a>
+					</li>
+				</ul>						<!--Social Accounts-->				<span class="nav-item social-icons">							 <span class="fa-stack">                    <a href="https://www.facebook.com/VetWizApp" target="_blank" title="VetWiz on Facebook">                        <i class="fas fa-circle fa-stack-2x"></i>                        <i class="fab fa-facebook-f fa-stack-1x"></i>                    </a>                </span>				<span class="fa-stack">                    <a href="https://www.instagram.com/VetWiz_App/" target="_blank" title="VetWiz on Instagram">                        <i class="fas fa-circle fa-stack-2x"></i>                        <i class="fab fa-instagram fa-stack-1x"></i>                    </a>                </span>                <span class="fa-stack">                    <a href="https://twitter.com/vetwiza" target="_blank" title="VetWiz on Twitter">                        <i class="fas fa-circle fa-stack-2x"></i>                        <i class="fab fa-twitter fa-stack-1x"></i>                    </a>                </span>            </span>
+
+			</div>
+		</nav>
+		<!-- end of navbar -->
+		<!-- end of navigation -->
+		<!-- Header -->
+		<header id="header" class="header">
+			<div class="header-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="text-container">
+	
+								<h1>DIAGNOSE ANIMAL<br>DISEASES <span id="js-rotating">ANYDAY, ANYTIME, ANYWHERE</span></h1>
+								<p class="p-large color-white">Community animal health workers and Vets can easily diagnose animal diseases, view treatments and prevention</p>
+				
+								<a class="btn-solid-lg page-scroll" href="https://play.google.com/store/apps/details?id=com.farmaidmobileapp" target="_blank"><i class="fab fa-google-play"></i>DOWNLOAD NOW</a>
+							</div>
+						</div>
+						<!-- end of col -->
+						<div class="col-lg-6">
+							<div class="image-container">
+								<img class="img-fluid" src="images/header-iphone.png" alt="alternative">
+							</div>
+							<!-- end of image-container -->
+						</div>
+						<!-- end of col -->
+					</div>
+					<!-- end of row -->
+				</div>
+				<!-- end of container -->
+			</div>
+			<!-- end of header-content -->
+		</header>
+		<!-- end of header -->
+		<!--Introduction-->
+		<div id="details" class="basic-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="text-container">
+							<h3 class="color-pry">Enter Symptoms. <b>View Diagnosis</b></h3>
+							<p>VetWiz can help you diagnose animal diseases by simply selecting from a list of symptoms noticed on the animal.
+								You can also view preventive measures, disease treatment as well as vaccine if available. The application is easy to use with a clean interface. 
+								<br><br>
+								We have taken into consideration the fact that some areas where this app is needed may have poor internet or lack of it thereof. VetWiz has thus been developed for use without the 
+								need to be connected to the internet. This way diagnosis can be done anywhere and at anytime. Simply sync after first install of the app to have the
+								disease database downloaded to the app and therefore made available for offline use. 
+						</div>
+						<!-- end of text-container -->
+					</div>
+					<!-- end of col -->
+					<div class="col-lg-1">
+						&nbsp;
+					</div>
+					<div class="col-lg-5">
+						<div class="supported-heading">
+							<h1>Animals Currently Supported</h1>
+						</div>
+						<div class="row">
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/camel.svg" alt="" style="margin-top:9px">
+									</div>
+								</div>
+								<!--</a>-->
+								<h3 class="supported-animal-label">Camel</h3>
+							</div>
+							<!--End Animal-->
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/cattle.svg" alt="" style="margin-top:9px">
+									</div>
+								</div>
+								<h3 class="supported-animal-label">Cattle</h3>
+							</div>
+							<!--End Animal-->
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/goat.svg" alt="" style="margin-top:8px">
+									</div>
+								</div>
+								<h3 class="supported-animal-label">Goat</h3>
+							</div>
+							<!--End Animal-->
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/pig.svg" alt="" style="margin-top:16px">
+									</div>
+								</div>
+								<h3 class="supported-animal-label">Pig</h3>
+							</div>
+							<!--End Animal-->
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/poultry.svg" alt="" style="margin-top:-2px; width:54px">
+									</div>
+								</div>
+								<h3 class="supported-animal-label">Poultry</h3>
+							</div>
+							<!--End Animal-->
+							<!--Animal-->
+							<div class="col-6 col-lg-4">
+								<div class="supported-circle-outer">
+									<div class="supported-circle-inner">
+										<img class="img-fluid" src="images/sheep.svg" alt="" style="margin-top:15px">
+									</div>
+								</div>
+								<h3 class="supported-animal-label">Sheep</h3>
+							</div>
+							<!--End Animal-->
+						</div>
+					</div>
+					<!-- end of col -->
+				</div>
+				<!-- end of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+		<!-- end of basic-2 -->
+		<!-- end of details 1 -->
+		<!--End Intro-->
+		<!--Divider-->
+		<div class="divider1">
+			&nbsp;
+		</div>
+		<!--End divider-->
+		
+		<!-- Features -->
+		<div id="features" class="tabs">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<br>
+						<h2 class="color-pry">Features</h2>
+						<div class="p-heading p-large text-color-dark" style="margin-top:-10px">The following features exist on the app after extensive research on the needs of vets and community 
+							animal health workers
+						</div>
+					</div>
+					<!-- end of col -->
+				</div>
+				<!-- end of row -->
+				<div class="row">
+					<!-- Tabs Content-->
+					<div class="tab-content" id="lenoTabsContent">
+						<!-- Tab -->
+						<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+							<div class="container">
+								<div class="row">
+									<!-- Icon Cards Pane -->
+									<div class="col-lg-4 color-dark">
+										<div class="card left-pane first">
+											<div class="card-body">
+												<div class="text-wrapper">
+													<h4 class="card-title">Select Animal</h4>
+													<p>Select from the list of animals available for diagnosis</p>
+												</div>
+												<div class="card-icon">
+													<i class="far fa-compass"></i>
+												</div>
+											</div>
+										</div>
+										<div class="card left-pane">
+											<div class="card-body">
+												<div class="text-wrapper">
+													<h4 class="card-title">Wide array of Symptoms</h4>
+													<p>Select as many symptoms as noticed on the animal you wish to diagnose from the list provided</p>
+												</div>
+												<div class="card-icon">
+													<i class="far fa-list-alt"></i>
+												</div>
+											</div>
+										</div>
+										<div class="card left-pane">
+											<div class="card-body">
+												<div class="text-wrapper">
+													<h4 class="card-title">View Diagnosis</h4>
+													<p>See a list of possible diagnosis based on the symptoms you selected as well as prevention and treatment</p>
+												</div>
+												<div class="card-icon">
+													<i class="far fa-calendar-check"></i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- end of icon cards pane -->
+									<!-- Image Pane -->
+									<div class="col-lg-4">
+										<img class="img-fluid" src="images/features-iphone-1.png" alt="alternative" style="height:600px;">
+									</div>
+									<!-- end of image pane -->
+									<!-- Icon Cards Pane -->
+									<div class="col-lg-4">
+										<div class="card right-pane first">
+											<div class="card-body">
+												<div class="card-icon">
+													<i class="far fa-map"></i>
+												</div>
+												<div class="text-wrapper">
+													<h4 class="card-title text-color-dark">Find Vet Shops / Outlets </h4>
+													<p>Find vet products and services based on your GPS location</p>
+												</div>
+											</div>
+										</div>
+										<div class="card right-pane">
+											<div class="card-body">
+												<div class="card-icon">
+													<i class="far fa-bell"></i>
+												</div>
+												<div class="text-wrapper">
+													<h4 class="card-title text-color-dark">Outbreak Detection</h4>
+													<p>Vet Wiz app has been programmed to auto detect and report a disease outbreak in an area</p>
+												</div>
+											</div>
+										</div>
+										<div class="card right-pane">
+											<div class="card-body">
+												<div class="card-icon">
+													<i class="fas fa-comments"></i>
+												</div>
+												<div class="text-wrapper">
+													<h4 class="card-title text-color-dark">Share Feedback</h4>
+													<p>Reach out to us with whatever feedback you may have via the app. Share text or media in real-time</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- end of icon cards pane -->
+								</div>
+								<!-- end of row -->
+							</div>
+							<!-- end of container -->
+						</div>
+						<!-- end of tab-pane -->
+						<!-- end of tab -->
+						<!-- end of tab-pane -->
+						<!-- end of tab -->
+						<!-- end of tab -->
+					</div>
+					<!-- end of tab-content -->
+					<!-- end of tabs content -->
+				</div>
+				<!-- end of row --> 
+			</div>
+			<!-- end of container --> 
+		</div>
+		<!-- end of tabs -->
+		<!-- end of features -->
+		<!-- Download -->
+		<div id="download" class="basic-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-xl-5">
+						<div class="text-container">
+							<h2>Download <span class="blue">VetWiz</span></h2>
+							<p class="p-large color-white">Get Started with the most innovative solution for animal disease diagnosis, prevention and treatment.</p>
+							
+							<a class="btn-solid-lg" href="https://play.google.com/store/apps/details?id=com.farmaidmobileapp" target="_blank"><i class="fab fa-google-play"></i>PLAY STORE</a>
+						
+						</div>
+						<!-- end of text-container -->
+					</div>
+					<!-- end of col -->
+					<div class="col-lg-6 col-xl-7">
+						<div class="image-container">
+							<img class="img-fluid download-image" src="images/download.png" alt="Vet Wiz screenshot">
+						</div>
+						<!-- end of img-container -->
+					</div>
+					<!-- end of col -->
+				</div>
+				<!-- end of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+		<!-- end of basic-4 -->
+		<!-- end of download -->
+		<!-- Details 2 -->
+		<div id="faq" class="basic-3 creambg">
+			<div class="second">
+				<div class="container">
+					<div class="row"  style="margin-bottom:-20px">
+						<div class="col-lg-12">
+							<h2 class="color-pry text-center">Frequently Asked Questions</h2>
+							<div class="p-heading p-large text-color-dark" style="margin-top:-6px">Here are answers to some of the questions you may have 
+							</div>
+						</div>
+						<!-- end of col -->
+					</div>
+					<!-- end of row -->
+					<div class="row">
+						<div class="col-lg-1">&nbps;</div>
+						<div class="col-lg-5">
+							<div class="text-container faq-entry">
+								<h3>Do I need good internet to use VetWiz ?</h3>
+								<p>Vet Wiz has been designed for easy use even in areas with poor internet access or lack of it. You only need the internet to download the app, login and pull diagnosis data using the sync button</p>
+							</div>
+							<div class="text-container faq-entry">
+								<h3>What is the cost of using this app ?</h3>
+								<p>Download and use of the Vet Wiz application is free of charge at the moment.</p>
+							</div>
+							<!-- end of text-container -->
+						</div>
+						<!-- end of col -->
+						<div class="col-lg-5">
+							<div class="text-container faq-entry">
+								<h3>What animals are supported ?</h3>
+								<p>For the time being the following animals are supported: Camel, Cattle, Goat, Pig, Poultry and Sheep</p>
+							</div>
+							<div class="text-container faq-entry">
+								<h3>How can I get login credentials ?</h3>
+								<p>Simple click the create account link on the login screen to set up an account for yourself. </p>
+							</div>
+						</div>
+						<!-- end of col -->
+						<div class="col-lg-1">&nbps;</div>
+					</div>
+					<!-- end of row -->
+				</div>
+				<!-- end of container -->
+			</div>
+			<!-- end of second -->
+		</div>
+		<!-- end of basic-3 -->    
+		<!-- end of details 2 -->
+		<div class="basic-3 partnerbg">
+			<div class="second">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<div class="supported-heading">
+								<h1>Developed in Collaboration with:</h1>
+							</div>
+							<!-- end of text-container -->
+						</div>
+						<!-- end of col -->
+						<div class="col-lg-12 text-center">
+							<img src="images/nvri.png" style="height:140px; margin:20px; margin-left:2px"><img src="images/propcom.png" style="height:120px; margin:20px">
+						</div>
+						<!-- end of col -->
+					</div>
+					<!-- end of row -->
+				</div>
+				<!-- end of container -->
+			</div>
+			<!-- end of second -->
+		</div>
+		<!-- end of basic-3 -->    
+		<!-- end of details 2 -->
+		<!--Divider-->
+		<div class="divider2">
+			&nbsp;
+		</div>
+		<!--End divider-->
+		<!-- end of details lightboxes -->
+		<!-- Video -->
+		<!-- end of details 1 -->
+		<!-- Contact -->
+		<div id="contact" class="form">
+			<div class="container">
+				<br>
+				<div class="row"  style="margin-bottom:-20px; margin-top: 30px">
+					<div class="col-lg-12">
+						<h2 class="color-pry text-center">Contact</h2>
+						<div class="p-heading p-large text-color-dark" style="margin-top:-8px">Don't hesitate to reach out to us with your questions or suggestions
+						</div>
+					</div>
+					<!-- end of col -->
+				</div>
+				<!-- end of row -->
+				<div class="row">
+					<div class="col-lg-1">&nbsp;</div>
+					<div class="col-lg-5 desk-mt-90">
+						<div class="row contact-info">
+							<div class="col-lg-2 col-2 text-right">
+								<img src="images/address.svg">
+							</div>
+							<div class="col-lg-10 col-10">
+								<h3>Address:</h3>
+								<p>Plot 1196 Njdamena Crescent 
+							    <br>Wuse 2, Abuja, Nigeria</p>
+							</div>
+						</div>
+						<div class="row contact-info">
+							<div class="col-lg-2 col-2 text-right">
+								<img src="images/email.svg">
+							</div>
+							<div class="col-lg-10 col-10">
+								<h3>Email:</h3>
+								<p><a href="mailto:info@vetwiz.app">info@vetwiz.app</a></p>
+							</div>
+						</div>
+						<div class="row contact-info">
+							<div class="col-lg-2 col-2 text-right">
+								<img src="images/phone.svg">
+							</div>
+							<div class="col-lg-10 col-10">
+								<h3>Phone:</h3>
+								<p>+234 906 239 0503</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="contact-form-wrapper">
+							<!-- Contact Form -->
+							<!--<form action="https://submit-form.com/r3am3HJWUPJieHhh5fmmF" id="contactForm" data-toggle="validator" data-focus="false">-->
+							<form id="my-form" action="https://formspree.io/f/xyybkeab" method="post">
+								<div class="form-group">
+									<input type="text" name="name" class="form-control-input" id="cname" required>
+									<label class="label-control" for="cname">Name</label>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<input type="email" name="email" class="form-control-input" id="cemail" required>
+									<label class="label-control" for="cemail">Email</label>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<input type="phone" name="phone" class="form-control-input" id="phone" required>
+									<label class="label-control" for="cphone">Phone</label>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group">
+									<textarea class="form-control-textarea" name="message" id="cmessage" required></textarea>
+									<label class="label-control" for="cmessage">What can we help you with ?</label>
+									<div class="help-block with-errors"></div>
+								</div>
+								<!--<div class="form-group checkbox">
+									<input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agreed to VetWiz's <a href="#">Privacy Policy</a> 
+									
+									<div class="help-block with-errors"></div>
+								</div>-->
+								<div class="form-group">
+									<button id="my-form-button" class="form-control-submit-button">SUBMIT MESSAGE</button>
+								</div>
+								<p class="form-message form-status-success" id="my-form-status-success"></p>
+								<p class="form-message form-status" id="my-form-status"></p>
+								<div class="form-message">
+									<div id="cmsgSubmit" class="h3 text-center hidden"></div>
+								</div>
+							</form>
+							<!-- end of contact form -->
+						</div>
+					</div>
+					<!-- end of col -->
+					<div class="col-lg-1">&nbsp;</div>
+				</div>
+				<!-- end of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+		<!-- end of form -->
+		<!-- end of contact -->
+		<!-- Footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="footer-col">
+							<h4>About VetWiz</h4>
+							<p class="color-white">VetWiz can help you diagnose animal diseases by simply selecting from a list of symptoms noticed on the animal. 
+								Vet Wiz is a product of <a class="color-sec" href="https://farmnovation.com" target="_blank"> Farm Innovation Nigeria Limited</a>
+							</p>							<p>							<span class="fa-stack">                            <a href="https://www.facebook.com/VetWizApp" target="_blank" title="VetWiz on Facebook">                                <i class="fas fa-circle fa-stack-2x"></i>                                <i class="fab fa-facebook-f fa-stack-1x"></i>                            </a>                        </span>                        <span class="fa-stack">                            <a href="https://twitter.com/vetwiza" target="_blank" title="VetWiz on Twitter">                                <i class="fas fa-circle fa-stack-2x"></i>                                <i class="fab fa-twitter fa-stack-1x"></i>                            </a>                        </span>                        <span class="fa-stack">                            <a href="https://www.instagram.com/VetWiz_App/" target="_blank" title="VetWiz on Twitter">                                <i class="fas fa-circle fa-stack-2x"></i>                                <i class="fab fa-instagram fa-stack-1x"></i>                            </a>                        </span>							</p>
+						</div>
+					</div>
+					<!-- end of col -->
+					<div class="col-lg-2">&nbsp;</div>
+					<div class="col-md-4">
+						<div class="footer-col middle">
+							<h4>Important Links</h4>
+							<ul class="list-unstyled li-space-lg">
+								<li class="media">
+									<i class="fas fa-square"></i>
+									<div class="media-body">Get the App on <a class="turquoise" href="https://play.google.com/store/apps/details?id=com.farmaidmobileapp" target="_blank">Google PlayStore</a></div>
+								</li>
+								<li class="media">
+									<i class="fas fa-square"></i>
+									<div class="media-body">Read our <a class="turquoise" href="terms.html" title="Terms of Use">Terms & Conditions</a></div>
+								</li>
+								<li class="media">
+									<i class="fas fa-square"></i>
+									<div class="media-body">Read our <a class="turquoise" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></div>
+								</li>																<li class="media">									<i class="fas fa-square"></i>									<div class="media-body">Admin <a class="turquoise" href="admin-login.html" title="Privacy Policy">Login</a></div>								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- end of col -->
+					
+				</div>
+				<!-- end of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+		<!-- end of footer -->  
+		<!-- Copyright -->
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+															<div class="col-lg-12">					 <p class="p-small color-white">Copyright © 2021 VetWiz</a> - All rights reserved</p>										</div>										
+				</div>
+				<!-- enf of row -->
+			</div>
+			<!-- end of container -->
+		</div>
+		<!-- end of copyright -->
+		<!-- Scripts -->
+		<script src="js/jquery.min.js"></script> 
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script> 
+		<script src="js/jquery.easing.min.js"></script> 
+		<script src="js/swiper.min.js"></script> 
+		<script src="js/jquery.magnific-popup.js"></script> 
+		<script src="js/morphext.min.js"></script> 
+		<script src="js/validator.min.js"></script> 
+		<script src="js/scripts.js"></script> 
+	</body>
+	<script>
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+    var form = document.getElementById("my-form");
+    var button = document.getElementById("my-form-button");
+    var statsuccess = document.getElementById("my-form-status-success");
+    var staterror = document.getElementById("my-form-status");
+
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      button.style = "display:none";
+	  statsuccess.style = "display:block";
+      statsuccess.innerHTML = "Thanks! Message sent successfully.";
+    }
+
+    function error() {
+      staterror.innerHTML = "Oops! There was a problem.";
+	  staterror.style = "display:block";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+  
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+</script>
 </html>
-
