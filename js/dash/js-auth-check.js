@@ -295,9 +295,9 @@ function create_admin(params) {
         });
       }
 
-  document.getElementById('the_state').addEventListener('change', () => {
-    console.log("State changed...");
-  });
+  // document.getElementById('the_state').addEventListener('change', () => {
+  //   console.log("State changed...");
+  // });
   
   function persist_user(event) {
     event.preventDefault();
