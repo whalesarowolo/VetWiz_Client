@@ -26,7 +26,7 @@ function check_auth() {
                     timer: '3000',
                     icon: 'info'
                 }).then(() => {
-                    window.location.replace('/nvri-login.html');
+                    window.location.replace('/admin-login.html');
                 })
             }
         })
@@ -41,7 +41,7 @@ function goHome() {
 
 function logout() {
     localStorage.clear();
-    window.location.replace('/nvri-login.html');
+    window.location.replace('/admin-login.html');
 }
 
 async function getDiagnosesQueries() {
