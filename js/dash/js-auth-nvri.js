@@ -156,6 +156,79 @@ $(document).ready(function($){
           });
     
     });
+
+    // VetWiz rewrite
+
+    $("#my-form-button").on('click', function(e) {
+      e.preventDefault();
+      var useremail = $('#cemail').val();
+      var userpassword = $('#phone').val();
+      if (useremail == "" || userpassword == "") {
+        $("#login").addClass('is-hidden');
+        swal.fire({
+          title: 'Error Authenticating',
+          text: 'You must provide all credentials to login',
+          icon: 'warning',
+          timer: 1500
+        }).then(()=> {
+          $("#login").toggleClass('is-hidden');
+        });
+        return false;
+      }
+
+      swal.showLoading('Please wait...');
+      //e.preventDefault();
+  
+      const url = 'https://farm-aid-backend.herokuapp.com/api/nvir/auth';
+  
+      const user = {
+        "email": useremail,
+        "password": userpassword
+      };
+  
+      // create request object
+      var request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      });
+  
+      // pass request object to `fetch()`
+      fetch(request)
+        .then(async (res) => {
+          //$('.modal').css({ 'display': 'none' });
+          var resp = await res.json();
+          if (resp.token != null || resp.token != undefined) {
+            console.log(resp.token);
+            swal.close();
+            localStorage.setItem('access_token', resp.token);
+            var userObj = parseJwt(localStorage.getItem('access_token'));
+            console.log("User: ", userObj);
+            //For propcom dashboard
+            if(userObj.user.role == "admin"){
+              history.pushState({ "logged_in": true, "ifAdmin": false }, "Dashboard", "/livestock.html");
+              window.location.replace("/livestock.html");
+              
+            } else {
+              window.location.replace("/admin-login.html");
+            }             
+            localStorage.setItem('user', userObj.user.id);
+          } else {
+            $('.modal').css({ 'display': 'none' });
+            Swal.fire({
+              title: 'Invalid Credentials',
+              text: 'The username/password is invalid',
+              timer: 2000
+            }).then(()=>{
+              $('.modal').css({ 'display': 'block' });
+            }  
+            );
+          }
+        });
+  
+  });
 })
 
 function goHome() {
