@@ -164,18 +164,18 @@ $(document).ready(function($){
       var useremail = $('#cemail').val();
       var userpassword = $('#phone').val();
       if (useremail == "" || userpassword == "") {
-        $("#login").addClass('is-hidden');
+        $("#login").fadeOut('fast');
         swal.fire({
           title: 'Error Authenticating',
           text: 'You must provide all credentials to login',
           icon: 'warning',
           timer: 1500
         }).then(()=> {
-          $("#login").toggleClass('is-hidden');
+          $("#login").fadeIn('slow');
         });
         return false;
       }
-
+      $("#login").fadeOut('fast');
       swal.showLoading('Please wait...');
       //e.preventDefault();
   
@@ -222,7 +222,7 @@ $(document).ready(function($){
               text: 'The username/password is invalid',
               timer: 2000
             }).then(()=>{
-              $('.modal').css({ 'display': 'block' });
+              $("#login").fadeIn('fast');
             }  
             );
           }
