@@ -1,4 +1,4 @@
-/*! projects.js | FarmAid */
+/*! projects.js | VetWiz */
 
 /* ==========================================================================
 Dashboard projects JS file
