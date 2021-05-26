@@ -236,9 +236,7 @@ function usersPage(params) {
                                     <span class="email">${user.phoneNumber}</span>
                                 </div>
                         
-                            </div>
-
-                           
+                            </div>       
                         </div>
                         
                         </article>

@@ -6,8 +6,7 @@ function reset_sides() {
         $(".dashboard-inner").removeClass("is-pushed");
         $(".dashboard-nav").removeClass("is-pushed");
         $(".child-menu").removeClass("is-sidebar-translated");
-      }
-      
+      }   
     }
   }, 2000);
 }
