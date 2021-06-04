@@ -34,37 +34,35 @@ function viewVetshops(params) {
           .then(async (res) => res.json())
           .then((data) => {
             console.log("Vetshops: ", data);
-            // data.forEach((datas) => {
-            //   let Disease = datas.disease;
-            //   let Disease_hausa = datas.diseaseHausa;
-            //   let Disease_fulfude = datas.diseaseFulfude;
-            //   let animal = datas.animal;
-            //   let Vaccine = datas.vaccine;
-            //   let associated_animal = datas.animalAssocaited;
-            //   let key_Word = datas.keyWord;
-            //   disease_dataId = datas._id;
-            //   // let associated_animal = datas._id;
-            //   // let keyWord = datas._id;
+            data.forEach((shopdata) => {
+              let shop_name = shopdata.name;
+              let shop_state = shopdata.state;
+              let shop_lga = shopdata.lga;
+              let shop_phone = shopdata.contactPhone;
+              let shop_address = shopdata.address;
+              let shop_vcn = shopdata.vcn;
+              let shop_cacRegistered = shopdata.cacRegistered;
+              let shop_nvirRegistered = shopdata.nvirRegistered;
+              shop_Id = shopdata._id;
 
-            //   html += "<tr>";
-            //   html += "<td></td>";
-            //   html += "<td>" + Disease + "</td>";
-            //   html += "<td>" + Disease_hausa + "</td>";
-            //   html += "<td>" + Disease_fulfude + "</td>";
-            //   html += "<td>" + animal + "</td>";
-            //   // html += '<td>' + Treatment + '</td>'
-            //   html += "<td>" + associated_animal + "</td>";
-            //   // html += "<td>" + Vaccine + "</td>"
-            //   html += "<td>" + key_Word + "</td>";
-            //   html +=
-            //     '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' +
-            //     `${disease_dataId}` +
-            //     "> View" +
-            //     "</span>";
-            //   html += "</tr>";
+              //   Build the table UI
 
-            //   document.getElementById("view_vetshops_table").innerHTML = html;
-            // });
+              html += "<tr>";
+              html += "<td></td>";
+              html += "<td>" + shop_name + "</td>";
+              html += "<td>" + shop_state + "</td>";
+              html += "<td>" + shop_lga + "</td>";
+              html += "<td>" + shop_address + "</td>";
+              html += "<td>" + shop_phone + "</td>";
+              html +=
+                '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' +
+                `${shop_Id}` +
+                "> View" +
+                "</span>";
+              html += "</tr>";
+
+              document.getElementById("view_vetshops_table").innerHTML = html;
+            });
 
             swal.close();
           })
