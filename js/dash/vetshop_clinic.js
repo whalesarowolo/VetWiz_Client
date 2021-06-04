@@ -26,7 +26,7 @@ function viewVetshops(params) {
         const token = localStorage.getItem("access_token");
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
-        headers.append("Authorization", token);
+        headers.append("authorization", `Bearer ${token}`);
         fetch(url, {
           method: "GET",
           headers,
