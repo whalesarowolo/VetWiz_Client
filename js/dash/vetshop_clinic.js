@@ -117,6 +117,6 @@ $("#dash-diagnosis").ready(function () {
     .then(async (res) => res.json())
     .then((data) => {
       console.log("Dashboard Diagnosis: ", data);
-      $("#dash-diagnosis").html("" + data);
+      $("#dash-diagnosis").html("" + data.data);
     });
 });
