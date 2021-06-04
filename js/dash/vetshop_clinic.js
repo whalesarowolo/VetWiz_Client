@@ -68,3 +68,20 @@ function viewVetshops(params) {
       });
     });
 }
+
+$("#dash-vetshops").ready(function () {
+  const url = "https://vetwiz-server-alpha.herokuapp.com/api/v1/vet-shops";
+  const token = localStorage.getItem("access_token");
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("authorization", `Bearer ${token}`);
+  fetch(url, {
+    method: "GET",
+    headers,
+  })
+    .then(async (res) => res.json())
+    .then((data) => {
+      console.log("Dashboard Vetshops: ", data);
+      $("#dash-vetshops").html("" = data.length);
+});
+})
