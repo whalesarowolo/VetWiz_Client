@@ -85,3 +85,38 @@ $("#dash-vetshops").ready(function () {
       $("#dash-vetshops").html("" + data.length);
     });
 });
+
+$("#dash-users").ready(function () {
+  const url = "https://vetwiz-server-alpha.herokuapp.com/api/v1/admin/users";
+  const token = localStorage.getItem("access_token");
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("authorization", `Bearer ${token}`);
+  fetch(url, {
+    method: "GET",
+    headers,
+  })
+    .then(async (res) => res.json())
+    .then((data) => {
+      console.log("Dashboard Users: ", data);
+      $("#dash-users").html("" + data.length);
+    });
+});
+
+$("#dash-diagnosis").ready(function () {
+  const url =
+    "https://vetwiz-server-alpha.herokuapp.com/api/v1/diagnosis/get-count";
+  const token = localStorage.getItem("access_token");
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("authorization", `Bearer ${token}`);
+  fetch(url, {
+    method: "GET",
+    headers,
+  })
+    .then(async (res) => res.json())
+    .then((data) => {
+      console.log("Dashboard Diagnosis: ", data);
+      $("#dash-diagnosis").html("" + data);
+    });
+});
