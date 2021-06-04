@@ -1,5 +1,4 @@
 function viewVetshops(params) {
-  let disease_dataId;
   let vetshop_dataId;
 
   let html = "";
