@@ -52,8 +52,8 @@ function viewVetshops(params) {
               html += "<td>" + shop_name.toUpperCase() + "</td>";
               html += "<td>" + shop_state + "</td>";
               html += "<td>" + shop_lga + "</td>";
-              html += "<td>" + shop_address + "</td>";
               html += "<td>" + shop_phone + "</td>";
+              html += "<td>" + shop_address + "</td>";
               html += "</tr>";
 
               document.getElementById("view_vetshops_table").innerHTML = html;
