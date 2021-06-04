@@ -33,7 +33,7 @@ function viewVetshops(params) {
         })
           .then(async (res) => res.json())
           .then((data) => {
-            console.log("Vetshops: ", data);
+            // console.log("Vetshops: ", data);
             data.forEach((shopdata, ind) => {
               let shop_name = shopdata.name;
               let shop_state = shopdata.state;
@@ -81,7 +81,7 @@ $("#dash-vetshops").ready(function () {
   })
     .then(async (res) => res.json())
     .then((data) => {
-      console.log("Dashboard Vetshops: ", data);
+      //   console.log("Dashboard Vetshops: ", data);
       $("#dash-vetshops").html("" + data.length);
     });
 });
@@ -98,7 +98,7 @@ $("#dash-users").ready(function () {
   })
     .then(async (res) => res.json())
     .then((data) => {
-      console.log("Dashboard Users: ", data);
+      //   console.log("Dashboard Users: ", data);
       $("#dash-users").html("" + data.length);
     });
 });
@@ -116,7 +116,7 @@ $("#dash-diagnosis").ready(function () {
   })
     .then(async (res) => res.json())
     .then((data) => {
-      console.log("Dashboard Diagnosis: ", data);
+      //   console.log("Dashboard Diagnosis: ", data);
       $("#dash-diagnosis").html("" + data.data);
     });
 });
