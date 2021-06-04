@@ -75,7 +75,7 @@ $(document).ready(function ($) {
 
   $("#logout").on("click", function (e) {
     localStorage.clear();
-    window.location.replace("/nvri-login.html");
+    window.location.replace("/admin-login.html");
   });
 
   if ($("#logged_person").length) {
@@ -158,7 +158,7 @@ $(document).ready(function ($) {
           );
           window.location.replace("/livestock.html");
         } else {
-          window.location.replace("/nvri-login.html");
+          window.location.replace("/admin-login.html");
         }
         localStorage.setItem("user", userObj.user.id);
       } else {
