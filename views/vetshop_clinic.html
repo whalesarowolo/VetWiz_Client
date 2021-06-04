@@ -1,12 +1,102 @@
 <div class="column is-full">
-
-    <div class="columns nvri_users is-vcentered is-multiline animated preFadeInUp fadeInUp">
-        <!-- Registered VetShop and Clinics -->
-        <div class="column is-full">
-            <h2 class="button btn-dash secondary-btn is-raised" style="background-color: #f58734 !important; border-color:#f58734; "> VetShops / Clinics </h2>
-        </div>
+  <div
+    class="
+      columns
+      nvri_users
+      is-vcentered is-multiline
+      animated
+      preFadeInUp
+      fadeInUp
+    "
+  >
+    <!-- Registered VetShop and Clinics -->
+    <div class="column is-full">
+      <h2
+        class="button btn-dash secondary-btn is-raised"
+        style="background-color: #f58734 !important; border-color: #f58734"
+      >
+        VetShops / Clinics
+      </h2>
     </div>
-    <div class="column is-mobile is-multiline is-centered">
+  </div>
+  <!-- Advanced Datatable -->
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div id="basic-layout" class="dashboard-columns">
+          <h2 class="demo-title">
+            The Table Below Shows The List of All VetShops / Clinics
+          </h2>
+
+          <!-- Advanced Datatable -->
+          <table
+            id="view_vetshop"
+            class="
+              table
+              is-datatable is-hoverable
+              table-striped table-bordered
+              animated
+              preFadeInUp
+              fadeInUp
+            "
+          >
+            <thead>
+              <tr>
+                <th>S/N</th>
+                <th>Disease</th>
+                <th>Disease(Hausa)</th>
+                <th>Disease(Fulfude)</th>
+                <th>Animal</th>
+                <th>Associated Animal</th>
+                <th>Key Words</th>
+              </tr>
+            </thead>
+            <tbody id="view_vetshops_table"></tbody>
+          </table>
+
+          <div class="pagination-container">
+            <nav>
+              <ul class="pagination"></ul>
+            </nav>
+          </div>
+
+          <!-- Create message modal -->
+          <div
+            id="view_single_disease"
+            class="modal modal-md icon-action-modal modal-hero"
+          >
+            <div class="modal-background scaleInCircle"></div>
+            <div class="modal-content scaleIn single_disease_body">
+              <div class="flex-card simple-shadow single_single_innerSection">
+                <div class="card-body">
+                  <div class="has-text-centered">
+                    <div id="disease_case_body"></div>
+                  </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button onclick="cancelMessage();" class="button modal-dismiss">Cancel</button>
+                    <button type="submit" id="send_messages" onclick="handleEdit()" class="button is-modal">Update Disease</button>
+                    <button type="edit" class="btn btn-default" id="edit" class="button is-modal" onclick="return handleEdit()">Update</button>
+
+                    <button type="submit" class="btn btn-default" id="save" class="button is-modal" hidden>Save</button>
+                </div> -->
+              </div>
+            </div>
+            <button
+              onclick="cancelMessage();"
+              class="modal-close is-large is-hidden"
+              aria-label="close"
+            ></button>
+          </div>
+          <!-- Create Internal message -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="column is-mobile is-multiline is-centered">
         <div class="columns">
             <div class="card card-floating-boxed card-shadow">
                 <div class="card-image">
@@ -109,6 +199,5 @@
                 </div>
             </div>
         </div>         
-    </div>
+    </div> -->
 </div>
-
