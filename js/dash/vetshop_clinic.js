@@ -60,6 +60,7 @@ function viewVetshops(params) {
             });
 
             swal.close();
+            document.getElementById("vnc_count").innerHTML = data.length;
           })
           .catch((error) => {
             console.error("Error:", error);
