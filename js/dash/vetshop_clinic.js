@@ -82,6 +82,6 @@ $("#dash-vetshops").ready(function () {
     .then(async (res) => res.json())
     .then((data) => {
       console.log("Dashboard Vetshops: ", data);
-      $("#dash-vetshops").html("" = data.length);
+      $("#dash-vetshops").html("" + data.length);
+    });
 });
-})
