@@ -10,6 +10,7 @@
             new Route('diag_queries', 'diag_queries.html'),
             new Route('nvri_disease', 'nvri_disease.html'),
             new Route('view_disease', 'view_disease.html'),
+            new Route('vetshop_clinic', 'vetshop_clinic.html'),
         ]);
     }
     init();
