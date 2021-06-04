@@ -198,11 +198,11 @@ $(document).ready(function ($) {
     swal.showLoading("Please wait...");
     //e.preventDefault();
 
-    const url = "/login";
-    export const config = {
-      fetchUrl: "https://vetwiz-server-alpha.herokuapp.com/api/v1",
-      // fetchUrl: 'http://192.168.0.146:8000/api/v1',
-    };
+    const url = "https://vetwiz-server-alpha.herokuapp.com/api/v1/login";
+    // export const config = {
+    //   fetchUrl: "https://vetwiz-server-alpha.herokuapp.com/api/v1",
+    //   // fetchUrl: 'http://192.168.0.146:8000/api/v1',
+    // };
 
     const user = {
       email: useremail,
@@ -210,7 +210,7 @@ $(document).ready(function ($) {
     };
 
     // create request object
-    var request = new Request(`${config.fetchUrl}${url}`, {
+    var request = new Request(url, {
       method: "POST",
       body: JSON.stringify(user),
       headers: new Headers({
