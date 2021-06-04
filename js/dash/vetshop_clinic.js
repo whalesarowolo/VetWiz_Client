@@ -34,7 +34,7 @@ function viewVetshops(params) {
           .then(async (res) => res.json())
           .then((data) => {
             console.log("Vetshops: ", data);
-            data.forEach((shopdata) => {
+            data.forEach((shopdata, ind) => {
               let shop_name = shopdata.name;
               let shop_state = shopdata.state;
               let shop_lga = shopdata.lga;
@@ -48,7 +48,7 @@ function viewVetshops(params) {
               //   Build the table UI
 
               html += "<tr>";
-              html += "<td></td>";
+              html += "<td>" + `${ind + 1}` + "</td>";
               html += "<td>" + shop_name.toUpperCase() + "</td>";
               html += "<td>" + shop_state + "</td>";
               html += "<td>" + shop_lga + "</td>";
