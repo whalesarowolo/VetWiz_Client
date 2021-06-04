@@ -55,10 +55,8 @@ function viewVetshops(params) {
               html += "<td>" + shop_phone + "</td>";
               html += "<td>" + shop_address + "</td>";
               html += "</tr>";
-
-              document.getElementById("view_vetshops_table").innerHTML = html;
             });
-
+            document.getElementById("view_vetshops_table").innerHTML = html;
             $("#vnc_count")
               .empty()
               .innerHTML("" + data.length);
