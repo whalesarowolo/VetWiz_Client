@@ -49,16 +49,11 @@ function viewVetshops(params) {
 
               html += "<tr>";
               html += "<td></td>";
-              html += "<td>" + shop_name + "</td>";
+              html += "<td>" + shop_name.toUpperCase() + "</td>";
               html += "<td>" + shop_state + "</td>";
               html += "<td>" + shop_lga + "</td>";
               html += "<td>" + shop_address + "</td>";
               html += "<td>" + shop_phone + "</td>";
-              html +=
-                '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' +
-                `${shop_Id}` +
-                "> View" +
-                "</span>";
               html += "</tr>";
 
               document.getElementById("view_vetshops_table").innerHTML = html;
