@@ -1,0 +1,114 @@
+<div class="columns is-full">
+  <div
+    class="
+      columns
+      nvri_users
+      is-vcentered is-multiline
+      animated
+      preFadeInUp
+      fadeInUp
+    "
+  >
+    <!-- Forum Topic -->
+    <div class="column is-full">
+      <h2
+        class="button btn-dash secondary-btn is-raised"
+        style="background-color: #f58734 !important; border-color: #f58734"
+      >
+        Forum Topic
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-mobile is-multiline is-centered dieases-container">
+  <div class="column disease-section1">
+    <div class="column disease-section1 disease-details">
+      <div class="disaseName-section">
+        <div class="control">
+          <input
+            id="forum_topic_title"
+            class="input is-hovered"
+            type="text"
+            placeholder="Forum Topic Title"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="column disease-section1 disease-details">
+      <h2 class="disease_label">Add Topic Description</h2>
+      <div class="control">
+        <textarea
+          id="forum_topic_description"
+          class="textarea is-hovered"
+          placeholder="Input Topic details for forum"
+        ></textarea>
+      </div>
+    </div>
+    <div class="column has-text-centered">
+      <style scoped>
+        input {
+          font-family: "Oswald", sans-serif;
+        }
+
+        .uploader {
+          cursor: pointer !important;
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+        }
+
+        .chooseFile {
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          padding-left: 200px;
+          margin-right: -200px;
+        }
+
+        #thumbnail #thumbnailb #thumbnailc {
+          width: 25%;
+          margin-top: 10px;
+          cursor: pointer;
+          height: auto;
+        }
+      </style>
+
+      <div style="margin: auto; align-items: center" >
+        <divclass="column">
+          <p class="control uploader">
+            <a class="button button is-dark is-fullwidth is-medium">
+              <span class="icon is-small">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span>Post Image</span>
+              <input
+                id="image_a"
+                name="diseaseImage"
+                type="file"
+                accept="image/*"
+                onchange="showMyImage(this)"
+                value=""
+                class="button button is-dark chooseFile"
+              />
+            </a>
+          </p>
+          <div class="field">
+            <img id="thumbnail" src="" alt="image-preview-here" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="control disease_submit">
+  <button
+    onclick="persist_new_forum_topic()"
+    class="button is-primary is-medium"
+    style="background-color: #f58734 !important; border-color: #f58734"
+  >
+    Submit
+  </button>
+</div>
