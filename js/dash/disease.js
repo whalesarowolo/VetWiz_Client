@@ -329,8 +329,6 @@ function viewDisease(params) {
               let associated_animal = datas.animalAssocaited;
               let key_Word = datas.keyWord;
               disease_dataId = datas._id;
-              // let associated_animal = datas._id;
-              // let keyWord = datas._id;
 
               html += "<tr>";
               html += "<td></td>";
@@ -338,9 +336,7 @@ function viewDisease(params) {
               html += "<td>" + Disease_hausa + "</td>";
               html += "<td>" + Disease_fulfude + "</td>";
               html += "<td>" + animal + "</td>";
-              // html += '<td>' + Treatment + '</td>'
               html += "<td>" + associated_animal + "</td>";
-              // html += "<td>" + Vaccine + "</td>"
               html += "<td>" + key_Word + "</td>";
               html +=
                 '<td><span  class="view_handler" style="color:#fff; background-color: #26d0a8; padding:5px; border-radius:8px; cursor:pointer; box-shadow: 5px 5px #888888; text-align:center;" onclick="attach(event)" data_id=' +
