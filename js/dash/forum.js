@@ -76,7 +76,7 @@ function refresh_forum_topics() {
         title: "Please wait",
         text: "Loading data ....",
         icon: "info",
-        allowOutsideClick: false,
+        allowOutsideClick: true,
         showConfirmButton: false,
       });
 
