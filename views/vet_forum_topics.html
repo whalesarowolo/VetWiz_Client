@@ -28,23 +28,37 @@
         <div class="control">
           <header
             id="topic_title"
-            class="input is-hovered">Forum Topic Title</header>
+            class="input is-hovered">Forum Topics</header>
 
         </div>
       </div>
     </div>
 
     <div class="column disease-section1 disease-details">
-      <h2 class="disease_label">Topic Details</h2>
       <div class="control">
+        <style scoped>
+          #forum_topic_description {
+            overflow-y: scroll;
+            max-height: 300px;
+            border-radius: 30px;
+            padding: 10px;
+          }
+          #forum_topic_description section header {
+            font-weight: bold;
+          }
+
+          #forum_topic_description section hr{
+            background-color: #f58734;
+          }
+        </style>
         <div 
           id="forum_topic_description"
-          class="textarea is-hovered"
+          class="is-hovered"
           placeholder="Input Topic details for forum"
         ></div>
       </div>
     </div>
-    <div class="column has-text-centered">
+    <div class="column has-text-centered" style="display: none;">
       <style scoped>
         input {
           font-family: "Oswald", sans-serif;

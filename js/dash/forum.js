@@ -95,14 +95,20 @@ function refresh_forum_topics() {
           .then((data) => {
             console.log("The Topics Object: ", data);
             data.forEach((datas) => {
-              let forumTopic = datas.title;
-              let forumTopicDescription = datas.description;
-              let forumTopicAvatar = datas.avatar && datas.avatar;
-              html = "<header>" + forumTopic + "</header>";
-
+              html += "<header>" + datas.title + "</header><br />";
+              html +=
+                '<div style="display: flex; "><img style="float: left; border-radius: 20px; width: 220px; height: auto;" src="' +
+                datas.imageUrl +
+                '" />';
+              html +=
+                '<p style="margin-left: 20px; float: right; border-radius: 10px; padding: 7px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">' +
+                datas.description +
+                "</p></div><hr />";
+              let theSection = document.createElement("section");
+              theSection.innerHTML = html;
               document
                 .getElementById("forum_topic_description")
-                .appendChild(html);
+                .appendChild(theSection);
             });
             swal.close();
           })
