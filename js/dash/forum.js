@@ -93,16 +93,12 @@ function refresh_forum_topics() {
         })
           .then(async (res) => res.json())
           .then((data) => {
-            console.log(data);
+            console.log("The Topics Object: ", data);
             data.forEach((datas) => {
               let forumTopic = datas.title;
               let forumTopicDescription = datas.description;
               let forumTopicAvatar = datas.avatar && datas.avatar;
-              html += "<div>";
-              html += "<header>" + forumTopic + "</header>";
-              html += "<h1>" + forumTopicDescription + "</h1>";
-              html += "<img src=" + forumTopicAvatar + " />";
-              html += "</div>";
+              html = "<header>" + forumTopic + "</header>";
 
               document
                 .getElementById("forum_topic_description")
