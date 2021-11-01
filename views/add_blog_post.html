@@ -38,11 +38,19 @@
         margin: auto;
         display: inline-block;
       }
+
+      .blog-heads {
+        text-align: center;
+        padding: 10px 5px;
+      }
     }
   </style>
 
   <div class="container">
     <div class="panel">
+      <div style="text-align: center; padding: 5px; font-weight: bold">
+        Editing Area
+      </div>
       <div id="snow-container"></div>
       <div>
         <button id="insert-table" onload="start_blog()">Insert Table</button>
@@ -59,6 +67,9 @@
       <div id="bubble-container"></div>
     </div>
     <div class="panel">
+      <div style="text-align: center; padding: 5px; font-weight: bold">
+        Rendered Output
+      </div>
       <div id="output-container"></div>
     </div>
   </div>
