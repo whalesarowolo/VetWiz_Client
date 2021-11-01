@@ -27,6 +27,11 @@
 		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
 		<!--End New Navigation Menu Assets -->
+    
+    <link rel="stylesheet" href="https://cdn.quilljs.com/2.0.0-dev.2/quill.bubble.css">
+    <link rel="stylesheet" href="https://cdn.quilljs.com/2.0.0-dev.2/quill.snow.css">
+    <script src="./js/editor.js"></script>
+    <script src="./js/dash/blog.js"></script>
 
 </head>
 
@@ -396,13 +401,7 @@
 						<span class="icon"><i class="mdi mdi-clipboard-check"></i></span>
 						<span class="menu-item-label">Diagnosis Queries</span>
 						</a>
-					</li><!----
-                    <li>
-						<a href="#activities" class="has-icon">
-						<span class="icon"><i class="mdi mdi-file-document-box"></i></span>
-						<span class="menu-item-label">Activity Log</span>
-						</a>
-					</li>-->
+					</li>
                     <li>
 						<a class="has-icon has-dropdown-icon">
 							<span class="icon"><i class="mdi mdi-account-multiple"></i></span>
@@ -424,6 +423,14 @@
 							</li>
 						</ul>
 					</li>
+                    <li>
+                        <a onclick="start_blog()" href="#add_blog_post">
+                            <span class="icon">
+                                <i class="mdi mdi-human-male-female"></i>
+                            </span>
+                            <span>Add New Blog Post</span>
+                        </a>
+                    </li>
 				</ul>
 			</div>
 		</aside>

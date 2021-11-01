@@ -13,6 +13,7 @@
       new Route("vetshop_clinic", "vetshop_clinic.html"),
       new Route("add_forum_topic", "add_forum_topic.html"),
       new Route("vet_forum_topics", "vet_forum_topics.html"),
+      new Route("add_blog_post", "add_blog_post.html"),
     ]);
   }
   init();

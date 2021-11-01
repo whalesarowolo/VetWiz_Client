@@ -1,0 +1,79 @@
+<!--title and breadcrumb-->
+
+<div class="page-breadcrumb">
+  <h1>Post Blog to the Web Community</h1>
+</div>
+
+<!--/title and breadcrumb-->
+
+<div class="column is-mobile is-multiline is-centered">
+  <style scoped>
+    #bubble-container,
+    #snow-container {
+      height: 300px;
+      margin-bottom: 10px;
+    }
+    .container {
+      display: flex;
+    }
+    .panel {
+      flex: 1;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #snow-container {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 10px;
+        background-color: lightblue;
+      }
+      .panel {
+        width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .container {
+        margin: auto;
+        display: inline-block;
+      }
+    }
+  </style>
+
+  <div class="container">
+    <div class="panel">
+      <div id="snow-container"></div>
+      <div>
+        <button id="insert-table" onload="start_blog()">Insert Table</button>
+        <button id="insert-row-above">Insert Row Above</button>
+        <button id="insert-row-below">Insert Row Below</button>
+        <button id="insert-column-left">Insert Column Left</button>
+        <button id="insert-column-right">Insert Column Right</button>
+        <button id="delete-row">Delete Row</button>
+        <button id="delete-column">Delete Column</button>
+        <button id="delete-table">Delete Table</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div id="bubble-container"></div>
+    </div>
+    <div class="panel">
+      <div id="output-container"></div>
+    </div>
+  </div>
+</div>
+
+<div class="control">
+  <button
+    onclick="persist_new_blog_topic()"
+    class="button is-primary is-medium"
+    style="
+      align-self: center;
+      background-color: #f58734 !important;
+      border-color: #f58734;
+    "
+  >
+    Submit
+  </button>
+</div>
