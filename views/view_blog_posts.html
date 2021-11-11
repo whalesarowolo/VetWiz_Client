@@ -1,7 +1,7 @@
 <!--title and breadcrumb-->
 
 <div class="page-breadcrumb">
-  <h1>Post Blog to the Web Community</h1>
+  <h1>Blog Posts</h1>
 </div>
 
 <!--/title and breadcrumb-->
@@ -23,9 +23,9 @@
     }
 
     @media only screen and (max-width: 600px) {
-      #snow-container {
-        width: 300px;
-        height: 300px;
+      #remote-container {
+        width: 400px;
+        min-height: 300px;
         margin-bottom: 10px;
         background-color: lightblue;
       }
@@ -47,37 +47,18 @@
   </style>
 
   <div class="container">
-    <div class="panel">
-      <div style="text-align: center; padding: 5px; font-weight: bold">
-        Editing Area
-      </div>
-      <div id="snow-container"></div>
-      <div>
-        <button id="insert-table" onload="start_blog()">Insert Table</button>
-        <button id="insert-row-above">Insert Row Above</button>
-        <button id="insert-row-below">Insert Row Below</button>
-        <button id="insert-column-left">Insert Column Left</button>
-        <button id="insert-column-right">Insert Column Right</button>
-        <button id="delete-row">Delete Row</button>
-        <button id="delete-column">Delete Column</button>
-        <button id="delete-table">Delete Table</button>
-      </div>
-    </div>
-    <div class="panel">
-      <div id="bubble-container"></div>
-    </div>
     <div class="panel" style="width: 70% !important">
       <div style="text-align: center; padding: 5px; font-weight: bold">
         Rendered Output
       </div>
-      <div id="output-container"></div>
+      <div id="remote-container"></div>
     </div>
   </div>
 </div>
 
 <div class="control">
   <button
-    onclick="persist_new_blog_topic()"
+    onclick="get_blog_posts()"
     class="button is-primary is-medium"
     style="
       align-self: center;
@@ -85,6 +66,6 @@
       border-color: #f58734;
     "
   >
-    Submit
+    Refresh Blog Posts
   </button>
 </div>
