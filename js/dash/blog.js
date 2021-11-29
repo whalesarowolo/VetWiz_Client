@@ -365,6 +365,7 @@ function get_blog_posts() {
           .then(async (res) => res.json())
           .then((data) => {
             console.log("The Blog Object: ", data);
+            localStorage.setItem("current_blog_posts_admin", data.data);
             if (data.data && data.data.length > 0) {
               output &&
                 output.setContents(JSON.parse(data.data[0].blogDescription));

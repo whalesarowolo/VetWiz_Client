@@ -138,6 +138,10 @@ function get_blog_posts(index) {
           .then(async (res) => res.json())
           .then((data) => {
             console.log("The Blog Object: ", data);
+            localStorage.setItem(
+              "current_public_blog_posts",
+              JSON.stringify(data.data)
+            );
             if (data.data && data.data.length > 0) {
               if (index >= 2) {
                 output &&
@@ -165,4 +169,9 @@ function get_blog_posts(index) {
         swal.close();
       });
     });
+}
+
+function display_blog_at_pointer(curr_pointer) {
+  // Check localstorage and get current blog posts global object
+  // Iterate and cycle through current blogs object holder and display item at current pointer position
 }
