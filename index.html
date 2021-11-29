@@ -59,7 +59,11 @@
 		<link href="css/styles.css" rel="stylesheet">
 
 		<!-- Favicon  -->
-
+		<link rel="stylesheet" href="https://cdn.quilljs.com/2.0.0-dev.2/quill.bubble.css">
+    <link rel="stylesheet" href="https://cdn.quilljs.com/2.0.0-dev.2/quill.snow.css">
+		<script src="./js/swal.js"></script>
+    <script src="./js/editor.js"></script>
+    <script src="./js/dash/blog_render.js"></script>
 		<link rel="icon" href="images/favicon.png">
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N13Y60SHPR"></script>
@@ -73,7 +77,7 @@
 
 	</head>
 
-	<body data-spy="scroll" data-target=".fixed-top">
+	<body onpageshow="get_blog_posts(2)"  data-spy="scroll" data-target=".fixed-top">
 
 		<!-- Preloader -->
 
@@ -312,7 +316,6 @@
 
 								</div>
 
-								<!--</a>-->
 
 								<h3 class="supported-animal-label">Camel</h3>
 
@@ -886,9 +889,7 @@
 						<div class="col-lg-4">
 							&nbps;
 							<div class="blog-card-wrapper">
-								<!--<div class="blog-card-tag">
-									NEW
-									</div>-->
+							
 								<div class="blog-card-image"><img src="images/poultry-post.jpg">
 								</div>
 								<div class="blog-card-title">
@@ -909,15 +910,100 @@
 						<!-- end of col -->
 					</div>
 					<!-- end of row -->
-					<div class="row">
+					<div style="display: none;">
 						<div class="col-lg-12 text-center">
 						<br><br>
-						<a class="btn-solid-lg page-scroll" href="javascript::" id="the_blogged">Coming Soon</a>
-						<!-- <a class="btn-solid-lg page-scroll" href="blog.html" target="_blank">View All Articles</a> -->
+						<!-- <a class="btn-solid-lg page-scroll" href="javascript::" id="the_blogged">Coming Soon</a> -->
+						
+						<a class="btn-solid-lg page-scroll" href="blog.html" target="_blank">View All Articles</a>
 						</div>
+					</div>
+					
+				</div>
+			</div><br><br>
+			<!-- Start rendering blog -->
+			<div class="second is-mobile is-multiline is-centered">
+				<style scoped>
+					#bubble-container,
+					#remote-container_2,
+					#remote-container {
+						min-height: 300px;
+						max-height: 500px;
+						overflow-y: scroll;
+						margin-bottom: 10px;
+					}
+					.blogcontainer {
+						margin: auto;
+						width: 90%;
+						display: flex;
+					}
+					.panel {
+						flex: 1;
+						margin-left: 25px;
+						margin-right: 25px;
+						border-radius: 10px;
+						box-shadow: 3px -3px 3px 3px #f58734;
+					}
+			
+					@media only screen and (max-width: 600px) {
+						#remote-container {
+							width: 400px;
+							min-height: 300px;
+							margin-bottom: 10px;
+							background-color: lightblue;
+						}
+						.panel {
+							width: 100%;
+							margin-left: 15px;
+							margin-right: 15px;
+						}
+						.blogcontainer {
+							margin: auto;
+							display: inline-block;
+						}
+			
+						.blog-heads {
+							text-align: center;
+							padding: 10px 5px;
+						}
+					}
+				</style>
+			
+				<div class="blogcontainer">
+					<div class="panel" style="width: 50% !important">
+						
+							<div id="remote-container">Loading blog posts</div>
+					</div>
+					<div class="panel" style="width: 50% !important">
+						
+							<div id="remote-container_2">Loading blog posts</div>
+					</div>
+				</div>
+				<div>
+					<div class="col-lg-12 text-center">
+					<br><br>
+					<!-- <a class="btn-solid-lg page-scroll" href="javascript::" id="the_blogged">Coming Soon</a> -->
+					
+					<a class="btn-solid-lg page-scroll" href="blog.html" target="_blank">View All Articles</a>
 					</div>
 				</div>
 			</div>
+			
+			<div class="control" style="display: none;">
+				<button
+					onclick="get_blog_posts(1)"
+					class="button is-primary is-medium"
+					style="
+						align-self: center;
+						background-color: #f58734 !important;
+						border-color: #f58734;
+					"
+				>
+					Show Blog Posts
+				</button>
+			</div>
+
+			<!-- End rendering blog -->
 			<!-- end of container -->
 		</div>
 		<!-- end of second -->
@@ -1085,8 +1171,6 @@
 
 							<!-- Contact Form -->
 
-							<!--<form action="https://submit-form.com/r3am3HJWUPJieHhh5fmmF" id="contactForm" data-toggle="validator" data-focus="false">-->
-
 							<form id="my-form" action="https://formspree.io/f/xyybkeab" method="post">
 
 								<div class="form-group">
@@ -1128,16 +1212,6 @@
 									<div class="help-block with-errors"></div>
 
 								</div>
-
-								<!--<div class="form-group checkbox">
-
-									<input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agreed to VetWiz's <a href="#">Privacy Policy</a> 
-
-									
-
-									<div class="help-block with-errors"></div>
-
-								</div>-->
 
 								<div class="form-group">
 
@@ -1443,10 +1517,10 @@
 </script>
 
 <script>
-	var local_blog_content = localStorage.getItem('blog_posted');
-	let the_blog_content = (local_blog_content)? JSON.parse(local_blog_content) : {'message': 'No Content'};
-	var blog_holder = $("#the_blogged");
-	blog_holder.text = the_blog_content;
+	// var local_blog_content = localStorage.getItem('blog_posted');
+	// let the_blog_content = (local_blog_content)? JSON.parse(local_blog_content) : {'message': 'No Content'};
+	// var blog_holder = $("#the_blogged");
+	// blog_holder.text = the_blog_content;
 </script>
 
 </html>
