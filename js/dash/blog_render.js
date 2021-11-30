@@ -174,4 +174,76 @@ function get_blog_posts(index) {
 function display_blog_at_pointer(curr_pointer) {
   // Check localstorage and get current blog posts global object
   // Iterate and cycle through current blogs object holder and display item at current pointer position
+  let current_blogs =
+    localStorage.getItem("current_public_blog_posts") != null &&
+    localStorage.getItem("current_public_blog_posts").length > 0
+      ? localStorage.getItem("current_public_blog_posts")
+      : [];
+  var the_output = new Quill("#remote-container", {
+    theme: "bubble",
+    modules: {
+      table: true,
+      toolbar: [
+        [
+          { align: "" },
+          { align: "center" },
+          { align: "right" },
+          { align: "justify" },
+        ],
+        [{ header: [1, 2, 3, 4, false] }],
+        ["bold", "italic", "underline", "strike"],
+        ["link", "blockquote", "code-block", "image", "video"],
+        [
+          { list: "ordered" },
+          { list: "bullet" },
+          {
+            color: [
+              "blue",
+              "red",
+              "yellow",
+              "olive",
+              "silver",
+              "green",
+              "aquamarine",
+              "maroon",
+              "magenta",
+              "lime",
+              "purple",
+            ],
+          },
+          {
+            background: [
+              "blue",
+              "red",
+              "yellow",
+              "olive",
+              "silver",
+              "green",
+              "aquamarine",
+              "maroon",
+              "magenta",
+              "lime",
+              "purple",
+            ],
+          },
+        ],
+      ],
+    },
+    readOnly: true,
+  });
+  current_blogs.length > 0
+    ? the_output.setContents(
+        JSON.parse(
+          JSON.parse(localStorage.getItem("current_public_blog_posts"))[
+            curr_pointer
+          ].blogDescription
+        )
+      ) &&
+      console.log(
+        "The current blog now, ",
+        JSON.parse(localStorage.getItem("current_public_blog_posts"))[
+          curr_pointer
+        ]
+      )
+    : alert("Nothing to worry about...");
 }
