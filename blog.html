@@ -155,7 +155,7 @@
 										<a href="#" id="last-i">Poultry Species</a>
 									</div>
 									<div class="blog-card-excerpt ">
-										<p>
+										<p id="exerpt-i">
 											Chickens are the most recognised poultry birds, but there are other poultry species Chickens are the most recognised poultry birds, but there are other poultry species
 										</p>
 									</div>
@@ -179,7 +179,7 @@
 										<a href="#" id="last-ii">Poultry Species </a>
 									</div>
 									<div class="blog-card-excerpt ">
-										<p>
+										<p id="exerpt-ii">
 											Chickens are the most recognised poultry birds, but there are other poultry species Chickens are the most recognised poultry birds, but there are other poultry species
 										</p>
 									</div>
@@ -203,7 +203,7 @@
 										<a href="#" id="last-iii">Poultry Species </a>
 									</div>
 									<div class="blog-card-excerpt ">
-										<p>
+										<p id="exerpt-iii">
 											Chickens are the most recognised poultry birds, but there are other poultry species Chickens are the most recognised poultry birds, but there are other poultry species
 										</p>
 									</div>
@@ -425,6 +425,9 @@
 				$("#last-i").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -1].blogTitle);
 				$("#last-ii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -2].blogTitle);
 				$("#last-iii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -3].blogTitle);
+				// $("#exerpt-i").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -1].blogDescription);
+				// $("#exerpt-ii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -2].blogDescription);
+				// $("#exerpt-iii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -3].blogDescription);
 
 			});
 		</script>
