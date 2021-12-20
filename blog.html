@@ -36,7 +36,7 @@
 		<!-- Favicon  -->
 		<link rel="icon" href="images/favicon.png">
 	</head>
-	<body data-spy="scroll" data-target=".fixed-top">
+	<body data-spy="scroll" data-target=".fixed-top" onpageshow="get_blog_posts(2)">
 		<!-- Preloader -->
 		<div class="spinner-wrapper">
 			<div class="spinner">
@@ -152,7 +152,7 @@
 									<div class="blog-card-image"><img src="images/poultry-post.jpg">
 									</div>
 									<div class="blog-card-title">
-										<a href="#">Poultry Species</a>
+										<a href="#" id="last-i">Poultry Species</a>
 									</div>
 									<div class="blog-card-excerpt ">
 										<p>
@@ -176,7 +176,7 @@
 									<div class="blog-card-image"><img src="images/poultry-post.jpg">
 									</div>
 									<div class="blog-card-title">
-										<a href="#">Poultry Species </a>
+										<a href="#" id="last-ii">Poultry Species </a>
 									</div>
 									<div class="blog-card-excerpt ">
 										<p>
@@ -200,7 +200,7 @@
 									<div class="blog-card-image"><img src="images/poultry-post.jpg">
 									</div>
 									<div class="blog-card-title">
-										<a href="#">Poultry Species </a>
+										<a href="#" id="last-iii">Poultry Species </a>
 									</div>
 									<div class="blog-card-excerpt ">
 										<p>
@@ -215,35 +215,13 @@
 								</div>
 							</div>
 							<!-- end of col -->
-							<div class="col-lg-4">
-								&nbps;
-								<div class="blog-card-wrapper">
-									<!--<div class="blog-card-tag">
-										NEW
-										</div>-->
-									<div class="blog-card-image"><img src="images/poultry-post.jpg">
-									</div>
-									<div class="blog-card-title">
-										<a href="#">Poultry Species </a>
-									</div>
-									<div class="blog-card-excerpt ">
-										<p>
-											Chickens are the most recognised poultry birds, but there are other poultry species Chickens are the most recognised poultry birds, but there are other poultry species
-										</p>
-									</div>
-									<div class="blog-card-footer">
-										<img src="images/author.png">
-										<span>Admin</span>
-										<span class="pull-right" style="float:right">30 Oct 2021</span>
-									</div>
-								</div>
-							</div>
+							
 							<!-- end of col -->
 							<!--Blog Post Display-->
 							<div class="col-lg-12">
 								<div class="blog-full-post-nav">
 									<a class="btn-outline-reg back" href="index.html"><i class="fa fa-arrow-left"></i> Back</a>
-									<a class="btn-outline-reg back" style="float:right" href="index.html">Next Post <i class="fa fa-arrow-right"></i></a>
+									<a class="btn-outline-reg back" style="float:right" href="javascript:">Next Post <i class="fa fa-arrow-right"></i></a>
 								</div>
 								<div class="blog-post-full">
 									<h1>Poultry Species</h1>
@@ -434,5 +412,21 @@
 		<script src="js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
 		<script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
 		<script src="js/scripts.js"></script> <!-- Custom scripts -->
+		<script>
+			$(document).ready(function () {
+				let current_blogs =
+				localStorage.getItem("current_public_blog_posts") != null &&
+				localStorage.getItem("current_public_blog_posts").length > 0
+					? localStorage.getItem("current_public_blog_posts")
+					: [];
+
+      // JSON.parse(localStorage.getItem("current_public_blog_posts")).length -1
+
+				$("#last-i").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -1].blogTitle);
+				$("#last-ii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -2].blogTitle);
+				$("#last-iii").text(JSON.parse(localStorage.getItem("current_public_blog_posts"))[JSON.parse(localStorage.getItem("current_public_blog_posts")).length -3].blogTitle);
+
+			});
+		</script>
 	</body>
 </html>

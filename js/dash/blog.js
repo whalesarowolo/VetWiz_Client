@@ -245,7 +245,7 @@ function persist_new_blog_topic() {
 
   //Do value validations
   const blog_data = {
-    blogTitle: "First Blog post",
+    blogTitle: $("#the_title").val(),
     blogDescription: the_blog_content,
   };
   var formData = new FormData();

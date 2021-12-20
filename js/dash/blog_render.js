@@ -137,6 +137,7 @@ function get_blog_posts(index) {
         })
           .then(async (res) => res.json())
           .then((data) => {
+            localStorage.setItem("current_local_pointer", 0);
             console.log("The Blog Object: ", data);
             localStorage.setItem(
               "current_public_blog_posts",
@@ -171,14 +172,21 @@ function get_blog_posts(index) {
     });
 }
 
-function display_blog_at_pointer(curr_pointer) {
+function display_blog_at_pointer() {
   // Check localstorage and get current blog posts global object
   // Iterate and cycle through current blogs object holder and display item at current pointer position
+  const current_local_pointer = Number.parseInt(
+    localStorage.getItem("current_local_pointer")
+  );
+  console.log("The pointer is at: ", current_local_pointer);
   let current_blogs =
     localStorage.getItem("current_public_blog_posts") != null &&
     localStorage.getItem("current_public_blog_posts").length > 0
       ? localStorage.getItem("current_public_blog_posts")
       : [];
+  var the_len = JSON.parse(
+    localStorage.getItem("current_public_blog_posts")
+  ).length;
   var the_output = new Quill("#remote-container", {
     theme: "bubble",
     modules: {
@@ -231,19 +239,27 @@ function display_blog_at_pointer(curr_pointer) {
     },
     readOnly: true,
   });
+
   current_blogs.length > 0
     ? the_output.setContents(
         JSON.parse(
           JSON.parse(localStorage.getItem("current_public_blog_posts"))[
-            curr_pointer
+            getIndex(current_local_pointer, the_len)
           ].blogDescription
         )
-      ) &&
-      console.log(
-        "The current blog now, ",
-        JSON.parse(localStorage.getItem("current_public_blog_posts"))[
-          curr_pointer
-        ]
       )
     : alert("Nothing to worry about...");
+
+  //localStorage.setItem("current_local_pointer", current_local_pointer + 1);
+}
+
+function getIndex(cun, lnt) {
+  if (cun > lnt || cun == 0) {
+    localStorage.setItem("current_local_pointer", cun > lnt ? 0 : cun + 1);
+    return 0;
+  } else {
+    console.log("bad place, ", lnt);
+    localStorage.setItem("current_local_pointer", cun + 1);
+    return cun - 1;
+  }
 }
